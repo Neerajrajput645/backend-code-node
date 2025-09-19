@@ -1,0 +1,15 @@
+[
+  {
+    "LogTime": "2025-07-15T12:15:20.576Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.billhub.in/reseller/bbps/bill-fetch/",
+    "Request_Data": {
+      "number": "N2370012953",
+      "operator": "215",
+      "token": "123",
+      "ad1": ""
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill_Fetch Request initiated, Number : N2370012953"
+  }
+]

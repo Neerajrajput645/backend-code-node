@@ -1,0 +1,777 @@
+2025-07-05T12:41:27.760Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj123" }
+2025-07-05T12:42:30.613Z [error]: ServiceCategory.findAll is not a function
+2025-07-05T12:46:36.044Z [error]: service category not found
+2025-07-05T12:46:41.593Z [error]: service category not found
+2025-07-05T12:47:13.256Z [error]: service category not found
+2025-07-05T12:48:01.647Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:48:30.000Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:48:31.030Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:48:52.153Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:48:53.075Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:48:53.928Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:51:10.341Z [error]: Cast to ObjectId failed for value "68691e2ea5249d00787f827" (type string) at path "_id" for model "serviceCategory"
+2025-07-05T12:52:46.810Z [error]: Please enter minimum one value to update
+2025-07-05T12:55:50.448Z [error]: categoryId is not defined
+2025-07-05T12:56:21.680Z [error]: response.restory is not a function
+2025-07-05T12:56:54.047Z [error]: service category not found
+2025-07-05T13:05:34.820Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj" }
+2025-07-05T13:11:33.014Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj" }
+2025-07-05T13:11:33.946Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj" }
+2025-07-05T15:24:53.925Z [error]: deletePreviousImage is not defined
+2025-07-05T15:28:14.822Z [error]: Cannot read properties of null (reading 'image')
+2025-07-05T15:31:51.295Z [error]: Cannot read properties of null (reading 'image')
+2025-07-05T15:32:20.057Z [error]: Cannot read properties of null (reading 'image')
+2025-07-05T15:37:37.304Z [error]: findById is not defined
+2025-07-05T15:38:06.632Z [error]: Cannot read properties of null (reading 'image')
+2025-07-05T15:38:32.318Z [error]: Cannot read properties of null (reading 'image')
+2025-07-05T15:38:57.097Z [error]: Cannot read properties of null (reading 'remove')
+2025-07-05T15:39:16.138Z [error]: response.remove is not a function
+2025-07-05T15:40:10.589Z [error]: response.remove is not a function
+2025-07-05T15:41:13.067Z [error]: response.destroy is not a function
+2025-07-05T15:42:23.118Z [error]: response.destroy is not a function
+2025-07-05T15:43:23.869Z [error]: response.destroy is not a function
+2025-07-07T07:43:58.388Z [error]: Service already exists
+2025-07-07T07:46:29.670Z [error]: Service already exists
+2025-07-07T07:46:58.655Z [error]: Please fill all required fields
+2025-07-07T07:47:09.944Z [error]: Service already exists with this name
+2025-07-07T07:53:13.852Z [error]: Cast to ObjectId failed for value "686b7b4b2d67ca06e4dd928" (type string) at path "_id" for model "providerServices"
+2025-07-07T07:53:24.078Z [error]: Service not found
+2025-07-07T07:56:24.827Z [error]: E11000 duplicate key error collection: demotest.providerservices index: name_1 dup key: { name: "updated AC  Services" }
+2025-07-07T07:59:07.073Z [error]: Please fill all required fields
+2025-07-07T08:00:46.651Z [error]: Minimum one field required to update
+2025-07-07T08:01:00.471Z [error]: Minimum one field required to update
+2025-07-07T08:02:24.072Z [error]: Minimum one field required to update
+2025-07-07T08:03:53.051Z [error]: Minimum one field required to update
+2025-07-07T08:04:27.402Z [error]: Minimum one field required to update
+2025-07-07T08:05:05.463Z [error]: Minimum one field required to update
+2025-07-07T08:05:07.572Z [error]: Minimum one field required to update
+2025-07-07T08:05:32.326Z [error]: Minimum one field required to update
+2025-07-07T08:06:37.282Z [error]: Minimum one field required to update
+2025-07-07T08:08:28.893Z [error]: E11000 duplicate key error collection: demotest.providerservices index: name_1 dup key: { name: "AC  Services" }
+2025-07-07T08:10:33.027Z [error]: Service already found with this name
+2025-07-07T08:11:54.308Z [error]: serviceData.remove is not a function
+2025-07-07T08:15:11.743Z [error]: Please fill all required fields
+2025-07-07T08:32:06.705Z [error]: desc is not defined
+2025-07-07T08:32:28.325Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "`[ '["686b82ecbd954aa7a780e8c9", "686b8305bd954aa7a780e8cc"]' ]`" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:34:13.623Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj dd" }
+2025-07-07T08:36:11.352Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "`[ '"686b82ecbd954aa7a780e8c9", "686b8305bd954aa7a780"' ]`" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:36:34.165Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "`[ '"686b82ecbd954aa7a780e8c9"', '"686b8305bd954aa7a780"' ]`" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:36:46.124Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "`[ '"686b82ecbd954aa7a780e8c9"', '"686b8305bd954aa7a780e8cc"' ]`" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:37:34.537Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "[ '[686b82ecbd954aa7a780e8c9,686b8305bd954aa7a780e8cc]', '' ]" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:37:47.202Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "[ '686b82ecbd954aa7a780e8c9,686b8305bd954aa7a780e8cc', '' ]" (type string) at path "services.0" because of "CastError"
+2025-07-07T08:38:18.897Z [error]: serviceCategory validation failed: services.0: Cast to [ObjectId] failed for value "[ '686b82ecbd954aa7a780e8c', '686b8305bd954aa7a780e8cc' ]" (type string) at path "services.0" because of "CastError"
+2025-07-07T09:03:11.932Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajav" }
+2025-07-07T09:11:04.788Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:11:38.284Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:12:22.372Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:12:57.890Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:13:23.965Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:16:24.632Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:16:46.284Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:17:20.664Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:23:11.058Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:23:58.605Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:24:19.773Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:24:40.064Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:25:13.948Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:25:52.343Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:26:54.904Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:29:45.199Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq" }
+2025-07-07T09:30:11.000Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzgq2" }
+2025-07-07T09:36:03.822Z [error]: cosole is not defined
+2025-07-07T09:58:24.292Z [error]: Cannot read properties of null (reading 'status')
+2025-07-07T09:59:05.385Z [error]: Please enter valid referalId.
+2025-07-07T10:07:45.665Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-07T10:09:19.229Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:10:06.037Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:13:19.347Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:14:04.665Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:15:11.027Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:15:41.505Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:18:02.103Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-07T10:18:56.372Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-07-07T10:19:56.378Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-07-07T10:20:38.954Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:21:43.669Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, id is not defined
+2025-07-07T10:22:04.060Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:22:51.287Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:24:17.020Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot populate path `firstname` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-07T10:27:17.592Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot populate path `` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-07T10:29:47.704Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot populate path `userDetails` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-07T10:31:28.129Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:32:13.664Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:32:35.020Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:33:42.851Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:34:14.391Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-07T10:37:11.760Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:37:43.836Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:38:52.521Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:39:37.929Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:40:18.339Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:41:54.287Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:42:24.814Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cast to ObjectId failed for value "profile" (type string) at path "userId" for model "ServiceProvider"
+2025-07-07T10:44:41.857Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider profile not found
+2025-07-07T10:48:45.004Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, provider.save is not a function
+2025-07-07T10:49:18.326Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, provider.save is not a function
+2025-07-07T11:07:26.301Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-07T11:24:35.264Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, No reviews found for this provider
+2025-07-07T11:26:37.752Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, No reviews found for this provider
+2025-07-07T11:41:22.517Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, ProviderReview validation failed: ratingBy: Cast to ObjectId failed for value "ratinguser123" (type string) at path "ratingBy" because of "BSONError"
+2025-07-07T11:41:36.544Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, E11000 duplicate key error collection: demotest.providerreviews index: rating_1 dup key: { rating: 3 }
+2025-07-07T11:41:40.670Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, E11000 duplicate key error collection: demotest.providerreviews index: rating_1 dup key: { rating: 3 }
+2025-07-07T11:44:27.701Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, No reviews found for this provider
+2025-07-07T11:44:56.743Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, No reviews found for this provider
+2025-07-08T05:12:55.690Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-08T05:14:35.565Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, user.save is not a function
+2025-07-08T05:14:56.927Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-08T05:15:52.847Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You already a service provider
+2025-07-08T05:20:52.161Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-08T05:21:09.667Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-08T05:23:19.514Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Some provided services are invalid or inactive
+2025-07-08T05:59:03.440Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajavzg" }
+2025-07-08T06:00:56.069Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajsdsd" }
+2025-07-08T06:01:33.578Z [error]: Some provided services are invalid or inactive
+2025-07-08T06:01:48.246Z [error]: Some provided services are invalid or inactive
+2025-07-08T06:34:50.845Z [error]: Some provided services are invalid or inactive
+2025-07-08T06:34:59.343Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neerajsdsdsd" }
+2025-07-08T06:37:28.520Z [error]: Some provided services are invalid or inactive
+2025-07-08T06:37:35.722Z [error]: Please enter at least one field to update
+2025-07-08T06:37:58.851Z [error]: Service category not found
+2025-07-08T06:38:05.588Z [error]: Service category not found
+2025-07-08T06:38:18.696Z [error]: Service category not found
+2025-07-08T06:39:01.110Z [error]: Service category not found
+2025-07-08T06:43:11.177Z [error]: Service category not found
+2025-07-08T06:46:51.139Z [error]: service category not found
+2025-07-08T06:48:36.072Z [error]: E11000 duplicate key error collection: demotest.servicecategories index: name_1 dup key: { name: "neeraj" }
+2025-07-08T06:54:12.383Z [error]: Please fill all required fields
+2025-07-08T06:54:23.998Z [error]: Service is not defined
+2025-07-08T06:55:09.331Z [error]: Service already exists with this name
+2025-07-08T07:05:36.889Z [error]: Service already exists with this name
+2025-07-08T07:09:18.203Z [error]: Service not found
+2025-07-08T07:11:44.878Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-08T07:12:44.617Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Some provided services are invalid or inactive
+2025-07-08T07:13:07.109Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Some provided services are invalid or inactive
+2025-07-08T07:14:54.944Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Some provided services are invalid or inactive
+2025-07-08T07:15:15.168Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Some provided services are invalid or inactive
+2025-07-08T07:16:50.583Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-08T07:21:36.827Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-08T07:21:44.204Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider not found
+2025-07-08T07:38:05.912Z [error]: Provider not found
+2025-07-08T07:38:35.227Z [error]: Provider not found
+2025-07-08T07:38:53.526Z [error]: Provider not found
+2025-07-08T07:39:26.850Z [error]: Provider not found
+2025-07-08T07:40:11.311Z [error]: Provider not found
+2025-07-09T08:08:57.387Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, price is not defined
+2025-07-09T08:09:29.610Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, price is not defined
+2025-07-09T08:10:09.632Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, User not found
+2025-07-09T08:11:04.495Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-09T08:11:19.066Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, User not found
+2025-07-09T08:11:34.592Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, User not found.
+2025-07-09T08:12:41.482Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-09T08:13:43.861Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Service not found
+2025-07-09T08:13:51.895Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, ServiceRequest validation failed: note: Path `note` is required.
+2025-07-09T09:21:35.482Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e349f20a927dd5a30930e'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "Point", coordinates: [ 78.337343, null ] }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752052895415), updatedAt: new Date(1752052895415), __v: 0 }  Point must only contain numeric elements, instead got type null
+2025-07-09T09:54:31.136Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, type is not defined
+2025-07-09T10:15:23.031Z [error]: Unexpected non-whitespace character after JSON at position 34 (line 12 column 1)
+2025-07-09T10:15:48.493Z [error]: Email is already used.
+2025-07-09T10:16:03.639Z [error]: Multiple signups from the same device are not allowed.
+2025-07-09T10:17:33.618Z [error]: Unexpected end of JSON input
+2025-07-09T10:18:02.187Z [error]: Invalid Otp
+2025-07-09T10:18:32.446Z [error]: Email is already used.
+2025-07-09T10:18:42.065Z [error]: Multiple signups from the same device are not allowed.
+2025-07-09T10:18:51.364Z [error]: E11000 duplicate key error collection: demotest.users index: phone_1 dup key: { phone: "8770475417" }
+2025-07-09T10:26:36.894Z [error]: Email is already used.
+2025-07-09T10:26:49.808Z [error]: Multiple signups from the same device are not allowed.
+2025-07-09T10:26:58.835Z [error]: E11000 duplicate key error collection: demotest.users index: phone_1 dup key: { phone: "8770475420" }
+2025-07-09T10:42:40.786Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-09T10:43:16.467Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, Some provided services are invalid or inactive
+2025-07-09T10:43:48.995Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T10:49:59.815Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T10:50:24.635Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T10:50:42.556Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T10:50:54.678Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T11:01:42.806Z [error]: userid: 686e416bb3ee43212c1dd4e4, name: Ns Rs, phone: 8770475417, ServiceProvider validation failed: location.coordinates.0: Cast to [Number] failed for value "[ { latitude: 33.5343, logitude: undefined } ]" (type string) at path "location.coordinates.0" because of "CastError"
+2025-07-09T11:06:33.886Z [error]: userid: 686e4275b3ee43212c1dd51d, name: Ns Rs, phone: 8770475419, You are already a service provider
+2025-07-09T11:09:09.471Z [error]: Invalid Otp
+2025-07-09T11:22:49.804Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-09T11:24:33.603Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, type is not defined
+2025-07-09T11:24:51.889Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e5183457f4a62a70787e1'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060291810), updatedAt: new Date(1752060291810), __v: 0 }  unknown GeoJSON type: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }
+2025-07-09T11:25:27.797Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e51a7a45f5e440dd509ca'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060327718), updatedAt: new Date(1752060327718), __v: 0 }  unknown GeoJSON type: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }
+2025-07-09T11:26:12.135Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e51d458153329d0cb6b43'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060372059), updatedAt: new Date(1752060372059), __v: 0 }  unknown GeoJSON type: { coordinates: [ 25.887749, 78.337343 ], type: "OTHER" }
+2025-07-09T11:30:43.294Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e52e3abc6b69a1557920d'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060643214), updatedAt: new Date(1752060643214), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:31:14.942Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e5302488ee22d775678cc'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060674847), updatedAt: new Date(1752060674847), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:31:37.410Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e5319af5a0585686cbd9b'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060697331), updatedAt: new Date(1752060697331), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:33:08.570Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e5374ea858720cca70c5b'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060788495), updatedAt: new Date(1752060788495), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:33:38.839Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e5392058fa5eb830a41c8'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060818762), updatedAt: new Date(1752060818762), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:34:57.607Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e53e16ba0f605eb8a7b25'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "washing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686b831cbd954aa7a780e8cf'), providerId: null, status: "PENDING", createdAt: new Date(1752060897513), updatedAt: new Date(1752060897513), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 25.887749, 78.337343 ] }
+2025-07-09T11:35:33.545Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e54056ba0f605eb8a7b2b'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "dashing machine nahi chal rahi hai", location: { type: "OTHER", coordinates: [ 15.887749, 18.337343 ] }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686cc348cdfff5f1d8ca2980'), providerId: null, status: "PENDING", createdAt: new Date(1752060933468), updatedAt: new Date(1752060933468), __v: 0 }  unknown GeoJSON type: { type: "OTHER", coordinates: [ 15.887749, 18.337343 ] }
+2025-07-09T11:35:58.495Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e541ed3ea68b35a64b497'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "dashing machine nahi chal rahi hai", location: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686cc348cdfff5f1d8ca2980'), providerId: null, status: "PENDING", createdAt: new Date(1752060958422), updatedAt: new Date(1752060958422), __v: 0 }  unknown GeoJSON type: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }
+2025-07-09T11:36:27.669Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e543b94be7e2d905c8513'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "dashing machine nahi chal rahi hai", location: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686cc348cdfff5f1d8ca2980'), providerId: null, status: "PENDING", createdAt: new Date(1752060987587), updatedAt: new Date(1752060987587), __v: 0 }  unknown GeoJSON type: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }
+2025-07-09T11:37:21.591Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e54717ef7ab41f872f136'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "dashing machine nahi chal rahi hai", location: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686cc348cdfff5f1d8ca2980'), providerId: null, status: "Point", createdAt: new Date(1752061041500), updatedAt: new Date(1752061041500), __v: 0 }  unknown GeoJSON type: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }
+2025-07-09T11:38:47.178Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Can't extract geo keys: { _id: ObjectId('686e54c7d4405e46bd9366ef'), userId: ObjectId('686b9a726a9de5acdcb74bd9'), note: "dashing machine nahi chal rahi hai", location: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }, address: { street: "street 1, anand nagar", city: "Gwalior", state: "Madhya pradesh", pinCode: 474012 }, serviceId: ObjectId('686cc348cdfff5f1d8ca2980'), providerId: null, status: "Point", createdAt: new Date(1752061127089), updatedAt: new Date(1752061127089), __v: 0 }  unknown GeoJSON type: { coordinates: [ 15.887749, 18.337343 ], type: "OTHER" }
+2025-07-09T11:41:46.371Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider is not defined
+2025-07-09T11:42:02.293Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, error processing query: ns=demotest.serviceprovidersTree: GEONEAR  field=location maxdist=10000 isNearSphere=0
+Sort: {}
+Proj: {}
+ planner returned error :: caused by :: unable to find index for $geoNear query
+2025-07-09T11:48:21.909Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Provider is not defined
+2025-07-09T11:48:39.375Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, error processing query: ns=demotest.serviceprovidersTree: $and
+    isOnline $eq true
+    GEONEAR  field=location maxdist=10000 isNearSphere=0
+Sort: {}
+Proj: {}
+ planner returned error :: caused by :: unable to find index for $geoNear query
+2025-07-09T12:02:02.297Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot read properties of undefined (reading '686e4d320046ba4f70262e13')
+2025-07-09T12:02:45.436Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot read properties of undefined (reading '686e4d320046ba4f70262e13')
+2025-07-09T12:03:05.230Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot read properties of undefined (reading '686e4d320046ba4f70262e13')
+2025-07-09T12:04:28.043Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot read properties of undefined (reading '686e4d320046ba4f70262e13')
+2025-07-09T12:10:51.945Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, Cannot read properties of undefined (reading '686e4d320046ba4f70262e13')
+2025-07-09T12:39:07.326Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, You are already a service provider
+2025-07-09T12:39:18.250Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, request is not defined
+2025-07-10T07:09:35.995Z [error]: userid: 686b9a726a9de5acdcb74bd9, name: Ns Rs, phone: 8770475416, errorHandler is not defined
+2025-07-10T08:54:02.586Z [error]: userid: 686f7d209af52a07d42877f3, name: NS NR, phone: 8770475417, Can't extract geo keys: { _id: ObjectId('686f7faa9af52a07d4287840'), userId: ObjectId('686f7d209af52a07d42877f3'), location: { coordinates: [ 25.8785, null ], type: "Point" }, status: true, isOnline: false, services: [ "686b8305bd954aa7a780e8cc", "686b831cbd954aa7a780e8cf" ], createdAt: new Date(1752137642505), updatedAt: new Date(1752137642505), __v: 0 }  Point must only contain numeric elements, instead got type null
+2025-07-10T08:56:03.182Z [error]: userid: 686f7d209af52a07d42877f3, name: NS NR, phone: 8770475417, Can't extract geo keys: { _id: ObjectId('686f8023109896c237b15955'), userId: ObjectId('686f7d209af52a07d42877f3'), location: { coordinates: [ 25.8785, null ], type: "Point" }, status: true, isOnline: false, services: [ "686b8305bd954aa7a780e8cc", "686b831cbd954aa7a780e8cf" ], createdAt: new Date(1752137763101), updatedAt: new Date(1752137763101), __v: 0 }  Point must only contain numeric elements, instead got type null
+2025-07-10T09:07:40.445Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Some provided services are invalid or inactive
+2025-07-10T09:13:44.825Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, data is not defined
+2025-07-10T09:36:32.958Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, providerId.equals is not a function
+2025-07-10T09:41:02.081Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found or already assigned
+2025-07-10T09:41:36.636Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, providerId.equals is not a function
+2025-07-10T09:42:32.099Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found or already assigned
+2025-07-10T09:48:44.097Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-10T09:58:14.561Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, _id is not defined
+2025-07-10T09:58:27.367Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Provider not found or inactive
+2025-07-10T10:02:54.608Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-10T10:10:04.596Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of undefined (reading 'forEach')
+2025-07-10T10:10:20.322Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of undefined (reading 'forEach')
+2025-07-10T10:10:56.652Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, nituUser is not defined
+2025-07-10T10:11:08.627Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of undefined (reading 'forEach')
+2025-07-10T10:15:17.919Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-10T10:15:30.763Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-10T10:15:32.960Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-10T10:21:02.572Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No Active request found
+2025-07-10T10:21:20.743Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No Active request found
+2025-07-10T10:21:54.282Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No Active request found
+2025-07-10T10:22:36.163Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, findRequest.notifiedProviders.contains is not a function
+2025-07-10T10:23:18.041Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, unit.contains is not a function
+2025-07-10T10:29:34.744Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of null (reading 'id')
+2025-07-10T10:34:45.705Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, you are not choosen for this request
+2025-07-10T10:38:27.606Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, you are not choosen for this request
+2025-07-10T11:02:31.253Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found or already assigned
+2025-07-11T06:59:13.462Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:00:32.514Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:03:54.788Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Cannot read properties of undefined (reading 'notifiedProviders')
+2025-07-11T07:05:23.649Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:07:08.139Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:07:42.562Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:07:57.288Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:08:00.213Z [error]: userid: 686f7f159af52a07d4287837, name: NS NR, phone: 8770475421, Service request not found or already assigned
+2025-07-11T07:11:52.993Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, _id is not defined
+2025-07-11T07:21:06.436Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, this task is not assign to you
+2025-07-11T07:21:35.858Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found or already assigned
+2025-07-11T07:21:58.564Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, Service request not found or already assigned
+2025-07-11T07:26:36.165Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, you are not choosen for this request
+2025-07-11T07:26:46.528Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, Task is not assigned to you
+2025-07-11T07:32:32.540Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, Service request not found or already assigned
+2025-07-11T07:32:39.791Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, Please provide valid service ID
+2025-07-11T07:33:12.532Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-07-11T07:33:28.753Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-07-11T07:34:37.692Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-07-11T07:39:26.223Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, this task is not assign to you
+2025-07-11T07:50:54.527Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:20:40.297Z [error]: Invalid Otp
+2025-07-11T08:20:50.639Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:20:53.693Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:22:10.024Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:22:29.506Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No active service Request not found
+2025-07-11T08:23:05.286Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No active service Request not found
+2025-07-11T08:24:24.290Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No active service Request not found
+2025-07-11T08:25:06.523Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No active service Request not found
+2025-07-11T08:25:14.853Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:25:24.211Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-11T08:27:44.461Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, No active service Request not found
+2025-07-11T08:29:56.356Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Task is not assigned to you
+2025-07-11T09:10:49.815Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:12:18.082Z [error]: invalid phone number
+2025-07-11T09:13:46.067Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service request not found
+2025-07-11T09:14:25.928Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service request not found
+2025-07-11T09:21:39.692Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:22:20.693Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:22:38.418Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not founds
+2025-07-11T09:23:27.476Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:24:27.574Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:24:28.862Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service request not found
+2025-07-11T09:57:09.802Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Service not found
+2025-07-11T09:59:27.859Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service not found
+2025-07-11T09:59:32.202Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service not found
+2025-07-11T09:59:47.932Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service not founds
+2025-07-11T10:00:13.704Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service not founds
+2025-07-11T10:01:07.360Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You can't cancel now
+2025-07-11T10:03:16.356Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You can't cancel now
+2025-07-11T10:03:31.761Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:03:40.787Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, You are not assign for this request
+2025-07-11T10:03:49.185Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:04:01.254Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:04:03.254Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:04:29.750Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:04:35.111Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:05:03.266Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:05:21.582Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, indServiceRequest is not defined
+2025-07-11T10:05:30.748Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, You can't cancel now
+2025-07-11T10:24:23.460Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:25:05.994Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:25:24.866Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:25:37.836Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:25:54.424Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:26:22.863Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:26:25.708Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:27:15.938Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:27:45.619Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cast to ObjectId failed for value "provider" (type string) at path "_id" for model "ServiceRequest"
+2025-07-11T10:46:25.497Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of null (reading 'toString')
+2025-07-11T10:46:58.298Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of null (reading 'toString')
+2025-07-11T10:47:31.432Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of null (reading 'toString')
+2025-07-11T10:47:51.350Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, Cannot read properties of null (reading 'toString')
+2025-07-11T10:55:51.156Z [error]: userid: 686f7d209af52a07d42877f3, name: NS NR, phone: 8770475417, this task is not assign to you
+2025-07-11T11:27:51.134Z [error]: userid: 686f7d699af52a07d4287804, name: NS NR, phone: 8770475418, ServiceRequest validation failed: notifiedProviders.0: Cast to [string] failed for value "[\n' +
+  '  {\n' +
+  '    _id: new ObjectId("686f822a38d14b72a24165e8"),\n' +
+  '    userId: new ObjectId("686f7d699af52a07d4287804"),\n' +
+  "    location: { coordinates: [Array], type: 'Point' },\n" +
+  '    status: true,\n' +
+  '    isOnline: true,\n' +
+  "    services: [ '686b835fbd954aa7a780e8d2', '686b831cbd954aa7a780e8cf' ],\n" +
+  '    createdAt: 2025-07-10T09:04:42.658Z,\n' +
+  '    updatedAt: 2025-07-10T09:04:42.658Z,\n' +
+  '    __v: 0\n' +
+  '  }\n' +
+  ']" (type string) at path "notifiedProviders.0" because of "CastError"
+2025-07-11T11:35:08.002Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Please provide requestId and cancelReason value
+2025-07-11T11:36:06.162Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You can't cancel now
+2025-07-11T11:37:22.596Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You can't cancel now
+2025-07-12T06:31:54.880Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Provider not found or inactive
+2025-07-12T06:32:22.647Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-12T06:33:00.771Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-12T06:33:47.859Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-12T06:37:42.962Z [error]: userid: 686f7ed99af52a07d4287826, name: NS NR, phone: 8770475420, No active service Request not found
+2025-07-12T06:39:32.836Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Provider not found or inactive
+2025-07-12T06:44:43.597Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'toString')
+2025-07-12T06:45:10.497Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'toString')
+2025-07-12T07:01:50.227Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'toString')
+2025-07-12T07:03:16.922Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found
+2025-07-12T07:03:31.066Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'toString')
+2025-07-12T07:14:59.519Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found
+2025-07-12T07:15:01.000Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service request not found
+2025-07-12T07:28:35.837Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You can't cancel now
+2025-07-12T07:34:28.847Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Service request not found or already assigned
+2025-07-12T07:36:40.418Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Service request not found or already assigned
+2025-07-12T09:44:49.433Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Cannot populate path `firstName` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-12T09:53:59.602Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Service request not found or already assigned
+2025-07-12T09:59:19.149Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Cannot populate path `name` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-12T10:10:21.263Z [error]: userid: 686f7db49af52a07d4287815, name: NS NR, phone: 8770475419, Cannot do exclusion on field __v in inclusion projection
+2025-07-14T11:00:18.039Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Cannot read properties of undefined (reading 'trim')
+2025-07-14T11:09:42.193Z [error]: userid: undefined, name: undefined undefined, phone: undefined, mongoose is not defined
+2025-07-14T11:10:52.871Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Another service already exists with this name
+2025-07-14T11:11:26.475Z [error]: userid: undefined, name: undefined undefined, phone: undefined, At least one field is required to update
+2025-07-14T11:12:53.070Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Unsupported file format, only jpg, png & webp file allowed.
+2025-07-14T11:15:16.726Z [error]: userid: undefined, name: undefined undefined, phone: undefined, mongoose is not defined
+2025-07-14T11:15:47.415Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service not found
+2025-07-14T11:20:06.556Z [error]: userid: undefined, name: undefined undefined, phone: undefined, mongoose is not defined
+2025-07-14T11:20:38.893Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service not found
+2025-07-14T11:20:44.661Z [error]: userid: undefined, name: undefined undefined, phone: undefined, res is not defined
+2025-07-14T11:21:17.090Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Cast to ObjectId failed for value "<ref *1> ServerResponse {
+  _events: [Object: null prototype] { finish: [Function: bound resOnFinish] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  outputData: [],
+  outputSize: 0,
+  writable: true,
+  destroyed: true,
+  _last: false,
+  chunkedEncoding: false,
+  shouldKeepAlive: true,
+  maxRequestsOnConnectionReached: false,
+  _defaultKeepAlive: true,
+  useChunkedEncodingByDefault: true,
+  sendDate: true,
+  _removedConnection: false,
+  _removedContLen: false,
+  _removedTE: false,
+  strictContentLength: false,
+  _contentLength: 49,
+  _hasBody: true,
+  _trailer: '',
+  finished: true,
+  _headerSent: true,
+  _closed: true,
+  _header: 'HTTP/1.1 400 Bad Request\r\n' +
+    'Access-Control-Allow-Origin: *\r\n' +
+    "Content-Security-Policy: default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests\r\n" +
+    'Cross-Origin-Opener-Policy: same-origin\r\n' +
+    'Cross-Origin-Resource-Policy: same-origin\r\n' +
+    'Origin-Agent-Cluster: ?1\r\n' +
+    'Referrer-Policy: no-referrer\r\n' +
+    'Strict-Transport-Security: max-age=15552000; includeSubDomains\r\n' +
+    'X-Content-Type-Options: nosniff\r\n' +
+    'X-DNS-Prefetch-Control: off\r\n' +
+    'X-Download-Options: noopen\r\n' +
+    'X-Frame-Options: SAMEORIGIN\r\n' +
+    'X-Permitted-Cross-Domain-Policies: none\r\n' +
+    'X-XSS-Protection: 0\r\n' +
+    'Content-Type: application/json; charset=utf-8\r\n' +
+    'Content-Length: 49\r\n' +
+    'ETag: W/"31-Y0MuVSgSjXaNEc1mrULgHOg1unk"\r\n' +
+    'Date: Mon, 14 Jul 2025 11:21:17 GMT\r\n' +
+    'Connection: keep-alive\r\n' +
+    'Keep-Alive: timeout=5\r\n' +
+    '\r\n',
+  _keepAliveTimeout: 5000,
+  _onPendingData: [Function: bound updateOutgoingData],
+  req: IncomingMessage {
+    _events: {
+      close: undefined,
+      error: undefined,
+      data: undefined,
+      end: [Function: clearIncoming],
+      readable: undefined
+    },
+    _readableState: ReadableState {
+      highWaterMark: 16384,
+      buffer: [],
+      bufferIndex: 0,
+      length: 0,
+      pipes: [],
+      awaitDrainWriters: null,
+      [Symbol(kState)]: 60036988
+    },
+    _maxListeners: undefined,
+    socket: Socket {
+      connecting: false,
+      _hadfalse,
+      _parent: null,
+      _host: null,
+      _closeAfterHandlingError: false,
+      _events: [Object],
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: true,
+      _maxListeners: undefined,
+      _eventsCount: 8,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: [Server],
+      _server: [Server],
+      parser: [HTTPParser],
+      on: [Function: socketListenerWrap],
+      addListener: [Function: socketListenerWrap],
+      prependListener: [Function: socketListenerWrap],
+      setEncoding: [Function: socketSetEncoding],
+      _paused: false,
+      _httpMessage: null,
+      timeout: 6000,
+      [Symbol(async_id_symbol)]: 921,
+      [Symbol(kHandle)]: [TCP],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: Timeout {
+        _idleTimeout: 6000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 5758,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        [Symbol(refed)]: false,
+        [Symbol(kHasPrimitive)]: false,
+        [Symbol(asyncId)]: 1040,
+        [Symbol(triggerId)]: 1036,
+        [Symbol(kAsyncContextFrame)]: undefined
+      },
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: true,
+      [Symbol(kSetKeepAlive)]: false,
+      [Symbol(kSetKeepAliveInitialDelay)]: 0,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0
+    },
+    httpVersionMajor: 1,
+    httpVersionMinor: 1,
+    httpVersion: '1.1',
+    complete: true,
+    rawHeaders: [
+      'token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODcwZDU5ZGU2MjQ3ZmE1MDkzZmFmMzQiLCJpYXQiOjE3NTIyMjUyMTV9.xAn2kSqHwCvbEKMD0vfnPWjMpa8JuvnHXa6Sj-IdDRY',
+      'User-Agent',
+      'PostmanRuntime/7.44.1',
+      'Accept',
+      '*/*',
+      'Postman-Token',
+      '6268cf56-e93f-475f-b8bf-b33d33eee536',
+      'Host',
+      'localhost:5000',
+      'Accept-Encoding',
+      'gzip, deflate, br',
+      'Connection',
+      'keep-alive'
+    ],
+    rawTrailers: [],
+    joinDuplicateHeaders: null,
+    aborted: false,
+    upgrade: false,
+    url: '/686b837fbd954aa7a780e8d',
+    method: 'DELETE',
+    statusCode: null,
+    statusMessage: null,
+    client: Socket {
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: null,
+      _closeAfterHandlingError: false,
+      _events: [Object],
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: true,
+      _maxListeners: undefined,
+      _eventsCount: 8,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: [Server],
+      _server: [Server],
+      parser: [HTTPParser],
+      on: [Function: socketListenerWrap],
+      addListener: [Function: socketListenerWrap],
+      prependListener: [Function: socketListenerWrap],
+      setEncoding: [Function: socketSetEncoding],
+      _paused: false,
+      _httpMessage: null,
+      timeout: 6000,
+      [Symbol(async_id_symbol)]: 921,
+      [Symbol(kHandle)]: [TCP],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: Timeout {
+        _idleTimeout: 6000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 5758,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        [Symbol(refed)]: false,
+        [Symbol(kHasPrimitive)]: false,
+        [Symbol(asyncId)]: 1040,
+        [Symbol(triggerId)]: 1036,
+        [Symbol(kAsyncContextFrame)]: undefined
+      },
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: true,
+      [Symbol(kSetKeepAlive)]: false,
+      [Symbol(kSetKeepAliveInitialDelay)]: 0,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0
+    },
+    _consuming: false,
+    _dumped: true,
+    next: [Function: next],
+    baseUrl: '/api/provider-service',
+    originalUrl: '/api/provider-service/686b837fbd954aa7a780e8d',
+    _parsedUrl: Url {
+      protocol: null,
+      slashes: null,
+      auth: null,
+      host: null,
+      port: null,
+      hostname: null,
+      hash: null,
+      search: null,
+      query: null,
+      pathname: '/686b837fbd954aa7a780e8d',
+      path: '/686b837fbd954aa7a780e8d',
+      href: '/686b837fbd954aa7a780e8d',
+      _raw: '/686b837fbd954aa7a780e8d'
+    },
+    params: { id: '686b837fbd954aa7a780e8d' },
+    query: {},
+    res: [Circular *1],
+    body: {},
+    route: Route { path: '/:id', stack: [Array], methods: [Object] },
+    data: {
+      _id: new ObjectId("6870d59de6247fa5093faf34"),
+      password: 'U2FsdGVkX1/Yy+eU5D8WNtki2Blk9WdGKVg+IfYGhlo=',
+      name: 'Admin',
+      email: 'admin@gmail.com',
+      phone: '8770475416',
+      avatar: '',
+      role: 'Admin',
+      __v: 0,
+      wallet: new ObjectId("6870d59de6247fa5093faf36")
+    },
+    _eventsCount: 1,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false,
+    [Symbol(kHeaders)]: {
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODcwZDU5ZGU2MjQ3ZmE1MDkzZmFmMzQiLCJpYXQiOjE3NTIyMjUyMTV9.xAn2kSqHwCvbEKMD0vfnPWjMpa8JuvnHXa6Sj-IdDRY',
+      'user-agent': 'PostmanRuntime/7.44.1',
+      accept: '*/*',
+      'postman-token': '6268cf56-e93f-475f-b8bf-b33d33eee536',
+      host: 'localhost:5000',
+      'accept-encoding': 'gzip, deflate, br',
+      connection: 'keep-alive'
+    },
+    [Symbol(kHeadersCount)]: 14,
+    [Symbol(kTrailers)]: null,
+    [Symbol(kTrailersCount)]: 0
+  },
+  _sent100: false,
+  _expect_continue: false,
+  _maxRequestsPerSocket: 0,
+  locals: [Object: null prototype] {},
+  statusCode: 400,
+  statusMessage: 'Bad Request',
+  [Symbol(shapeMode)]: false,
+  [Symbol(kCapture)]: false,
+  [Symbol(kBytesWritten)]: 0,
+  [Symbol(kNeedDrain)]: false,
+  [Symbol(corked)]: 0,
+  [Symbol(kChunkedBuffer)]: [],
+  [Symbol(kChunkedLength)]: 0,
+  [Symbol(kSocket)]: null,
+  [Symbol(kOutHeaders)]: [Object: null prototype] {
+    'access-control-allow-origin': [ 'Access-Control-Allow-Origin', '*' ],
+    'content-security-policy': [
+      'Content-Security-Policy',
+      "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+    ],
+    'cross-origin-opener-policy': [ 'Cross-Origin-Opener-Policy', 'same-origin' ],
+    'cross-origin-resource-policy': [ 'Cross-Origin-Resource-Policy', 'same-origin' ],
+    'origin-agent-cluster': [ 'Origin-Agent-Cluster', '?1' ],
+    'referrer-policy': [ 'Referrer-Policy', 'no-referrer' ],
+    'strict-transport-security': [
+      'Strict-Transport-Security',
+      'max-age=15552000; includeSubDomains'
+    ],
+    'x-content-type-options': [ 'X-Content-Type-Options', 'nosniff' ],
+    'x-dns-prefetch-control': [ 'X-DNS-Prefetch-Control', 'off' ],
+    'x-download-options': [ 'X-Download-Options', 'noopen' ],
+    'x-frame-options': [ 'X-Frame-Options', 'SAMEORIGIN' ],
+    'x-permitted-cross-domain-policies': [ 'X-Permitted-Cross-Domain-Policies', 'none' ],
+    'x-xss-protection': [ 'X-XSS-Protection', '0' ],
+    'content-type': [ 'Content-Type', 'application/json; charset=utf-8' ],
+    'content-length': [ 'Content-Length', '49' ],
+    etag: [ 'ETag', 'W/"31-Y0MuVSgSjXaNEc1mrULgHOg1unk"' ]
+  },
+  [Symbol(errored)]: null,
+  [Symbol(kHighWaterMark)]: 16384,
+  [Symbol(kRejectNonStandardBodyWrites)]: false,
+  [Symbol(kUniqueHeaders)]: null
+}" (type ServerResponse) at path "_id" for model "providerServices"
+2025-07-14T11:22:26.916Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-14T11:26:23.872Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-14T11:26:51.135Z [error]: Invalid mongoose Id
+2025-07-14T11:27:24.103Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service not found
+2025-07-14T11:46:12.556Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Please provide valid location and service IDs
+2025-07-14T11:48:06.133Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Please provide valid location and service IDs
+2025-07-14T11:48:15.014Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Cast to ObjectId failed for value "686b83f1bd954aa7a780e8ez" (type string) at path "_id" for model "providerServices"
+2025-07-14T11:52:19.863Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, mongoose is not defined
+2025-07-14T11:52:45.983Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Invalid mongoose Id
+2025-07-14T11:56:51.675Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Service provider not found
+2025-07-14T12:03:53.220Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Some services are invalid or inactive
+2025-07-14T12:04:00.043Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Invalid mongoose Id
+2025-07-14T12:08:31.447Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Service provider not found
+2025-07-14T12:23:35.916Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, validMongooseId is not defined
+2025-07-14T12:24:27.760Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Invalid mongoose Id
+2025-07-14T12:24:39.577Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Service not found or inactive
+2025-07-14T12:30:17.301Z [error]: userid: 6874eddae068219e0df0b4f3, name: Super Hero, phone: 1234567890, Mathzz is not defined
+2025-07-14T12:34:44.447Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-14T12:34:55.612Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-14T12:38:16.034Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-15T05:37:53.554Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Service request not found or already assigned
+2025-07-15T05:39:32.836Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Invalid mongoose Id
+2025-07-15T05:45:47.727Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, ServiceRequest validation failed: status: `COMPLETED` is not a valid enum value for path `status`.
+2025-07-15T05:50:17.498Z [error]: userid: 686f7f159af52a07d4287837, name: shashikant Sharma, phone: 8770475421, You are not assigned to this request
+2025-07-15T06:01:21.244Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, You are not assigned to this request
+2025-07-15T06:19:34.799Z [error]: userid: 686f7d699af52a07d4287804, name: Vishal Kushwah, phone: 8770475418, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-15T06:20:03.381Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot destructure property '_id' of 'req.data' as it is undefined.
+2025-07-15T06:21:09.739Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, successHandler is not defined
+2025-07-15T06:21:59.610Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Review already exists for this request
+2025-07-15T06:22:37.033Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Review already exists for this request
+2025-07-15T06:23:09.249Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Service request not found or not completed
+2025-07-15T06:24:43.503Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Cannot set headers after they are sent to the client
+2025-07-15T06:31:45.616Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-15T06:31:58.314Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid mongoose Id
+2025-07-15T06:34:07.846Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Review not found or not submitted by you
+2025-07-15T06:36:29.938Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Review not found or not submitted by you
+2025-07-15T06:38:07.447Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Review not found or not submitted by you
+2025-07-15T06:46:43.795Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot populate path `userId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-15T06:48:16.497Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Cannot populate path `serviceId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-07-15T07:04:27.260Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, other is not defined
+2025-07-15T08:18:16.003Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Cannot read properties of null (reading 'providerCode')
+2025-07-15T08:33:27.526Z [error]: Invalid status code: df
+2025-07-15T11:39:55.870Z [error]: Invalid Otp
+2025-07-15T11:42:00.413Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Cannot destructure property 'role' of 'req.body.role' as it is undefined.
+2025-07-15T11:44:11.899Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Cannot read properties of null (reading 'providerCode')
+2025-07-15T11:47:05.957Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Errors in Plan Fetching
+2025-07-15T11:47:09.328Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Errors in Plan Fetching
+2025-07-15T11:47:50.760Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Errors in Plan Fetching
+2025-07-15T11:51:59.302Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Cannot read properties of null (reading 'map')
+2025-07-15T11:53:22.334Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Errors in Plan Fetching
+2025-07-15T11:55:06.121Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Request failed with status code 404
+2025-07-15T12:02:07.840Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Please set an mPin.
+2025-07-15T12:02:38.899Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Request failed with status code 400
+2025-07-15T12:15:21.007Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, User does not exist
+2025-07-17T10:01:35.793Z [error]: Unexpected non-whitespace character after JSON at position 34 (line 12 column 1)
+2025-07-17T10:03:37.337Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, You are already a service provider
+2025-07-17T10:09:02.185Z [error]: Invalid Otp
+2025-07-18T06:44:45.044Z [error]: Invalid Otp
+2025-07-18T06:46:29.692Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-07-18T06:53:41.188Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, Please provide valid city and service IDs
+2025-07-18T06:54:35.351Z [error]: userid: 686f7d209af52a07d42877f3, name: Ashmit Tomar, phone: 8770475417, You are already a service provider
+2025-07-18T07:16:15.942Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, ServiceRequest validation failed: location.coordinates: Path `location.coordinates` is required.
+2025-07-18T07:16:56.983Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, ServiceRequest validation failed: location.coordinates: Path `location.coordinates` is required.
+2025-07-18T07:32:07.653Z [error]: userid: 686f7db49af52a07d4287815, name: Anuj Jadon, phone: 8770475419, Service request not found or already assigned
+2025-07-18T07:32:29.361Z [error]: userid: 686f7db49af52a07d4287815, name: Anuj Jadon, phone: 8770475419, Service request not found or already assigned
+2025-07-18T07:34:02.648Z [error]: userid: 686f7cb39af52a07d42877e2, name: Neeraj Rajput, phone: 8770475416, Connot delete this service request
+2025-09-06T15:43:16.597Z [error]: Phone already used
+2025-09-06T15:46:47.207Z [error]: Phone already used
+2025-09-06T15:51:33.318Z [error]: userid: undefined, name: undefined undefined, phone: undefined, User Not Found
+2025-09-06T15:52:42.755Z [error]: userid: undefined, name: undefined undefined, phone: undefined, This refer ID is wrong
+2025-09-06T16:00:07.442Z [error]: Email is already used.
+2025-09-06T16:01:52.649Z [error]: userid: 68bc538e559acb93a5669f55, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'status')
+2025-09-06T16:06:07.903Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Service validation failed: icon: Path `icon` is required.
+2025-09-06T16:06:21.263Z [error]: userid: undefined, name: undefined undefined, phone: undefined, E11000 duplicate key error collection: test.services index: name_1 dup key: { name: "LOGIN" }
+2025-09-06T16:13:16.076Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Please enter valid id.
+2025-09-06T16:16:01.139Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Provider Code Already Used
+2025-09-06T16:20:31.386Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Banner validation failed: image: Path `image` is required.
+2025-09-06T16:22:14.616Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid banner id
+2025-09-06T16:22:23.951Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid banner id
+2025-09-08T16:23:20.240Z [error]: userid: 68bc538e559acb93a5669f55, name: Neeraj sdsdfsd, phone: 8770475416, E11000 duplicate key error collection: test.ips index: ip_1 dup key: { ip: "192.168.1.2" }
+2025-09-08T16:23:44.911Z [error]: userid: 68bc538e559acb93a5669f55, name: Neeraj sdsdfsd, phone: 8770475416, please enter valid ip
