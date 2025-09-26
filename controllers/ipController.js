@@ -9,7 +9,7 @@ const ipList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: `Fetch all ip address`,
-    Data: encryptFunc(all.reverse()),
+    Data: (all.reverse()),
   });
 });
 

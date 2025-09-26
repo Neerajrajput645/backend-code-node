@@ -9,7 +9,7 @@ const list = asyncHandler(async (req, res) => {
   const result = await Affiliate.find();
   successHandler(req, res, {
     Remarks: "Affiliate list success.",
-    Data: encryptFunc(result),
+    Data: (result),
   });
 });
 

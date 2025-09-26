@@ -12,7 +12,7 @@ const categoriesList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: "Fetch all categories.",
-    Data: encryptFunc(categories.reverse()),
+    Data: (categories.reverse()),
   });
 });
 

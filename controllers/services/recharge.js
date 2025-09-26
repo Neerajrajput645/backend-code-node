@@ -163,12 +163,12 @@ const planFetch = asyncHandler(async (req, res) => {
       // success respond
       successHandler(req, res, {
         Remarks: "All plans",
-        Data: encryptFunc(mergedPlans),
+        Data: (mergedPlans),
       });
     } else {
       successHandler(req, res, {
         Remarks: "All plans",
-        Data: encryptFunc(flattenedArray),
+        Data: (flattenedArray),
       });
     }
   }
@@ -1093,7 +1093,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // Success response
           successHandler(req, res, {
             Remarks: rechargeRe?.data?.ErrorMessage,
-            Data: encryptFunc({
+            Data: ({
               status: capitalize(status),
               operator_ref_id: rechargeRe?.data.opid,
             }),
@@ -1115,7 +1115,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
             successHandler(req, res, {
               Remarks: `Your Recharge is Pending`,
-              Data: encryptFunc({ status: "PENDING" }),
+              Data: ({ status: "PENDING" }),
             });
           } else {
             // Other Errors
@@ -1183,7 +1183,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           if (!rechargeRe.data) {
             successHandler(req, res, {
               Remarks: `Your Recharge is Pending`,
-              Data: encryptFunc({
+              Data: ({
                 status: "PENDING",
                 operator_ref_id: rechargeRe.data.operator_ref_id || 0,
               }),
@@ -1253,7 +1253,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // Success response
           successHandler(req, res, {
             Remarks: `Your Recharge is ${status}`,
-            Data: encryptFunc({
+            Data: ({
               status: capitalize(status),
               operator_ref_id: rechargeRe.data.operator_ref_id,
             }),
@@ -1275,7 +1275,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
             successHandler(req, res, {
               Remarks: `Your Recharge is Pending`,
-              Data: encryptFunc({ status: "PENDING" }),
+              Data: ({ status: "PENDING" }),
             });
           } else {
             // Other Errors
@@ -1384,7 +1384,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             if (!rechargeRe.status == "SUCCESSPENDING") {
               successHandler(req, res, {
                 Remarks: `Your Recharge is Pending`,
-                Data: encryptFunc({ status: "PENDING" }),
+                Data: ({ status: "PENDING" }),
               });
             }
 
@@ -1459,7 +1459,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             // Success response
             successHandler(req, res, {
               Remarks: `Your Recharge is ${status}`,
-              Data: encryptFunc({
+              Data: ({
                 status: capitalize(status),
                 operator_ref_id: rechargeRe.opRefNo || 0,
               }),
@@ -1485,7 +1485,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
             successHandler(req, res, {
               Remarks: `Your Recharge is Pending`,
-              Data: encryptFunc({ status: "PENDING", operator_ref_id: 0 }),
+              Data: ({ status: "PENDING", operator_ref_id: 0 }),
             });
           } else {
             // Other Errors
@@ -1697,7 +1697,7 @@ const dthRequest = asyncHandler(async (req, res) => {
           // Success response
           successHandler(req, res, {
             Remarks: rechargeRe?.data?.ErrorMessage,
-            Data: encryptFunc(rechargeRe.data),
+            Data: (rechargeRe.data),
           });
         }
       } else {
@@ -1767,7 +1767,7 @@ const rechargeHistory = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "User Recharge History",
-    Data: encryptFunc(hist),
+    Data: enryptFunc(hist),
   });
 });
 
@@ -1925,7 +1925,7 @@ const dthHistoryByAdmin = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch DTH Recharge History",
-    Data: encryptFunc(hist.reverse()),
+    Data: (hist.reverse()),
   });
 });
 

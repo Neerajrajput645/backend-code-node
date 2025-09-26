@@ -14,7 +14,7 @@ const getCart = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch cart details",
-    Data: encryptFunc(cartData),
+    Data: (cartData),
   });
 });
 

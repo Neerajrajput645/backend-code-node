@@ -43,7 +43,7 @@ const getReviewByProductId = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch reviews of product",
-    Data: encryptFunc({
+    Data: ({
       reviews: newItem.reverse(),
       totalCount,
       averageRating: Math.floor(averageRating),

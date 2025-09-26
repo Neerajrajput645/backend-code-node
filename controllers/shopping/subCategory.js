@@ -13,7 +13,7 @@ const subCategoriesList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: "Fetch all sub-categories.",
-    Data: encryptFunc(subCategories.reverse()),
+    Data: (subCategories.reverse()),
   });
 });
 
@@ -96,7 +96,7 @@ const getSubCategoriesByCategoryId = asyncHandler(async (req, res) => {
     // success handler
     successHandler(req, res, {
       Remarks: "Fetch sub-categories by categoryId.",
-      Data: encryptFunc(subcategories.reverse()),
+      Data: (subcategories.reverse()),
     });
   } else {
     res.status(400);

@@ -62,7 +62,7 @@ const getTransaction = asyncHandler(async (req, res) => {
   // // success handler
   successHandler(req, res, {
     Remarks: "Fetch all transaction",
-    Data: encryptFunc(allTxn.reverse()),
+    Data: (allTxn.reverse()),
   });
 });
 
@@ -251,7 +251,7 @@ const txnByUserId = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch txn list by user.",
-    Data: encryptFunc([...sender, ...receiver].reverse()),
+    Data: ([...sender, ...receiver].reverse()),
   });
 });
 

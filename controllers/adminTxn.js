@@ -31,7 +31,7 @@ const txnList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: "Txn List",
-    Data: encryptFunc(result.reverse()),
+    Data: (result.reverse()),
   });
 });
 

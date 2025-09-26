@@ -9,7 +9,7 @@ const bussinessCategoriesList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: "Fetch all bussiness categories.",
-    Data: encryptFunc(result),
+    Data: (result),
   });
 });
 

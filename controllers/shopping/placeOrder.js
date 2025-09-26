@@ -27,7 +27,7 @@ const getOrders = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all orders",
-    Data: encryptFunc(ordersData.reverse()),
+    Data: (ordersData.reverse()),
   });
 });
 
@@ -47,7 +47,7 @@ const getOrderList = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all orders",
-    Data: encryptFunc(ordersData.reverse()),
+    Data: (ordersData.reverse()),
   });
 });
 

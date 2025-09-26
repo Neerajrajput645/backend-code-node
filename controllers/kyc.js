@@ -78,13 +78,13 @@ const kycStatus = asyncHandler(async (req, res) => {
     successHandler(req, res, {
       Remarks: "Fetch kyc status",
       ResponseStatus: statusManage(),
-      Data: encryptFunc(found),
+      Data: (found),
     });
   } else {
     successHandler(req, res, {
       Remarks: "You don't have started the process",
       ResponseStatus: 5,
-      Data: encryptFunc(found),
+      Data: (found),
     });
   }
 });
@@ -95,7 +95,7 @@ const kycList = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch kyc list",
-    Data: encryptFunc(found),
+    Data: (found),
   });
 });
 
@@ -441,7 +441,7 @@ const newkycList = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch kyc list",
-    Data: encryptFunc(found),
+    Data: (found),
   });
 });
 

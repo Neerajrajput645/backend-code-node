@@ -15,7 +15,7 @@ const gameList = asyncHandler(async (req, res) => {
   const all = await Game.find(filter);
   successHandler(req, res, {
     Remarks: `Fetched all Games`,
-    Data: encryptFunc(all.reverse()),
+    Data:(all.reverse()),
   });
 });
 

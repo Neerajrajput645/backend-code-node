@@ -30,7 +30,7 @@ const userProfile = asyncHandler(async (req, res) => {
 
   // Success Respond
   successHandler(req, res, {
-    Data: encryptFunc(others),
+    Data: (others),
     Remarks: "User Profile Fetch Successfull.",
   });
 });
@@ -255,7 +255,7 @@ const referList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: "Refer list",
-    Data: encryptFunc(data.reverse()),
+    Data: (data.reverse()),
   });
 });
 

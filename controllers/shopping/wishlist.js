@@ -14,7 +14,7 @@ const getWishlist = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all wishlist",
-    Data: encryptFunc(item.reverse()),
+    Data: (item.reverse()),
   });
 });
 

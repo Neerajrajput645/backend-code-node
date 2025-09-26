@@ -13,8 +13,8 @@ const serviceList = asyncHandler(async (req, res) => {
   successHandler(req, res, {
     Remarks: "Fetch all services",
     Data: req.query.section
-      ? encryptFunc({ [req.query.section]: allServices })
-      : encryptFunc(allServices),
+      ? ({ [req.query.section]: allServices })
+      : (allServices),
   });
 });
 

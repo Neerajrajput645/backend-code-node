@@ -79,7 +79,7 @@ const productList = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all products",
-    Data: encryptFunc(allData.reverse()),
+    Data: (allData.reverse()),
   });
 });
 
@@ -93,7 +93,7 @@ const productListByAdmin = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all products",
-    Data: encryptFunc(items.reverse()),
+    Data: (items.reverse()),
   });
 });
 

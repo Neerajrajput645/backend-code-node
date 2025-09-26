@@ -14,7 +14,7 @@ const bannerList = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, {
     Remarks: `Fetch all affiliate banners`,
-    Data: encryptFunc(all.reverse()),
+    Data: (all.reverse()),
   });
 });
 

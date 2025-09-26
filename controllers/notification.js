@@ -32,7 +32,7 @@ const notificationListByUser = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all notifications",
-    Data: encryptFunc(data.reverse()),
+    Data: (data.reverse()),
   });
 });
 
@@ -42,7 +42,7 @@ const notificationList = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "Fetch all notifications",
-    Data: encryptFunc(data.reverse()),
+    Data: (data.reverse()),
   });
 });
 

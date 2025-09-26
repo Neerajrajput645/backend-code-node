@@ -890,7 +890,7 @@ const billPaymentHistory = asyncHandler(async (req, res) => {
     // Success response
     successHandler(req, res, {
       Remarks: "User Bill Payment History",
-      Data: encryptFunc(hist),
+      Data:(hist),
     });
   } catch (error) {
     res.status(500).json({

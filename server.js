@@ -92,12 +92,20 @@ app.use("/api/provider-review", require("./routes/newRoutes/providerReview"));
 app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
 });
-
+// =======================Logout ===========================
+app.post("/api/user/logout",(req,res)=>{
+  try {
+    return res.status(200).json({ message: "Logout Successfully" });
+  } catch (error) {
+    console.log("Logout Error", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+})
 
 // ======================= Send To Bank =============================
 app.use("/api/send-to-bank", require("./routes/sendToBank"));
 
-
+app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
 
 // ------------------ Universal Search Api End --------------- //
 

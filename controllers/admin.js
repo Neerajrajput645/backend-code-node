@@ -140,7 +140,7 @@ const adminProfile = asyncHandler(async (req, res) => {
   const adminFound = await Admin.findOne({ _id }).populate("wallet");
   successHandler(req, res, {
     Remarks: "Admin Profile Data",
-    Data: encryptFunc(adminFound),
+    Data: (adminFound),
   });
 });
 
@@ -370,7 +370,7 @@ const dashboardApi = asyncHandler(async (req, res) => {
 
   successHandler(req, res, {
     Remarks: "Dashboard Data",
-    Data: encryptFunc(data),
+    Data: (data),
   });
 });
 
@@ -378,7 +378,7 @@ const dashboardApi = asyncHandler(async (req, res) => {
 const otpList = asyncHandler(async (req, res) => {
   const Otps = await otpSchema.find();
   successHandler(req, res, {
-    Data: encryptFunc(Otps),
+    Data: (Otps),
     Remarks: "OTP Get Successfully",
     ResponseStatus: 1,
   });
