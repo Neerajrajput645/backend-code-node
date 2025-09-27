@@ -33,6 +33,7 @@ const { default: axios } = require("axios");
 connection();
 
 // Other
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors());
 app.use(helmet());
 app.use(
@@ -88,7 +89,9 @@ app.use("/api/service-provider", require("./routes/newRoutes/serviceProvider"));
 app.use("/api/service-request", require("./routes/newRoutes/serviceRequest"));
 // ========================== Provider Review ==============================
 app.use("/api/provider-review", require("./routes/newRoutes/providerReview"));
-
+app.use("/", (req, res) => {
+  res.send("API is running....");
+});
 app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
 });

@@ -318,7 +318,7 @@ const userSignUp = asyncHandler(async (req, res) => {
       successHandler(req, res, {
         Remarks: "OTP Sent",
         ResponseStatus: 3,
-        // Otp: generatedOtp,
+        Otp: generatedOtp,
       });
     } else {
       if (!findLOGINService.status) {
