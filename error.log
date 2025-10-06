@@ -775,3 +775,16 @@ Proj: {}
 2025-09-06T16:22:23.951Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Invalid banner id
 2025-09-08T16:23:20.240Z [error]: userid: 68bc538e559acb93a5669f55, name: Neeraj sdsdfsd, phone: 8770475416, E11000 duplicate key error collection: test.ips index: ip_1 dup key: { ip: "192.168.1.2" }
 2025-09-08T16:23:44.911Z [error]: userid: 68bc538e559acb93a5669f55, name: Neeraj sdsdfsd, phone: 8770475416, please enter valid ip
+2025-10-04T05:14:18.344Z [error]: res.status is not a function
+2025-10-04T05:15:04.961Z [error]: Operation `privacypolicies.findOneAndUpdate()` buffering timed out after 10000ms
+2025-10-04T05:24:35.819Z [error]: Privacy policy not found
+2025-10-04T05:25:12.260Z [error]: res.status is not a function
+2025-10-04T05:26:05.163Z [error]: Privacy policy not found
+2025-10-04T05:26:14.255Z [error]: Invalid mongoose Id
+2025-10-04T05:41:46.835Z [error]: Privacy policy not found
+2025-10-04T05:44:06.506Z [error]: userid: undefined, name: undefined undefined, phone: undefined, console.log.log is not a function
+2025-10-04T10:54:18.824Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Term condition not found
+2025-10-04T11:02:36.463Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Cannot access 'refundPolicy' before initialization
+2025-10-04T11:05:43.081Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Privacy policy not found
+2025-10-04T11:06:05.921Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Privacy policy not found
+2025-10-04T16:54:03.367Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Errors in Plan Fetching

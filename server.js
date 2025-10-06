@@ -1,3 +1,4 @@
+const path = require("path");
 require("dotenv/config");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -78,7 +79,9 @@ app.use("/api/task", require("./routes/EarnTask/EarnTaskRoute"));
 // dashboard counts api
 app.get("/api/dashboard", dashboardApi);
 app.get("/api/download-report", adminTokenVerify, Generate_Excel_Report);
-
+app.use("/api/privacy-policy", require("./routes/newRoutes/privacyPolicy"));
+app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
+app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));
 // ======================== service provider ==============================
