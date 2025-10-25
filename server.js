@@ -83,6 +83,7 @@ app.use("/api/privacy-policy", require("./routes/newRoutes/privacyPolicy"));
 app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
 app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
 app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
+app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));
 // ======================== service provider ==============================
@@ -93,9 +94,7 @@ app.use("/api/service-provider", require("./routes/newRoutes/serviceProvider"));
 app.use("/api/service-request", require("./routes/newRoutes/serviceRequest"));
 // ========================== Provider Review ==============================
 app.use("/api/provider-review", require("./routes/newRoutes/providerReview"));
-app.use("/", (req, res) => {
-  res.send("API is running....");
-});
+
 app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
 });
@@ -114,6 +113,10 @@ app.use("/api/send-to-bank", require("./routes/sendToBank"));
 
 app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
 
+
+app.use("/", (req, res) => {
+  res.send("<h1 style='text-align: center; color:blue; margin-top: 50px;'>Welcome to PinPay API</h1>");
+});
 // ------------------ Universal Search Api End --------------- //
 
 // error handler
