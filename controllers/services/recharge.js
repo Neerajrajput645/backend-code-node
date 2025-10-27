@@ -320,7 +320,8 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           console.log(rechargeRe.data, "rechargeRe.data");
 
           } catch (error) {
-            throw error.response || error.response.data || error.message || "Error in Recharge API Call";
+           if(error.response){
+            console.log("Error Response from Recharge API:", error.response.data);
           }
 
           await saveLog(
