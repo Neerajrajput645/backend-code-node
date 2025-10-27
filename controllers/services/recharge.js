@@ -302,37 +302,23 @@ const rechargeRequest = asyncHandler(async (req, res) => {
         await newRecharge.save();
         try {
 
-          const body = {
-            "token": process.env.BILLHUB_TOKEN,
-            "amount": TxnAmount,
-            "order_id": transactionId,
-            "user_name": FindUser.name,
-            "user_email": FindUser.email,
-            "user_phone": FindUser.phone
-          };
+          const bodyData = {
+            token: process.env.BILLHUB_TOKEN,
+            number: number,
+            op_uid: findOperator.Billhub_Operator_code,
+            amount: TxnAmount,
+            order_id: transactionId,
+            type: isPrepaid ? "prepaid" : "postpaid",
+            circle: findCircle.planapi_circlecode,
+          }
 
-          const rechargeRe = await axios.post("https://api.techember.in/reseller/recharge", body);
+          const rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
 
-          // const URL = `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN
-          //   }&op_uid=${findOperator.Billhub_Operator_code
-          //   }&order_id=${transactionId}&type=${isPrepaid ? "prepaid" : "postpaid"
-          //   }&number=${number}&amount=${TxnAmount}&circle=${findCircle.planapi_circlecode
-          //   }`;
 
           await saveLog(
             "MOBILE_RECHARGE",
-            "https://api.billhub.in/reseller/recharge",
-            rechargeRe,
-            // URL, // or full request payload
-            null,
-            `Recharge initiated for TxnID: ${transactionId}`
-          );
-          // const rechargeRe = await axios.get(URL);
-          // console.log(rechargeRse.data, "rechargeRe");
-          await saveLog(
-            "MOBILE_RECHARGE",
-            "https://api.billhub.in/reseller/recharge",
-            URL, // or full request payload
+            "https://api.techember.in/app/recharges/main.php",
+            bodyData,
             rechargeRe.data,
             `Recharge response received for TxnID: ${transactionId}, Status: ${rechargeRe.data.status}`
           );

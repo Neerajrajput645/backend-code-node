@@ -812,3 +812,6 @@ Proj: {}
 2025-10-25T06:24:12.193Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Invalid URL
 2025-10-25T06:33:56.672Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Recharge Failed, Please Try Again{"status":"failed","message":"IP address '106.51.105.23' is not whitelisted for the provided token."}
 2025-10-25T06:34:20.790Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Recharge Failed, Please Try Again{"status":"failed","message":"IP address '106.51.105.23' is not whitelisted for the provided token."}
+2025-10-27T00:54:23.447Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Please enter a valid mPin.
+2025-10-27T00:55:08.958Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, wrong old mPin
+2025-10-27T00:55:44.320Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Request failed with status code 404

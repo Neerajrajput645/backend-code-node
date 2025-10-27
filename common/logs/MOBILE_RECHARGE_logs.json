@@ -345,5 +345,13 @@
     "Request_Data": null,
     "Response_Data": "Recharge Failed, Please Try Again{\"status\":\"failed\",\"message\":\"Error: IP address '106.51.105.23' is not whitelisted for the provided token.\"}",
     "Additional_Info": "Error during recharge for TxnID: 5992801261"
+  },
+  {
+    "LogTime": "2025-10-27T00:55:44.281Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+    "Additional_Info": "Error during recharge for TxnID: 4381182826"
   }
 ]
