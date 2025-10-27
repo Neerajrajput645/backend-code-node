@@ -314,14 +314,14 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           console.log(bodyData, "bodyData");
           try {
             console.log("Calling Recharge API");
-          const rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
-          console.log("Recharge API called");
-          console.log(rechargeRe, "rechargeRe");
-          console.log(rechargeRe.data, "rechargeRe.data");
-
+            const rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+            console.log("Recharge API called");
+            console.log(rechargeRe, "rechargeRe");
+            console.log(rechargeRe.data, "rechargeRe.data");
           } catch (error) {
-           if(error.response){
-            console.log("Error Response from Recharge API:", error.response.data);
+            if(error.response){
+              console.log("Error Response from Recharge API:", error.response.data);
+            }
           }
 
           await saveLog(
