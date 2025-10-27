@@ -311,9 +311,17 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             type: isPrepaid ? "prepaid" : "postpaid",
             circle: findCircle.planapi_circlecode,
           }
-
+          console.log(bodyData, "bodyData");
+          try {
+            console.log("Calling Recharge API");
           const rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+          console.log("Recharge API called");
+          console.log(rechargeRe, "rechargeRe");
+          console.log(rechargeRe.data, "rechargeRe.data");
 
+          } catch (error) {
+            throw error.response || error.response.data || error.message || "Error in Recharge API Call";
+          }
 
           await saveLog(
             "MOBILE_RECHARGE",
