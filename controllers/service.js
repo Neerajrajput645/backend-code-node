@@ -77,4 +77,13 @@ const deleteService = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { serviceList, addService, updateService, deleteService };
+const shownServices = asyncHandler(async (req, res) => {
+  const services = await Service.find({ isShow: true }).sort([["createdAt", 1]]);
+  successHandler(req, res, {
+    Remarks: "Fetch shown services",
+    Data: services,
+  });
+});
+
+
+module.exports = { serviceList, addService, updateService, deleteService, shownServices };

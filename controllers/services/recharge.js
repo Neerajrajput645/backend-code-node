@@ -191,8 +191,42 @@ const BillhubComplainRaise = asyncHandler(async (req, res) => {
   }
 });
 
+
+
+// const rechargeProxy = asyncHandler(async (req, res) => {
+//   try {
+//     const { number, op_uid, amount,  type, circle = "N/A" } = req.body;
+//     const token = process.env.BILLHUB_TOKEN;
+//     const order_id = generateOrderId();
+//     // Validation
+//     if (!token || !number || !op_uid || !amount || !order_id || !type) {
+//       return errorHandler(res, "Missing required recharge fields");
+//     }
+
+//     // Call the real recharge API (allowed from your VPS IP)
+//     const response = await axios.post(
+//       "https://api.techember.in/app/recharges/main.php",
+//       { token, number, op_uid, amount, order_id, type, circle },
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+
+//     // Return the exact response to your local app
+//     return successHandler(res, "Recharge API response", response.data);
+//   } catch (error) {
+//     console.error("Recharge Proxy Error:", error.response?.data || error.message);
+//     return errorHandler(res, error.response?.data || "Recharge API failed");
+//   }
+// };
+
+
+
 const rechargeRequest = asyncHandler(async (req, res) => {
   try {
+    throw new Error("Recharge API is currently disabled for maintenance.");
     const { _id, deviceToken } = req.data;
     const ipAddress = getIpAddress(req);
     const { number, amount, mPin, operator, circle } = req.query;
@@ -312,9 +346,10 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             circle: findCircle.planapi_circlecode,
           }
           console.log(bodyData, "bodyData");
+          const rechargeRe = ""
           try {
             console.log("Calling Recharge API");
-            const rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+            rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
             console.log("Recharge API called");
             console.log(rechargeRe, "rechargeRe");
             console.log(rechargeRe.data, "rechargeRe.data");
@@ -329,7 +364,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             "https://api.techember.in/app/recharges/main.php",
             bodyData,
             rechargeRe.data,
-            `Recharge response received for TxnID: ${transactionId}, Status: ${rechargeRe.data.status}`
+            `Recharge response received for TxnID: ${transactionId}, Status:` + (rechargeRe.data ? rechargeRe.data.status : 'No Response')
           );
 
           if (!rechargeRe.data) {
@@ -2411,3 +2446,5 @@ module.exports = {
   Update_Recharge_Commission,
   CHECK_PENDING_TRANSACTION,
 };
+
+// 
