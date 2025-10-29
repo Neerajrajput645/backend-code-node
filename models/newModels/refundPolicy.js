@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 const refundPolicy = new Schema(
     {
-        title: { type: String, required: true },
-        content: { type: String, required: true },
+        title: { type: String, required: false },
+        content: { type: String, required: false },
         status: { type: Boolean, default: true },
         createdAt: { type: Date, default: Date.now },
         updatedAt: { type: Date, default: Date.now }

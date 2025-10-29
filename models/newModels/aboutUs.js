@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const privacyPolicySchema = new Schema(
+const aboutUs = new Schema(
     {
         title: { type: String, required: false },
         content: { type: String, required: false },
@@ -9,4 +9,4 @@ const privacyPolicySchema = new Schema(
     }
 );
 
-module.exports = model("PrivacyPolicy", privacyPolicySchema);
+module.exports = model("aboutUs", aboutUs);
