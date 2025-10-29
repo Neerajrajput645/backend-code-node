@@ -177,9 +177,9 @@ const BillhubComplainRaise = asyncHandler(async (req, res) => {
   try {
     const { order_id, message } = req.query;
     const response = await axios.get(
-      `https://api.billhub.in/reseller/complaint/?token=${process.env.BILLHUB_TOKEN}&order_id=${order_id}&message=${message}`
+      `https://api.techember.in/app/complaints/main.php?token=${process.env.BILLHUB_TOKEN}&order_id=${order_id}&message=${message}`
     );
-
+    console.log(response, "Billhub Complain Response");
     // success respond
     successHandler(req, res, {
       Remarks: "Complained Raised",
@@ -190,39 +190,6 @@ const BillhubComplainRaise = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
-
-
-
-// const rechargeProxy = asyncHandler(async (req, res) => {
-//   try {
-//     const { number, op_uid, amount,  type, circle = "N/A" } = req.body;
-//     const token = process.env.BILLHUB_TOKEN;
-//     const order_id = generateOrderId();
-//     // Validation
-//     if (!token || !number || !op_uid || !amount || !order_id || !type) {
-//       return errorHandler(res, "Missing required recharge fields");
-//     }
-
-//     // Call the real recharge API (allowed from your VPS IP)
-//     const response = await axios.post(
-//       "https://api.techember.in/app/recharges/main.php",
-//       { token, number, op_uid, amount, order_id, type, circle },
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-
-//     // Return the exact response to your local app
-//     return successHandler(res, "Recharge API response", response.data);
-//   } catch (error) {
-//     console.error("Recharge Proxy Error:", error.response?.data || error.message);
-//     return errorHandler(res, error.response?.data || "Recharge API failed");
-//   }
-// };
-
-
 
 const rechargeRequest = asyncHandler(async (req, res) => {
   try {
@@ -298,6 +265,8 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     }
 
     const transactionId = generateOrderId();
+
+
     const body = {
       orderId: transactionId,
       txnAmount: TxnAmount,
@@ -307,7 +276,10 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       userId: FindUser._id,
       ipAddress,
     };
+
+
     const res1 = await paywithWallet({ body });
+
     if (res1.ResponseStatus == 1) {
       const selectedOperator = await rechargeApiProviderSchema.findOne({
         isTrue: true,
@@ -345,16 +317,19 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             type: isPrepaid ? "prepaid" : "postpaid",
             circle: findCircle.planapi_circlecode,
           }
+          let response;
           console.log(bodyData, "bodyData");
-          const rechargeRe = ""
+          let rechargeRe = ""
           try {
             console.log("Calling Recharge API");
             rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+            response = rechargeRe.data;
             console.log("Recharge API called");
             console.log(rechargeRe, "rechargeRe");
             console.log(rechargeRe.data, "rechargeRe.data");
           } catch (error) {
             if(error.response){
+              response = error.response.data;
               console.log("Error Response from Recharge API:", error.response.data);
             }
           }
@@ -363,26 +338,26 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             "MOBILE_RECHARGE",
             "https://api.techember.in/app/recharges/main.php",
             bodyData,
-            rechargeRe.data,
-            `Recharge response received for TxnID: ${transactionId}, Status:` + (rechargeRe.data ? rechargeRe.data.status : 'No Response')
+            response,
+            `Recharge response received for TxnID: ${transactionId}, Status:` + (response ? response.status : 'No Response')
           );
 
-          if (!rechargeRe.data) {
+          if (!response) {
             successHandler(req, res, {
               Remarks: `Your Recharge is Pending`,
               Data: ({
                 status: "PENDING",
-                operator_ref_id: rechargeRe.data.operator_ref_id || 0,
+                operator_ref_id: response?.operator_ref_id || 0,
               }),
             });
           }
 
-          newRecharge.rawResponse = rechargeRe.data;
+          newRecharge.rawResponse = response;
           await newRecharge.save();
-          newRecharge.status = rechargeRe.data.status?.toLowerCase();
-          newRecharge.operatorRef = rechargeRe.data.operator_ref_id || 0;
+          newRecharge.status = response?.status?.toLowerCase();
+          newRecharge.operatorRef = response?.operator_ref_id || 0;
           await newRecharge.save();
-          const status = rechargeRe.data.status?.toLowerCase();
+          const status = response?.status?.toLowerCase();
           if (status == "failed") {
             // Start Refund-------------------------------------------------
             await handleRefund(
@@ -394,7 +369,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             );
             // End Refund ------------------------------------------------------------------
             res.status(400);
-            throw new Error("Recharge Failed, Please Try Again" + JSON.stringify(rechargeRe.data));
+            throw new Error("Recharge Failed, Please Try Again" + JSON.stringify(response));
           }
 
           // Start Cashback--------------------------
@@ -423,15 +398,19 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               walletFound
             );
           }
-          // End Cashback ---------------------------
+        // End Cashback ---------------------------
+
+
           const notification = {
             title: `Recharge ${status}`,
             body: `Your ₹${TxnAmount} recharge is ${status}`,
           };
+
           const newNotification = new Notification({
             ...notification,
             recipient: _id,
           });
+
           await newNotification.save();
           if (deviceToken) {
             sendNotification(notification, deviceToken);
@@ -442,7 +421,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             Remarks: `Your Recharge is ${status}`,
             Data: ({
               status: capitalize(status),
-              operator_ref_id: rechargeRe.data.operator_ref_id,
+              operator_ref_id: response?.operator_ref_id || 0,
             }),
           });
         } catch (error) {
@@ -488,6 +467,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // throw new Error(error.message);
         }
       }
+      
     } else {
       res.status(400);
       throw new Error("Payment Failed, Please Contact to Customer Care");
@@ -496,6 +476,19 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(error.message);
   }
+});
+
+//recharge status
+const rechargeStatus = asyncHandler(async (req, res) => {
+  const { transid } = req.query;
+  const rechargeSt = await axios.get(
+    `https://api.techember.in/app/check-status.php?token=${process.env.TECHED_TOKEN}&order_id=${transid}`
+  );
+  console.log(rechargeSt, "rechargeSt.data");
+  successHandler(req, res, {
+    Remarks: "Recharge request",
+    Data: rechargeSt.data
+  });
 });
 
 const dthRequest = asyncHandler(async (req, res) => {
@@ -699,6 +692,7 @@ const dthRequest = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+
 // recharge status
 // const rechargeStatus = asyncHandler(async (req, res) => {
 //   const { transid } = req.query;
@@ -2445,6 +2439,7 @@ module.exports = {
   Recharge_All_Status_Verify,
   Update_Recharge_Commission,
   CHECK_PENDING_TRANSACTION,
+  rechargeStatus
 };
 
 // 
