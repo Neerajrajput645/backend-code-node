@@ -85,6 +85,7 @@ app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
 app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
 app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
 app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
+app.use("/api/faq", require("./routes/newRoutes/faq"));
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));
 // ======================== service provider ==============================

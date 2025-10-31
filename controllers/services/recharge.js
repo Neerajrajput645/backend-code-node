@@ -193,7 +193,7 @@ const BillhubComplainRaise = asyncHandler(async (req, res) => {
 
 const rechargeRequest = asyncHandler(async (req, res) => {
   try {
-    throw new Error("Recharge API is currently disabled for maintenance.");
+    //throw new Error("Recharge API is currently disabled for maintenance.");
     const { _id, deviceToken } = req.data;
     const ipAddress = getIpAddress(req);
     const { number, amount, mPin, operator, circle } = req.query;
