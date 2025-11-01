@@ -105,7 +105,7 @@ const planFetch = asyncHandler(async (req, res) => {
     const findCir = All_Recharge_Circle_List.find(
       (a) => a.planapi_circlecode == Circle_Code
     );
-    // console.log(findCir, "findCir");
+    // console.log(findOp, "findCir");
 
     const plans = await axios.get(
       `http://planapi.in/api/Mobile/Operatorplan?apimember_id=${process.env.PLAN_API_USER_ID}&api_password=${process.env.PLAN_API_PASSWORD}&cricle=${findCir.planapi_circlecode}&operatorcode=${findOp.PlanApi_Operator_code}`
@@ -163,12 +163,15 @@ const planFetch = asyncHandler(async (req, res) => {
       // success respond
       successHandler(req, res, {
         Remarks: "All plans",
+        image: findOp.img,
         Data: (mergedPlans),
       });
     } else {
       successHandler(req, res, {
         Remarks: "All plans",
+        image: findOp.img,
         Data: (flattenedArray),
+
       });
     }
   }

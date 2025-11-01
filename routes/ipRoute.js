@@ -7,7 +7,7 @@ const {
   updateIpStatus,
 } = require("../controllers/ipController");
 
-const {tokenVerify, adminTokenVerify} = require("../common/tokenVerify");
+const {tokenVerify} = require("../common/tokenVerify");
 router.get("/list", ipList);
 router.post("/new", tokenVerify, newIp);
 router.patch("/update/:ipId", tokenVerify, updateIp);

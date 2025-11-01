@@ -816,3 +816,15 @@ Proj: {}
 2025-10-27T00:55:08.958Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, wrong old mPin
 2025-10-27T00:55:44.320Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Request failed with status code 404
 2025-10-30T17:51:24.471Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Expected double-quoted property name in JSON at position 180 (line 4 column 1)
+2025-10-31T16:17:21.346Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Please provide both question and answer
+2025-10-31T16:24:47.799Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-10-31T16:25:29.028Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-10-31T16:25:55.106Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-10-31T16:26:00.252Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-10-31T16:26:22.204Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T04:23:37.557Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T04:23:54.178Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T04:24:18.208Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T04:24:19.609Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T04:24:21.081Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-01T06:41:45.109Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching

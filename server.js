@@ -50,12 +50,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/kyc", require("./routes/kycRoute"));
+// app.use("/api/kyc", require("./routes/kycRoute"));
 app.use("/api/txn", require("./routes/txnRoute"));
 app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api/admin", require("./routes/adminRoute"));
-app.use("/api/ip-address", require("./routes/ipRoute"));
-app.use("/api/bus", require("./routes/busBooking"));
+app.use("/api/ip-address", require("./routes/ipRoute"));  // ip address CRUD
+// app.use("/api/bus", require("./routes/busBooking"));
 
 app.use("/api/user", require("./routes/userRoute"));
 // app.use("/api/bank", require("./routes/bankRoute"));
@@ -75,7 +75,7 @@ app.use("/api", require("./routes/other"));
 app.use("/api/cyrus", require("./routes/services"));
 app.use("/api/webhook", require("./routes/webhook"));
 app.use("/api/affiliate", require("./routes/affiliateRoute"));
-app.use("/api/task", require("./routes/EarnTask/EarnTaskRoute"));
+// app.use("/api/task", require("./routes/EarnTask/EarnTaskRoute"));
 // dashboard counts api
 app.get("/api/dashboard", dashboardApi);
 app.get("/api/download-report", adminTokenVerify, Generate_Excel_Report);
@@ -84,18 +84,18 @@ app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
 app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
 app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
 app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
-app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
+// app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
 app.use("/api/faq", require("./routes/newRoutes/faq"));
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));
 // ======================== service provider ==============================
-app.use("/api/provider-service", require("./routes/newRoutes/servicesRoute"));
+// app.use("/api/provider-service", require("./routes/newRoutes/servicesRoute"));
 //========================= Provider signup ============================
-app.use("/api/service-provider", require("./routes/newRoutes/serviceProvider"));
+// app.use("/api/service-provider", require("./routes/newRoutes/serviceProvider"));
 // ======================== Request routes ================================
-app.use("/api/service-request", require("./routes/newRoutes/serviceRequest"));
+// app.use("/api/service-request", require("./routes/newRoutes/serviceRequest"));
 // ========================== Provider Review ==============================
-app.use("/api/provider-review", require("./routes/newRoutes/providerReview"));
+// app.use("/api/provider-review", require("./routes/newRoutes/providerReview"));
 
 app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
@@ -111,9 +111,9 @@ app.post("/api/user/logout",(req,res)=>{
 })
 
 // ======================= Send To Bank =============================
-app.use("/api/send-to-bank", require("./routes/sendToBank"));
+// app.use("/api/send-to-bank", require("./routes/sendToBank"));
 
-app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
+// app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
 
 
 app.use("/", (req, res) => {

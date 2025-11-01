@@ -10,7 +10,7 @@ const createFaq = asyncHandler(async(req, res)=>{
         throw new Error("Please provide both question and answer");
     }
     const faq = await Faq.create({ question, answer });
-    successHandler(res, 201, faq);
+    successHandler(req, res, {remarks: "FAQ created successfully"});
 })
 
 const updateFaq = asyncHandler(async(req, res)=>{
@@ -26,7 +26,7 @@ const updateFaq = asyncHandler(async(req, res)=>{
         res.status(404);
         throw new Error("FAQ not found");
     }
-    successHandler(res, 200, faq);
+    successHandler(res, 200, {remarks: "FAQ updated successfully"});
 })
 
 const deleteFaq = asyncHandler(async(req, res)=>{
@@ -37,18 +37,18 @@ const deleteFaq = asyncHandler(async(req, res)=>{
         res.status(404);
         throw new Error("FAQ not found");
     }
-    successHandler(res, 200, faq);
+    successHandler(req, res, {remarks: "FAQ deleted successfully"});
 })
 
 const listAllFaqs = asyncHandler(async(req, res)=>{
     const faqs = await Faq.find({status: true}).lean();
-    successHandler(res, 200, faqs);
+    successHandler(req, res, {remarks: "FAQs fetched successfully", faqs});
 });
 
 // for admin
 const listAllFaqsAdmin = asyncHandler(async(req, res)=>{
     const faqs = await Faq.find().lean();
-    successHandler(res, 200, faqs);
+    successHandler(req, res, {remarks: "FAQs fetched successfully", faqs});
 });
 
 const getFaqDetails = asyncHandler(async(req, res)=>{
@@ -59,7 +59,7 @@ const getFaqDetails = asyncHandler(async(req, res)=>{
         res.status(404);
         throw new Error("FAQ not found");
     }
-    successHandler(res, 200, faq);
+    successHandler(req, res, {remarks: "FAQ fetched successfully", faq});
 })
 
 module.exports = {

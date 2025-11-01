@@ -1,7 +1,7 @@
 const Ip = require("../models/ipSchema");
 const asyncHandler = require("express-async-handler");
 const successHandler = require("../common/successHandler");
-const { encryptFunc } = require("../common/encryptDecrypt");
+
 
 // ip address list
 const ipList = asyncHandler(async (req, res) => {

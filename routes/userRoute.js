@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const { userProfileUpload } = require("../common/fileUpload");
 const { tokenVerify, adminTokenVerify } = require("../common/tokenVerify");
-const {
-  fetchFinger,
-  updateFinger,
-  createFinger,
-} = require("../controllers/auth");
+// const {
+//   fetchFinger,
+//   updateFinger,
+//   createFinger,
+// } = require("../controllers/auth");
 const {
   referList,
   userProfile,
@@ -15,8 +15,8 @@ const {
   forgotMpin,
   verifyOTP,
   updateMpin,
-  uplineList,
-  downlineList,
+  // uplineList,
+  // downlineList,
   userList,
   statusUpdate,
   serviceStatusUpdate,
@@ -34,10 +34,10 @@ router.post("/list", adminTokenVerify, userList);
 router.get("/profile", tokenVerify, userProfile);
 router.get("/refer-list", tokenVerify, referList);
 // router.get("/downline", tokenVerify, downlineList);
-router.get("/finger", tokenVerify, fetchFinger);
+// router.get("/finger", tokenVerify, fetchFinger);
 // router.post("/redeem-gift", tokenVerify, claimGiftCard);
-router.post("/finger", tokenVerify, createFinger);
-router.patch("/finger", tokenVerify, updateFinger);
+// router.post("/finger", tokenVerify, createFinger);
+// router.patch("/finger", tokenVerify, updateFinger);
 router.patch("/status-update", adminTokenVerify, statusUpdate);
 router.patch("/service-status-update", adminTokenVerify, serviceStatusUpdate);
 // router.get("/gift-cards", tokenVerify, giftCardListsByUser);

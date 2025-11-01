@@ -8,7 +8,7 @@ const All_Recharge_Operator_List = [
     Billhub_Operator_code: "airtel",
     Mobikwik_Operator_code: 1,
     Operator_name: "Airtel",
-    img: "https://ik.imagekit.io/43tomntsa/airtel.webp",
+    img: "uploads/operator/airtel.jpg",
   },
   {
     Ezytm_Operator_code: 5,
@@ -19,7 +19,7 @@ const All_Recharge_Operator_List = [
     Billhub_Operator_code: "jio",
     Mobikwik_Operator_code: 140,
     Operator_name: "JIO",
-    img: "https://ik.imagekit.io/43tomntsa/Jio.webp",
+    img: "uploads/operator/jio.jpg",
   },
   {
     Ezytm_Operator_code: 6,
@@ -30,7 +30,7 @@ const All_Recharge_Operator_List = [
     Billhub_Operator_code: "vi",
     Mobikwik_Operator_code: 338,
     Operator_name: "VI",
-    img: "https://ik.imagekit.io/43tomntsa/VI.webp",
+    img: "uploads/operator/vi.jpg",
   },
 
   {
@@ -42,7 +42,7 @@ const All_Recharge_Operator_List = [
     Billhub_Operator_code: "bsnl_topup",
     Mobikwik_Operator_code: 3,
     Operator_name: "BSNL Topup",
-    img: "https://ik.imagekit.io/43tomntsa/Bsnl.webp",
+    img: "uploads/operator/bsnl.jpg",
   },
   {
     Cyrus_Operator_code: "ATP",
@@ -51,7 +51,7 @@ const All_Recharge_Operator_List = [
     Mobikwik_Operator_code: 29,
 
     Operator_name: "Airtel Postpaid",
-    img: "https://ik.imagekit.io/43tomntsa/airtel.webp",
+    img: "uploads/operator/airtel.jpg",
   },
   {
     Cyrus_Operator_code: "VFP",
@@ -60,7 +60,7 @@ const All_Recharge_Operator_List = [
     Mobikwik_Operator_code: 436,
 
     Operator_name: "VI Postpaid",
-    img: "https://ik.imagekit.io/43tomntsa/airtel.webp",
+    img: "uploads/operator/vi.jpg",
   },
   {
     Cyrus_Operator_code: "RJC",
@@ -69,7 +69,7 @@ const All_Recharge_Operator_List = [
     Mobikwik_Operator_code: 142,
 
     Operator_name: "JIO Postpaid",
-    img: "https://ik.imagekit.io/43tomntsa/airtel.webp",
+    img: "uploads/operator/jio.jpg",
   },
 ];
 
@@ -459,7 +459,7 @@ const All_DTH_Recharge_Operator_List = [
     Billhub_Operator_code: "airtel_tv",
     Mobikwik_Operator_code: 23,
     Operator_name: "Airtel TV",
-    img: "https://static.mobikwik.com/appdata/operator_icons/op23.png",
+    img: "uploads/operator/airtel.jpg",
   },
   {
     A1_Operator_code: "DTV",
@@ -467,7 +467,7 @@ const All_DTH_Recharge_Operator_List = [
     Billhub_Operator_code: "dish_tv",
     Mobikwik_Operator_code: 18,
     Operator_name: "Dish TV",
-    img: "https://static.mobikwik.com/appdata/operator_icons/op18.png",
+    img: "uploads/operator/dish_tv.jpg",
   },
   {
     A1_Operator_code: "TTV",
@@ -475,7 +475,7 @@ const All_DTH_Recharge_Operator_List = [
     Billhub_Operator_code: "tata_sky",
     Mobikwik_Operator_code: 19,
     Operator_name: "Tata Sky",
-    img: "https://static.mobikwik.com/appdata/operator_icons/op19.png",
+    img: "uploads/operator/tata_sky.jpg",
   },
 
   {
@@ -484,7 +484,7 @@ const All_DTH_Recharge_Operator_List = [
     Billhub_Operator_code: "sun_tv",
     Mobikwik_Operator_code: 22,
     Operator_name: "Sun Direct",
-    img: "https://static.mobikwik.com/appdata/operator_icons/op22.png",
+    img: "uploads/operator/sun_tv.jpg",
   },
   {
     A1_Operator_code: "VTV",
@@ -492,7 +492,7 @@ const All_DTH_Recharge_Operator_List = [
     Billhub_Operator_code: "videocon",
     Mobikwik_Operator_code: 21,
     Operator_name: "Videocon DTH",
-    img: "https://static.mobikwik.com/appdata/operator_icons/op21.png",
+    img: "uploads/operator/videocon.jpg",
   },
 ];
 

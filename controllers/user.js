@@ -1,26 +1,25 @@
+// const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
+// const Txn = require("../models/txnSchema");
+// const Otp = require("../models/otpSchema");
+// const User = require("../models/userSchema");
+// const Wallet = require("../models/walletSchema");
+// const Matrix = require("../models/matrixSchema");
+// const Service = require("../models/serviceSchema");
+// const getIpAddress = require("../common/getIpAddress");
+// const sendEmail = require("../common/sendEmail");
+// const GiftCard = require("../models/giftCardSchema");
+// const Notification = require("../models/notificationSchema");
+// const sendNotification = require("../common/sendNotification");
+// const uniqueIdGenerator = require("../common/uniqueIdGenerator");
+// const { encryptFunc } = require("../common/encryptDecrypt");
+
 const CryptoJS = require("crypto-js");
-const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
-
-const Txn = require("../models/txnSchema");
-const Otp = require("../models/otpSchema");
-const User = require("../models/userSchema");
-const Wallet = require("../models/walletSchema");
-const Matrix = require("../models/matrixSchema");
-const Service = require("../models/serviceSchema");
-const getIpAddress = require("../common/getIpAddress");
-
 const sendSMS = require("../common/sendSMS");
-const sendEmail = require("../common/sendEmail");
-const GiftCard = require("../models/giftCardSchema");
 const generateOTP = require("../common/generateOtp");
 const asyncHandler = require("express-async-handler");
 const successHandler = require("../common/successHandler");
-const Notification = require("../models/notificationSchema");
 const { profilePicResize } = require("../common/imageResize");
-const sendNotification = require("../common/sendNotification");
 const deletePreviousImage = require("../common/deletePreviousImage");
-const uniqueIdGenerator = require("../common/uniqueIdGenerator");
-const { encryptFunc } = require("../common/encryptDecrypt");
 
 // user profile
 const userProfile = asyncHandler(async (req, res) => {
@@ -327,6 +326,8 @@ const referList = asyncHandler(async (req, res) => {
 // });
 
 // user status update  --- by admin
+
+
 const statusUpdate = asyncHandler(async (req, res) => {
   const { userId, status } = req.body;
 
@@ -336,6 +337,7 @@ const statusUpdate = asyncHandler(async (req, res) => {
   // success respond
   successHandler(req, res, { Remarks: "status update success" });
 });
+
 // user serviceStatusUpdate  --- by admin
 const serviceStatusUpdate = asyncHandler(async (req, res) => {
   const { userId, service, serviceStatus } = req.body;

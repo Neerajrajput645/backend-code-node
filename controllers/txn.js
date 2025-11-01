@@ -1,7 +1,7 @@
 const Txn = require("../models/txnSchema");
 const asyncHandler = require("express-async-handler");
 const successHandler = require("../common/successHandler");
-const { encryptFunc } = require("../common/encryptDecrypt");
+// const { encryptFunc } = require("../common/encryptDecrypt");
 const Users = require("../models/userSchema");
 const { error } = require("winston");
 const { all } = require("axios");
