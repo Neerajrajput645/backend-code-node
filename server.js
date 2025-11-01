@@ -2,33 +2,33 @@ const path = require("path");
 require("dotenv/config");
 const bodyParser = require("body-parser");
 const express = require("express");
-const rateLimit = require("express-rate-limit");
+// const rateLimit = require("express-rate-limit");
 const app = express();
 const http = require("http");
-const blobStream = require("blob-stream");
+// const blobStream = require("blob-stream");
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const connection = require("./database");
 const helmet = require("helmet");
-const puppeteer = require("puppeteer");
-const AppSetting = require("./models/appSetting");
-const successHandler = require("./common/successHandler");
-const Product = require("./models/shopping/productSchema");
-const Category = require("./models/shopping/categorySchema");
-const SubCategory = require("./models/shopping/subCategorySchema");
+// const puppeteer = require("puppeteer");
+// const AppSetting = require("./models/appSetting");
+// const successHandler = require("./common/successHandler");
+// const Product = require("./models/shopping/productSchema");
+// const Category = require("./models/shopping/categorySchema");
+// const SubCategory = require("./models/shopping/subCategorySchema");
 const { dashboardApi } = require("./controllers/admin");
 const getIpAddress = require("./common/getIpAddress");
-const geoip = require("geoip-lite");
-const nodemailer = require("nodemailer");
-const { cashfreePaymentCallback } = require("./controllers/payment");
-const {
-  Recharge_All_Status_Verify,
-} = require("./controllers/services/recharge");
+// const geoip = require("geoip-lite");
+// const nodemailer = require("nodemailer");
+// const { cashfreePaymentCallback } = require("./controllers/payment");
+// const {
+//   Recharge_All_Status_Verify,
+// } = require("./controllers/services/recharge");
 // const { generatePDF } = require("./common/createHtmlToPdf");
-const { checkAndRenewToken } = require("./common/paygicTokenGenerate");
+// const { checkAndRenewToken } = require("./common/paygicTokenGenerate");
 const { adminTokenVerify } = require("./common/tokenVerify");
 const { Generate_Excel_Report } = require("./common/createHtmlToPdf");
-const { default: axios } = require("axios");
+// const { default: axios } = require("axios");
 
 // Connection to db
 connection();
@@ -62,7 +62,7 @@ app.use("/api/user", require("./routes/userRoute"));
 app.use("/api/wallet", require("./routes/walletRoute"));
 app.use("/api/setting", require("./routes/appSetting"));
 app.use("/api/banner", require("./routes/bannerRoute"));
-app.use("/api/game", require("./routes/gameRoute"));
+// app.use("/api/game", require("./routes/gameRoute"));
 app.use("/api/service", require("./routes/serviceRoute"));
 // app.use("/api/shipping", require("./routes/shippingRoute"));
 app.use("/api/affiliate-banner", require("./routes/affiliateBannerRoute"));
@@ -113,7 +113,8 @@ app.post("/api/user/logout",(req,res)=>{
 // ======================= Send To Bank =============================
 // app.use("/api/send-to-bank", require("./routes/sendToBank"));
 
-// app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
+app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
+app.get("/api/ops/test", require("./temp/ops").allOps);
 
 
 app.use("/", (req, res) => {

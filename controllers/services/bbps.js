@@ -39,6 +39,7 @@ const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
 // const CYRUS_PAYMENT_KEY = process.env.CYRUS_PAYMENT_KEY;
 
 const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
+  // console.log(req.query, "req.query");
   try {
     // Step 1: Extract Service ID from the request body
     const { serviceId } = req.query;
@@ -46,9 +47,10 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     // Step 2: Find the service by its ID
     const service = await Service.findById(serviceId);
     const response = await axios.get(
-      `https://api.billhub.in/reseller/bbps/operators/?token=${process.env.BILLHUB_TOKEN}`
+      `https://api.techember.in/app/bbps-operators.php`
     );
-    // console.log(response.data, "response")
+    // return response;
+    // successHandler
     let filteredOperators = response.data;
 
     if (service) {

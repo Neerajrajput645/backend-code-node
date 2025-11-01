@@ -1,10 +1,10 @@
-// const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
+const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
 // const Txn = require("../models/txnSchema");
-// const Otp = require("../models/otpSchema");
-// const User = require("../models/userSchema");
+const Otp = require("../models/otpSchema");
+const User = require("../models/userSchema");
 // const Wallet = require("../models/walletSchema");
 // const Matrix = require("../models/matrixSchema");
-// const Service = require("../models/serviceSchema");
+const Service = require("../models/serviceSchema");
 // const getIpAddress = require("../common/getIpAddress");
 // const sendEmail = require("../common/sendEmail");
 // const GiftCard = require("../models/giftCardSchema");

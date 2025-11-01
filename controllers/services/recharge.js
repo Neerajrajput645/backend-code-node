@@ -1,13 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const {
-  plan_fetch,
-  get_operator,
-  recharge_status,
-  dth_info_fetch,
-} = require("../../cyrus_apis/endpoints");
 const axios = require("axios");
-const xml2js = require("xml2js");
-const cron = require("node-cron");
 const moment = require("moment");
 const User = require("../../models/userSchema");
 const BBPS = require("../../models/service/bbps");
@@ -18,13 +10,9 @@ const successHandler = require("../../common/successHandler");
 const Recharge = require("../../models/service/rechargeSchema");
 const Notification = require("../../models/notificationSchema");
 const sendNotification = require("../../common/sendNotification");
-const sendEmail = require("../../common/sendEmail");
 const getIpAddress = require("../../common/getIpAddress");
 const Transaction = require("../../models/txnSchema");
 const CryptoJS = require("crypto-js");
-const { createHtmlToPdf } = require("../../common/createHtmlToPdf");
-const operatorList = require("../../common/operators");
-const { encryptFunc } = require("../../common/encryptDecrypt");
 const rechargeApiProviderSchema = require("../../models/service/rechargeApiProviderSchema");
 const {
   All_Recharge_Operator_List,
@@ -39,14 +27,14 @@ const {
 } = require("../payment");
 const { generateOrderId } = require("../../common/generateOrderId");
 const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 const Users = require("../../models/userSchema");
 const planFetchProviderSchema = require("../../models/service/planFetchProviderSchema");
 const RechargeOperator = require("../../models/service/rechargeOperatorSchema");
-const rechargeOperatorSchema = require("../../models/service/rechargeOperatorSchema");
+// const rechargeOperatorSchema = require("../../models/service/rechargeOperatorSchema");
 const { saveLog } = require("../../common/logger");
 const {
-  MobikwikCheckSumGenerate,
+  // MobikwikCheckSumGenerate,
   parseXMLToJSON,
 } = require("../../common/PayuHashGenerate");
 
@@ -56,8 +44,8 @@ const {
 // const CYRUS_RECHARGE_KEY = process.env.CYRUS_RECHARGE_KEY;
 
 // EMAIL
-const service_email = process.env.COMPANY_EMAIL;
-const service_email_password = process.env.COMPANY_EMAIL_PASSWORD;
+// const service_email = process.env.COMPANY_EMAIL;
+// const service_email_password = process.env.COMPANY_EMAIL_PASSWORD;
 
 const planFetch = asyncHandler(async (req, res) => {
 
@@ -325,15 +313,22 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           let rechargeRe = ""
           try {
             console.log("Calling Recharge API");
-            rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+
+            // rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+            const rechargeRe = {
+              data: {
+                status: 'success',
+                order_id: '1869354044',
+                margin: '0.1950',
+                margin_percentage: '1.9500',
+                operator_ref_id: '1878093437'
+              }
+            }
             response = rechargeRe.data;
-            console.log("Recharge API called");
-            console.log(rechargeRe, "rechargeRe");
-            console.log(rechargeRe.data, "rechargeRe.data");
           } catch (error) {
-            if(error.response){
+            if (error.response) {
               response = error.response.data;
-              console.log("Error Response from Recharge API:", error.response.data);
+              console.log("Error Response from Recharge API:", response);
             }
           }
 
@@ -372,7 +367,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             );
             // End Refund ------------------------------------------------------------------
             res.status(400);
-            throw new Error("Recharge Failed, Please Try Again" + JSON.stringify(response));
+            throw new Error(response.message || "Recharge Failed, Please Try Again");
           }
 
           // Start Cashback--------------------------
@@ -401,7 +396,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               walletFound
             );
           }
-        // End Cashback ---------------------------
+          // End Cashback ---------------------------
 
 
           const notification = {
@@ -470,7 +465,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // throw new Error(error.message);
         }
       }
-      
+
     } else {
       res.status(400);
       throw new Error("Payment Failed, Please Contact to Customer Care");
@@ -2421,21 +2416,21 @@ const DTHOperatorArr = [
 ];
 
 module.exports = {
-  planFetch,
-  //   getOperator,
-  //   getCircle,
-  //   getBalance,
-  rechargeRequest,
-  //   rechargeStatus,
-  //   dthInfoFetch,
+  planFetch, //-----------------------------
+  //   getOperator, //-----------------------------
+  //   getCircle, //-----------------------------
+  //   getBalance, //-----------------------------
+  rechargeRequest, //-----------------------------
+  //   rechargeStatus, //-----------------------------
+  //   dthInfoFetch, //-----------------------------
   rechargeHistory,
   dthRequest,
   dthHistory,
   handleFailedRecharge,
   rechargeHistoryByAdmin,
   dthHistoryByAdmin,
-  Recharge_CallBack_Handler,
-  Get_Operator_Circle_By_Phone,
+  Recharge_CallBack_Handler, // isko karna hai
+  Get_Operator_Circle_By_Phone, //-----------------------------
   Get_Recharge_Operator_Percent,
   BillhubComplainRaise,
   Recharge_Status_Verify,

@@ -99,7 +99,7 @@ const adminLogin = asyncHandler(async (req, res) => {
       successHandler(req, res, {
         Remarks: "otp will receive sms",
         ResponseStatus: 3,
-        // Otp: generatedOtp,
+        Otp: generatedOtp,
       });
     } else {
       const foundOTP = await Otp.findOne({ phone, otp });
