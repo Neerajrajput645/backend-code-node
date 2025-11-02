@@ -38,6 +38,14 @@ const {
   parseXMLToJSON,
 } = require("../../common/PayuHashGenerate");
 
+const crypto = require("crypto");
+
+const genTxnId = () => {
+  const randomPart = crypto.randomBytes(12).toString("hex"); // 24 hex characters  
+  return "TXNPP" + randomPart.slice(0, 17).toUpperCase(); // TXN + 17 = 20 total
+};
+
+
 // credentials
 // const CYRUS_MEMBER_ID = process.env.CYRUS_MEMBER_ID;
 // const CYRUS_PAYMENT_KEY = process.env.CYRUS_PAYMENT_KEY;
@@ -268,7 +276,6 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       ipAddress,
     };
 
-
     const res1 = await paywithWallet({ body });
 
     if (res1.ResponseStatus == 1) {
@@ -309,10 +316,10 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             circle: findCircle.planapi_circlecode,
           }
           let response;
-          console.log(bodyData, "bodyData");
+          // console.log(bodyData, "bodyData");
           let rechargeRe = ""
           try {
-            console.log("Calling Recharge API");
+            // console.log("Calling Recharge API");
 
             // rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
             const rechargeRe = {
@@ -325,10 +332,11 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               }
             }
             response = rechargeRe.data;
+            // console.log("wer")
           } catch (error) {
             if (error.response) {
               response = error.response.data;
-              console.log("Error Response from Recharge API:", response);
+              // console.log("Error Response from Recharge API:", response);
             }
           }
 
@@ -372,9 +380,11 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
           // Start Cashback--------------------------
           if (status == "success" && isPrepaid) {
+            console.log("Processing Cashback", findService._id);
             const findRechargeOperator = await RechargeOperator.findOne({
               serviceId: findService._id,
             });
+            console.log("1234", findRechargeOperator);
             if (!findRechargeOperator) {
               throw new Error("Recharge operator or operator data not found.");
             }
@@ -489,6 +499,142 @@ const rechargeStatus = asyncHandler(async (req, res) => {
   });
 });
 
+
+// -------------------------- DTH Recharge --------------------------
+
+const fetchDthPlans = asyncHandler(async (req, res) => {
+  try {
+    const operatorCode = req.query.operatorCode || 27;
+    const apimember_id = process.env.PLAN_API_USER_ID;
+    const api_password = process.env.PLAN_API_PASSWORD_hash;
+
+    const url = "https://planapi.in/api/Mobile/DthPlans";
+
+    const response = await axios.get(url, {
+      params: {
+        apimember_id,
+        api_password,
+        operatorcode: operatorCode,
+      },
+    });
+
+    const data = response.data;
+
+    // ✅ Safely extract base fields
+    const operator = data?.Operator || "Unknown";
+    const combos = data?.RDATA?.Combo || [];
+
+    // ✅ Flatten all plans
+    let plans = [];
+    for (const combo of combos) {
+      const language = combo.Language || "N/A";
+      for (const detail of combo.Details || []) {
+        const planName = detail.PlanName || "N/A";
+        const channels = detail.Channels || "N/A";
+        const hdChannels = detail.HdChannels || "N/A";
+        const paidChannels = detail.PaidChannels || "N/A";
+        const lastUpdate = detail.last_update || null;
+
+        for (const price of detail.PricingList || []) {
+          plans.push({
+            language,
+            planName,
+            channels,
+            paidChannels,
+            hdChannels,
+            lastUpdate,
+            amount: Number(price.Amount.replace(/[₹\s]/g, "")) || 0,
+            month: price.Month,
+          });
+        }
+      }
+    }
+
+    // ✅ Apply filters if provided
+    const { language, planName, month, price, priceOp } = req.query;
+
+    if (language) {
+      plans = plans.filter((p) =>
+        p.language.toLowerCase().includes(language.toLowerCase())
+      );
+    }
+
+    if (planName) {
+      plans = plans.filter((p) =>
+        p.planName.toLowerCase().includes(planName.toLowerCase())
+      );
+    }
+
+    if (month) {
+      plans = plans.filter((p) =>
+        p.month.toLowerCase().includes(month.toLowerCase())
+      );
+    }
+
+    if (price && priceOp) {
+      const priceValue = Number(price);
+      if (!isNaN(priceValue)) {
+        if (priceOp === "<") plans = plans.filter((p) => p.amount < priceValue);
+        else if (priceOp === ">")
+          plans = plans.filter((p) => p.amount > priceValue);
+        else if (priceOp === "=")
+          plans = plans.filter((p) => p.amount === priceValue);
+      }
+    }
+
+    // ✅ Structured response for frontend
+    const formattedResponse = {
+      Error: false,
+      Status: true,
+      ResponseStatus: 1,
+      Remarks: "DTH Plans fetched successfully",
+      Data: {
+        operator,
+        totalPlans: plans.length,
+        plans,
+      },
+    };
+
+    return successHandler(req, res, formattedResponse);
+  } catch (error) {
+    console.error("Error fetching DTH plans:", error.message);
+    throw new Error(error.message || "Unable to fetch DTH plans");
+  }
+});
+
+
+const fetchDthOperator = asyncHandler(async (req, res) => {
+  try {
+    const { dthNumber } = req.query;
+    if (!dthNumber) {
+      throw new Error("DTH number is required");
+    }
+
+    const params = {
+      apimember_id: process.env.PLAN_API_USER_ID,
+      api_password: process.env.PLAN_API_PASSWORD_hash,
+      dth_number: dthNumber,
+      // Opcode: 24, // Operator code for DTH - FOR MORE DETAILS
+      // mobile_no: dthNumber, - for more details
+    };
+
+    const url = "https://planapi.in/api/Mobile/DthOperatorFetch";
+    // const url = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
+
+    const { data } = await axios.get(url, { params });
+
+    return successHandler(req, res, {
+      Error: false,
+      Status: true,
+      Data: data,
+    });
+  } catch (error) {
+    // console.error("DTH Operator Fetch Error:", error.message);
+    throw new Error(error.message || "Unable to fetch DTH operator info");
+  }
+});
+
+
 const dthRequest = asyncHandler(async (req, res) => {
   const findService = await Service.findOne({ name: "DTH" });
   const ipAddress = getIpAddress(req);
@@ -496,6 +642,7 @@ const dthRequest = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("DTH Recharge Failed, Please Try Again Ex100");
   }
+
 
   const { _id, deviceToken } = req.data;
   const FindUser = await Users.findOne({ _id });
@@ -508,7 +655,8 @@ const dthRequest = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("DTH Recharge Failed, Please Try Again Ex150");
   }
-  const { number, operator, amount, transactionId, mPin } = req.query;
+  const { number, operator, amount, mPin } = req.query;
+  const transactionId = genTxnId();
   // let isPrepaid = req.query.isPrepaid === "true";
   if (Number(amount) <= 0) {
     res.status(400);
@@ -555,14 +703,23 @@ const dthRequest = asyncHandler(async (req, res) => {
       const findOperator = All_DTH_Recharge_Operator_List.find(
         (a) => a.Mobikwik_Operator_code == operator
       );
-      // const URL = `https://business.a1topup.com/recharge/api?username=${
-      //   process.env.A1_TOPUP_USERNAME
-      // }&pwd=123&circlecode=${null}&operatorcode=${operator}&number=${number}&amount=${amount}&orderid=${transactionId}&format=json`;
-      // console.log(process.env.BILLHUB_TOKEN, "process.env.BILLHUB_TOKEN");
-      const URL = `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN
-        }&op_uid=${findOperator.Billhub_Operator_code
-        }&order_id=${transactionId}&type=dth&number=${number}&amount=${amount}&circle=${null}`;
 
+      // console.log(findOperator, "findOperator");
+      // const URL = `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN
+      //   }&op_uid=${findOperator.Billhub_Operator_code
+      //   }&order_id=${transactionId}&type=dth&number=${number}&amount=${amount}&circle=${null}`;
+
+    const bodyData = {
+      token: process.env.BILLHUB_TOKEN || "OIKVa3GqDUrtoPefXBcjekd23",
+      number: number,
+      op_uid: findOperator.Billhub_Operator_code,
+      amount: amount,
+      order_id: transactionId,
+      type: "dth",
+      circle: "N/A",
+    };
+
+      const URL = `https://api.techember.in/app/recharges/main.php`;
       await saveLog(
         "DTH_RECHARGE",
         "https://api.billhub.in/reseller/recharge",
@@ -571,17 +728,30 @@ const dthRequest = asyncHandler(async (req, res) => {
         `Recharge initiated for TxnID: ${transactionId}`
       );
 
-      const rechargeRe = await axios.get(URL);
-
+      let rechargeRe;
+      let response;
+      // console.log("bodyData", bodyData);
+      try
+      {
+        // console.log("Calling Recharge API");
+        rechargeRe = await axios.post(URL, bodyData);
+      // throw new Error("Test Error");
+    console.log(response, "rechargeRe");
+    response = rechargeRe.response.data;
+      } catch (error) {
+        console.log("Error during Recharge API call:", error.response.data);
+        console.error("Recharge Error:", error.message);
+        throw new Error("Recharge failed");
+      }
       await saveLog(
         "DTH_RECHARGE",
         "https://api.billhub.in/reseller/recharge",
         URL, // or full request payload
-        rechargeRe.data,
-        `Recharge response received for TxnID: ${transactionId}, Status: ${rechargeRe.data.status}`
+        response,
+        `Recharge response received for TxnID: ${transactionId}, Status: ${response.status}`
       );
 
-      const status = rechargeRe.data.status?.toLowerCase();
+      const status = response.status?.toLowerCase();
       if (["failed", "error", "failure"].includes(status)) {
         // Start Refund-------------------------------------------------
         await handleRefund(
@@ -593,7 +763,7 @@ const dthRequest = asyncHandler(async (req, res) => {
         );
         // End Refund ------------------------------------------------------------------
         res.status(400);
-        throw new Error(rechargeRe.data.message || rechargeRe.data.opid);
+        throw new Error(response.message || "DTH Recharge Failed, Please Try Again");
       }
 
       const newRecharge = new DTH({
@@ -602,9 +772,9 @@ const dthRequest = asyncHandler(async (req, res) => {
         operator,
         amount,
         transactionId,
-        status: rechargeRe.data.status,
-        operatorRef: rechargeRe.data.operator_ref_id || 0,
-        apiTransID: rechargeRe.data.order_id || 0,
+        status: response.status || "pending",
+        operatorRef: response.operator_ref_id || 0,
+        apiTransID: response.order_id || 0,
         ipAddress,
         provider: "Billhub",
       });
@@ -612,8 +782,8 @@ const dthRequest = asyncHandler(async (req, res) => {
 
       if (["success", "pending", "accepted"].includes(status)) {
         const notification = {
-          title: `DTH Recharge ${rechargeRe.data.status}`,
-          body: `Your ₹${amount} DTH recharge is ${rechargeRe.data.status}`,
+          title: `DTH Recharge ${response.status}`,
+          body: `Your ₹${amount} DTH recharge is ${response.status}`,
         };
 
         const newNotification = new Notification({
@@ -669,8 +839,8 @@ const dthRequest = asyncHandler(async (req, res) => {
 
           // Success response
           successHandler(req, res, {
-            Remarks: rechargeRe?.data?.ErrorMessage,
-            Data: (rechargeRe.data),
+            Remarks: `Your DTH Recharge is ${response.status}`,
+            Data: (response),
           });
         }
       } else {
@@ -683,11 +853,11 @@ const dthRequest = asyncHandler(async (req, res) => {
       "DTH_RECHARGE",
       null,
       null, // or full request payload
-      error?.response?.data || error.message,
+      error?.response?.data || error.message || error?.response?.message,
       `Error during recharge for TxnID: ${transactionId}`
     );
     res.status(400);
-    throw new Error(error.message);
+    throw new Error(error?.message || error?.response?.message || "DTH Recharge Failed, Please Try Again Ex500");
   }
 });
 
@@ -741,7 +911,7 @@ const rechargeHistory = asyncHandler(async (req, res) => {
   // success handler
   successHandler(req, res, {
     Remarks: "User Recharge History",
-    Data: enryptFunc(hist),
+    Data: hist,
   });
 });
 
@@ -1495,6 +1665,7 @@ const handleFailedRecharge = asyncHandler(async (req, res) => {
 //   }
 // });
 
+
 const handleRechargeStatusUpdate = async (TransID, Status) => {
   await Recharge.findOneAndUpdate(
     {
@@ -1503,6 +1674,8 @@ const handleRechargeStatusUpdate = async (TransID, Status) => {
     { $set: { status: Status } }
   );
 };
+
+
 const handleBBPSStatusUpdate = async (TransID, Status) => {
   await BBPS.findOneAndUpdate(
     {
@@ -1511,6 +1684,8 @@ const handleBBPSStatusUpdate = async (TransID, Status) => {
     { $set: { status: Status } }
   );
 };
+
+
 const handleRechargeSendNotification = async (
   findTxn,
   findRecord,
@@ -1531,6 +1706,8 @@ const handleRechargeSendNotification = async (
   userFound.deviceToken &&
     sendNotification(notification, userFound.deviceToken);
 };
+
+
 const handleBBPSSendNotification = async (
   findTxn,
   findBBPSRecord,
@@ -1551,6 +1728,8 @@ const handleBBPSSendNotification = async (
   userFound.deviceToken &&
     sendNotification(notification, userFound.deviceToken);
 };
+
+
 const handleDTHStatusUpdate = async (TransID, Status) => {
   await DTH.findOneAndUpdate(
     {
@@ -1559,6 +1738,8 @@ const handleDTHStatusUpdate = async (TransID, Status) => {
     { $set: { status: Status } }
   );
 };
+
+
 const handleDTHSendNotification = async (
   findTxn,
   findDTHRecord,
@@ -1579,6 +1760,7 @@ const handleDTHSendNotification = async (
   userFound.deviceToken &&
     sendNotification(notification, userFound.deviceToken);
 };
+
 
 const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
   try {
@@ -1945,6 +2127,8 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+
+
 const Get_Recharge_Operator_Percent = asyncHandler(async (req, res) => {
   try {
     const findOperator = await RechargeOperator.findOne();
@@ -1958,172 +2142,64 @@ const Get_Recharge_Operator_Percent = asyncHandler(async (req, res) => {
 const Recharge_Status_Verify = asyncHandler(async (req, res) => {
   try {
     const { order_id } = req.query;
-    const provider = req.query.provider.toLowerCase();
-    if (provider == "billhub") {
-      try {
-        const URL = `https://api.billhub.in/reseller/status/?token=${process.env.BILLHUB_TOKEN}&order_id=${order_id}`;
+    try {
+      // const URL = `https://api.billhub.in/reseller/status/?token=${process.env.BILLHUB_TOKEN}&order_id=${order_id}`;
+      console.log("order id", order_id);
+      const URL = `https://api.techember.in/app/check-status.php?token=${process.env.BILLHUB_TOKEN}&order_id=${order_id}`;
+      await saveLog(
+        "MOBILE_RECHARGE_STATUS",
+        "https://api.techember.in/app/check-status.php",
+        URL, // or full request payload
+        null,
+        `Recharge Status initiated for TxnID: ${order_id}`
+      );
 
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          "https://api.billhub.in/reseller/status",
-          URL, // or full request payload
-          null,
-          `Recharge Status initiated for TxnID: ${order_id}`
-        );
+      const response = await axios.get(URL);
+      console.log("row response", response.data);
+      await saveLog(
+        "MOBILE_RECHARGE_STATUS",
+        "https://api.techember.in/app/check-status.php",
+        URL, // or full request payload
+        response.data,
+        `Recharge Status Response for TxnID: ${order_id}, Status : ${response.data.status}`
+      );
 
-        const response = await axios.get(URL);
-
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          "https://api.billhub.in/reseller/status",
-          URL, // or full request payload
-          response.data,
-          `Recharge Status Response for TxnID: ${order_id}, Status : ${response.data.status}`
-        );
-
-        if (!response.data || !response.data.status) {
-          res.status(400);
-          throw new Error("Failed to fetch status from billhub.");
-        }
-
-        const payload = {
-          order_id: order_id,
-          status: response.data.status,
-        };
-
-        const resP = await axios.post(
-          `https://production-api.google.info/api/wallet/callback`,
-          payload,
-          { headers: { "Content-Type": "application/json" } }
-        );
-        res.status(200).json({ message: resP.data });
-      } catch (error) {
-        if (
-          error.response &&
-          error.response.status === 404 &&
-          error.response.data.message == "Transaction does not exist"
-        ) {
-          const payload = {
-            order_id: order_id,
-            status: "failed",
-          };
-
-          const resP = await axios.post(
-            `https://production-api.google.info/api/wallet/callback`,
-            payload,
-            { headers: { "Content-Type": "application/json" } }
-          );
-          res.status(200).json({ message: resP.data });
-        } else {
-          res.status(400);
-          throw new Error(error.message);
-        }
+      if (!response.data || !response.data.status) {
+        res.status(400);
+        throw new Error("Failed to fetch status from billhub.");
       }
-    } else if (provider == "a1topup" || provider == "a1 topup") {
-      try {
-        const URL = `https://business.a1topup.com/recharge/status?username=${process.env.A1_TOPUP_USERNAME}&pwd=123&orderid=${order_id}&format=json`;
 
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          "https://business.a1topup.com/recharge/status",
-          URL, // or full request payload
-          null,
-          `Recharge Status initiated for TxnID: ${order_id}`
-        );
-        const response = await axios.get(URL);
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          "https://business.a1topup.com/recharge/status",
-          URL, // or full request payload
-          response.data,
-          `Recharge Status Response for TxnID: ${order_id}, Status : ${response.data.status}`
-        );
+      const payload = {
+        order_id: order_id,
+        status: response.data.status,
+      };
 
-        if (!response.data || !response.data.status) {
-          res.status(400);
-          throw new Error("Failed to fetch status from a1topup.");
-        }
-
+      const resP = await axios.post(
+        `https://api.new.techember.in/api/wallet/callback`,
+        payload,
+        { headers: { "Content-Type": "application/json" } }
+      );
+      res.status(200).json({ message: resP.data });
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status === 404 &&
+        error.response.data.message == "Transaction does not exist"
+      ) {
         const payload = {
           order_id: order_id,
-          status: response.data.status?.toLowerCase(),
+          status: "failed",
         };
 
         const resP = await axios.post(
-          `https://production-api.google.info/api/wallet/callback`,
+          `https://api.new.techember.in/api/wallet/callback`,
           payload,
           { headers: { "Content-Type": "application/json" } }
         );
         res.status(200).json({ message: resP.data });
-      } catch (error) {
+      } else {
         res.status(400);
         throw new Error(error.message);
-      }
-    } else if (provider == "mobikwik") {
-      try {
-        const URL = `https://${process.env.MOBIKWIK_HOSTNAME}/rechargeStatus.do?uid=${process.env.MOBIKWIK_UID}&pwd=${process.env.MOBIKWIK_PASSWORD}&txId=${order_id}`;
-
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          `https://${process.env.MOBIKWIK_HOSTNAME}/rechargeStatus.do`,
-          URL, // or full request payload
-          null,
-          `Recharge Status initiated for TxnID: ${order_id}`
-        );
-
-        const Mobiresponse = await axios.get(URL);
-
-        const response = await parseXMLToJSON(Mobiresponse.data, "txStatus");
-        // console.log(response, "response");
-
-        await saveLog(
-          "MOBILE_RECHARGE_STATUS",
-          `https://${process.env.MOBIKWIK_HOSTNAME}/rechargeStatus.do`,
-          URL, // or full request payload
-          response,
-          `Recharge Status Response for TxnID: ${order_id}, Status : ${response.status}`
-        );
-
-        if (!response || !response.status) {
-          res.status(400);
-          throw new Error("Failed to fetch status from Mobikwik.");
-        }
-
-        const payload = {
-          order_id: order_id,
-          status:
-            response.status == "RECHARGESUCCESSPENDING"
-              ? "pending"
-              : response.status.toLowerCase(),
-        };
-
-        const resP = await axios.post(
-          `https://production-api.google.info/api/wallet/callback`,
-          payload,
-          { headers: { "Content-Type": "application/json" } }
-        );
-        res.status(200).json({ message: resP.data });
-      } catch (error) {
-        if (
-          error.response &&
-          error.response.status === 404 &&
-          error.response.data.message == "Transaction does not exist"
-        ) {
-          const payload = {
-            order_id: order_id,
-            status: "failed",
-          };
-
-          const resP = await axios.post(
-            `https://production-api.google.info/api/wallet/callback`,
-            payload,
-            { headers: { "Content-Type": "application/json" } }
-          );
-          res.status(200).json({ message: resP.data });
-        } else {
-          res.status(400);
-          throw new Error(error.message);
-        }
       }
     }
   } catch (error) {
@@ -2423,6 +2499,8 @@ module.exports = {
   rechargeRequest, //-----------------------------
   //   rechargeStatus, //-----------------------------
   //   dthInfoFetch, //-----------------------------
+  fetchDthPlans,
+  fetchDthOperator,
   rechargeHistory,
   dthRequest,
   dthHistory,

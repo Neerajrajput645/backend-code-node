@@ -831,3 +831,55 @@ Proj: {}
 2025-11-01T12:42:10.969Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, service is not defined
 2025-11-01T12:42:25.588Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, service is not defined
 2025-11-01T12:43:05.747Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, service is not defined
+2025-11-01T15:57:50.652Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge operator or operator data not found.
+2025-11-01T16:01:56.653Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge operator or operator data not found.
+2025-11-01T16:24:36.764Z [error]: userid: undefined, name: undefined undefined, phone: undefined, getaddrinfo ENOTFOUND production-api.google.info
+2025-11-01T16:25:32.929Z [error]: userid: undefined, name: undefined undefined, phone: undefined, getaddrinfo ENOTFOUND production-api.google.info
+2025-11-01T16:26:00.747Z [error]: userid: undefined, name: undefined undefined, phone: undefined, getaddrinfo ENOTFOUND production-api.google.info
+2025-11-01T16:26:22.550Z [error]: userid: undefined, name: undefined undefined, phone: undefined, getaddrinfo ENOTFOUND production-api.google.info
+2025-11-01T16:27:18.827Z [error]: userid: undefined, name: undefined undefined, phone: undefined, getaddrinfo ENOTFOUND production-api.google.info
+2025-11-01T17:49:56.432Z [error]: userid: undefined, name: undefined undefined, phone: undefined, Request failed with status code 400
+2025-11-01T20:11:43.907Z [error]: DTH number is required
+2025-11-02T02:59:12.793Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unknown encoding: base36
+2025-11-02T02:59:42.671Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, randomPart.slice(...).toUpperCase is not a function
+2025-11-02T03:00:10.173Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, IP address '106.51.105.23' is not whitelisted for the provided token.
+2025-11-02T03:11:02.015Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:12:53.244Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:12:54.954Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:17:49.462Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'Billhub_Operator_code')
+2025-11-02T03:19:10.730Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:22:07.366Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:23:00.902Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:23:56.023Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:24:21.641Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T03:25:43.372Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T03:26:32.666Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
+2025-11-02T03:29:01.929Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T03:30:08.582Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T03:30:58.371Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:52:11.291Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:52:47.175Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:53:12.409Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:54:09.215Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:54:48.506Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:55:19.986Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T04:55:39.992Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Test Error
+2025-11-02T04:56:18.439Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T05:00:20.894Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-02T05:00:54.482Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T05:03:15.196Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
+2025-11-02T05:03:47.331Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T05:04:26.331Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T05:06:50.485Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge failed
+2025-11-02T07:40:33.333Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'name')
+2025-11-02T07:41:53.770Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'toString')
+2025-11-02T07:47:54.130Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'name')
+2025-11-02T07:48:59.413Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:49:26.735Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:52:20.486Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:52:47.077Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:53:08.141Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:53:24.614Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:55:56.182Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T07:56:14.174Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, filteredOperators.find is not a function
+2025-11-02T08:24:15.225Z [error]: DTH number is required

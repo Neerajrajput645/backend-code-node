@@ -6,6 +6,7 @@ const {
   rechargeRequest,
   //   rechargeStatus,
   //   dthInfoFetch,
+  fetchDthPlans,
   rechargeHistory,
   dthRequest,
   dthHistory,
@@ -17,6 +18,7 @@ const {
   Get_Recharge_Operator_Percent,
   BillhubComplainRaise,
   Recharge_Status_Verify,
+  fetchDthOperator,
   Recharge_All_Status_Verify,
   Update_Recharge_Commission,
 } = require("../../controllers/services/recharge");
@@ -41,6 +43,8 @@ router.get("/plan_fetch", tokenVerify, planFetch);
 // router.get("/get_balance", tokenVerify, getBalance);
 router.get("/dth_request", tokenVerify, dthRequest);
 router.get("/dth_history", tokenVerify, dthHistory);
+router.get("/fetch_dth_plans", fetchDthPlans);
+router.get("/fetch_dth_operator", fetchDthOperator);
 // router.get("/get_operator", tokenVerify, getOperator);
 // router.get("/dth_info_fetch", tokenVerify, dthInfoFetch);
 // router.get("/recharge_status", tokenVerify, rechargeStatus);

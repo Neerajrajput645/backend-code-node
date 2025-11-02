@@ -39,81 +39,100 @@ const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
 // const CYRUS_PAYMENT_KEY = process.env.CYRUS_PAYMENT_KEY;
 
 const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
-  // console.log(req.query, "req.query");
   try {
-    // Step 1: Extract Service ID from the request body
     const { serviceId } = req.query;
 
-    // Step 2: Find the service by its ID
-    const service = await Service.findById(serviceId);
-    const response = await axios.get(
-      `https://api.techember.in/app/bbps-operators.php`
-    );
-    // return response;
-    // successHandler
-    let filteredOperators = response.data;
-
-    if (service) {
-      const findBillhubCategory = BBPS_CATEGORY_ARRAY.find(
-        (a) => a.bbps_category == service.name
-      );
-      filteredOperators = filteredOperators.find(
-        (operator) =>
-          operator.categoryId == findBillhubCategory.billhub_category
-      );
+    if (!serviceId) {
+      return errorHandler(req, res, "Service ID is required", 400);
     }
+
+    // Step 1: Find the service
+    const service = await Service.findById(serviceId);
+    if (!service) {
+      return errorHandler(req, res, "Service not found", 404);
+    }
+
+    console.log("step-1", service.name);
+
+    // Step 2: Fetch all operators
+    const response = await axios.get("https://api.techember.in/app/bbps-operators.php");
+    if (response.data.status !== "success" || !Array.isArray(response.data.data)) {
+      return errorHandler(req, res, "Invalid operator data format from API", 500);
+    }
+
+    const allOperators = response.data.data;
+
+    // Step 3: Match our service to BBPS category
+    const findBillhubCategory = BBPS_CATEGORY_ARRAY.find(
+      (a) => a.bbps_category.toLowerCase() === service.name.toLowerCase()
+    );
+
+    if (!findBillhubCategory) {
+      return errorHandler(req, res, `No BBPS category found for ${service.name}`, 404);
+    }
+
+    // console.log("step-2", findBillhubCategory.billhub_category);
+
+    // Step 4: Filter operators by matched category
+    const filteredOperators = allOperators.find(
+      (op) => op.categoryId.toLowerCase() === findBillhubCategory.billhub_category.toLowerCase()
+    );
+
+    if (!filteredOperators || !filteredOperators.providerRoot) {
+      return errorHandler(req, res, `No operators found for ${service.name}`, 404);
+    }
+
+    // console.log("step-3 categoryId:", filteredOperators.categoryId);
+
+    // Step 5: Format provider list
     let DATA_ARRAY = [];
 
-    if (service.name != "Fastag") {
-      filteredOperators.providerRoot.map((item) => {
-        let RESPONSE_DATA_OBJ = {
-          // Naya object har iteration me
-          categoryId: filteredOperators.categoryId, // categoryId yahan add kiya gaya hai
-          op_id: item.billers[0].op,
-          operator_name: item.name,
-          regex: item.billers[0].fields[0].regex,
-          displayname: item.billers[0].fields[0].name,
-          icon: item.billers[0].icon,
-          ad: "",
-        };
-        DATA_ARRAY.push(RESPONSE_DATA_OBJ);
+    if (service.name.toLowerCase() !== "fastag") {
+      filteredOperators.providerRoot.forEach((item) => {
+        if (item?.billers?.length) {
+          const biller = item.billers[0];
+          DATA_ARRAY.push({
+            categoryId: filteredOperators.categoryId,
+            op_id: biller.op,
+            operator_name: item.name,
+            regex: biller.fields?.[0]?.regex || "",
+            displayname: biller.fields?.[0]?.name || "",
+            icon: biller.icon || "",
+            ad: "",
+          });
+        }
       });
     } else {
-      filteredOperators.providerRoot.map((item) => {
-        item.providers.map((a) => {
-          let RESPONSE_DATA_OBJ = {
-            // Naya object har provider ke liye
-            categoryId: filteredOperators.categoryId, // categoryId yahan add kiya gaya hai
-            op_id: item.billers[0].op,
-            operator_name: a.operator_name,
-            regex: a.regex,
-            displayname: a.name,
-            icon: a.icon,
-            ad: a.ad1,
-          };
-          DATA_ARRAY.push(RESPONSE_DATA_OBJ);
-        });
+      // Fastag structure
+      filteredOperators.providerRoot.forEach((item) => {
+        if (Array.isArray(item.providers)) {
+          item.providers.forEach((provider) => {
+            const biller = item.billers?.[0];
+            DATA_ARRAY.push({
+              categoryId: filteredOperators.categoryId,
+              op_id: biller?.op || "",
+              operator_name: provider.operator_name,
+              regex: provider.regex,
+              displayname: provider.name,
+              icon: provider.icon || "",
+              ad: provider.ad1 || "",
+            });
+          });
+        }
       });
     }
 
-    successHandler(req, res, {
-      Remarks: response.data.message,
+    // Step 6: Return the result
+    return successHandler(req, res, {
+      Remarks: "Operator list fetched successfully",
       Data: DATA_ARRAY,
     });
-
-    // Step 4: Fetch operators using the service name and category
-
-    // Step 5: Filter operators based on category and service name
-
-    // Optionally, you can also filter operators based on service name (if needed)
-    // filteredOperators = filteredOperators.filter(operator => operator.name === serviceName);
-
-    // Step 6: Return the filtered operators
   } catch (error) {
-    res.status(400);
-    throw new Error(error.message);
+    console.error("BBPS_OPERATOR_LIST_FETCH Error:", error.message);
+    return errorHandler(req, res, error.message, 500);
   }
 });
+
 
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   const { number, operator } = req.body;

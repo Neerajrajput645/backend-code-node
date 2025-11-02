@@ -114,7 +114,7 @@ app.post("/api/user/logout",(req,res)=>{
 // app.use("/api/send-to-bank", require("./routes/sendToBank"));
 
 app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
-app.get("/api/ops/test", require("./temp/ops").allOps);
+// app.get("/api/ops/test", require("./temp/ops").allOps);
 
 
 app.use("/", (req, res) => {

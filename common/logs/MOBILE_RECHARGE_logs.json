@@ -353,5 +353,131 @@
     "Request_Data": null,
     "Response_Data": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
     "Additional_Info": "Error during recharge for TxnID: 4381182826"
+  },
+  {
+    "LogTime": "2025-11-01T15:57:50.069Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 1,
+      "order_id": "6814486113",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6814486113, Status:success"
+  },
+  {
+    "LogTime": "2025-11-01T15:57:50.519Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Recharge operator or operator data not found.",
+    "Additional_Info": "Error during recharge for TxnID: 6814486113"
+  },
+  {
+    "LogTime": "2025-11-01T16:01:56.506Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 1,
+      "order_id": "1556658069",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 1556658069, Status:success"
+  },
+  {
+    "LogTime": "2025-11-01T16:01:56.619Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Recharge operator or operator data not found.",
+    "Additional_Info": "Error during recharge for TxnID: 1556658069"
+  },
+  {
+    "LogTime": "2025-11-01T16:12:29.300Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 1,
+      "order_id": "4905635011",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 4905635011, Status:success"
+  },
+  {
+    "LogTime": "2025-11-01T16:12:49.334Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 1,
+      "order_id": "6912123094",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6912123094, Status:success"
+  },
+  {
+    "LogTime": "2025-11-01T16:22:53.733Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 1,
+      "order_id": "7352288974",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 7352288974, Status:success"
   }
 ]
