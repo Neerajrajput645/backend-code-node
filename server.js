@@ -117,9 +117,9 @@ app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
 // app.get("/api/ops/test", require("./temp/ops").allOps);
 
 
-app.use("/", (req, res) => {
-  res.send("<h1 style='text-align: center; color:blue; margin-top: 50px;'>Welcome to PinPay API</h1>");
-});
+// app.use("/", (req, res) => {
+//   res.send("<h1 style='text-align: center; color:blue; margin-top: 50px;'>Welcome to PinPay API</h1>");
+// });
 // ------------------ Universal Search Api End --------------- //
 
 // error handler

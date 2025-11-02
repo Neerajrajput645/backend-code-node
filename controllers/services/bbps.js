@@ -43,13 +43,13 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     const { serviceId } = req.query;
 
     if (!serviceId) {
-      return errorHandler(req, res, "Service ID is required", 400);
+      throw new Error("Please provide serviceId");
     }
 
     // Step 1: Find the service
     const service = await Service.findById(serviceId);
     if (!service) {
-      return errorHandler(req, res, "Service not found", 404);
+      throw new Error("Service not found");
     }
 
     console.log("step-1", service.name);
@@ -57,7 +57,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     // Step 2: Fetch all operators
     const response = await axios.get("https://api.techember.in/app/bbps-operators.php");
     if (response.data.status !== "success" || !Array.isArray(response.data.data)) {
-      return errorHandler(req, res, "Invalid operator data format from API", 500);
+      throw new Error("Invalid operator data format from API");
     }
 
     const allOperators = response.data.data;
@@ -68,7 +68,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     );
 
     if (!findBillhubCategory) {
-      return errorHandler(req, res, `No BBPS category found for ${service.name}`, 404);
+      throw new Error(`No BBPS category found for ${service.name}`);
     }
 
     // console.log("step-2", findBillhubCategory.billhub_category);
@@ -79,7 +79,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     );
 
     if (!filteredOperators || !filteredOperators.providerRoot) {
-      return errorHandler(req, res, `No operators found for ${service.name}`, 404);
+      throw new Error(`No operators found for ${service.name}`);
     }
 
     // console.log("step-3 categoryId:", filteredOperators.categoryId);
@@ -129,7 +129,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.error("BBPS_OPERATOR_LIST_FETCH Error:", error.message);
-    return errorHandler(req, res, error.message, 500);
+    throw new Error(error.message || "Error fetching BBPS operator list");
   }
 });
 
