@@ -479,5 +479,95 @@
       "operator_ref_id": "1878093437"
     },
     "Additional_Info": "Recharge response received for TxnID: 7352288974, Status:success"
+  },
+  {
+    "LogTime": "2025-11-02T17:37:12.278Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "3191537758",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 3191537758, Status:success"
+  },
+  {
+    "LogTime": "2025-11-02T17:37:42.527Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "6222114985",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6222114985, Status:success"
+  },
+  {
+    "LogTime": "2025-11-02T17:38:21.933Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "0166622541",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 0166622541, Status:No Response"
+  },
+  {
+    "LogTime": "2025-11-02T17:38:22.003Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Recharge validation failed: status: Path `status` is required.",
+    "Additional_Info": "Error during recharge for TxnID: 0166622541"
+  },
+  {
+    "LogTime": "2025-11-02T17:38:49.910Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "2933756769",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 2933756769, Status:No Response"
+  },
+  {
+    "LogTime": "2025-11-02T17:38:50.110Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Recharge validation failed: status: Path `status` is required.",
+    "Additional_Info": "Error during recharge for TxnID: 2933756769"
   }
 ]

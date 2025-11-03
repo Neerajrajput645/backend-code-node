@@ -11,5 +11,39 @@
     },
     "Response_Data": null,
     "Additional_Info": "Bill_Fetch Request initiated, Number : N2370012953"
+  },
+  {
+    "LogTime": "2025-11-03T02:40:06.049Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "http://planapi.in/api/Mobile/BillCheck?apimember_id=6340&api_password=Aadyapay@123%23&Accountno=PD03GWB4548&operator_code=65",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": "65"
+    },
+    "Response_Data": {
+      "ERROR": "0",
+      "STATUS": "3",
+      "BILLDEATILS": null,
+      "ORDERID": null,
+      "MESSAGE": "Operator Site Not Bill Fetch"
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-03T02:44:38.627Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "http://planapi.in/api/Mobile/BillCheck?apimember_id=6340&api_password=Aadyapay@123%23&Accountno=PD03GWB4548&operator_code=65",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": "65"
+    },
+    "Response_Data": {
+      "ERROR": "0",
+      "STATUS": "3",
+      "BILLDEATILS": null,
+      "ORDERID": null,
+      "MESSAGE": "Operator Site Not Bill Fetch"
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
   }
 ]

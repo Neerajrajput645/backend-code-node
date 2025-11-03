@@ -331,6 +331,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
                 operator_ref_id: '1878093437'
               }
             }
+            // throw new Error("Test Error");
             response = rechargeRe.data;
             // console.log("wer")
           } catch (error) {
@@ -1764,6 +1765,14 @@ const handleDTHSendNotification = async (
 
 const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
   try {
+    console.log("-----------------------------")
+    console.log("Recharge Callback Handler Invoked");
+    console.log("Request Method:", req.method);
+    console.log("Request Body:", req.body);
+    console.log("Request Query:", req.query);
+    console.log("Headers:", req.headers);
+    console.log("Params:", req.params);
+    console.log("-----------------------------")
     let Status;
     let TransID;
 
@@ -1816,11 +1825,8 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
       ) {
         await saveLog(
           `MOBILE_RECHARGE`,
-          `${findRecord.provider == "Billhub"
-            ? "https://api.billhub.in/reseller/recharge"
-            : "https://business.a1topup.com/recharge/api"
-          }`,
-          "https://google.com/api/wallet/callback", // or full request payload
+          "https://api.techemall.in/reseller/recharge",
+          "https://google.com/api/wallet/callback", 
           req.body || req.query,
           `Recharge Callback Status Update : ${Status} for TxnID: ${TransID}`
         );
@@ -1857,7 +1863,7 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
         await saveLog(
           `MOBILE_RECHARGE`,
           `${findRecord.provider == "Billhub"
-            ? "https://api.billhub.in/reseller/recharge"
+            ? "https://api.techember.in/reseller/recharge"
             : "https://business.a1topup.com/recharge/api"
           }`,
           "https://production-api.google.info/api/wallet/callback", // or full request payload

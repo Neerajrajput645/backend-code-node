@@ -1,1 +1,15 @@
 2025-11-02T14:28:20.113Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Please provide serviceId
+2025-11-02T16:45:38.622Z [error]: Unable to fetch bill payment
+2025-11-02T16:45:59.550Z [error]: Unable to fetch bill payment
+2025-11-02T16:50:00.519Z [error]: Unable to fetch bill payment
+2025-11-02T17:36:43.341Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
+2025-11-02T17:37:20.306Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
+2025-11-02T17:38:22.036Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge validation failed: status: Path `status` is required.
+2025-11-02T17:38:50.147Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge validation failed: status: Path `status` is required.
+2025-11-03T02:34:03.690Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'Optional1')
+2025-11-03T02:34:30.533Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-03T02:34:58.254Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-03T02:36:00.631Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-03T02:36:17.470Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-11-03T02:38:05.255Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, 
+2025-11-03T02:38:31.464Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, 

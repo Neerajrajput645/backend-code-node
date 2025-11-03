@@ -86,6 +86,7 @@ app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
 app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
 // app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
 app.use("/api/faq", require("./routes/newRoutes/faq"));
+app.post("/api/fetch-bill-payment", require("./temp/tmp").fetchBillPayment);
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));
 // ======================== service provider ==============================

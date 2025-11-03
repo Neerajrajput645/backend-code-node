@@ -135,85 +135,52 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 
 
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
-  const { number, operator } = req.body;
-
-  // Mobikwik
-
-  // const options = {
-  //   cn: number,
-  //   op: operator,
-  //   uid: process.env.MOBIKWIK_UID,
-  //   pswd: process.env.MOBIKWIK_PASSWORD,
-  //   cir: 0,
-  //   adParams: {},
-  // };
-  // console.log(options, "options");
-  // try {
-  //   const URL = `https://alpha3.mobikwik.com/retailer/v2/retailerViewbill`;
-  //   await saveLog(
-  //     "BILL_FETCH",
-  //     URL,
-  //     options, // or full request payload
-  //     null,
-  //     `Bill_Fetch Request initiated, Number : ${options.cn}`
-  //   );
-  //   const response = await axios.post(URL, options, {
-  //     headers: {
-  //       "X-MClient": "14",
-  //     },
-  //   });
-  //   await saveLog(
-  //     "BILL_FETCH",
-  //     URL,
-  //     options, // or full request payload
-  //     response.data,
-  //     `Bill_Fetch Response Number : ${options.cn}`
-  //   );
-
-  //   successHandler(req, res, {
-  //     Remarks: response.data.message,
-  //     Data: response.data,
-  //   });
-  // } catch (error) {
-  //   res.status(400);
-  //   throw new Error(error.message);
-  // }
-
-  const options = {
-    number,
-    operator,
-    token: process.env.BILLHUB_TOKEN,
-    ad1: req.body.ad1 || "",
-  };
-
   try {
-    const URL = `https://api.billhub.in/reseller/bbps/bill-fetch/`;
-    await saveLog(
-      "BILL_FETCH",
-      URL,
-      options, // or full request payload
-      null,
-      `Bill_Fetch Request initiated, Number : ${options.number}`
-    );
-    const response = await axios.post(URL, options);
+    const { number, operator, optional1, optional2, optional3 } = req.body;
+
+    if (!number || !operator) {
+      return errorHandler(req, res, "Number and operator are required", 400);
+    }
+
+    const apiMemberId = process.env.PLAN_API_USER_ID;
+    const apiPassword = process.env.PLAN_API_PASSWORD;
+
+    // Construct URL with optional params only if present
+    let url = `http://planapi.in/api/Mobile/BillCheck?apimember_id=${apiMemberId}&api_password=${apiPassword}&Accountno=${number}&operator_code=${operator}`;
+    
+    if (optional1) url += `&Optional1=${optional1}`;
+    if (optional2) url += `&Optional2=${optional2}`;
+    if (optional3) url += `&Optional3=${optional3}`;
+
+    const response = await axios.get(url);
 
     await saveLog(
       "BILL_FETCH",
-      URL,
-      options, // or full request payload
+      url,
+      { number, operator, optional1, optional2, optional3 },
       response.data,
-      `Bill_Fetch Response Number : ${options.number}`
+      `Bill_Fetch Response Number: ${number}`
     );
 
-    successHandler(req, res, {
-      Remarks: response.data.message,
+    return successHandler(req, res, {
+      Remarks: response.data.message || "Bill info fetched successfully",
       Data: response.data,
     });
   } catch (error) {
-    res.status(400);
-    throw new Error(error.response.data.message);
+    console.error("Bill Fetch Error:", error.response?.data || error.message);
+
+    await saveLog(
+      "BILL_FETCH_ERROR",
+      req.originalUrl,
+      req.body,
+      error.response?.data || error.message,
+      "Bill fetch failed"
+    );
+
+    throw new Error(error.message || "Error fetching bill information");
   }
 });
+
 
 const BILL_PAYMENT = asyncHandler(async (req, res) => {
   try {
