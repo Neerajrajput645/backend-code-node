@@ -433,5 +433,159 @@
     "Request_Data": null,
     "Response_Data": "Recharge failed",
     "Additional_Info": "Error during recharge for TxnID: TXNPPC26357EB08110CBB1"
+  },
+  {
+    "LogTime": "2025-11-04T17:53:35.815Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.billhub.in/reseller/recharge",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP77859F2BBFA126F96"
+  },
+  {
+    "LogTime": "2025-11-04T17:53:37.129Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'data')",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP77859F2BBFA126F96"
+  },
+  {
+    "LogTime": "2025-11-04T17:54:21.726Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.billhub.in/reseller/recharge",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPEBFEB645F2EE3EBEF"
+  },
+  {
+    "LogTime": "2025-11-04T17:54:22.334Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'data')",
+    "Additional_Info": "Error during recharge for TxnID: TXNPPEBFEB645F2EE3EBEF"
+  },
+  {
+    "LogTime": "2025-11-04T17:54:36.641Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.billhub.in/reseller/recharge",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPD3726CAA32E6DE77D"
+  },
+  {
+    "LogTime": "2025-11-04T17:54:37.265Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'data')",
+    "Additional_Info": "Error during recharge for TxnID: TXNPPD3726CAA32E6DE77D"
+  },
+  {
+    "LogTime": "2025-11-04T17:55:10.613Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.billhub.in/reseller/recharge",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP72313AB4F6F480710"
+  },
+  {
+    "LogTime": "2025-11-04T17:55:11.243Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'data')",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP72313AB4F6F480710"
+  },
+  {
+    "LogTime": "2025-11-04T18:04:53.242Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPAFEAB17EF18A69005"
+  },
+  {
+    "LogTime": "2025-11-04T18:04:54.137Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "TXNPPAFEAB17EF18A69005",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPPAFEAB17EF18A69005, Status: failed"
+  },
+  {
+    "LogTime": "2025-11-04T18:04:54.283Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "",
+    "Additional_Info": "Error during recharge for TxnID: TXNPPAFEAB17EF18A69005"
+  },
+  {
+    "LogTime": "2025-11-04T18:05:52.342Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP1E4BB6244F667C293"
+  },
+  {
+    "LogTime": "2025-11-04T18:05:53.017Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "TXNPP1E4BB6244F667C293",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPP1E4BB6244F667C293, Status: failed"
+  },
+  {
+    "LogTime": "2025-11-04T18:05:53.152Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP1E4BB6244F667C293"
+  },
+  {
+    "LogTime": "2025-11-04T18:06:51.370Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP24C346293FBA0B514"
+  },
+  {
+    "LogTime": "2025-11-04T18:06:52.337Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": "https://api.techember.in/app/recharges/main.php",
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "TXNPP24C346293FBA0B514",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPP24C346293FBA0B514, Status: failed"
+  },
+  {
+    "LogTime": "2025-11-04T18:06:52.462Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP24C346293FBA0B514"
   }
 ]

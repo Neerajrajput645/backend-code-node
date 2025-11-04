@@ -59,7 +59,7 @@ app.use("/api/ip-address", require("./routes/ipRoute"));  // ip address CRUD
 
 app.use("/api/user", require("./routes/userRoute"));
 // app.use("/api/bank", require("./routes/bankRoute"));
-app.use("/api/wallet", require("./routes/walletRoute"));
+app.use("/api/webhook", require("./routes/walletRoute"));
 app.use("/api/setting", require("./routes/appSetting"));
 app.use("/api/banner", require("./routes/bannerRoute"));
 // app.use("/api/game", require("./routes/gameRoute"));

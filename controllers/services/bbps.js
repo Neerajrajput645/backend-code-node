@@ -136,6 +136,22 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
+    successHandler(req, res, {
+      Remarks: "Bill fetch just for testing", data: {
+        "ERROR": "0",
+        "STATUS": "1",
+        "BILLDEATILS": {
+          "Name": "Sheela Devi WO Sh.",
+          "DueAmount": "708.00",
+          "DueDate": "2024-01-11",
+          "BillNumber": null,
+          "BillDate": "2024-01-01",
+          "Balance": "0"
+        },
+        "ORDERID": null,
+        "MESSAGE": "Bill Fetch Processed"
+      }
+    });
     const { number, operator, optional1, optional2, optional3 } = req.body;
 
     if (!number || !operator) {
@@ -147,7 +163,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
 
     // Construct URL with optional params only if present
     let url = `http://planapi.in/api/Mobile/BillCheck?apimember_id=${apiMemberId}&api_password=${apiPassword}&Accountno=${number}&operator_code=${operator}`;
-    
+
     if (optional1) url += `&Optional1=${optional1}`;
     if (optional2) url += `&Optional2=${optional2}`;
     if (optional3) url += `&Optional3=${optional3}`;
@@ -202,9 +218,8 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
     if (!findService?.status) {
       res.status(400).json({
         ResponseStatus: 0,
-        message: `${
-          findService ? findService.name : "Service"
-        } is Temporarily Down`,
+        message: `${findService ? findService.name : "Service"
+          } is Temporarily Down`,
       });
       return;
     }
@@ -285,8 +300,8 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           token: process.env.BILLHUB_TOKEN,
           additional_params: req.body.ad1
             ? {
-                ad1: req.body.ad1,
-              }
+              ad1: req.body.ad1,
+            }
             : {},
         };
 
@@ -878,7 +893,7 @@ const billPaymentHistory = asyncHandler(async (req, res) => {
     // Success response
     successHandler(req, res, {
       Remarks: "User Bill Payment History",
-      Data:(hist),
+      Data: (hist),
     });
   } catch (error) {
     res.status(500).json({
