@@ -1,0 +1,30 @@
+[
+  {
+    "LogTime": "2025-11-04T18:15:09.894Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": "65"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Please enter numeric BP Number"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-04T18:15:57.769Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": "65"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Please enter numeric BP Number"
+    },
+    "Additional_Info": "Bill fetch failed"
+  }
+]

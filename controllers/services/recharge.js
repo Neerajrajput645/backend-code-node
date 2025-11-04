@@ -41,8 +41,9 @@ const {
 const crypto = require("crypto");
 
 const genTxnId = () => {
-  const randomPart = crypto.randomBytes(12).toString("hex"); // 24 hex characters  
-  return "TXNPP" + randomPart.slice(0, 17).toUpperCase(); // TXN + 17 = 20 total
+  // Generate an 8-digit unique ID
+  const randomPart = crypto.randomBytes(4).toString("hex"); // 8 hex characters
+  return "TXNPP" + randomPart.slice(0, 8).toUpperCase(); // TXN + 8 = 16 total
 };
 
 
@@ -721,6 +722,8 @@ const dthRequest = asyncHandler(async (req, res) => {
         circle: "N/A",
       };
 
+      console.log(bodyData, "DTH Recharge Request Body");
+
 
       await saveLog(
         "DTH_RECHARGE",
@@ -731,7 +734,7 @@ const dthRequest = asyncHandler(async (req, res) => {
       );
 
       const rechargeRe = await axios.post(URL, bodyData);
-      console.log(rechargeRe, "DTH Recharge Response");
+      console.log(rechargeRe.data, "DTH Recharge Response");
       await saveLog(
         "DTH_RECHARGE",
         "https://api.techember.in/app/recharges/main.php",
@@ -843,7 +846,7 @@ const dthRequest = asyncHandler(async (req, res) => {
       "DTH_RECHARGE",
       null,
       null, // or full request payload
-      error?.response?.data || error.message,
+      error?.response?.data || error?.message,
       `Error during recharge for TxnID: ${transactionId}`
     );
     res.status(400);

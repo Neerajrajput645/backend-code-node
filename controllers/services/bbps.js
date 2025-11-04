@@ -136,44 +136,27 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
-    successHandler(req, res, {
-      Remarks: "Bill fetch just for testing", data: {
-        "ERROR": "0",
-        "STATUS": "1",
-        "BILLDEATILS": {
-          "Name": "Sheela Devi WO Sh.",
-          "DueAmount": "708.00",
-          "DueDate": "2024-01-11",
-          "BillNumber": null,
-          "BillDate": "2024-01-01",
-          "Balance": "0"
-        },
-        "ORDERID": null,
-        "MESSAGE": "Bill Fetch Processed"
-      }
-    });
-    const { number, operator, optional1, optional2, optional3 } = req.body;
+
+    const { number, operator, ad1 } = req.body;
 
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
     }
 
-    const apiMemberId = process.env.PLAN_API_USER_ID;
-    const apiPassword = process.env.PLAN_API_PASSWORD;
-
     // Construct URL with optional params only if present
-    let url = `http://planapi.in/api/Mobile/BillCheck?apimember_id=${apiMemberId}&api_password=${apiPassword}&Accountno=${number}&operator_code=${operator}`;
+    let url = `https://api.techember.in/app/bbps-bill-fetch.php`
 
-    if (optional1) url += `&Optional1=${optional1}`;
-    if (optional2) url += `&Optional2=${optional2}`;
-    if (optional3) url += `&Optional3=${optional3}`;
-
-    const response = await axios.get(url);
-
+    const bodyData = {
+      number,
+      operator,
+    };
+    if (ad1) bodyData.ad1 = ad1;
+    const response = await axios.post(url, bodyData);
+    console.log("BBPS Bill Fetch Response:", response.data);
     await saveLog(
       "BILL_FETCH",
       url,
-      { number, operator, optional1, optional2, optional3 },
+      { number, operator, ad1 },
       response.data,
       `Bill_Fetch Response Number: ${number}`
     );
@@ -306,6 +289,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         };
 
         const URL = `https://api.billhub.in/reseller/bbps/payment/`;
+        // const URL = `https://api.techember.in/app/recharges/bill-payment.php`;
 
         await saveLog(
           `BILL_PAYMENT`,
@@ -420,6 +404,8 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
     console.log(error, "error");
   }
 });
+
+
 
 // bbps bill info
 // const billInfo = asyncHandler(async (req, res) => {

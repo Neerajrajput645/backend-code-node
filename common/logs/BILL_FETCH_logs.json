@@ -62,5 +62,53 @@
       "MESSAGE": "Operator Site Not Bill Fetch"
     },
     "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-04T18:20:54.897Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1644.0",
+        "billnetamount": "1644.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1644,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-04T18:21:50.622Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1644.0",
+        "billnetamount": "1644.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1644,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
   }
 ]
