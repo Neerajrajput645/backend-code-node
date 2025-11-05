@@ -636,223 +636,145 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
   }
 });
 
+
 const dthRequest = asyncHandler(async (req, res) => {
   const findService = await Service.findOne({ name: "DTH" });
   const ipAddress = getIpAddress(req);
-  if (!findService.status) {
-    res.status(400);
-    throw new Error("DTH Recharge Failed, Please Try Again Ex100");
-  }
+
+  if (!findService?.status) throw new Error("DTH Recharge Failed, Please Try Again Ex100");
 
   const { _id, deviceToken } = req.data;
-  const FindUser = await Users.findOne({ _id });
-  if (!FindUser.status) {
-    res.status(400);
-    throw new Error("User is Blocked");
-  }
+  const FindUser = await Users.findById(_id);
+  if (!FindUser?.status) throw new Error("User is Blocked");
+  if (!FindUser?.dth) throw new Error("DTH Recharge Failed, Please Try Again Ex150");
 
-  if (!FindUser.dth) {
-    res.status(400);
-    throw new Error("DTH Recharge Failed, Please Try Again Ex150");
-  }
   const { number, operator, amount, transactionId = genTxnId(), mPin } = req.query;
-  // const transactionId = genTxnId();
-  // let isPrepaid = req.query.isPrepaid === "true";
-  if (Number(amount) <= 0) {
-    res.status(400);
-    throw new Error("Amount should be positive.");
-  }
+  const txnAmount = Number(amount);
+  if (txnAmount <= 0) throw new Error("Amount should be positive.");
 
-  if (!req.data.mPin) {
-    res.status(400);
-    throw new Error("Please set an mPin.");
-  }
+  if (!req.data.mPin) throw new Error("Please set an mPin.");
 
-  // Decrypt mPin
-  const decryptMpin = CryptoJS.AES.decrypt(
-    req.data.mPin,
-    CRYPTO_SECRET
-  ).toString(CryptoJS.enc.Utf8);
+  // 🔐 Decrypt mPin
+  const decryptMpin = CryptoJS.AES.decrypt(req.data.mPin, CRYPTO_SECRET).toString(CryptoJS.enc.Utf8);
+  if (mPin.toString() !== decryptMpin) throw new Error("Please enter a valid mPin.");
 
-  if (mPin.toString() !== decryptMpin) {
-    res.status(400);
-    throw new Error("Please enter a valid mPin.");
-  }
-
+  // 💰 Wallet Check
   const walletFound = await Wallet.findOne({ userId: _id });
-  if (walletFound.balance < Number(amount)) {
-    res.status(400);
-    throw new Error("User wallet balance is low.");
-  }
+  if (!walletFound || walletFound.balance < txnAmount) throw new Error("User wallet balance is low.");
+
+  // ✅ Start Transaction
+  const orderId = generateOrderId();
+  const payBody = {
+    orderId,
+    txnAmount,
+    txnId: transactionId,
+    serviceId: findService._id,
+    mPin,
+    userId: _id,
+    ipAddress,
+  };
 
   try {
-    const body = {
-      orderId: generateOrderId(),
-      txnAmount: amount,
-      txnId: transactionId,
-      serviceId: findService._id,
-      mPin,
-      userId: _id,
-      ipAddress,
+    const walletRes = await paywithWallet({ body: payBody });
+    if (walletRes.ResponseStatus !== 1) throw new Error("Wallet deduction failed.");
+
+    // 🔎 Validate operator
+    const findOperator = All_DTH_Recharge_Operator_List.find(
+      (a) => a.Mobikwik_Operator_code == operator
+    );
+    if (!findOperator) throw new Error("Invalid operator selected.");
+
+    const URL = "https://api.techember.in/app/recharges/main.php";
+    const bodyData = {
+      token: process.env.BILLHUB_TOKEN,
+      number,
+      op_uid: findOperator.Billhub_Operator_code,
+      amount: txnAmount,
+      order_id: orderId,
+      type: "dth",
+      circle: "N/A",
     };
-    const res1 = await paywithWallet({ body });
 
-    // Wallet Deduction End --------------------------
+    await saveLog("DTH_RECHARGE", URL, bodyData, null, `Recharge initiated for TxnID: ${transactionId}`);
 
-    if (res1.ResponseStatus === 1) {
-      const findOperator = All_DTH_Recharge_Operator_List.find(
-        (a) => a.Mobikwik_Operator_code == operator
-      );
-      // const URL = `https://business.a1topup.com/recharge/api?username=${
-      //   process.env.A1_TOPUP_USERNAME
-      // }&pwd=123&circlecode=${null}&operatorcode=${operator}&number=${number}&amount=${amount}&orderid=${transactionId}&format=json`;
-      // console.log(process.env.BILLHUB_TOKEN, "process.env.BILLHUB_TOKEN");
-      // const URL = `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN
-      //   }&op_uid=${findOperator.Billhub_Operator_code
-      //   }&order_id=${transactionId}&type=dth&number=${number}&amount=${amount}&circle=${null}`;
-      const URL = `https://api.techember.in/app/recharges/main.php`;
+    // 🔌 Call Billhub API
+    const rechargeRe = await axios.post(URL, bodyData);
+    const rechargeData = rechargeRe.data || {};
+    const status = rechargeData.status?.toLowerCase() || "unknown";
 
-      const bodyData = {
-        token: process.env.BILLHUB_TOKEN,
-        number: number,
-        op_uid: findOperator.Billhub_Operator_code,
-        amount: amount,
-        order_id: transactionId,
-        type: "dth",
-        circle: "N/A",
-      };
+    await saveLog(
+      "DTH_RECHARGE",
+      URL,
+      bodyData,
+      rechargeData,
+      `Recharge response for TxnID: ${transactionId}, Status: ${status}`
+    );
 
-      console.log(bodyData, "DTH Recharge Request Body");
+    // 🧾 Always record recharge attempt
+    const newRecharge = await DTH.create({
+      userId: _id,
+      number,
+      operator,
+      amount: txnAmount,
+      transactionId,
+      status: rechargeData.status,
+      operatorRef: rechargeData.operator_ref_id || 0,
+      apiTransID: rechargeData.order_id || 0,
+      ipAddress,
+      provider: "Billhub",
+    });
 
-
-      await saveLog(
-        "DTH_RECHARGE",
-        "https://api.techember.in/app/recharges/main.php",
-        URL, // or full request payload
-        null,
-        `Recharge initiated for TxnID: ${transactionId}`
-      );
-
-      const rechargeRe = await axios.post(URL, bodyData);
-      console.log(rechargeRe.data, "DTH Recharge Response");
-      await saveLog(
-        "DTH_RECHARGE",
-        "https://api.techember.in/app/recharges/main.php",
-        URL, // or full request payload
-        rechargeRe.data,
-        `Recharge response received for TxnID: ${transactionId}, Status: ${rechargeRe.data.status}`
-      );
-
-      const status = rechargeRe.data.status?.toLowerCase();
-      if (["failed", "error", "failure"].includes(status)) {
-        // Start Refund-------------------------------------------------
-        await handleRefund(
-          FindUser,
-          amount,
-          transactionId,
-          ipAddress,
-          walletFound
-        );
-        // End Refund ------------------------------------------------------------------
-        res.status(400);
-        throw new Error(rechargeRe.data.message || rechargeRe.data.opid);
-      }
-
-      const newRecharge = new DTH({
-        userId: _id,
-        number,
-        operator,
-        amount,
-        transactionId,
-        status: rechargeRe.data.status,
-        operatorRef: rechargeRe.data.operator_ref_id || 0,
-        apiTransID: rechargeRe.data.order_id || 0,
-        ipAddress,
-        provider: "Billhub",
-      });
-      await newRecharge.save();
-
-      if (["success", "pending", "accepted"].includes(status)) {
-        const notification = {
-          title: `DTH Recharge ${rechargeRe.data.status}`,
-          body: `Your ₹${amount} DTH recharge is ${rechargeRe.data.status}`,
-        };
-
-        const newNotification = new Notification({
-          ...notification,
-          recipient: _id,
-        });
-        await newNotification.save();
-
-        if (deviceToken) {
-          sendNotification(notification, deviceToken);
-        }
-
-        // Start Cashback--------------------------
-
-        if (status === "success") {
-          const cashbackPercent =
-            (parseInt(amount) / 100) * findService.percent;
-
-          await handleCashback(
-            FindUser,
-            cashbackPercent,
-            transactionId,
-            ipAddress,
-            walletFound
-          );
-          // End Cashback ---------------------------
-
-          // const findOperator = DTHOperatorArr.find(
-          //   (a) => a.OperatorCode == operator
-          // );
-
-          //   sendEmail(req.data, "SERVICE_RECEIPT", {
-          //     ...newRecharge,
-          //     operatorName: findOperator?.OperatorName,
-          //     serviceName: "DTH Recharge",
-          //   });
-          // }
-
-          //   const value = {
-          //     operatorName: findOperator?.OperatorName,
-          //     serviceName: "DTH Recharge",
-          //     TransID: transactionId,
-          //     currentDate: new Date(), // Get the current date
-          //     number: number,
-          //     amount: amount,
-          //     operatorRef: rechargeRe.data.opid,
-          //   };
-
-          //   const doc = createHtmlToPdf(req.data, value);
-
-          //   newRecharge.receipt = doc;
-          //   await newRecharge.save();
-
-          // Success response
-          successHandler(req, res, {
-            Remarks: rechargeRe?.data?.ErrorMessage,
-            Data: (rechargeRe.data),
-          });
-        }
-      } else {
-        res.status(400);
-        throw new Error("Payment Error, Please Contact to Customer Care");
-      }
+    // ❌ Failed Recharge → Refund
+    if (["failed", "error", "failure"].includes(status)) {
+      await handleRefund(FindUser, txnAmount, transactionId, ipAddress, walletFound);
+      throw new Error(rechargeData.message || rechargeData.opid || "Recharge failed.");
     }
+
+    // ✅ Pending / Success / Accepted
+    const notification = {
+      title: `DTH Recharge ${rechargeData.status}`,
+      body: `Your ₹${txnAmount} DTH recharge is ${rechargeData.status}`,
+    };
+    await Notification.create({ ...notification, recipient: _id });
+    if (deviceToken) sendNotification(notification, deviceToken);
+
+    // 🎁 Cashback only on success
+    if (status === "success") {
+      const cashbackAmount = (txnAmount * findService.percent) / 100;
+      await handleCashback(FindUser, cashbackAmount, transactionId, ipAddress, walletFound);
+    }
+
+    // ✅ Always respond (success/pending/accepted)
+    return successHandler(req, res, {
+      Remarks:
+        rechargeData.message ||
+        rechargeData.ErrorMessage ||
+        `Recharge ${status}`,
+      Data: rechargeData,
+    });
   } catch (error) {
     console.error("DTH Recharge Error:", error);
+
+    // ⚙️ Auto-refund on API error (if wallet already deducted)
+    try {
+      await handleRefund(FindUser, txnAmount, transactionId, ipAddress, walletFound);
+    } catch (refundErr) {
+      console.error("Refund Error:", refundErr.message);
+    }
+
     await saveLog(
       "DTH_RECHARGE",
       null,
-      null, // or full request payload
+      null,
       error?.response?.data || error?.message,
       `Error during recharge for TxnID: ${transactionId}`
     );
+
     res.status(400);
     throw new Error(error.message || "DTH Recharge Failed, Please Try Again Ex200");
   }
 });
+
 
 // recharge status
 // const rechargeStatus = asyncHandler(async (req, res) => {

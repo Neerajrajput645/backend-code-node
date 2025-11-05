@@ -12,7 +12,7 @@ const {
 } = require("../controllers/wallet");
 
 router.get("/info", tokenVerify, getWalletByUser);
-router.all("/callback", Recharge_CallBack_Handler);
+// router.all("/callback", Recharge_CallBack_Handler);
 router.post("/add-money", tokenVerify, addMoney); // temperary
 router.post("/user-exist", tokenVerify, userCheck);
 router.post("/send-money", tokenVerify, sendMoney);
