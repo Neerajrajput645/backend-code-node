@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 // const rateLimit = require("express-rate-limit");
 const app = express();
-const http = require("http");
+// const http = require("http");
 // const blobStream = require("blob-stream");
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
@@ -74,9 +74,9 @@ app.use("/api/notification", require("./routes/notificationRoute"));
 
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
-app.use("/api", require("./routes/other"));
+// app.use("/api", require("./routes/other"));
 app.use("/api/cyrus", require("./routes/services"));
-app.use("/api/webhook", require("./routes/webhook"));
+// app.use("/api/webhook", require("./routes/webhook"));
 app.use("/api/affiliate", require("./routes/affiliateRoute"));
 // app.use("/api/task", require("./routes/EarnTask/EarnTaskRoute"));
 // dashboard counts api
@@ -129,21 +129,21 @@ app.get("/api/otp/all/test", require("./temp/allOTP").getAllOTPs);
 // error handler
 app.use(require("./common/errorHandler"));
 
-const { Server } = require("socket.io");
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: { origin: "*" },
-});
+// const { Server } = require("socket.io");
+// const server = http.createServer(app);
+// const io = new Server(server, {
+//   cors: { origin: "*" },
+// });
 
 // 🔁 Attach globals
-global.io = io;
-global.providerSockets = {};
+// global.io = io;
+// global.providerSockets = {};
 
 // Socket Setup
-const setupSocket = require("./sockets");
-setupSocket(io);
+// const setupSocket = require("./sockets");
+// setupSocket(io);
 
 // Start Server
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`🚀 Server started on http://localhost:${PORT}`);
 });

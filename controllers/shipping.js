@@ -1,7 +1,7 @@
-const Shipping = require("../models/shippingSchema");
-const asyncHandler = require("express-async-handler");
-const successHandler = require("../common/successHandler");
-const { encryptFunc } = require("../common/encryptDecrypt");
+// const Shipping = require("../models/shippingSchema");
+// const asyncHandler = require("express-async-handler");
+// const successHandler = require("../common/successHandler");
+// const { encryptFunc } = require("../common/encryptDecrypt");
 
 // shipping address list by User
 // const shippingList = asyncHandler(async (req, res) => {
