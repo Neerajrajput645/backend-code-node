@@ -36,25 +36,58 @@
 const axios = require("axios");
 const successHandler = require("../common/successHandler");
 const asyncHandler = require("express-async-handler");
-const fetchBillPayment = asyncHandler(async (req, res) => {
+const fetchBillPayment = asyncHandler(async () => {
+  console.log("Fetch Bill Payment called");
   try {
-    const { number=8770475416, operator=294 } = req.body;
-    const url = "https://api.techember.in/app/reseller/bbps/bill-fetch";
 
-    const response = await axios.post(url, {
+    //========================================================================================
+    const url = `https://api.techember.in/app/recharges/bill-payment.php`;
+
+    // number,
+    //   operator,
+    //   circle,
+    //   amount,
+    //   account,
+    //   othervalue,
+    //   serviceId,
+    //   othervalue1,
+    //   transactionId,
+
+
+    const bodyData = {
+      operator: {
+        name: "Aavantika Gas Ltd",
+        category: "gas",
+        operator_id: "221",
+      },
+      amount: "10",
+      type: "gas",
       token: process.env.BILLHUB_TOKEN,
-      number,
-      operator,
-    });
-    console.log("Bill payment fetched successfully:", response);
-    successHandler(req, res, {
-      remark: "Success",
-      data: response.data
-    });
+      number:"PD03GWB4548",
+      // additional_params: additionalParams,
+      bill_details: {
+        // account,
+        // othervalue,
+        amount:"10",
+        transactionId: `TXN${Date.now()}`,
+      },
+      op_code: "221",
+    };
+
+    const response = await axios.post(url, bodyData);
+
+    console.log("Bill Payment Response:", response.data);
+    return "Bill Payment fetched successfully:", successHandler(response.data);
   } catch (error) {
-    console.error("Error fetching bill payment:", error.message);
-    throw new Error("Unable to fetch bill payment");
+
+    console.error("Error fetching Bill Payment:", error);
+    return ({
+      status: "failed",
+      message: error.response?.data || "Unable to fetch Bill Payment",
+    });
   }
 });
 
-module.exports = { fetchBillPayment };
+fetchBillPayment();
+
+// module.exports = { fetchBillPayment };
