@@ -978,6 +978,18 @@ const dthHistory = asyncHandler(async (req, res) => {
   });
 });
 
+const fetchDthOperators = asyncHandler(async (req, res) => {
+  // const { _id } = req.data;
+  const operators = All_DTH_Recharge_Operator_List.filter(op =>{
+    return op.Billhub_Operator_code && op.Operator_name && op.img;
+  })
+  // success handler
+  successHandler(req, res, {
+    Remarks: "User DTH Operators",
+    Data: operators,
+  });
+});
+
 // recharge history by admin
 const dthHistoryByAdmin = asyncHandler(async (req, res) => {
   const hist = await DTH.find().populate("userId");
@@ -2435,7 +2447,8 @@ module.exports = {
   Recharge_All_Status_Verify,
   Update_Recharge_Commission,
   CHECK_PENDING_TRANSACTION,
-  rechargeStatus
+  rechargeStatus,
+  fetchDthOperators,
 };
 
 // 
