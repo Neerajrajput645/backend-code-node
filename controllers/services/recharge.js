@@ -638,7 +638,7 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
 
 const fetchDthOpDetails  = asyncHandler(async (req, res) => {
   try {
-    const { dthNumber } = req.query;
+    const { dthNumber, operatorCode } = req.query;
     if (!dthNumber) {
       throw new Error("DTH number is required");
     }
@@ -647,7 +647,7 @@ const fetchDthOpDetails  = asyncHandler(async (req, res) => {
       apimember_id: process.env.PLAN_API_USER_ID,
       api_password: process.env.PLAN_API_PASSWORD_hash,
       dth_number: dthNumber,
-      Opcode: 24, // Operator code for DTH - FOR MORE DETAILS
+      Opcode: operatorCode, // Operator code for DTH - FOR MORE DETAILS
       mobile_no: dthNumber, // - for more details
     };
 
