@@ -1,0 +1,72 @@
+[
+  {
+    "LogTime": "2025-11-07T18:44:33.550Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "7333214598",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 7333214598"
+  },
+  {
+    "LogTime": "2025-11-07T18:44:36.018Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "7333214598",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762541074897053",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 7333214598"
+  }
+]

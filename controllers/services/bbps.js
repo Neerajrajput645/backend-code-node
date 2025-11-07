@@ -185,7 +185,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
   try {
     const { _id, deviceToken } = req.data;
     // Dont Send TXN ID Fronend
-    const { number, operator, amount, serviceId, mPin } = req.body;
+    const { number, operatorCode, operatorId, amount, serviceId, mPin, operatorName, operatorCategory, billDetails } = req.body;
 
     const TxnAmount = Number(amount);
     const ipAddress = getIpAddress(req);
@@ -236,6 +236,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       });
       return; // Exit the function
     }
+
     const walletFound = await Wallet.findOne({ userId: _id });
     if (walletFound.balance < TxnAmount) {
       res.status(400).json({
@@ -263,7 +264,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       const newService = new bbps({
         userId: FindUser._id,
         number,
-        operator: operator.name,
+        operator: operatorName,
         circle: null,
         amount: TxnAmount,
         serviceId: findService._id,
@@ -276,17 +277,17 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       await newService.save();
       try {
         const payload = {
-          operator:{
-            name:operatorName,
-            category:operatorCategory,
-            operator_id:operatorId,
+          operator: {
+            name: operatorName,
+            category: operatorCategory,
+            operator_id: operatorId,
           },
           amount: TxnAmount,
-          type:operatorCategory,
+          type: operatorCategory,
           token: process.env.BILLHUB_TOKEN,
-          number:number,
-          op_code:operatorCode,
-          bill_details:billDetails,
+          number: number,
+          op_code: operatorCode,
+          bill_details: billDetails,
           order_id: transactionId,
           additional_params: req.body.ad1
             ? {
@@ -594,7 +595,7 @@ const billPayment = asyncHandler(async (req, res) => {
     const res1 = await paywithWallet({ body });
     // Wallet Deduction End --------------------------
 
-  
+
 
     if (res1.ResponseStatus === 1) {
       const result = await axios.get(
