@@ -636,6 +636,37 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
   }
 });
 
+const fetchDthOpDetails  = asyncHandler(async (req, res) => {
+  try {
+    const { dthNumber } = req.query;
+    if (!dthNumber) {
+      throw new Error("DTH number is required");
+    }
+
+    const params = {
+      apimember_id: process.env.PLAN_API_USER_ID,
+      api_password: process.env.PLAN_API_PASSWORD_hash,
+      dth_number: dthNumber,
+      Opcode: 24, // Operator code for DTH - FOR MORE DETAILS
+      mobile_no: dthNumber, // - for more details
+    };
+
+    // const url = "https://planapi.in/api/Mobile/DthOperatorFetch";
+    const url = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
+
+    const { data } = await axios.get(url, { params });
+
+    return successHandler(req, res, {
+      Error: false,
+      Status: true,
+      Data: data,
+    });
+  } catch (error) {
+    // console.error("DTH Operator Fetch Error:", error.message);
+    throw new Error(error.message || "Unable to fetch DTH operator info");
+  }
+});
+
 
 const dthRequest = asyncHandler(async (req, res) => {
   const findService = await Service.findOne({ name: "DTH" });
@@ -2449,6 +2480,7 @@ module.exports = {
   CHECK_PENDING_TRANSACTION,
   rechargeStatus,
   fetchDthOperators,
+  fetchDthOpDetails
 };
 
 // 

@@ -21,7 +21,8 @@ const {
   fetchDthOperator,
   Recharge_All_Status_Verify,
   Update_Recharge_Commission,
-  fetchDthOperators
+  fetchDthOperators,
+  fetchDthOpDetails,
 } = require("../../controllers/services/recharge");
 
 const router = require("express").Router();
@@ -46,6 +47,7 @@ router.get("/dth_request", tokenVerify, dthRequest);
 router.get("/dth_history", tokenVerify, dthHistory);
 router.get("/fetch_dth_plans", fetchDthPlans);
 router.get("/fetch_dth_operator", fetchDthOperator);
+router.get("/fetch_dth_details", fetchDthOpDetails);
 // router.get("/get_operator", tokenVerify, getOperator);
 // router.get("/dth_info_fetch", tokenVerify, dthInfoFetch);
 // router.get("/recharge_status", tokenVerify, rechargeStatus);
