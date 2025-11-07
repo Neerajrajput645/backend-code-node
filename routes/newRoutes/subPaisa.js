@@ -1,16 +1,12 @@
-const express = require("express");
-const {
-  createSabPaisaOrder,
-  SabPaisaCallback,
-  checkSabPaisaStatus,
-} = require("../../controllers/subPaisaPayment");
-const { adminTokenVerify, tokenVerify } = require('../../common/tokenVerify');
-
-
+const express = require('express');
 const router = express.Router();
+const { initiatePayment,
+  //  initiatePaymentAlternative, sabpaisaCallback, testEncryption
+   } = require('../../controllers/subPaisaPayment');
 
-router.post("/create", tokenVerify, createSabPaisaOrder);
-router.post("/callback", SabPaisaCallback); // SabPaisa webhook
-router.post("/status", tokenVerify, checkSabPaisaStatus);
+router.post('/initiate', initiatePayment);
+// router.post('/initiate-alt', initiatePaymentAlternative); // Test alternative
+// router.post('/test-encryption', testEncryption); // Debug route
+// router.post('/callback', sabpaisaCallback);
 
 module.exports = router;

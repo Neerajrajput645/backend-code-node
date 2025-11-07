@@ -82,13 +82,13 @@ app.use("/api/affiliate", require("./routes/affiliateRoute"));
 // dashboard counts api
 app.get("/api/dashboard", dashboardApi);
 app.get("/api/download-report", adminTokenVerify, Generate_Excel_Report);
-app.use("/api/privacy-policy", require("./routes/newRoutes/privacyPolicy"));
-app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
-app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
-app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
+// app.use("/api/privacy-policy", require("./routes/newRoutes/privacyPolicy"));
+// app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
+// app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
+// app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
 app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
 // app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
-app.use("/api/faq", require("./routes/newRoutes/faq"));
+// app.use("/api/faq", require("./routes/newRoutes/faq"));
 // app.post("/api/fetch-bill-payment", require("./temp/tmp").fetchBillPayment);
 // ======================== service category ==============================
 // app.use("/api/service-category", require("./routes/newRoutes/serviceCategory"));

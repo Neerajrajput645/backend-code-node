@@ -276,11 +276,18 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       await newService.save();
       try {
         const payload = {
-          operator,
-          number,
+          operator:{
+            name:operatorName,
+            category:operatorCategory,
+            operator_id:operatorId,
+          },
           amount: TxnAmount,
-          order_id: transactionId,
+          type:operatorCategory,
           token: process.env.BILLHUB_TOKEN,
+          number:number,
+          op_code:operatorCode,
+          bill_details:billDetails,
+          order_id: transactionId,
           additional_params: req.body.ad1
             ? {
               ad1: req.body.ad1,
@@ -288,8 +295,8 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
             : {},
         };
 
-        const URL = `https://api.billhub.in/reseller/bbps/payment/`;
-        // const URL = `https://api.techember.in/app/recharges/bill-payment.php`;
+        // const URL = `https://api.billhub.in/reseller/bbps/payment/`;
+        const URL = `https://api.techember.in/app/recharges/bill-payment.php`;
 
         await saveLog(
           `BILL_PAYMENT`,
@@ -300,7 +307,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         );
 
         const response = await axios.post(URL, payload);
-
+        console.log("response ->", response);
         await saveLog(
           `BILL_PAYMENT`,
           URL,
@@ -391,6 +398,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           },
         });
       } catch (error) {
+        console.log("n error ->", error);
         newService.status = "error";
         await newService.save();
         res.status(400).json({
