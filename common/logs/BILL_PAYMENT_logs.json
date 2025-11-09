@@ -68,5 +68,551 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : failed for TxnID: 7333214598"
+  },
+  {
+    "LogTime": "2025-11-08T10:27:06.751Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "2643200816",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 2643200816"
+  },
+  {
+    "LogTime": "2025-11-08T10:27:07.356Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "2643200816",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762597627260446",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 2643200816"
+  },
+  {
+    "LogTime": "2025-11-08T10:28:32.362Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "1217128045",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 1217128045"
+  },
+  {
+    "LogTime": "2025-11-08T10:28:32.796Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "65",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "1217128045",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762597712138402",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 1217128045"
+  },
+  {
+    "LogTime": "2025-11-08T10:33:51.841Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "221",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "3149120654",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3149120654"
+  },
+  {
+    "LogTime": "2025-11-08T10:33:52.237Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 10,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "221",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "3149120654",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762598032770935",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 3149120654"
+  },
+  {
+    "LogTime": "2025-11-08T10:34:15.475Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 50,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "221",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "5526090831",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 5526090831"
+  },
+  {
+    "LogTime": "2025-11-08T10:34:17.718Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 50,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWB4548",
+      "op_code": "221",
+      "bill_details": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      },
+      "order_id": "5526090831",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762598055882202",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 5526090831"
+  },
+  {
+    "LogTime": "2025-11-08T18:49:30.486Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 11,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWE0917",
+      "op_code": "55",
+      "bill_details": {
+        "status": "error",
+        "message": "Payment Received for bill, no bills due"
+      },
+      "order_id": "6997260310",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 6997260310"
+  },
+  {
+    "LogTime": "2025-11-08T18:49:31.014Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": "221"
+      },
+      "amount": 11,
+      "type": "gas",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "PD03GWE0917",
+      "op_code": "55",
+      "bill_details": {
+        "status": "error",
+        "message": "Payment Received for bill, no bills due"
+      },
+      "order_id": "6997260310",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762627770775134",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 6997260310"
+  },
+  {
+    "LogTime": "2025-11-09T06:48:56.362Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 100,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "3608585889",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3608585889"
+  },
+  {
+    "LogTime": "2025-11-09T06:48:56.899Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 100,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "3608585889",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762670936771000",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 3608585889"
+  },
+  {
+    "LogTime": "2025-11-09T06:49:18.090Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "5791585518",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 5791585518"
+  },
+  {
+    "LogTime": "2025-11-09T06:49:18.560Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "5791585518",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1762670958879901",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 5791585518"
+  },
+  {
+    "LogTime": "2025-11-09T06:52:27.987Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "4776852271",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4776852271"
+  },
+  {
+    "LogTime": "2025-11-09T06:52:32.085Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "4776852271",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 4776852271"
   }
 ]

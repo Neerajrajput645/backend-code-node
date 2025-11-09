@@ -137,7 +137,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
 
-    const { number, operator, ad1 } = req.body;
+    const { number, operator, ad1} = req.body;
 
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
@@ -176,16 +176,17 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       "Bill fetch failed"
     );
 
-    throw new Error(error.message || "Error fetching bill information");
+    throw new Error(error?.response?.data?.message || "Error fetching bill information");
   }
 });
 
 
 const BILL_PAYMENT = asyncHandler(async (req, res) => {
+  // console.log("ds")
   try {
     const { _id, deviceToken } = req.data;
     // Dont Send TXN ID Fronend
-    const { number, operatorCode, operatorId, amount, serviceId, mPin, operatorName, operatorCategory, billDetails } = req.body;
+    const { number, operatorCode, amount, serviceId, mPin, operatorName, operatorCategory, billDetails } = req.body;
 
     const TxnAmount = Number(amount);
     const ipAddress = getIpAddress(req);
@@ -280,7 +281,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           operator: {
             name: operatorName,
             category: operatorCategory,
-            operator_id: operatorId,
+            operator_id: operatorCode,
           },
           amount: TxnAmount,
           type: operatorCategory,
@@ -296,7 +297,10 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
             : {},
         };
 
+
+        // console.log("request body data ->", payload);
         // const URL = `https://api.billhub.in/reseller/bbps/payment/`;
+
         const URL = `https://api.techember.in/app/recharges/bill-payment.php`;
 
         await saveLog(
@@ -308,7 +312,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         );
 
         const response = await axios.post(URL, payload);
-        console.log("response ->", response);
+        // console.log("response ->", response);
         await saveLog(
           `BILL_PAYMENT`,
           URL,
@@ -513,7 +517,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
 //   }
 // });
 
-// bbps bill payment
+// bbps bill payment // not using becacuse of old
 const billPayment = asyncHandler(async (req, res) => {
   try {
     const { _id, deviceToken } = req.data;

@@ -636,7 +636,7 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
   }
 });
 
-const fetchDthOpDetails  = asyncHandler(async (req, res) => {
+const fetchDthOpDetails = asyncHandler(async (req, res) => {
   try {
     const { dthNumber, operatorCode } = req.query;
     if (!dthNumber) {
@@ -1011,7 +1011,7 @@ const dthHistory = asyncHandler(async (req, res) => {
 
 const fetchDthOperators = asyncHandler(async (req, res) => {
   // const { _id } = req.data;
-  const operators = All_DTH_Recharge_Operator_List.filter(op =>{
+  const operators = All_DTH_Recharge_Operator_List.filter(op => {
     return op.Billhub_Operator_code && op.Operator_name && op.img;
   })
   // success handler
@@ -1736,11 +1736,31 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
     if (req.method === "POST") {
       Status = req.body.Status || req.body.status;
       TransID = req.body.order_id;
+
+      await saveLog(
+        `Testing Webhook for POST request`,
+        "https://api.new.techember.in/api/webhook/callback",
+        `Status : ${Status} and Transection Id : ${TransID}`,
+        req.body || req.query,
+        `IP Address ${getIpAddress()}`
+      );
+
     } else if (req.method === "GET") {
-      Status =
-        req.query.Status || req.query.status || req.query.STATUS === 1
-          ? "success"
-          : "failed";
+      Status = req.query.Status || req.query.status || req.query.STATUS === 1 ? "success" : "failed";
+
+      await saveLog(
+        `Testing webhook for getRequest`,
+        "https://api.new.techember.in/api/webhook/callback",
+        `Status : ${Status}`,
+        req.body || req.query,
+        `IP Address ${getIpAddress()}`
+      );
+
+
+
+
+
+
       TransID =
         req.query.TransID ||
         req.query.txid ||

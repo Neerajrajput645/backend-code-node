@@ -134,5 +134,102 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-08T18:36:17.917Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-09T05:47:34.973Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "0831946000",
+      "operator": 1743,
+      "ad1": "Sitapur-MVVNL"
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8328.0",
+        "billnetamount": "8328.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-16",
+        "minBillAmount": 8328,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "0831946000",
+        "userName": "Mr. BALESHWARI"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 0831946000"
+  },
+  {
+    "LogTime": "2025-11-09T06:16:22.474Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6521506022062",
+      "operator": 1562
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6521506022062"
+  },
+  {
+    "LogTime": "2025-11-09T06:27:46.810Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6521506022062",
+      "operator": 1562
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6521506022062"
   }
 ]
