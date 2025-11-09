@@ -73,3 +73,12 @@
 2025-11-09T06:26:18.164Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Bill fetch timed out from seller end
 2025-11-09T06:26:27.321Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Payment received for the billing period - no bill due
 2025-11-09T06:27:09.263Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Payment received for the billing period - no bill due
+2025-11-09T16:30:58.237Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:31:11.849Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:31:12.362Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:34:08.434Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:35:33.370Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:36:31.187Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:36:33.840Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:38:08.072Z [error]: Cannot read properties of undefined (reading 'headers')
+2025-11-09T16:43:35.089Z [error]: path is not defined

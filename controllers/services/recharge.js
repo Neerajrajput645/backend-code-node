@@ -1,5 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const axios = require("axios");
+// const express = require("express");
+const fs = require("fs");
+const path = require("path");
 const moment = require("moment");
 const User = require("../../models/userSchema");
 const BBPS = require("../../models/service/bbps");
@@ -1724,40 +1727,28 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
   try {
     console.log("-----------------------------")
     console.log("Recharge Callback Handler Invoked");
-    console.log("Request Method:", req.method);
-    console.log("Request Body:", req.body);
-    console.log("Request Query:", req.query);
-    console.log("Headers:", req.headers);
-    console.log("Params:", req.params);
+    if (req?.method) console.log("Request Method:", req.method);
+    if (req?.body) console.log("Request Body:", req.body);
+    if (req?.query) console.log("Request Query:", req.query);
+    if (req?.params) console.log("Params:", req.params);
     console.log("-----------------------------")
     let Status;
     let TransID;
 
     if (req.method === "POST") {
-      Status = req.body.Status || req.body.status;
-      TransID = req.body.order_id;
+      Status = req.body.Status || req.body.status || 0;
+      TransID = req.body.order_id || 0;
 
-      await saveLog(
-        `Testing Webhook for POST request`,
-        "https://api.new.techember.in/api/webhook/callback",
-        `Status : ${Status} and Transection Id : ${TransID}`,
-        req.body || req.query,
-        `IP Address ${getIpAddress()}`
-      );
+      // Log raw data for debugging
+      const logFile = path.join(process.cwd(), "webhook_logs.txt");
+      fs.appendFileSync(logFile, `${new Date().toISOString()} - ${req.method} - ${JSON.stringify(req.body)}\n`);
 
     } else if (req.method === "GET") {
-      Status = req.query.Status || req.query.status || req.query.STATUS === 1 ? "success" : "failed";
+      Status = req?.query?.Status || req?.query?.status || req?.query?.STATUS === 1 ? "success" : "failed";
 
-      await saveLog(
-        `Testing webhook for getRequest`,
-        "https://api.new.techember.in/api/webhook/callback",
-        `Status : ${Status}`,
-        req.body || req.query,
-        `IP Address ${getIpAddress()}`
-      );
-
-
-
+      // Log raw data for debugging
+      const logFile = path.join(process.cwd(), "webhook_logs.txt");
+      fs.appendFileSync(logFile, `${new Date().toISOString()} - ${req.method} - ${JSON.stringify(req.data)}\n`);
 
 
 
