@@ -231,5 +231,505 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: 6521506022062"
+  },
+  {
+    "LogTime": "2025-11-10T16:50:04.075Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "5551.0",
+        "billnetamount": "5551.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-10T16:50:11.094Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "5551.0",
+        "billnetamount": "5551.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-10T16:51:35.113Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-10T17:03:32.205Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "9826284061",
+      "operator": 436
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "0.0",
+        "billnetamount": "0.0",
+        "billdate": "11 Oct 2025",
+        "dueDate": "2025-10-21",
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "9826284061",
+        "userName": "NA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 9826284061"
+  },
+  {
+    "LogTime": "2025-11-12T06:07:11.644Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T16:24:22.738Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "billdate": "12 Nov 2025",
+        "dueDate": "2025-11-14",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T16:24:30.090Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "0.0",
+        "billnetamount": "0.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-12T16:25:03.200Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-12T16:26:22.370Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "billdate": "12 Nov 2025",
+        "dueDate": "2025-11-14",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T17:50:25.223Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "billdate": "12 Nov 2025",
+        "dueDate": "2025-11-14",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T17:51:35.572Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T17:52:56.755Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T17:54:08.675Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "6268800426",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "6268800426",
+        "userName": "R K Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 6268800426"
+  },
+  {
+    "LogTime": "2025-11-12T18:10:53.563Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2905010110",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "0.0",
+        "billnetamount": "0.0",
+        "billdate": "09 Oct 2025",
+        "dueDate": "2025-10-20",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2905010110",
+        "userName": "RAKESH SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2905010110"
+  },
+  {
+    "LogTime": "2025-11-13T07:42:12.826Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251001193",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "0.0",
+        "billnetamount": "0.0",
+        "billdate": "16 Oct 2025",
+        "dueDate": "2025-10-27",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251001193",
+        "userName": "BHAGWAN DAS S/O BABOO LAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251001193"
+  },
+  {
+    "LogTime": "2025-11-13T07:42:23.009Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "0.0",
+        "billnetamount": "0.0",
+        "billdate": "16 Oct 2025",
+        "dueDate": "2025-10-27",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251003214",
+        "userName": "SHRI SATISH AGRAWAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-11-13T07:42:35.318Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-13T08:38:01.183Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-13T17:15:58.591Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-13T17:18:44.039Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251001193",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1367.0",
+        "billnetamount": "1367.0",
+        "billdate": "13 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251001193",
+        "userName": "BHAGWAN DAS SO BABOO LAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251001193"
+  },
+  {
+    "LogTime": "2025-11-13T17:18:59.011Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251001193",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1367.0",
+        "billnetamount": "1367.0",
+        "billdate": "13 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251001193",
+        "userName": "BHAGWAN DAS SO BABOO LAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251001193"
+  },
+  {
+    "LogTime": "2025-11-13T17:19:18.879Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "213.0",
+        "billnetamount": "213.0",
+        "billdate": "13 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251003214",
+        "userName": "SHRI SATISH AGRAWAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251003214"
   }
 ]

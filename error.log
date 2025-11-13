@@ -82,3 +82,296 @@
 2025-11-09T16:36:33.840Z [error]: Cannot read properties of undefined (reading 'headers')
 2025-11-09T16:38:08.072Z [error]: Cannot read properties of undefined (reading 'headers')
 2025-11-09T16:43:35.089Z [error]: path is not defined
+2025-11-09T17:45:59.584Z [error]: Otp validation failed: phone: Path `phone` is required.
+2025-11-09T17:46:22.630Z [error]: Otp validation failed: phone: Path `phone` is required.
+2025-11-09T17:46:51.563Z [error]: Otp validation failed: phone: Path `phone` is required.
+2025-11-10T04:12:39.749Z [error]: Invalid Otp
+2025-11-10T04:16:03.402Z [error]: Invalid Otp
+2025-11-10T05:51:23.831Z [error]: invalid phone number
+2025-11-10T05:51:44.869Z [error]: invalid phone number
+2025-11-10T06:57:48.379Z [error]: Expected ',' or '}' after property value in JSON at position 34 (line 4 column 5)
+2025-11-10T06:58:17.071Z [error]: Expected ',' or '}' after property value in JSON at position 34 (line 4 column 5)
+2025-11-10T08:51:24.229Z [error]: Invalid Otp
+2025-11-10T09:43:27.008Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-10T09:43:29.750Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-10T15:33:52.788Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, An error has occurred. Please contact your system administrator.
+2025-11-10T15:35:29.217Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Mobile No
+2025-11-10T15:35:41.830Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, An error has occurred. Please contact your system administrator.
+2025-11-10T15:38:45.793Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-11-10T16:44:19.825Z [error]: Invalid Otp
+2025-11-10T16:44:21.371Z [error]: Invalid Otp
+2025-11-10T16:58:05.806Z [error]: Email is already used.
+2025-11-10T16:58:25.823Z [error]: Email is already used.
+2025-11-10T16:58:29.120Z [error]: Email is already used.
+2025-11-10T16:58:30.102Z [error]: Email is already used.
+2025-11-10T16:58:31.662Z [error]: Email is already used.
+2025-11-10T16:58:32.099Z [error]: Email is already used.
+2025-11-10T16:58:32.608Z [error]: Email is already used.
+2025-11-10T16:58:33.842Z [error]: Email is already used.
+2025-11-10T17:01:59.710Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Tax
+2025-11-10T17:02:02.560Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Tax
+2025-11-10T17:02:37.868Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Google Play
+2025-11-10T17:02:46.252Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Google Play
+2025-11-12T05:49:52.891Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Invalid Otp
+2025-11-12T06:07:06.308Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Unable to get bill details from Biller
+2025-11-12T07:26:19.196Z [error]: userid: 68d2f5524bc1fb26c44f5a09, name: user1 s1, phone: 8871265906, Cast to ObjectId failed for value "10" (type string) at path "_id" for model "Service"
+2025-11-12T10:26:47.599Z [error]: Invalid Otp
+2025-11-12T10:27:40.495Z [error]: Invalid Otp
+2025-11-12T10:32:09.090Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Cast to string failed for value "{ _h: 0, _i: 0, _j: null, _k: null }" (type Object) at path "deviceToken" for model "User"
+2025-11-12T10:33:13.175Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Cast to string failed for value "{ _h: 0, _i: 1, _j: '74cd9f4d03a67bdf', _k: null }" (type Object) at path "deviceToken" for model "User"
+2025-11-12T10:34:48.558Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Email is already used.
+2025-11-12T10:37:23.179Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:37:41.933Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:37:55.300Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:42:35.553Z [error]: Email is already used.
+2025-11-12T10:43:36.404Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:43:53.689Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:52:04.063Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:54:48.967Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T10:54:58.443Z [error]: Email is already used.
+2025-11-12T10:54:59.406Z [error]: Email is already used.
+2025-11-12T10:57:06.606Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T11:00:50.533Z [error]: Email is already used.
+2025-11-12T11:01:09.356Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "7575912020" }
+2025-11-12T11:02:40.215Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of undefined (reading 'toString')
+2025-11-12T11:03:15.517Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of undefined (reading 'toString')
+2025-11-12T11:03:54.437Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of undefined (reading 'toString')
+2025-11-12T11:06:32.408Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of undefined (reading 'toString')
+2025-11-12T11:38:39.393Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:38:48.361Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:38:54.363Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:40:54.169Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:41:13.462Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:44:35.340Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T11:45:14.427Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Service"
+2025-11-12T12:19:05.788Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of null (reading 'map')
+2025-11-12T12:19:06.159Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-11-12T12:19:19.414Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of null (reading 'map')
+2025-11-12T12:19:26.830Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-11-12T12:19:46.217Z [error]: userid: 69146914241486f3e700ed62, name: jhgkhgkhj mvkfkjhgfkgh, phone: 9000900099, Cannot read properties of null (reading 'map')
+2025-11-12T13:12:55.971Z [error]: Cannot read properties of null (reading '_id')
+2025-11-12T13:13:49.859Z [error]: Cannot read properties of null (reading '_id')
+2025-11-12T13:46:28.790Z [error]: Invalid Otp
+2025-11-12T13:46:54.318Z [error]: Invalid Otp
+2025-11-12T15:59:03.497Z [error]: Expected double-quoted property name in JSON at position 30 (line 5 column 2)
+2025-11-12T16:16:03.295Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Payment received for the billing period - no bill due
+2025-11-12T16:24:05.055Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Payment received for the billing period - no bill due
+2025-11-12T16:25:30.437Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-12T16:34:37.387Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:34:39.667Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:34:43.995Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:48.511Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:49.463Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.047Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.228Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.393Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.571Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.762Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:34:50.949Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:43:23.973Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Google Play
+2025-11-12T16:43:34.603Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Google Play
+2025-11-12T16:48:24.426Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:26.477Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:26.687Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:26.906Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:27.115Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:27.327Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:27.947Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:28.236Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:28.428Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:28.948Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:29.244Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:29.496Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:29.868Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:31.048Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:31.354Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:45.270Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:55.653Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:48:59.089Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:49:03.096Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:49:03.891Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:09.557Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:10.453Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:10.628Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:10.790Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:11.490Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:11.694Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:11.769Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Otp
+2025-11-12T16:50:11.890Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:12.065Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:12.569Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:12.790Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:14.613Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Invalid Otp
+2025-11-12T16:50:17.152Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:18.502Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:18.667Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:18.863Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:19.033Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:19.229Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:19.401Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:19.545Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:19.738Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:24.667Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:24.853Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:25.032Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:25.205Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:25.439Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:25.612Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T16:50:47.563Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:47.967Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.131Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.309Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.490Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.674Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.808Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:48.908Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:49.058Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:50:49.191Z [error]: userid: 691463ae241486f3e700ecd3, name: Sujal  Sharma, phone: 8305904705, Invalid Otp
+2025-11-12T16:52:56.134Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:05:39.519Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Wait for 30 seconds before requesting a new OTP.
+2025-11-12T17:05:45.425Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Wait for 30 seconds before requesting a new OTP.
+2025-11-12T17:09:51.751Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Wait for 30 seconds before requesting a new OTP.
+2025-11-12T17:13:57.146Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, Action not supported.
+2025-11-12T17:14:05.485Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, No BBPS category found for Tax
+2025-11-12T17:24:59.071Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:26:19.839Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:27:45.692Z [error]: Invalid Otp
+2025-11-12T17:28:27.314Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:31:36.689Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:34:31.613Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Invalid Otp
+2025-11-12T17:35:32.516Z [error]: userid: 6914c5282a15db7593d7bcc7, name: Neeraj Kumar, phone: 7723970629, E11000 duplicate key error collection: recharge-app.users index: email_1 dup key: { email: "neeraj.kumar@example.com" }
+2025-11-12T17:35:33.749Z [error]: userid: 6914c5282a15db7593d7bcc7, name: Neeraj Kumar, phone: 7723970629, E11000 duplicate key error collection: recharge-app.users index: email_1 dup key: { email: "neeraj.kumar@example.com" }
+2025-11-12T17:36:57.866Z [error]: Invalid Otp
+2025-11-12T17:37:49.280Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:40:12.204Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:40:17.360Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:44:02.753Z [error]: userid: 69121628a24498f1b1482710, name: Krishna Sharma, phone: 7000751791, E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:45:28.967Z [error]: E11000 duplicate key error collection: recharge-app.users index: phone_1 dup key: { phone: "9000900099" }
+2025-11-12T17:49:33.728Z [error]: userid: 6914c80ab5c6ae18a89eacfc, name: Krishna Kant, phone: 9000900099, Multiple signups from the same device are not allowed.
+2025-11-12T17:49:44.893Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Payment received for the billing period - no bill due
+2025-11-12T17:51:15.004Z [error]: Email is already used.
+2025-11-12T17:51:16.325Z [error]: Email is already used.
+2025-11-12T17:51:16.560Z [error]: Email is already used.
+2025-11-12T17:51:16.792Z [error]: Email is already used.
+2025-11-12T17:52:52.126Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T17:57:42.261Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, Payment received for the billing period - no bill due
+2025-11-12T18:01:28.989Z [error]: Multiple signups from the same device are not allowed.
+2025-11-12T18:03:13.113Z [error]: Invalid Otp
+2025-11-12T18:05:25.937Z [error]: userid: 6911616bb6ca0f65f35fe2ee, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Google Play
+2025-11-12T18:18:00.118Z [error]: Invalid Otp
+2025-11-12T18:18:04.845Z [error]: Invalid Otp
+2025-11-12T18:18:09.908Z [error]: Invalid Otp
+2025-11-12T18:18:11.207Z [error]: Invalid Otp
+2025-11-12T18:18:11.391Z [error]: Invalid Otp
+2025-11-12T18:18:16.042Z [error]: Invalid Otp
+2025-11-12T18:18:16.205Z [error]: Invalid Otp
+2025-11-12T18:18:16.390Z [error]: Invalid Otp
+2025-11-12T18:18:25.072Z [error]: Invalid Otp
+2025-11-12T18:24:43.994Z [error]: userid: 69142b2d241486f3e700e8a9, name: Krishna Sharma, phone: 8109635835, Phone number is already registered.
+2025-11-12T18:24:57.477Z [error]: userid: 69142b2d241486f3e700e8a9, name: Krishna Sharma, phone: 8109635835, Phone number is already registered.
+2025-11-12T18:25:03.140Z [error]: userid: 69142b2d241486f3e700e8a9, name: Krishna Sharma, phone: 8109635835, Phone number is already registered.
+2025-11-12T18:30:25.508Z [error]: Email is already used.
+2025-11-12T18:30:27.385Z [error]: Email is already used.
+2025-11-12T18:30:29.445Z [error]: Invalid Otp
+2025-11-12T18:34:02.479Z [error]: userid: 6914d1f86adf3ece6cd76fcc, name: Krishna D, phone: 9000900099, Multiple signups from the same device are not allowed.
+2025-11-12T18:43:23.971Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:25.528Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:26.460Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:26.567Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:26.719Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:27.490Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:27.609Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:27.726Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:27.861Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:28.018Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:28.169Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:32.126Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:32.434Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:32.575Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:43:32.755Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-12T18:51:40.923Z [error]: Invalid Otp
+2025-11-12T18:51:41.199Z [error]: Invalid Otp
+2025-11-12T18:51:41.401Z [error]: Invalid Otp
+2025-11-12T18:51:41.604Z [error]: Invalid Otp
+2025-11-12T18:51:41.800Z [error]: Invalid Otp
+2025-11-12T18:51:42.002Z [error]: Invalid Otp
+2025-11-12T18:51:42.198Z [error]: Invalid Otp
+2025-11-12T18:51:42.394Z [error]: Invalid Otp
+2025-11-12T18:51:56.114Z [error]: Invalid Otp
+2025-11-12T18:51:56.279Z [error]: Invalid Otp
+2025-11-12T18:51:56.458Z [error]: Invalid Otp
+2025-11-12T18:51:56.660Z [error]: Invalid Otp
+2025-11-12T18:51:56.860Z [error]: Invalid Otp
+2025-11-12T18:52:34.382Z [error]: Invalid Otp
+2025-11-12T18:53:30.200Z [error]: Invalid Otp
+2025-11-12T18:53:30.425Z [error]: Invalid Otp
+2025-11-12T18:53:30.597Z [error]: Invalid Otp
+2025-11-12T18:53:30.820Z [error]: Invalid Otp
+2025-11-12T18:53:31.000Z [error]: Invalid Otp
+2025-11-12T18:53:31.221Z [error]: Invalid Otp
+2025-11-12T18:53:31.439Z [error]: Invalid Otp
+2025-11-12T18:53:31.623Z [error]: Invalid Otp
+2025-11-12T18:53:31.826Z [error]: Invalid Otp
+2025-11-12T18:53:32.018Z [error]: Invalid Otp
+2025-11-12T18:53:32.205Z [error]: Invalid Otp
+2025-11-12T18:53:32.379Z [error]: Invalid Otp
+2025-11-12T18:53:43.437Z [error]: Invalid Otp
+2025-11-12T18:54:20.909Z [error]: Invalid Otp
+2025-11-12T18:59:50.342Z [error]: Email is already used.
+2025-11-12T19:00:02.022Z [error]: Phone number is already registered.
+2025-11-12T19:00:55.672Z [error]: Invalid Otp
+2025-11-12T19:00:55.800Z [error]: Invalid Otp
+2025-11-12T19:00:55.988Z [error]: Invalid Otp
+2025-11-12T19:00:56.229Z [error]: Invalid Otp
+2025-11-12T19:00:56.394Z [error]: Invalid Otp
+2025-11-12T19:00:56.550Z [error]: Invalid Otp
+2025-11-12T19:01:01.810Z [error]: Multiple signups from the same device are not allowed.
+2025-11-13T03:42:58.560Z [error]: Invalid Otp
+2025-11-13T03:42:58.692Z [error]: Invalid Otp
+2025-11-13T03:42:59.069Z [error]: Invalid Otp
+2025-11-13T03:43:15.093Z [error]: Invalid Otp
+2025-11-13T03:43:15.254Z [error]: Invalid Otp
+2025-11-13T03:43:15.507Z [error]: Invalid Otp
+2025-11-13T03:43:15.738Z [error]: Invalid Otp
+2025-11-13T03:43:15.831Z [error]: Invalid Otp
+2025-11-13T03:43:16.061Z [error]: Invalid Otp
+2025-11-13T03:43:16.206Z [error]: Invalid Otp
+2025-11-13T03:43:16.629Z [error]: Invalid Otp
+2025-11-13T03:43:16.869Z [error]: Invalid Otp
+2025-11-13T03:43:17.016Z [error]: Invalid Otp
+2025-11-13T03:43:17.271Z [error]: Invalid Otp
+2025-11-13T03:43:17.430Z [error]: Invalid Otp
+2025-11-13T03:43:17.773Z [error]: Invalid Otp
+2025-11-13T03:43:17.820Z [error]: Invalid Otp
+2025-11-13T03:43:18.054Z [error]: Invalid Otp
+2025-11-13T03:43:18.419Z [error]: Invalid Otp
+2025-11-13T03:43:18.964Z [error]: Invalid Otp
+2025-11-13T03:43:19.232Z [error]: Invalid Otp
+2025-11-13T03:43:19.365Z [error]: Invalid Otp
+2025-11-13T03:43:19.588Z [error]: Invalid Otp
+2025-11-13T03:43:19.818Z [error]: Invalid Otp
+2025-11-13T03:43:19.987Z [error]: Invalid Otp
+2025-11-13T03:43:20.220Z [error]: Invalid Otp
+2025-11-13T03:51:28.428Z [error]: Invalid Otp
+2025-11-13T03:51:28.581Z [error]: Invalid Otp
+2025-11-13T03:51:28.775Z [error]: Invalid Otp
+2025-11-13T03:51:29.006Z [error]: Invalid Otp
+2025-11-13T03:51:29.170Z [error]: Invalid Otp
+2025-11-13T03:51:29.370Z [error]: Invalid Otp
+2025-11-13T03:54:28.779Z [error]: Email is already used.
+2025-11-13T05:24:29.807Z [error]: Otp validation failed: phone: Path `phone` is required.
+2025-11-13T07:49:52.638Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Google Play
+2025-11-13T08:38:32.274Z [error]: userid: 69158af5f2bc0b295f937afa, name: Ashutosh Agrawal, phone: 8109635835, Unable to get bill details from Biller
+2025-11-13T08:38:44.516Z [error]: userid: 69158af5f2bc0b295f937afa, name: Ashutosh Agrawal, phone: 8109635835, Unable to get bill details from biller
+2025-11-13T08:38:55.735Z [error]: userid: 69158af5f2bc0b295f937afa, name: Ashutosh Agrawal, phone: 8109635835, Unable to get bill details from Biller
+2025-11-13T10:30:35.869Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of null (reading 'map')
+2025-11-13T10:30:35.948Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of null (reading 'map')
+2025-11-13T14:40:41.301Z [error]: successHandler is not defined
+2025-11-13T14:40:46.421Z [error]: Wait for 30 seconds before requesting a new OTP.
+2025-11-13T14:42:44.665Z [error]: successHandler is not defined
+2025-11-13T14:45:47.001Z [error]: Email is already used.
+2025-11-13T14:45:55.346Z [error]: Email is already used.
+2025-11-13T14:45:59.076Z [error]: Email is already used.
+2025-11-13T14:45:59.914Z [error]: Email is already used.
+2025-11-13T14:46:04.272Z [error]: Email is already used.
+2025-11-13T14:46:05.254Z [error]: Email is already used.

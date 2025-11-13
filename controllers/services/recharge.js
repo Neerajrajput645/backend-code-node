@@ -40,7 +40,7 @@ const {
   // MobikwikCheckSumGenerate,
   parseXMLToJSON,
 } = require("../../common/PayuHashGenerate");
-
+const mobileTypeCheck = require("../../mobileTypeCheck.json");
 const crypto = require("crypto");
 
 const genTxnId = () => {
@@ -176,6 +176,7 @@ const planFetch = asyncHandler(async (req, res) => {
     }
   }
 });
+
 const BillhubComplainRaise = asyncHandler(async (req, res) => {
   try {
     const { order_id, message } = req.query;
@@ -512,7 +513,7 @@ const fetchDthPlans = asyncHandler(async (req, res) => {
     const operatorCode = req.query.operatorCode || 27;
     const apimember_id = process.env.PLAN_API_USER_ID;
     const api_password = process.env.PLAN_API_PASSWORD_hash;
-
+    console.log(req.body);
     const url = "https://planapi.in/api/Mobile/DthPlans";
 
     const response = await axios.get(url, {
@@ -524,7 +525,7 @@ const fetchDthPlans = asyncHandler(async (req, res) => {
     });
 
     const data = response.data;
-
+    console.log("dth plan fetch");
     // ✅ Safely extract base fields
     const operator = data?.Operator || "Unknown";
     const combos = data?.RDATA?.Combo || [];
@@ -599,6 +600,7 @@ const fetchDthPlans = asyncHandler(async (req, res) => {
         plans,
       },
     };
+    console.log("plan fetch successfully");
 
     return successHandler(req, res, formattedResponse);
   } catch (error) {
@@ -880,6 +882,10 @@ const Get_Operator_Circle_By_Phone = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(response.data.Message);
   } else {
+    const operatorTypeFilter = mobileTypeCheck
+      .filter(a => a.op_code === response.data.op_code)
+      .map(a => a.type);
+    response.data.operatorType = operatorTypeFilter.length > 0 ? operatorTypeFilter[0] : "N/A";
     successHandler(req, res, {
       Remarks: "Operator & Circle Fetch Success",
       Data: response.data,
@@ -1123,6 +1129,34 @@ const handleFailedRecharge = asyncHandler(async (req, res) => {
   }
 });
 
+const commission = asyncHandler(async (req, res) => {
+  return successHandler(req, res, {
+    Remarks: "Commission fetched successfully",
+    data: {
+      mobile: {
+        Airtel: 3,
+        Jio: 4,
+        Vi: 4.5,
+        Bsnl: 5,
+      },
+      dth: {
+        Airtel: 1,
+        "Sun Direct": 1,
+        Videocon: 2,
+        "Tata Sky": 2.1,
+      },
+      bbps: {
+        Water: 2.2,
+        Gas: 3,
+        Electricity: 4,
+        Insurance: 3,
+        Postpaid: 2,
+        "Fast Card": 2,
+        "Google Play": 2.12,
+      },
+    },
+  });
+});
 // const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
 //   const Status =
 //     req.query.Status || req.query.status || req.query.STATUS === 1
@@ -2491,6 +2525,7 @@ module.exports = {
   CHECK_PENDING_TRANSACTION,
   rechargeStatus,
   fetchDthOperators,
+  commission,
   fetchDthOpDetails
 };
 

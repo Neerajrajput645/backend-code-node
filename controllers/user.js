@@ -23,11 +23,14 @@ const deletePreviousImage = require("../common/deletePreviousImage");
 
 // user profile
 const userProfile = asyncHandler(async (req, res) => {
+  console.log("fetch user profile");
   const { _id } = req.data;
   const userFound = await User.findById(_id).populate("wallet");
   const { password, ...others } = userFound.toObject();
 
   // Success Respond
+  console.log(req.body, "user profile fetch");
+  console.log(others, "user profile data");
   successHandler(req, res, {
     Data: (others),
     Remarks: "User Profile Fetch Successfull.",

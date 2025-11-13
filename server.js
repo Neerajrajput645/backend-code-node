@@ -10,6 +10,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const connection = require("./database");
 const helmet = require("helmet");
+const {Recharge_CallBack_Handler} = require("./controllers/services/recharge");
 // const puppeteer = require("puppeteer");
 // const AppSetting = require("./models/appSetting");
 // const successHandler = require("./common/successHandler");
@@ -60,7 +61,7 @@ app.use("/api/ip-address", require("./routes/ipRoute"));  // ip address CRUD
 app.use("/api/user", require("./routes/userRoute"));
 // app.use("/api/bank", require("./routes/bankRoute"));
 app.use("/api/wallet", require("./routes/walletRoute"));
-const {Recharge_CallBack_Handler} = require("./controllers/services/recharge");
+// webhook callback for recharge status
 app.all("/api/webhook/callback", Recharge_CallBack_Handler);
 // for webhook callbacks
 app.use("/api/setting", require("./routes/appSetting"));
@@ -71,9 +72,9 @@ app.use("/api/service", require("./routes/serviceRoute"));
 app.use("/api/affiliate-banner", require("./routes/affiliateBannerRoute"));
 
 app.use("/api/notification", require("./routes/notificationRoute"));
-
+app.get("/api/commission/list", require("./controllers/services/recharge.js").commission);
 app.use("/api/payment", require("./routes/paymentRoutes"));
-
+//app.get("api/commission/list", require("./controllers/services/recharge.js").commission);
 // app.use("/api", require("./routes/other"));
 app.use("/api/cyrus", require("./routes/services"));
 // app.use("/api/webhook", require("./routes/webhook"));

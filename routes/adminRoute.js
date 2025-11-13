@@ -13,7 +13,7 @@ const { txnList } = require("../controllers/adminTxn");
 const { manageMoney } = require("../controllers/wallet");
 
 // routes
-router.post("/forgot-password");
+// router.post("/forgot-password");
 router.post("/login", adminLogin);
 // router.post("/register", adminRegister);
 router.get("/txn-list", adminTokenVerify, txnList);
