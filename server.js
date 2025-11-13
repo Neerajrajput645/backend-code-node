@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 const connection = require("./database");
 const helmet = require("helmet");
 const {Recharge_CallBack_Handler} = require("./controllers/services/recharge");
+const {combinedHistory} = require("./controllers/services/report.js");
 // const puppeteer = require("puppeteer");
 // const AppSetting = require("./models/appSetting");
 // const successHandler = require("./common/successHandler");
@@ -27,7 +28,7 @@ const getIpAddress = require("./common/getIpAddress");
 // } = require("./controllers/services/recharge");
 // const { generatePDF } = require("./common/createHtmlToPdf");
 // const { checkAndRenewToken } = require("./common/paygicTokenGenerate");
-const { adminTokenVerify } = require("./common/tokenVerify");
+const { adminTokenVerify, tokenVerify } = require("./common/tokenVerify");
 const { Generate_Excel_Report } = require("./common/createHtmlToPdf");
 // const { default: axios } = require("axios");
 
@@ -57,7 +58,7 @@ app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api/admin", require("./routes/adminRoute"));
 app.use("/api/ip-address", require("./routes/ipRoute"));  // ip address CRUD
 // app.use("/api/bus", require("./routes/busBooking"));
-
+app.get("/api/user/combined-history", tokenVerify, combinedHistory);
 app.use("/api/user", require("./routes/userRoute"));
 // app.use("/api/bank", require("./routes/bankRoute"));
 app.use("/api/wallet", require("./routes/walletRoute"));
@@ -106,14 +107,14 @@ app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
 });
 // =======================Logout ===========================
-app.post("/api/user/logout",(req,res)=>{
-  try {
-    return res.status(200).json({ message: "Logout Successfully" });
-  } catch (error) {
-    console.log("Logout Error", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-})
+// app.post("/api/user/logout",(req,res)=>{
+//   try {
+//     return res.status(200).json({ message: "Logout Successfully" });
+//   } catch (error) {
+//     console.log("Logout Error", error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// })
 
 // ======================= Send To Bank =============================
 // app.use("/api/send-to-bank", require("./routes/sendToBank"));

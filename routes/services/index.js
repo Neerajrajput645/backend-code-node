@@ -11,7 +11,7 @@ const {
   dthRequest,
   dthHistory,
   handleFailedRecharge,
-
+  commission,
   rechargeHistoryByAdmin,
   dthHistoryByAdmin,
   Get_Operator_Circle_By_Phone,
@@ -23,6 +23,7 @@ const {
   Update_Recharge_Commission,
   fetchDthOperators,
   fetchDthOpDetails,
+  userReferralList
 } = require("../../controllers/services/recharge");
 
 const router = require("express").Router();
@@ -48,6 +49,8 @@ router.get("/dth_history", tokenVerify, dthHistory);
 router.get("/fetch_dth_plans", tokenVerify, fetchDthPlans);
 router.get("/fetch_dth_operator", tokenVerify, fetchDthOperator);
 router.get("/fetch_dth_details", tokenVerify, fetchDthOpDetails);
+router.get("/commission_list", tokenVerify, commission);
+// router.get("/user_referral_list", tokenVerify, userReferralList);
 // router.get("/get_operator", tokenVerify, getOperator);
 // router.get("/dth_info_fetch", tokenVerify, dthInfoFetch);
 // router.get("/recharge_status", tokenVerify, rechargeStatus);

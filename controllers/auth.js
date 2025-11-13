@@ -726,11 +726,8 @@ const logout = asyncHandler(async (req, res) => {
   // await user.save();
   console.log("Logout API running...");
   console.log("User logged out successfully with.", req.data._id);
-  return res.status(200).json({
-    Error: false,
-    Status: true,
-    ResponseStatus:1,
-    Remarks: "Logout successful",
+  return successHandler(req, res, {
+    Remarks: "Logout Successfully",
   });
 });
 

@@ -1134,25 +1134,70 @@ const commission = asyncHandler(async (req, res) => {
     Remarks: "Commission fetched successfully",
     data: {
       mobile: {
-        Airtel: 3,
-        Jio: 4,
-        Vi: 4.5,
-        Bsnl: 5,
+        Airtel:{
+          commission: 2.5,
+          icon: "uploads/operator/airtel.jpg",
+        },
+        Jio:{
+          commission: 3,
+          icon: "uploads/operator/jio.jpg",
+        },
+        Vi:{
+          commission: 4.5,
+          icon: "uploads/operator/vi.jpg",
+        },
+        Bsnl:{
+          commission: 5,
+          icon: "uploads/operator/bsnl.jpg",
+        },
       },
       dth: {
-        Airtel: 1,
-        "Sun Direct": 1,
-        Videocon: 2,
-        "Tata Sky": 2.1,
+        Airtel: {
+          icon: "uploads/operator/airtel.jpg",
+          commission: 1,
+        },
+        "Sun Direct": {
+          icon: "uploads/operator/sun_tv.jpg",
+          commission: 1.5,
+        },
+        Videocon: {
+          icon: "uploads/operator/videocon.jpg",
+          commission: 1.2,
+        },
+        "Tata Sky": {
+          icon: "uploads/operator/tata_sky.jpg",
+          commission: 2.1,
+        },
       },
       bbps: {
-        Water: 2.2,
-        Gas: 3,
-        Electricity: 4,
-        Insurance: 3,
-        Postpaid: 2,
-        "Fast Card": 2,
-        "Google Play": 2.12,
+        Water:{
+          icon: "uploads/services/water.png",
+          commission: 3,
+        },
+        Gas: {
+          icon: "uploads/services/Book-gas-cylinder-icon.png",
+          commission: 3,
+        },
+        Electricity: {
+          icon: "uploads/services/electricity-bill-icon.png",
+          commission: 4,
+        },
+        Insurance: {
+          icon: "uploads/services/insurance.png",
+          commission: 3,
+        },
+        Postpaid: {
+          icon: "uploads/services/postpaid.png",
+          commission: 2,
+        },
+        "Fast Card": {
+          icon: "uploads/services/fastag.png",
+          commission: 2,
+        },
+        "Google Play": {
+          icon: "uploads/services/google-play.png",
+          commission: 2.12,
+        },
       },
     },
   });
@@ -2499,8 +2544,25 @@ const DTHOperatorArr = [
   },
 ];
 
+
+
+const userReferralList = asyncHandler(async(req, res)=>{
+   const {_id} = req.data;
+   const user = await User.findById(_id).select("referalId");
+   if(!user){
+    res.status(404);
+    throw new Error("Unable to find user");
+   }
+   const refUser = await User.find({referedBy:user.referalId});
+   successHandler(req, res, {
+    Remark: "User Referral List Fetched Successfully",
+    Data: refUser.length ? refUser : [],
+   })
+})
+
 module.exports = {
   planFetch, //-----------------------------
+  userReferralList,
   //   getOperator, //-----------------------------
   //   getCircle, //-----------------------------
   //   getBalance, //-----------------------------

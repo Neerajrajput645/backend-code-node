@@ -252,12 +252,12 @@ const updateProfile = asyncHandler(async (req, res) => {
 
 const referList = asyncHandler(async (req, res) => {
   const { referalId } = req.data;
-  const data = await User.find({ referBy: referalId });
+  const data = await User.find({ referBy: referalId }).select("firstName lastName phone email");
 
   // success respond
   successHandler(req, res, {
     Remarks: "Refer list",
-    Data: (data.reverse()),
+    Data:data,
   });
 });
 
