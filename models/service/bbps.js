@@ -6,6 +6,7 @@ const bbpsSchema = new Schema(
     number: { type: String, reuiqred: true },
     operator: { type: String, reuiqred: true },
     operatorName:{type:String},
+    username:{type:String},
     circle: { type: String, reuiqred: true },
     serviceId: { type: String, reuiqred: true },
     transactionId: { type: String, required: true, unique: true },

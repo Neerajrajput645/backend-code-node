@@ -166,13 +166,6 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       Data: response.data,
     });
   } catch (error) {
-    if (error.response.data.message === "Payment received for the billing period - no bill due") {
-      res.status(200);
-      return successHandler(req, res, {
-        Remarks: error.response.data.message,
-        Data: null,
-      });
-    }
     console.log("BBPS Bill Fetch Error:", error.response.data);
     console.error("Bill Fetch Error:", error.response?.data || error.message);
 

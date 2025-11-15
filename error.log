@@ -458,3 +458,4 @@
 2025-11-14T20:19:38.139Z [error]: userid: 6915f9785cadaf3d0d4b03a2, name: Krishna 0, phone: 7000751791, User wallet balance is low.
 2025-11-14T22:19:34.563Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Cannot read properties of null (reading 'map')
 2025-11-14T22:19:34.763Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Cannot read properties of null (reading 'map')
+2025-11-15T06:55:27.272Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, operatorCode is not defined

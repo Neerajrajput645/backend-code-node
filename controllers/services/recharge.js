@@ -631,10 +631,41 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
       // mobile_no: dthNumber, - for more details
     };
 
+    
+
+
     const url = "https://planapi.in/api/Mobile/DthOperatorFetch";
     // const url = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
 
     const { data } = await axios.get(url, { params });
+
+    console.log(data, "dth operator data");
+
+
+     try {
+    let userName = "Unknown";
+    const detailsParams = {
+      apimember_id: process.env.PLAN_API_USER_ID,
+      api_password: process.env.PLAN_API_PASSWORD_hash,
+      dth_number: dthNumber,
+      Opcode: data.DthOpCode, // Operator code for DTH - FOR MORE DETAILS
+      mobile_no: dthNumber, // - for more details
+    };
+
+    const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
+
+    const { data:news } = await axios.get(dthurl, { params: detailsParams });
+    // userName = data.DATA.Name;
+    console.log("------------------------------------------------------------------");
+    data.userName=news.DATA.Name
+    console.log(news.DATA.Name, "dth details data");
+    console.log("------------------------------------------------------------------");
+  }
+  catch (error) {
+    console.error("DTH Recharge Pre-fetch Error:", error.message || error.response?.data || error);
+  }
+
+
 
     return successHandler(req, res, {
       Error: false,
@@ -662,6 +693,8 @@ const fetchDthOpDetails = asyncHandler(async (req, res) => {
       mobile_no: dthNumber, // - for more details
     };
 
+    console.log(params, "params");
+
     // const url = "https://planapi.in/api/Mobile/DthOperatorFetch";
     const url = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
 
@@ -680,11 +713,11 @@ const fetchDthOpDetails = asyncHandler(async (req, res) => {
 
 
 const dthRequest = asyncHandler(async (req, res) => {
+
   const findService = await Service.findOne({ name: "DTH" });
   const ipAddress = getIpAddress(req);
 
   if (!findService?.status) throw new Error("DTH Recharge Failed, Please Try Again Ex100");
-
   const { _id, deviceToken } = req.data;
   const FindUser = await Users.findById(_id);
   if (!FindUser?.status) throw new Error("User is Blocked");
@@ -730,6 +763,29 @@ const dthRequest = asyncHandler(async (req, res) => {
     userId: _id,
     ipAddress,
   };
+
+
+  try {
+    let userName = "Unknown";
+    const detailsParams = {
+      apimember_id: process.env.PLAN_API_USER_ID,
+      api_password: process.env.PLAN_API_PASSWORD_hash,
+      dth_number: number,
+      Opcode: operator, // Operator code for DTH - FOR MORE DETAILS
+      mobile_no: number, // - for more details
+    };
+
+    const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
+
+    const { data } = await axios.get(dthurl, { params: detailsParams });
+    userName = data.DATA.Name;
+    console.log("------------------------------------------------------------------");
+    console.log(data.DATA.Name, "dth details data");
+    console.log("------------------------------------------------------------------");
+  }
+  catch (error) {
+    console.error("DTH Recharge Pre-fetch Error:", error.message || error.response?.data || error);
+  }
 
   try {
     const walletRes = await paywithWallet({ body: payBody });
@@ -787,6 +843,7 @@ const dthRequest = asyncHandler(async (req, res) => {
       operator,
       amount: txnAmount,
       transactionId,
+      userName,
       status: rechargeData.status,
       operatorRef: rechargeData.operator_ref_id || 0,
       apiTransID: rechargeData.order_id || 0,
@@ -821,7 +878,7 @@ const dthRequest = asyncHandler(async (req, res) => {
         rechargeData.ErrorMessage ||
         `Recharge ${status}`,
       Data: rechargeData,
-      ResponseStatus:1
+      ResponseStatus: 1
     });
 
   } catch (error) {
@@ -1855,16 +1912,20 @@ const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
       TransID = req.body.order_id || 0;
 
       // Log raw data for debugging
+      console.log("Logging webhook data to file");
       const logFile = path.join(process.cwd(), "webhook_logs.txt");
+      console.log("Logging to file:", logFile);
       fs.appendFileSync(logFile, `${new Date().toISOString()} - ${req.method} - ${JSON.stringify(req.body)}\n`);
-
+      console.log("Logged webhook data successfully");
     } else if (req.method === "GET") {
+      console.log("Processing GET request");
       Status = req?.query?.Status || req?.query?.status || req?.query?.STATUS === 1 ? "success" : "failed";
-
+      console.log("Parsed Status:", Status);
       // Log raw data for debugging
       const logFile = path.join(process.cwd(), "webhook_logs.txt");
+      console.log("Logging to file:", logFile);
       fs.appendFileSync(logFile, `${new Date().toISOString()} - ${req.method} - ${JSON.stringify(req.data)}\n`);
-
+      console.log("Logged webhook data successfully");
 
 
       TransID =

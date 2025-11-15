@@ -1,17 +1,7 @@
 const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
-// const Txn = require("../models/txnSchema");
 const Otp = require("../models/otpSchema");
 const User = require("../models/userSchema");
-// const Wallet = require("../models/walletSchema");
-// const Matrix = require("../models/matrixSchema");
 const Service = require("../models/serviceSchema");
-// const getIpAddress = require("../common/getIpAddress");
-// const sendEmail = require("../common/sendEmail");
-// const GiftCard = require("../models/giftCardSchema");
-// const Notification = require("../models/notificationSchema");
-// const sendNotification = require("../common/sendNotification");
-// const uniqueIdGenerator = require("../common/uniqueIdGenerator");
-// const { encryptFunc } = require("../common/encryptDecrypt");
 
 const CryptoJS = require("crypto-js");
 const sendSMS = require("../common/sendSMS");
@@ -22,20 +12,28 @@ const { profilePicResize } = require("../common/imageResize");
 const deletePreviousImage = require("../common/deletePreviousImage");
 
 // user profile
+// user profile
 const userProfile = asyncHandler(async (req, res) => {
   console.log("fetch user profile");
   const { _id } = req.data;
+
   const userFound = await User.findById(_id).populate("wallet");
+
   const { password, ...others } = userFound.toObject();
 
-  // Success Respond
+  // Format wallet amount: 54.2224 -> 54.2
+  if (others.wallet && others.wallet.balance !== undefined) {
+    others.wallet.balance = Number(others.wallet.balance.toFixed(1)); 
+    // if you want 2 decimals -> toFixed(2)
+  }
   console.log(req.body, "user profile fetch");
   console.log(others, "user profile data");
   successHandler(req, res, {
-    Data: (others),
+    Data: others,
     Remarks: "User Profile Fetch Successfull.",
   });
 });
+
 
 // user list
 // const userList = asyncHandler(async (req, res) => {
