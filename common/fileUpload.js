@@ -351,6 +351,31 @@ const serviceImages = multer({
   fileFilter,
 });
 
+// ----------------------------------------- Commissions ------------------------------------- //
+
+const storage15 = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const destination = `uploads/commissions`;
+    // Create the dynamic folder if it doesn't exist
+    if (!fs.existsSync(destination)) {
+      fs.mkdirSync(destination, { recursive: true });
+    }
+    cb(null, destination);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname.replaceAll(" ", "-"));
+  },
+});
+const commissionImages = multer({
+  storage: storage15,
+  limits: {
+    fileSize: 2 * 1024 * 1024, // 2 MB limit
+  },
+  fileFilter,
+});
+
+
+
 module.exports = {
   userProfileUpload,
   serviceUpload,
@@ -364,6 +389,7 @@ module.exports = {
   productImageUpload,
   ratingImages,
   appLogoUpload,
+  commissionImages,
   affiliateBannerUploads,
   serviceCategoryImages,
   serviceImages

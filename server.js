@@ -62,6 +62,7 @@ app.get("/api/user/combined-history", tokenVerify, combinedHistory);
 app.use("/api/user", require("./routes/userRoute"));
 // app.use("/api/bank", require("./routes/bankRoute"));
 app.use("/api/wallet", require("./routes/walletRoute"));
+app.use("/api/commission", require("./routes/newRoutes/commission.js"));
 // webhook callback for recharge status
 app.all("/api/webhook/callback", Recharge_CallBack_Handler);
 // for webhook callbacks
