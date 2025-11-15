@@ -142,6 +142,7 @@ const userProfile = asyncHandler(async (req, res) => {
 //   });
 // });
 
+
 const userList = asyncHandler(async (req, res) => {
   const page = parseInt(req.body.pageNumber) || 1;
   const pageSize = parseInt(req.body.pageSize) || 20;
@@ -151,8 +152,6 @@ const userList = asyncHandler(async (req, res) => {
 
   const query = {};
   let sortOption = { createdAt: -1 }; // Default sorting
-  let allUsers;
-  let lastPage;
 
   // Build query based on search and select
   if (searchVal && selectVal) {
@@ -166,7 +165,7 @@ const userList = asyncHandler(async (req, res) => {
     }
   }
 
-  // Additional filtering
+  // Additional filter
   if (filter) {
     switch (filter) {
       case "prime":
@@ -182,7 +181,6 @@ const userList = asyncHandler(async (req, res) => {
         sortOption = { createdAt: 1 };
         break;
       case "htl":
-        // Sort by wallet balance (descending)
         sortOption = { "wallet.balance": -1 };
         break;
       case "newest":
@@ -194,15 +192,30 @@ const userList = asyncHandler(async (req, res) => {
   }
 
   // Execute query with pagination
-  allUsers = await User.find(query)
+  let allUsers = await User.find(query)
     .sort(sortOption)
     .skip((page - 1) * pageSize)
     .limit(pageSize)
-    .populate("wallet", "balance"); // Fetch only necessary fields
+    .populate("wallet", "balance");
 
-  // Count total documents for pagination
+  // ⭐ DECRYPT MPIN FOR EACH USER
+  allUsers = allUsers.map((user) => {
+    try {
+      if (user.mPin) {
+        const bytes = CryptoJS.AES.decrypt(user.mPin, CRYPTO_SECRET);
+        user = user.toObject();
+        user.mPin = bytes.toString(CryptoJS.enc.Utf8); // decrypted MPIN
+      }
+    } catch (e) {
+      user = user.toObject();
+      user.mPin = null; // if decryption fails
+    }
+    return user;
+  });
+
+  // Pagination count
   const totalCount = await User.countDocuments(query);
-  lastPage = Math.ceil(totalCount / pageSize);
+  const lastPage = Math.ceil(totalCount / pageSize);
 
   // Success Response
   successHandler(req, res, {
@@ -213,6 +226,7 @@ const userList = asyncHandler(async (req, res) => {
     Remarks: "User Profile Fetch Successful.",
   });
 });
+
 
 // update profile
 const updateProfile = asyncHandler(async (req, res) => {
@@ -407,6 +421,7 @@ const forgotMpin = asyncHandler(async (req, res) => {
   //  success handle
   successHandler(req, res, { Remarks: "Otp sent on your email or phone." });
 });
+
 
 // verify otp
 const verifyOTP = asyncHandler(async (req, res) => {

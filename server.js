@@ -106,6 +106,7 @@ app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
 app.get("/api", (req, res) => {
   res.send(getIpAddress(req));
 });
+
 // =======================Logout ===========================
 // app.post("/api/user/logout",(req,res)=>{
 //   try {
