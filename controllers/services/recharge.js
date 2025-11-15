@@ -212,6 +212,8 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
     if (!findService?.status) {
       res.status(400);
+
+      console.log("step-1", findService)
       throw new Error("Recharge Failed, Please Try Again Ex100");
     }
 
@@ -246,6 +248,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       throw new Error("Please enter a valid mPin.");
     }
     if (walletFound.balance < TxnAmount) {
+      console.log("wallet", walletFound)
       res.status(400);
       throw new Error("User wallet balance is low.");
     }
@@ -326,7 +329,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           try {
             // console.log("Calling Recharge API");
 
-            // rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+            //      rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
             const rechargeRe = {
               data: {
                 status: 'success',
@@ -435,6 +438,9 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             Remarks: `Your Recharge is ${status}`,
             Data: ({
               status: capitalize(status),
+              // number:newRecharge.number,
+              transactionId: newRecharge.transactionId,
+              // transectionId:newRecharge.txnId,
               operator_ref_id: response?.operator_ref_id || 0,
             }),
           });
@@ -687,7 +693,22 @@ const dthRequest = asyncHandler(async (req, res) => {
   const { number, operator, amount, transactionId = genTxnId(), mPin } = req.query;
   const txnAmount = Number(amount);
   if (txnAmount <= 0) throw new Error("Amount should be positive.");
-
+  if (operator == 28 && txnAmount < 200) {
+    res.status(400);
+    throw new Error("Minimum Amount for Tata Sky should be greater than 200")
+  }
+  else if (operator == 25 && txnAmount < 100) {
+    res.status(400);
+    throw new Error("Minimum Amount for Dish TV should be greater than 100")
+  }
+  else if (operator == 29 && txnAmount < 100) {
+    res.status(400);
+    throw new Error("Minimum Amount for Videocon should be greater than 200")
+  }
+  else if (operator == 24 && txnAmount < 100) {
+    res.status(400);
+    throw new Error("Minimum Amount for Dish TV should be greater than 200")
+  }
   if (!req.data.mPin) throw new Error("Please set an mPin.");
 
   // 🔐 Decrypt mPin
@@ -713,13 +734,16 @@ const dthRequest = asyncHandler(async (req, res) => {
   try {
     const walletRes = await paywithWallet({ body: payBody });
     if (walletRes.ResponseStatus !== 1) throw new Error("Wallet deduction failed.");
-
+    console.log("req.body", req.body);
+    console.log("req.query", req.query);
     // 🔎 Validate operator
+    console.log(operator)
     const findOperator = All_DTH_Recharge_Operator_List.find(
-      (a) => a.Mobikwik_Operator_code == operator
+      (a) => a.planApi_operator_code == operator
     );
+    console.log("es", findOperator)
     if (!findOperator) throw new Error("Invalid operator selected.");
-
+    console.log(findOperator, "find op")
     const URL = "https://api.techember.in/app/recharges/main.php";
     const bodyData = {
       token: process.env.BILLHUB_TOKEN,
@@ -734,7 +758,17 @@ const dthRequest = asyncHandler(async (req, res) => {
     await saveLog("DTH_RECHARGE", URL, bodyData, null, `Recharge initiated for TxnID: ${transactionId}`);
 
     // 🔌 Call Billhub API
-    const rechargeRe = await axios.post(URL, bodyData);
+    // const rechargeRe = await axios.post(URL, bodyData);
+    const rechargeRe = {
+      data: {
+        status: 'success',
+        order_id: '1762671148848568',
+        margin: '0.8250',
+        margin_percentage: '0.1283',
+        operator_ref_id: null
+      }
+    }
+    console.log("data", rechargeRe);
     const rechargeData = rechargeRe.data || {};
     const status = rechargeData.status?.toLowerCase() || "unknown";
 
@@ -787,7 +821,9 @@ const dthRequest = asyncHandler(async (req, res) => {
         rechargeData.ErrorMessage ||
         `Recharge ${status}`,
       Data: rechargeData,
+      ResponseStatus:1
     });
+
   } catch (error) {
     console.error("DTH Recharge Error:", error);
 
@@ -1134,19 +1170,19 @@ const commission = asyncHandler(async (req, res) => {
     Remarks: "Commission fetched successfully",
     data: {
       mobile: {
-        Airtel:{
+        Airtel: {
           commission: 2.5,
           icon: "uploads/operator/airtel.jpg",
         },
-        Jio:{
+        Jio: {
           commission: 3,
           icon: "uploads/operator/jio.jpg",
         },
-        Vi:{
+        Vi: {
           commission: 4.5,
           icon: "uploads/operator/vi.jpg",
         },
-        Bsnl:{
+        Bsnl: {
           commission: 5,
           icon: "uploads/operator/bsnl.jpg",
         },
@@ -1170,7 +1206,7 @@ const commission = asyncHandler(async (req, res) => {
         },
       },
       bbps: {
-        Water:{
+        Water: {
           icon: "uploads/services/water.png",
           commission: 3,
         },
@@ -2546,18 +2582,18 @@ const DTHOperatorArr = [
 
 
 
-const userReferralList = asyncHandler(async(req, res)=>{
-   const {_id} = req.data;
-   const user = await User.findById(_id).select("referalId");
-   if(!user){
+const userReferralList = asyncHandler(async (req, res) => {
+  const { _id } = req.data;
+  const user = await User.findById(_id).select("referalId");
+  if (!user) {
     res.status(404);
     throw new Error("Unable to find user");
-   }
-   const refUser = await User.find({referedBy:user.referalId});
-   successHandler(req, res, {
+  }
+  const refUser = await User.find({ referedBy: user.referalId });
+  successHandler(req, res, {
     Remark: "User Referral List Fetched Successfully",
     Data: refUser.length ? refUser : [],
-   })
+  })
 })
 
 module.exports = {

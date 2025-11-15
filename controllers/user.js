@@ -376,18 +376,22 @@ const createMpin = asyncHandler(async (req, res) => {
 // verify mpin
 const verifyMpin = asyncHandler(async (req, res) => {
   const { mPin } = req.body;
+  console.log("mpin", req.body);
+  console.log("header", req.headers);
   const userFound = req.data;
   // decrypt mpin
+  console.log("user found", userFound.firstName);
   const decryptMpin = CryptoJS.AES.decrypt(
     userFound.mPin,
     CRYPTO_SECRET
   ).toString(CryptoJS.enc.Utf8);
 
   if (mPin.toString() !== decryptMpin) {
+    console.log("invalid m pin")
     res.status(400);
     throw new Error("Please enter valid mPin");
   }
-
+  console.log("m pin success");
   // success respond
   successHandler(req, res, { Remarks: "Verify mPin" });
 });

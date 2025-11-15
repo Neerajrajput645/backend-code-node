@@ -731,5 +731,512 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-11-14T08:54:36.491Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-14T09:41:37.439Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "212.0",
+        "billnetamount": "212.0",
+        "billdate": "14 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251003214",
+        "userName": "SHRI SATISH AGRAWAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-11-14T14:57:30.258Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T14:58:14.048Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:19:54.158Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:20:17.405Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:20:24.984Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:54:47.735Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:55:18.933Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:55:21.623Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T15:55:24.953Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:00:38.593Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:03:31.646Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:06:45.410Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:06:49.166Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:07:00.748Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T16:16:04.848Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "212.0",
+        "billnetamount": "212.0",
+        "billdate": "14 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251003214",
+        "userName": "SHRI SATISH AGRAWAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-11-14T16:18:09.674Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "212.0",
+        "billnetamount": "212.0",
+        "billdate": "14 Nov 2025",
+        "dueDate": "2025-11-24",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2251003214",
+        "userName": "SHRI SATISH AGRAWAL"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-11-14T19:58:05.291Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2904007531",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "75.0",
+        "billnetamount": "75.0",
+        "billdate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2904007531",
+        "userName": "SH KAMLESH KUMAR YADAV"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2904007531"
+  },
+  {
+    "LogTime": "2025-11-14T20:03:41.258Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-14T20:23:11.022Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "N2901019888",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "8025.0",
+        "billnetamount": "8025.0",
+        "billdate": "08 Nov 2025",
+        "dueDate": "2025-11-18",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "N2901019888",
+        "userName": "SHRI SHAMBHU DAYAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: N2901019888"
+  },
+  {
+    "LogTime": "2025-11-14T20:24:20.251Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWB4548",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1683.0",
+        "billnetamount": "1683.0",
+        "billdate": "28 Oct 2025",
+        "dueDate": "2025-11-04",
+        "minBillAmount": 1683,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWB4548",
+        "userName": "Mr. Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
   }
 ]

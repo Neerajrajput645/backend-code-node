@@ -137,7 +137,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
 
-    const { number, operator, ad1} = req.body;
+    const { number, operator, ad1 } = req.body;
 
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
@@ -166,7 +166,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       Data: response.data,
     });
   } catch (error) {
-    if( error.response.data.message === "Payment received for the billing period - no bill due" ){
+    if (error.response.data.message === "Payment received for the billing period - no bill due") {
       res.status(200);
       return successHandler(req, res, {
         Remarks: error.response.data.message,
@@ -184,7 +184,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       "Bill fetch failed"
     );
 
-    throw new Error(error?.response?.data?.message || "Error fetching bill information");
+    throw new Error("No outstanding bills found");
   }
 });
 
@@ -274,6 +274,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         userId: FindUser._id,
         number,
         operator: operatorName,
+        operatorName:operatorCategory,
         circle: null,
         amount: TxnAmount,
         serviceId: findService._id,
@@ -319,8 +320,17 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           `Bill Payment Request Initiated for TxnID: ${transactionId}`
         );
 
-        const response = await axios.post(URL, payload);
-        // console.log("response ->", response);
+        // const response = await axios.post(URL, payload);
+        const response = {
+          data: {
+            status: 'success',
+            order_id: '1762671148848568',
+            margin: '0.8250',
+            margin_percentage: '0.1283',
+            operator_ref_id: null
+          }
+        }
+        console.log("response ->", response);
         await saveLog(
           `BILL_PAYMENT`,
           URL,
@@ -407,6 +417,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           Remarks: `Your ${findService.name} is ${status}`,
           Data: {
             status: capitalize(status),
+            transactionId: newService.transactionId,
             operator_ref_id: response.data.operator_ref_id,
           },
         });
@@ -607,7 +618,7 @@ const billPayment = asyncHandler(async (req, res) => {
     const res1 = await paywithWallet({ body });
     // Wallet Deduction End --------------------------
 
-
+    console.log("bbps step -1", res.body);
 
     if (res1.ResponseStatus === 1) {
       const result = await axios.get(
@@ -644,7 +655,7 @@ const billPayment = asyncHandler(async (req, res) => {
       });
 
       await newService.save();
-
+      console.log("step-2");
       if (status === "success" || status === "pending") {
         const notification = {
           title: "Bill Payment",
@@ -697,6 +708,7 @@ const billPayment = asyncHandler(async (req, res) => {
         // newService.receipt = doc;
         //  await newService.save();
 
+        console.log("step-3");
         successHandler(req, res, {
           Remarks: result.data.ErrorMessage,
           Data: result.data,

@@ -569,5 +569,222 @@
     "Request_Data": null,
     "Response_Data": "Recharge validation failed: status: Path `status` is required.",
     "Additional_Info": "Error during recharge for TxnID: 2933756769"
+  },
+  {
+    "LogTime": "2025-11-13T19:16:55.236Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "1517664829",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 1517664829, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T07:36:59.543Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "1946409208",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 1946409208, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T07:51:28.123Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 10,
+      "order_id": "8803595357",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 8803595357, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:02:11.027Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 10,
+      "order_id": "3086954636",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Another request is already in progress"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 3086954636, Status:error"
+  },
+  {
+    "LogTime": "2025-11-14T08:02:13.579Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 10,
+      "order_id": "2788103434",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "2788103434",
+      "margin": "0.0500",
+      "margin_percentage": "0.5000",
+      "operator_ref_id": "6858404456"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 2788103434, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:28:59.416Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 77,
+      "order_id": "3934799625",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 3934799625, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:30:42.899Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 77,
+      "order_id": "4283109992",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 4283109992, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:32:45.817Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 11,
+      "order_id": "6575490927",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6575490927, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:45:14.207Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 77,
+      "order_id": "1413212143",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 1413212143, Status:success"
+  },
+  {
+    "LogTime": "2025-11-14T08:47:13.970Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6268800426",
+      "op_uid": "jio",
+      "amount": 11,
+      "order_id": "3392051009",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 3392051009, Status:success"
   }
 ]

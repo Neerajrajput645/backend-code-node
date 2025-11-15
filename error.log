@@ -375,3 +375,86 @@
 2025-11-13T14:45:59.914Z [error]: Email is already used.
 2025-11-13T14:46:04.272Z [error]: Email is already used.
 2025-11-13T14:46:05.254Z [error]: Email is already used.
+2025-11-13T18:48:20.170Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge Failed, Please Try Again Ex100
+2025-11-13T18:49:15.493Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge Failed, Please Try Again Ex100
+2025-11-13T18:51:52.342Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T18:57:44.166Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, user is not defined
+2025-11-13T19:02:41.678Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Recharge Failed, Please Try Again Ex100
+2025-11-13T19:04:24.799Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Recharge Failed, Please Try Again Ex100
+2025-11-13T19:06:53.517Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Recharge Failed, Please Try Again Ex100
+2025-11-13T19:08:21.905Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T19:09:28.762Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T19:09:33.526Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T19:09:50.436Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T19:10:07.862Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter valid mPin
+2025-11-13T19:11:25.223Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Please enter a valid mPin.
+2025-11-13T19:12:42.600Z [error]: userid: 6915e0e41b273addf97ae981, name: Dona Gorge, phone: 8871265906, Please enter a valid mPin.
+2025-11-13T19:13:33.231Z [error]: userid: 6915e0e41b273addf97ae981, name: Dona Gorge, phone: 8871265906, User wallet balance is low.
+2025-11-13T19:15:42.905Z [error]: userid: 6915e0e41b273addf97ae981, name: Dona Gorge, phone: 8871265906, User wallet balance is low.
+2025-11-14T08:34:02.026Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, User wallet balance is low.
+2025-11-14T09:18:04.346Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid operator selected.
+2025-11-14T09:26:11.048Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid operator selected.
+2025-11-14T14:49:22.752Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid operator selected.
+2025-11-14T14:53:13.636Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid operator selected.
+2025-11-14T15:32:18.956Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid operator selected.
+2025-11-14T15:32:25.045Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid operator selected.
+2025-11-14T16:03:31.480Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Bill fetch timed out from seller end
+2025-11-14T16:19:24.098Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, rechargePe is not defined
+2025-11-14T16:20:02.522Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Request failed with status code 401
+2025-11-14T17:56:24.907Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Tax
+2025-11-14T18:08:07.401Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'planapi_circlecode')
+2025-11-14T18:08:07.463Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'planapi_circlecode')
+2025-11-14T19:05:54.545Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:06:58.250Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:20.465Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:21.940Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:23.968Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:30.529Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:40.973Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:48.078Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:07:53.538Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:08:40.671Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:08:43.534Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:08:48.989Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:08:57.634Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:00.888Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:02.439Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:04.341Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:05.982Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:18.021Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:09:23.576Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:10:16.154Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Request failed with status code 401
+2025-11-14T19:16:30.439Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:19:13.107Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:19:51.463Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:01.535Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:10.425Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:18.155Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:19.360Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:21.308Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:22.337Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:26.540Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:29.432Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:20:42.633Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:22:34.740Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:23:00.103Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:23:28.239Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-14T19:24:12.220Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:24:12.364Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:24:19.020Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-14T19:25:34.306Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Action not supported.
+2025-11-14T19:25:47.925Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Action not supported.
+2025-11-14T19:26:23.627Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-14T19:27:21.970Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from biller
+2025-11-14T19:27:58.551Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Unable to get bill details from Biller
+2025-11-14T19:28:55.480Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:53:32.122Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:54:35.879Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T19:55:37.804Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T20:03:09.771Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No outstanding bills found
+2025-11-14T20:19:16.909Z [error]: userid: 6915f9785cadaf3d0d4b03a2, name: Krishna 0, phone: 7000751791, No outstanding bills found
+2025-11-14T20:19:32.722Z [error]: userid: 6915f9785cadaf3d0d4b03a2, name: Krishna 0, phone: 7000751791, User wallet balance is low.
+2025-11-14T20:19:34.227Z [error]: userid: 6915f9785cadaf3d0d4b03a2, name: Krishna 0, phone: 7000751791, User wallet balance is low.
+2025-11-14T20:19:38.139Z [error]: userid: 6915f9785cadaf3d0d4b03a2, name: Krishna 0, phone: 7000751791, User wallet balance is low.
+2025-11-14T22:19:34.563Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Cannot read properties of null (reading 'map')
+2025-11-14T22:19:34.763Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Cannot read properties of null (reading 'map')

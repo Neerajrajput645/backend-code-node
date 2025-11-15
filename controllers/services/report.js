@@ -4,10 +4,26 @@ const DTH = require("../../models/service/dthSchema");
 const BBPS = require("../../models/service/bbps");
 const successHandler = require("../../common/successHandler");
 
+const {
+  All_Recharge_Operator_List,
+} = require("../../utils/MockData");
+
+// 🔍 Helper to get Operator Name
+const getOperatorName = (operatorCode) => {
+  if (!operatorCode) return null;
+
+  const matched = All_Recharge_Operator_List.find(
+    (x) => String(x.PlanApi_Operator_code) === String(operatorCode)
+  );
+
+  return matched ? matched.Operator_name : null;
+};
+
 const combinedHistory = asyncHandler(async (req, res) => {
   const { _id } = req.data;
+
   const {
-    serviceType, // 'recharge' | 'dth' | 'bbps' | 'all'
+    serviceType, // recharge | dth | bbps | all
     serviceId,
     startDate,
     endDate,
@@ -17,6 +33,7 @@ const combinedHistory = asyncHandler(async (req, res) => {
   } = req.query;
 
   try {
+    // ---------------- DATE FILTER ----------------
     const dateFilter = {};
     if (startDate || endDate) {
       dateFilter.createdAt = {};
@@ -28,7 +45,7 @@ const combinedHistory = asyncHandler(async (req, res) => {
       }
     }
 
-    // Construct base filters
+    // ---------------- BASE FILTER ----------------
     const baseFilter = {
       userId: _id,
       ...dateFilter,
@@ -39,14 +56,14 @@ const combinedHistory = asyncHandler(async (req, res) => {
     if (transactionId) baseFilter.transactionId = transactionId;
     if (amount) baseFilter.amount = Number(amount);
 
-    // Prepare containers
+    // ---------------- DATA HOLDERS ----------------
     let dthData = [];
     let rechargeData = [];
     let bbpsData = [];
 
     const promises = [];
 
-    // --- DTH ---
+    // ---------------- DTH ----------------
     if (!serviceType || serviceType === "dth" || serviceType === "all") {
       promises.push(
         DTH.find(baseFilter)
@@ -58,19 +75,22 @@ const combinedHistory = asyncHandler(async (req, res) => {
       );
     }
 
-    // --- Recharge ---
+    // ---------------- Recharge ----------------
     if (!serviceType || serviceType === "recharge" || serviceType === "all") {
       promises.push(
         Recharge.find(baseFilter)
           .sort({ createdAt: -1 })
           .lean()
           .then((data) => {
-            rechargeData = data || [];
+            rechargeData = (data || []).map((item) => ({
+              ...item,
+              operatorName: getOperatorName(item.operator), // ⭐ Add operator name
+            }));
           })
       );
     }
 
-    // --- BBPS ---
+    // ---------------- BBPS ----------------
     if (!serviceType || serviceType === "bbps" || serviceType === "all") {
       promises.push(
         BBPS.find(baseFilter)
@@ -84,7 +104,7 @@ const combinedHistory = asyncHandler(async (req, res) => {
 
     await Promise.all(promises);
 
-    // ✅ Final structured response
+    // ---------------- FINAL RESPONSE ----------------
     const finalData = {
       dth: dthData,
       mobile: rechargeData,

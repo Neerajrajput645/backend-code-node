@@ -614,5 +614,261 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : success for TxnID: 4776852271"
+  },
+  {
+    "LogTime": "2025-11-14T14:47:41.926Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "6185562091",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 6185562091"
+  },
+  {
+    "LogTime": "2025-11-14T14:47:41.929Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 643,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "643.0",
+        "billnetamount": "643.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "6185562091",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 6185562091"
+  },
+  {
+    "LogTime": "2025-11-14T16:14:57.789Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 75,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2904007531",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SH KAMLESH KUMAR YADAV",
+        "number": "N2904007531",
+        "billDate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "amount": "75.0"
+      },
+      "order_id": "9773284048",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 9773284048"
+  },
+  {
+    "LogTime": "2025-11-14T16:14:57.790Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 75,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2904007531",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SH KAMLESH KUMAR YADAV",
+        "number": "N2904007531",
+        "billDate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "amount": "75.0"
+      },
+      "order_id": "9773284048",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 9773284048"
+  },
+  {
+    "LogTime": "2025-11-14T16:18:34.455Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 212,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2251003214",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SHRI SATISH AGRAWAL",
+        "number": "N2251003214",
+        "billDate": "14 Nov 2025",
+        "dueDate": "2025-11-24",
+        "amount": "212.0"
+      },
+      "order_id": "1438724102",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 1438724102"
+  },
+  {
+    "LogTime": "2025-11-14T16:18:35.505Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 212,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2251003214",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SHRI SATISH AGRAWAL",
+        "number": "N2251003214",
+        "billDate": "14 Nov 2025",
+        "dueDate": "2025-11-24",
+        "amount": "212.0"
+      },
+      "order_id": "1438724102",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1763137114981411",
+      "margin": "0.8250",
+      "margin_percentage": "0.3892",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 1438724102"
+  },
+  {
+    "LogTime": "2025-11-14T19:58:45.221Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 75,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2904007531",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SH KAMLESH KUMAR YADAV",
+        "number": "N2904007531",
+        "billDate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "amount": "75.0"
+      },
+      "order_id": "2516086849",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 2516086849"
+  },
+  {
+    "LogTime": "2025-11-14T19:58:45.223Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "amount": 75,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "N2904007531",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SH KAMLESH KUMAR YADAV",
+        "number": "N2904007531",
+        "billDate": "09 Nov 2025",
+        "dueDate": "2025-11-19",
+        "amount": "75.0"
+      },
+      "order_id": "2516086849",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 2516086849"
   }
 ]

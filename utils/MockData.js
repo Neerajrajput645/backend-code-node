@@ -457,32 +457,33 @@ const All_DTH_Recharge_Operator_List = [
   {
     A1_Operator_code: "ATV",
     Billhub_Operator_code: "airtel_tv",
-    Mobikwik_Operator_code: 23,
+    Mobikwik_Operator_code: 24,
+     planApi_operator_code:24,
     Operator_name: "Airtel TV",
     img: "uploads/operator/airtel.jpg",
   },
   {
     A1_Operator_code: "DTV",
-
     Billhub_Operator_code: "dish_tv",
     Mobikwik_Operator_code: 18,
+     planApi_operator_code:25,
     Operator_name: "Dish TV",
     img: "uploads/operator/dish_tv.jpg",
   },
   {
     A1_Operator_code: "TTV",
-
     Billhub_Operator_code: "tata_sky",
     Mobikwik_Operator_code: 19,
+     planApi_operator_code:28,
     Operator_name: "Tata Sky",
     img: "uploads/operator/tata_sky.jpg",
   },
 
   {
     A1_Operator_code: "STV",
-
     Billhub_Operator_code: "sun_tv",
     Mobikwik_Operator_code: 22,
+    planApi_operator_code:27,
     Operator_name: "Sun Direct",
     img: "uploads/operator/sun_tv.jpg",
   },
@@ -491,6 +492,7 @@ const All_DTH_Recharge_Operator_List = [
 
     Billhub_Operator_code: "videocon",
     Mobikwik_Operator_code: 21,
+     planApi_operator_code:29,
     Operator_name: "Videocon DTH",
     img: "uploads/operator/videocon.jpg",
   },
