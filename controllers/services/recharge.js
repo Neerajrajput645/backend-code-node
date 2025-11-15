@@ -1223,6 +1223,7 @@ const handleFailedRecharge = asyncHandler(async (req, res) => {
 });
 
 const commission = asyncHandler(async (req, res) => {
+  console.log("commission api called");
   return successHandler(req, res, {
     Remarks: "Commission fetched successfully",
     data: {

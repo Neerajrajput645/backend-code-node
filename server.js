@@ -74,7 +74,7 @@ app.use("/api/service", require("./routes/serviceRoute"));
 app.use("/api/affiliate-banner", require("./routes/affiliateBannerRoute"));
 
 app.use("/api/notification", require("./routes/notificationRoute"));
-app.get("/api/commission/list", require("./controllers/services/recharge.js").commission);
+app.get("/api/cyrus/commission_list", require("./controllers/services/recharge.js").commission);
 app.use("/api/payment", require("./routes/paymentRoutes"));
 //app.get("api/commission/list", require("./controllers/services/recharge.js").commission);
 // app.use("/api", require("./routes/other"));
