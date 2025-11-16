@@ -375,6 +375,29 @@ const commissionImages = multer({
 });
 
 
+// ----------------------------------------- Home Banners ------------------------------------- //
+
+const storage16 = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const destination = `uploads/homeBanners`;
+    // Create the dynamic folder if it doesn't exist
+    if (!fs.existsSync(destination)) {
+      fs.mkdirSync(destination, { recursive: true });
+    }
+    cb(null, destination);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname.replaceAll(" ", "-"));
+  },
+});
+const homeBannerImages = multer({
+  storage: storage16,
+  limits: {
+    fileSize: 2 * 1024 * 1024, // 2 MB limit
+  },
+  fileFilter,
+});
+
 
 module.exports = {
   userProfileUpload,
@@ -389,8 +412,9 @@ module.exports = {
   productImageUpload,
   ratingImages,
   appLogoUpload,
-  commissionImages,
+  homeBannerImages,
   affiliateBannerUploads,
+  commissionImages,
   serviceCategoryImages,
   serviceImages
 };

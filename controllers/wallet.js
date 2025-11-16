@@ -7,6 +7,7 @@ const Wallet = require("../models/walletSchema");
 const Matrix = require("../models/matrixSchema");
 const Service = require("../models/serviceSchema");
 const Merchant = require("../models/merchantSchema");
+const Commission = require("../models/newModels/commission");
 const getIpAddress = require("../common/getIpAddress");
 const AdminTxn = require("../models/adminTxnSchema");
 const Withdraw = require("../models/withdrawSchema");
@@ -24,6 +25,8 @@ const userSchema = require("../models/userSchema");
 const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
 const sendEmail = require("../common/sendEmail");
 const appSetting = require("../models/appSetting");
+
+
 // wallet info
 const getWalletByUser = asyncHandler(async (req, res) => {
   const { _id } = req.data;
@@ -123,8 +126,8 @@ const sendMoney = asyncHandler(async (req, res) => {
                     const findMerchant = mid
                       ? receiverUserFound
                       : await Merchant.findOne({
-                          userId: receiverUserFound?._id,
-                        });
+                        userId: receiverUserFound?._id,
+                      });
 
                     // Calculation of commissions
                     const totalCommission =
@@ -669,11 +672,11 @@ const addMoney = asyncHandler(async (req, res, response) => {
       txnId: response.txnid,
       txnAmount,
       ipAddress: getIpAddress(req),
-       gatewayName: response.gatewayName || "",
+      gatewayName: response.gatewayName || "",
     });
     await addToWallet.save();
-    
-        await Wallet.updateOne(
+
+    await Wallet.updateOne(
       { userId: userFound._id },
       { $inc: { balance: txnAmount } }
     );
@@ -1005,9 +1008,8 @@ const manageMoney = asyncHandler(async (req, res) => {
             // notification body
             const notification = {
               title: type === "credit" ? "Credited" : "Debited",
-              body: `${amount} ${
-                title === "balance" ? "Rupee" : title
-              } Received from Aadyapay.`,
+              body: `${amount} ${title === "balance" ? "Rupee" : title
+                } Received from Aadyapay.`,
             };
             const newNotification = new Notification({
               ...notification,
@@ -1042,6 +1044,39 @@ const manageMoney = asyncHandler(async (req, res) => {
   }
 });
 
+// cashback amount fetch
+const cashback = asyncHandler(async (req, res) => {
+ 
+  const { opName, amount } = req.body;
+
+ 
+  const commission = await Commission.findOne({
+    name: opName,
+  });
+
+  console.log("[STEP-5] Commission found:", commission);
+
+  if (!commission) {
+    console.log("[ERROR] Commission not found for operator:", opName);
+    res.status(404);
+    throw new Error("Commission not found for this operator");
+  }
+  console.log("[STEP-5] Commission details:", commission.commission, "%");
+  const cashbackAmount = (commission.commission / 100) * amount;
+
+  console.log("[STEP-6] Cashback calculated:", cashbackAmount);
+
+  successHandler(req, res, {
+    Remarks: "Cashback amount fetched successfully",
+    Cashback: cashbackAmount,
+    type: "cashback",
+    category: commission.operatorType,
+    unit: "₹",
+  });
+});
+
+
+
 module.exports = {
   userCheck,
   addMoney,
@@ -1049,4 +1084,5 @@ module.exports = {
   donateMoney,
   sendMoney,
   manageMoney,
+  cashback,
 };

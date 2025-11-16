@@ -461,3 +461,21 @@
 2025-11-15T06:55:27.272Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, operatorCode is not defined
 2025-11-15T09:11:35.113Z [error]: Icon image is required
 2025-11-15T09:33:23.431Z [error]: Expected double-quoted property name in JSON at position 27 (line 5 column 1)
+2025-11-16T06:32:02.068Z [error]: Banner validation failed: section: `Home` is not a valid enum value for path `section`.
+2025-11-16T09:58:10.132Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, error is not a constructor
+2025-11-16T09:58:13.147Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, error is not a constructor
+2025-11-16T10:00:00.549Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T10:03:43.611Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T10:19:49.660Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Commission is not defined
+2025-11-16T10:20:53.741Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Commission not found for this operator
+2025-11-16T10:21:05.741Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Commission not found for this operator
+2025-11-16T10:21:21.536Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Commission not found for this operator
+2025-11-16T10:23:34.875Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, All_BBPS_Operator_List is not defined
+2025-11-16T10:27:21.607Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, All_BBPS_Operator_List is not defined
+2025-11-16T10:30:23.626Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, All_BBPS_Operator_List is not defined
+2025-11-16T10:30:45.059Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, All_BBPS_Operator_List is not iterable
+2025-11-16T10:58:17.654Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T14:05:12.741Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T14:06:36.683Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T14:07:37.575Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T14:08:25.492Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.

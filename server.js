@@ -68,13 +68,14 @@ app.all("/api/webhook/callback", Recharge_CallBack_Handler);
 // for webhook callbacks
 app.use("/api/setting", require("./routes/appSetting"));
 app.use("/api/banner", require("./routes/bannerRoute"));
+app.use("/api/home-banner", require("./routes/newRoutes/homeBanner.js"));
 // app.use("/api/game", require("./routes/gameRoute"));
 app.use("/api/service", require("./routes/serviceRoute"));
 // app.use("/api/shipping", require("./routes/shippingRoute"));
 app.use("/api/affiliate-banner", require("./routes/affiliateBannerRoute"));
 
 app.use("/api/notification", require("./routes/notificationRoute"));
-app.get("/api/cyrus/commission_list", require("./controllers/services/recharge.js").commission);
+// app.get("/api/commission/list", require("./controllers/services/recharge.js").commission);
 app.use("/api/payment", require("./routes/paymentRoutes"));
 //app.get("api/commission/list", require("./controllers/services/recharge.js").commission);
 // app.use("/api", require("./routes/other"));
@@ -84,12 +85,12 @@ app.use("/api/affiliate", require("./routes/affiliateRoute"));
 // app.use("/api/task", require("./routes/EarnTask/EarnTaskRoute"));
 // dashboard counts api
 app.get("/api/dashboard", dashboardApi);
-app.get("/api/download-report", adminTokenVerify, Generate_Excel_Report);
+// app.get("/api/download-report", adminTokenVerify, Generate_Excel_Report);
 // app.use("/api/privacy-policy", require("./routes/newRoutes/privacyPolicy"));
 // app.use("/api/term-condition", require("./routes/newRoutes/termCondition"));
 // app.use("/api/refund-policy", require("./routes/newRoutes/refundPolicy"));
 // app.use("/api/about-us", require("./routes/newRoutes/AboutUs"));
-app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
+// app.use("/api/subpaisa", require("./routes/newRoutes/subPaisa"));
 // app.use("/api/truecaller", require("./routes/newRoutes/nameFind"));
 // app.use("/api/faq", require("./routes/newRoutes/faq"));
 // app.post("/api/fetch-bill-payment", require("./temp/tmp").fetchBillPayment);

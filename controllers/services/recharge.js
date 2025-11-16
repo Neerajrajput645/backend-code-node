@@ -655,8 +655,20 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
     const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
 
     const { data:news } = await axios.get(dthurl, { params: detailsParams });
-    // userName = data.DATA.Name;
-    console.log("------------------------------------------------------------------");
+
+
+          // userName = data.DATA.Name;
+      console.log("------------------------------------------------------------------");
+      // console.log("qwe",news.DATA.Name)
+      if (!news?.DATA?.Name) {
+        return res.status(404).json({
+          Error: true,
+          Status: false,
+          ResponseStatus: 0,
+          StatusCode: "Ex404",
+          Remarks: "Wrong DTH ID"
+        });
+      }
     data.userName=news.DATA.Name
     console.log(news.DATA.Name, "dth details data");
     console.log("------------------------------------------------------------------");

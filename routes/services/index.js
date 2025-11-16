@@ -48,30 +48,30 @@ router.get("/dth_request", tokenVerify, dthRequest);
 router.get("/dth_history", tokenVerify, dthHistory);
 router.get("/fetch_dth_plans", tokenVerify, fetchDthPlans);
 router.get("/fetch_dth_operator", tokenVerify, fetchDthOperator);
-router.get("/fetch_dth_details", tokenVerify, fetchDthOpDetails);
+router.get("/fetch_dth_operators", fetchDthOperators);
+// router.get("/fetch_dth_details", tokenVerify, fetchDthOpDetails);
 router.get("/commission_list", tokenVerify, commission);
 // router.get("/user_referral_list", tokenVerify, userReferralList);
 // router.get("/get_operator", tokenVerify, getOperator);
 // router.get("/dth_info_fetch", tokenVerify, dthInfoFetch);
 // router.get("/recharge_status", tokenVerify, rechargeStatus);
 router.get("/recharge_request", tokenVerify, rechargeRequest);
-router.get("/fetch_dth_operators", fetchDthOperators);
 router.get("/recharge_status_verify", adminTokenVerify, Recharge_Status_Verify);
 router.get(
   "/recharge_all_status_verify",
   adminTokenVerify,
   Recharge_All_Status_Verify
 );
-router.post(
-  "/recharge_commission_update",
-  adminTokenVerify,
-  Update_Recharge_Commission
-);
-router.get(
-  "/recharge-operator-percent",
-  tokenVerify,
-  Get_Recharge_Operator_Percent
-);
+// router.post(
+//   "/recharge_commission_update",
+//   adminTokenVerify,
+//   Update_Recharge_Commission
+// );
+// router.get(
+//   "/recharge-operator-percent",
+//   tokenVerify,
+//   Get_Recharge_Operator_Percent
+// );
 router.get("/recharge-complain-billhub", tokenVerify, BillhubComplainRaise);
 router.get("/recharge_history", tokenVerify, rechargeHistory);
 router.get("/operator_by_phone", tokenVerify, Get_Operator_Circle_By_Phone);

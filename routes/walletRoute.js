@@ -6,6 +6,7 @@ const {
 const {
   userCheck,
    sendMoney,
+   cashback,
   getWalletByUser,
   addMoney,
   donateMoney,
@@ -16,6 +17,7 @@ router.get("/info", tokenVerify, getWalletByUser);
 router.post("/add-money", tokenVerify, addMoney); // temperary
 router.post("/user-exist", tokenVerify, userCheck);
 router.post("/send-money", tokenVerify, sendMoney);
+router.post("/cashback", tokenVerify, cashback);
 // router.get("/withdraw-request-list", tokenVerify, withdrwRequestList);
 // router.post("/withdraw-request", tokenVerify, withdrawRequest);
 // router.post("/manage-withdraw-request", adminTokenVerify, manageWithdrwRequest);
