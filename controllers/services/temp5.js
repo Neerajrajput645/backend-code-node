@@ -1,12 +1,12 @@
 const CryptoJS = require("crypto-js");
+const axios = require("axios");
+require("dotenv/config");
 
-const CRYPTO_SECRET = "SECRET"; // must match encryption key
+const myFunc = async()=>{
+    const url = `http://planapi.in/api/Mobile/FastagInfoFetch?apimember_id=${process.env.PLAN_API_USER_ID}&api_password=${process.env.PLAN_API_PASSWORD}&VehicleNo=MP07ZC1955&operator_code=1`;
+    console.log(url);
+    const response = await axios.get(url);
+    console.log(response.data);
+}
 
-// Encrypted MPIN
-const encryptMpin = "U2FsdGVkX1+uXlVbZLTI99KlQonGLuo1A7U7MiwvBwM=";
-
-// Decrypt
-const bytes = CryptoJS.AES.decrypt(encryptMpin, CRYPTO_SECRET);
-const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-
-console.log("Decrypted:", decrypted);
+myFunc();

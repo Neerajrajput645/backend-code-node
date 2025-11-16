@@ -14,6 +14,7 @@ const Recharge = require("../../models/service/rechargeSchema");
 const Notification = require("../../models/notificationSchema");
 const sendNotification = require("../../common/sendNotification");
 const getIpAddress = require("../../common/getIpAddress");
+const Commission = require("../../models/newModels/commission");
 const Transaction = require("../../models/txnSchema");
 const CryptoJS = require("crypto-js");
 const rechargeApiProviderSchema = require("../../models/service/rechargeApiProviderSchema");
@@ -58,6 +59,7 @@ const genTxnId = () => {
 // EMAIL
 // const service_email = process.env.COMPANY_EMAIL;
 // const service_email_password = process.env.COMPANY_EMAIL_PASSWORD;
+
 
 const planFetch = asyncHandler(async (req, res) => {
 
@@ -312,8 +314,9 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           isPrepaid,
         });
         await newRecharge.save();
-        try {
 
+
+        try {
           const bodyData = {
             token: process.env.BILLHUB_TOKEN,
             number: number,
@@ -325,12 +328,14 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           }
           let response;
           // console.log(bodyData, "bodyData");
-          let rechargeRe = ""
+          let rechargeRe;
+
+
           try {
             // console.log("Calling Recharge API");
 
             //      rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
-            const rechargeRe = {
+            rechargeRe = {
               data: {
                 status: 'success',
                 order_id: '1869354044',
@@ -354,7 +359,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             "https://api.techember.in/app/recharges/main.php",
             bodyData,
             response,
-            `Recharge response received for TxnID: ${transactionId}, Status:` + (response ? response.status : 'No Response')
+            `Recharge response received for TxnID: ${transactionId}, Status:` + (response ? response?.status : 'No Response')
           );
 
           if (!response) {
@@ -390,23 +395,35 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // Start Cashback--------------------------
           if (status == "success" && isPrepaid) {
             console.log("Processing Cashback", findService._id);
-            const findRechargeOperator = await RechargeOperator.findOne({
-              serviceId: findService._id,
-            });
-            console.log("1234", findRechargeOperator);
-            if (!findRechargeOperator) {
-              throw new Error("Recharge operator or operator data not found.");
-            }
-            let findPercent;
-            const operatorMapping = {
-              airtel: findRechargeOperator.airtel,
-              jio: findRechargeOperator.jio,
-              vi: findRechargeOperator.vi,
-              bsnl_topup: findRechargeOperator.bsnl,
-            };
-            findPercent =
-              operatorMapping[findOperator.Billhub_Operator_code] || 0; // Default 0 if not found
+            // const findRechargeOperator = await RechargeOperator.findOne({
+            //   serviceId: findService._id,
+            // });
+
+            const op = findOperator.com_name;
+            // console.log("Found Operator Name:", findOperator);
+            console.log("Operator for Cashback:", op);
+            const commission = await Commission.findOne({ name : op });
+            console.log("Commission Details:", commission);
+            const findPercent = commission ? commission.commission : 0;
+            console.log("Cashback Percent:", findPercent);
             const cashbackPercent = (TxnAmount / 100) * findPercent;
+            console.log("Calculated Cashback Amount:", cashbackPercent);
+            // if (!findRechargeOperator) {
+            //   throw new Error("Recharge operator or operator data not found.");
+            // }
+            // let findPercent;
+            // const operatorMapping = {
+            //   airtel: findRechargeOperator.airtel,
+            //   jio: findRechargeOperator.jio,
+            //   vi: findRechargeOperator.vi,
+            //   bsnl_topup: findRechargeOperator.bsnl,
+            // };
+
+            // findPercent =
+            //   operatorMapping[findOperator.Billhub_Operator_code] || 0; // Default 0 if not found
+            // const cashbackPercent = (TxnAmount / 100) * findPercent;
+
+
             await handleCashback(
               FindUser,
               cashbackPercent,
@@ -776,9 +793,9 @@ const dthRequest = asyncHandler(async (req, res) => {
     ipAddress,
   };
 
-
+  let userName = "Unknown";
   try {
-    let userName = "Unknown";
+  
     const detailsParams = {
       apimember_id: process.env.PLAN_API_USER_ID,
       api_password: process.env.PLAN_API_PASSWORD_hash,
@@ -879,8 +896,19 @@ const dthRequest = asyncHandler(async (req, res) => {
 
     // 🎁 Cashback only on success
     if (status === "success") {
-      const cashbackAmount = (txnAmount * findService.percent) / 100;
-      await handleCashback(FindUser, cashbackAmount, transactionId, ipAddress, walletFound);
+
+
+       const op = findOperator.Operator_name;
+            // console.log("Found Operator Name:", findOperator);
+            console.log("Operator for Cashback:", op);
+            const commission = await Commission.findOne({ name : op });
+            console.log("Commission Details:", commission);
+            const findPercent = commission ? commission.commission : 0;
+            console.log("Cashback Percent:", findPercent);
+            const cashbackPercent = (txnAmount / 100) * findPercent;
+            console.log("Calculated Cashback Amount:", cashbackPercent);
+
+      await handleCashback(FindUser, cashbackPercent, transactionId, ipAddress, walletFound);
     }
 
     // ✅ Always respond (success/pending/accepted)

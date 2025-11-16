@@ -1561,5 +1561,211 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Recharge response for TxnID: TXNPPA660379E, Status: success"
+  },
+  {
+    "LogTime": "2025-11-16T19:19:13.148Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Invalid operator selected.",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP0FACC7E9"
+  },
+  {
+    "LogTime": "2025-11-16T19:21:16.850Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 100,
+      "order_id": "7608716826",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPC06F5014"
+  },
+  {
+    "LogTime": "2025-11-16T19:21:16.854Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 100,
+      "order_id": "7608716826",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPC06F5014, Status: success"
+  },
+  {
+    "LogTime": "2025-11-16T19:21:16.936Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "userName is not defined",
+    "Additional_Info": "Error during recharge for TxnID: TXNPPC06F5014"
+  },
+  {
+    "LogTime": "2025-11-16T19:22:15.713Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 100,
+      "order_id": "3483765010",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPCFCE9971"
+  },
+  {
+    "LogTime": "2025-11-16T19:22:15.718Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 100,
+      "order_id": "3483765010",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPCFCE9971, Status: success"
+  },
+  {
+    "LogTime": "2025-11-16T19:34:23.464Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 239,
+      "order_id": "6258959720",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPD08AC76D"
+  },
+  {
+    "LogTime": "2025-11-16T19:34:23.486Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "dish_tv",
+      "amount": 239,
+      "order_id": "6258959720",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPD08AC76D, Status: success"
+  },
+  {
+    "LogTime": "2025-11-16T19:37:46.874Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 239,
+      "order_id": "6565057540",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPFFF8E96E"
+  },
+  {
+    "LogTime": "2025-11-16T19:37:46.879Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 239,
+      "order_id": "6565057540",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPFFF8E96E, Status: success"
+  },
+  {
+    "LogTime": "2025-11-16T19:40:07.748Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 239,
+      "order_id": "0487912371",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP8B122AC6"
+  },
+  {
+    "LogTime": "2025-11-16T19:40:07.752Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 239,
+      "order_id": "0487912371",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPP8B122AC6, Status: success"
   }
 ]

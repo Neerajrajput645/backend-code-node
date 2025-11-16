@@ -786,5 +786,213 @@
       "operator_ref_id": "1878093437"
     },
     "Additional_Info": "Recharge response received for TxnID: 3392051009, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:43:35.801Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "1559588289",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 1559588289, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:43:35.902Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'findOne')",
+    "Additional_Info": "Error during recharge for TxnID: 1559588289"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:17.056Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "5683955953",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 5683955953, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:17.142Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'findOne')",
+    "Additional_Info": "Error during recharge for TxnID: 5683955953"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:39.355Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "7917002588",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 7917002588, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:39.440Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'findOne')",
+    "Additional_Info": "Error during recharge for TxnID: 7917002588"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:54.752Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "9451366157",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 9451366157, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:44:54.839Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot read properties of undefined (reading 'findOne')",
+    "Additional_Info": "Error during recharge for TxnID: 9451366157"
+  },
+  {
+    "LogTime": "2025-11-16T18:45:52.496Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "5229333986",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 5229333986, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:47:50.615Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 10,
+      "order_id": "7039863135",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 7039863135, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T18:49:25.109Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8770475416",
+      "op_uid": "airtel",
+      "amount": 859,
+      "order_id": "6491820693",
+      "type": "prepaid",
+      "circle": "93"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6491820693, Status:success"
+  },
+  {
+    "LogTime": "2025-11-16T19:06:05.426Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "9467728332",
+      "op_uid": "bsnl_topup",
+      "amount": 121,
+      "order_id": "6520694633",
+      "type": "prepaid",
+      "circle": "96"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1869354044",
+      "margin": "0.1950",
+      "margin_percentage": "1.9500",
+      "operator_ref_id": "1878093437"
+    },
+    "Additional_Info": "Recharge response received for TxnID: 6520694633, Status:success"
   }
 ]

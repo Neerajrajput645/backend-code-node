@@ -1047,9 +1047,6 @@ const manageMoney = asyncHandler(async (req, res) => {
 // cashback amount fetch
 const cashback = asyncHandler(async (req, res) => {
  
-  const { opName, amount } = req.body;
-
- 
   const commission = await Commission.findOne({
     name: opName,
   });

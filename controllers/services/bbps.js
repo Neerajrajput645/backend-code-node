@@ -5,7 +5,7 @@ const {
   bbps_bill_fetch,
   bbps_bill_payment,
 } = require("../../cyrus_apis/endpoints");
-
+const Commission = require("../../models/newModels/commission");
 var FormData = require("form-data");
 const Txn = require("../../models/txnSchema");
 const User = require("../../models/userSchema");
@@ -188,7 +188,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
     const { _id, deviceToken } = req.data;
     // Dont Send TXN ID Fronend
     const { number, operatorCode, amount, serviceId, mPin, operatorName, operatorCategory, billDetails } = req.body;
-
+    console.log("BILL_PAYMENT req body ->", req.body);
     const TxnAmount = Number(amount);
     const ipAddress = getIpAddress(req);
     if (!serviceId) {
@@ -267,7 +267,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         userId: FindUser._id,
         number,
         operator: operatorName,
-        operatorName:operatorCategory,
+        operatorName: operatorCategory,
         circle: null,
         amount: TxnAmount,
         serviceId: findService._id,
@@ -360,8 +360,16 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           return;
         }
         if (status == "success" && findService.percent > 0) {
-          const findPercent = findService.percent;
-          const cashbackPercent = findPercent;
+          console.log("Cashback Process Started");
+          const cashback = await Commission.findOne({
+            name: { $regex: `^${operatorCategory}$`, $options: "i" }
+          });
+          console.log("cashback ->", cashback);
+          const findPercent = cashback.commission || 0;
+          console.log("findPercent ->", findPercent);
+          const cashbackPercent = (TxnAmount / 100) * findPercent;
+          console.log("cashbackPercent ->", cashbackPercent);
+
           await handleCashback(
             FindUser,
             cashbackPercent,
@@ -530,6 +538,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
 // });
 
 // bbps bill payment // not using becacuse of old
+
 const billPayment = asyncHandler(async (req, res) => {
   try {
     const { _id, deviceToken } = req.data;

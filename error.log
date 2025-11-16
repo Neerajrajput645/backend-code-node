@@ -479,3 +479,14 @@
 2025-11-16T14:06:36.683Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
 2025-11-16T14:07:37.575Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
 2025-11-16T14:08:25.492Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Failed to generate ledger.
+2025-11-16T18:43:35.933Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'findOne')
+2025-11-16T18:44:17.172Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'findOne')
+2025-11-16T18:44:39.469Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'findOne')
+2025-11-16T18:44:54.870Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'findOne')
+2025-11-16T18:51:38.814Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Mobile No
+2025-11-16T18:51:45.457Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, An error has occurred. Please contact your system administrator.
+2025-11-16T19:04:53.695Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Mobile No
+2025-11-16T19:19:13.185Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid operator selected.
+2025-11-16T19:19:51.499Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Minimum Amount for Dish TV should be greater than 100
+2025-11-16T19:21:01.393Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
+2025-11-16T19:21:16.967Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, userName is not defined

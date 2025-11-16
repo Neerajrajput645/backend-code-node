@@ -870,5 +870,215 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : success for TxnID: 2516086849"
+  },
+  {
+    "LogTime": "2025-11-16T19:53:02.020Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 63,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "8179913742",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8179913742"
+  },
+  {
+    "LogTime": "2025-11-16T19:53:02.027Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 63,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "8179913742",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 8179913742"
+  },
+  {
+    "LogTime": "2025-11-16T19:53:21.199Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 63,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "0096595252",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0096595252"
+  },
+  {
+    "LogTime": "2025-11-16T19:53:21.204Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 63,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "0096595252",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 0096595252"
+  },
+  {
+    "LogTime": "2025-11-16T19:54:55.769Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 246,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "9558029311",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 9558029311"
+  },
+  {
+    "LogTime": "2025-11-16T19:54:55.773Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Andhra Pradesh Central Power Distribution Corporation Limited",
+        "category": "electricity",
+        "operator_id": "1562"
+      },
+      "amount": 246,
+      "type": "electricity",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "6521506022062",
+      "op_code": "1562",
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "billdate": "06 Nov 2025",
+        "dueDate": "2025-11-21",
+        "minBillAmount": 643,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "6521506022062",
+        "userName": "TATINENI NAGESWARA RAO"
+      },
+      "order_id": "9558029311",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 9558029311"
   }
 ]
