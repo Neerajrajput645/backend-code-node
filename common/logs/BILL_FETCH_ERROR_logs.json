@@ -1279,5 +1279,19 @@
       "message": "Unable to get bill details from Biller"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-17T15:13:07.600Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

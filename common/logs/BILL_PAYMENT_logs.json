@@ -1080,5 +1080,226 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : success for TxnID: 9558029311"
+  },
+  {
+    "LogTime": "2025-11-17T15:18:22.525Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "order_id": "0222579489",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0222579489"
+  },
+  {
+    "LogTime": "2025-11-17T15:23:15.422Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "9522504946",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 9522504946"
+  },
+  {
+    "LogTime": "2025-11-17T15:23:16.860Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "9522504946",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763392996162621",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 9522504946"
+  },
+  {
+    "LogTime": "2025-11-17T15:24:04.357Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "4418794205",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4418794205"
+  },
+  {
+    "LogTime": "2025-11-17T15:24:05.912Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "4418794205",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763393045617156",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 4418794205"
+  },
+  {
+    "LogTime": "2025-11-17T15:24:34.109Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "7395109910",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 7395109910"
+  },
+  {
+    "LogTime": "2025-11-17T15:24:35.613Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "7395109910",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763393075867171",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 7395109910"
+  },
+  {
+    "LogTime": "2025-11-17T15:36:56.295Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "1611705322",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 1611705322"
+  },
+  {
+    "LogTime": "2025-11-17T15:36:56.733Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "HDFC Bank",
+        "category": "fasTag",
+        "operator_id": "294"
+      },
+      "amount": 10,
+      "type": "fasTag",
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "MP07ZM4019",
+      "op_code": "294",
+      "bill_details": {},
+      "order_id": "1611705322",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763393817316205",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 1611705322"
   }
 ]

@@ -490,3 +490,6 @@
 2025-11-16T19:19:51.499Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Minimum Amount for Dish TV should be greater than 100
 2025-11-16T19:21:01.393Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, User wallet balance is low.
 2025-11-16T19:21:16.967Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, userName is not defined
+2025-11-17T15:13:07.647Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-17T15:33:49.575Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-11-17T16:10:16.784Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching

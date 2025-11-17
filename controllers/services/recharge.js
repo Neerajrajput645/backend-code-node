@@ -2682,8 +2682,6 @@ const DTHOperatorArr = [
   },
 ];
 
-
-
 const userReferralList = asyncHandler(async (req, res) => {
   const { _id } = req.data;
   const user = await User.findById(_id).select("referalId");
@@ -2697,6 +2695,60 @@ const userReferralList = asyncHandler(async (req, res) => {
     Data: refUser.length ? refUser : [],
   })
 })
+
+
+const circles = [
+  { id: 1, name: "DELHI", circleCode: "10" },
+  { id: 2, name: "UP(West)", circleCode: "97" },
+  { id: 3, name: "PUNJAB", circleCode: "02" },
+  { id: 4, name: "HP", circleCode: "03" },
+  { id: 5, name: "HARYANA", circleCode: "96" },
+  { id: 6, name: "J&K", circleCode: "55" },
+  { id: 7, name: "UP(East)", circleCode: "54" },
+  { id: 8, name: "MUMBAI", circleCode: "92" },
+  { id: 9, name: "MAHARASHTRA", circleCode: "90" },
+  { id: 10, name: "GUJARAT", circleCode: "98" },
+  { id: 11, name: "MP", circleCode: "93" },
+  { id: 12, name: "RAJASTHAN", circleCode: "70" },
+  { id: 13, name: "KOLKATTA", circleCode: "31" },
+  { id: 14, name: "West Bengal", circleCode: "51" },
+  { id: 15, name: "ORISSA", circleCode: "53" },
+  { id: 16, name: "ASSAM", circleCode: "56" },
+  { id: 17, name: "NESA", circleCode: "16" },
+  { id: 18, name: "BIHAR", circleCode: "52" },
+  { id: 19, name: "KARNATAKA", circleCode: "06" },
+  { id: 20, name: "CHENNAI", circleCode: "40" },
+  { id: 21, name: "TAMIL NADU", circleCode: "94" },
+  { id: 22, name: "KERALA", circleCode: "95" },
+  { id: 23, name: "AP", circleCode: "49" },
+  { id: 24, name: "SIKKIM", circleCode: "99" },
+  { id: 25, name: "TRIPURA", circleCode: "100" },
+  { id: 26, name: "CHHATISGARH", circleCode: "101" },
+  { id: 27, name: "GOA", circleCode: "102" },
+  { id: 28, name: "MEGHALAY", circleCode: "103" },
+  { id: 29, name: "MIZZORAM", circleCode: "104" },
+  { id: 30, name: "JHARKHAND", circleCode: "105" }
+];
+
+const operators = [
+  { id: 1, name: "Jio", operatorCode: 11 },
+  { id: 2, name: "Airtel", operatorCode: 2 },
+  { id: 3, name: "VI", operatorCode: 23 },
+  { id: 4, name: "BSNL", operatorCode: 4 }
+];
+
+const getCircleAndOperators = asyncHandler(async (req, res) => {
+  successHandler(req, res, {
+    Remarks: "Circle & Operator List",
+    Data: {
+      circles,
+      operators
+    }
+  });
+});
+
+
+
 
 module.exports = {
   planFetch, //-----------------------------
@@ -2726,7 +2778,8 @@ module.exports = {
   rechargeStatus,
   fetchDthOperators,
   commission,
-  fetchDthOpDetails
+  fetchDthOpDetails,
+  getCircleAndOperators,
 };
 
 // 

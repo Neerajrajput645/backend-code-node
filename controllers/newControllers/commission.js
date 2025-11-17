@@ -102,7 +102,7 @@ const commissionList = asyncHandler(async (req, res) => {
 
   successHandler(req, res, {
     Remarks: "Commission fetched successfully",
-    Data: grouped,
+    data: grouped,
   });
 });
 
