@@ -1044,29 +1044,39 @@ const manageMoney = asyncHandler(async (req, res) => {
   }
 });
 
-// cashback amount fetch
 const cashback = asyncHandler(async (req, res) => {
- 
-  const {serviceId} = req.query;
+  const { serviceId, amount } = req.body;
+
   console.log("[STEP-1] Received serviceId:", serviceId);
 
   if (!serviceId) {
     res.status(400);
     throw new Error("Service ID is required");
   }
-  
+
+  const service = await Service.findById(serviceId);
+  console.log("[STEP-2] Service found");
+
+  if (!service) {
+    res.status(404);
+    throw new Error("Service not found");
+  }
+
   const commission = await Commission.findOne({
-    name: opName,
+    serviceId,
+    status: true,
+    name: new RegExp(`^${service.name}$`, "i"),
   });
 
-  console.log("[STEP-5] Commission found:", commission);
+  console.log("[STEP-3] Commission lookup:");
 
   if (!commission) {
-    console.log("[ERROR] Commission not found for operator:", opName);
     res.status(404);
-    throw new Error("Commission not found for this operator");
+    throw new Error(`Commission not found for serviceId: ${serviceId}`);
   }
-  console.log("[STEP-5] Commission details:", commission.commission, "%");
+
+  console.log("[STEP-4] Commission found:", commission.commission);
+
   const cashbackAmount = (commission.commission / 100) * amount;
 
   console.log("[STEP-6] Cashback calculated:", cashbackAmount);
@@ -1079,6 +1089,8 @@ const cashback = asyncHandler(async (req, res) => {
     unit: "₹",
   });
 });
+
+
 
 
 

@@ -495,3 +495,23 @@
 2025-11-17T16:10:16.784Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
 2025-11-17T16:26:06.323Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Service ID is required
 2025-11-17T16:46:17.676Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot populate path `serviceId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+2025-11-17T17:13:41.963Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:15:28.778Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:16:11.009Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:17:10.424Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:18:27.641Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:20:02.596Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:20:54.111Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:21:53.003Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:22:15.738Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, opName is not defined
+2025-11-17T17:30:46.150Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Commission not found for serviceId: 64c9e5bf1efc768da459ef00
+2025-11-17T17:38:41.530Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Operator is required for Mobile Recharge
+2025-11-17T17:40:07.549Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected end of JSON input
+2025-11-17T17:40:43.128Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected end of JSON input
+2025-11-17T17:41:20.785Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected end of JSON input
+2025-11-17T17:41:27.429Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected end of JSON input
+2025-11-17T17:46:57.128Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Commission not found for serviceId: 64c9e5bf1efc768da459ef00
+2025-11-17T18:42:01.265Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Home pop image not found
+2025-11-17T18:44:57.892Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Home pop image not found
+2025-11-17T18:45:25.809Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Home pop image not found
+2025-11-17T18:46:02.720Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Home pop image not found
