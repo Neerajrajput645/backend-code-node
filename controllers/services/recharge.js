@@ -2731,10 +2731,18 @@ const circles = [
 ];
 
 const operators = [
-  { id: 1, name: "Jio", operatorCode: 11 },
-  { id: 2, name: "Airtel", operatorCode: 2 },
-  { id: 3, name: "VI", operatorCode: 23 },
-  { id: 4, name: "BSNL", operatorCode: 4 }
+  { id: 1, name: "Jio", operatorCode: 11,
+    icon: "/uploads/operator/jio.jpg"
+   },
+  { id: 2, name: "Airtel", operatorCode: 2 ,
+    icon: "/uploads/operator/airtel.jpg"
+  },
+  { id: 3, name: "VI", operatorCode: 23,
+    icon: "/uploads/operator/vi.jpg"
+   },
+  { id: 4, name: "BSNL", operatorCode: 4,
+    icon: "/uploads/operator/bsnl.jpg"
+   },
 ];
 
 const getCircleAndOperators = asyncHandler(async (req, res) => {

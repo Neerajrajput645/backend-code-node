@@ -1047,6 +1047,14 @@ const manageMoney = asyncHandler(async (req, res) => {
 // cashback amount fetch
 const cashback = asyncHandler(async (req, res) => {
  
+  const {serviceId} = req.query;
+  console.log("[STEP-1] Received serviceId:", serviceId);
+
+  if (!serviceId) {
+    res.status(400);
+    throw new Error("Service ID is required");
+  }
+  
   const commission = await Commission.findOne({
     name: opName,
   });

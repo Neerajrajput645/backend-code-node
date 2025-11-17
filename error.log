@@ -493,3 +493,5 @@
 2025-11-17T15:13:07.647Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
 2025-11-17T15:33:49.575Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
 2025-11-17T16:10:16.784Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Errors in Plan Fetching
+2025-11-17T16:26:06.323Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Service ID is required
+2025-11-17T16:46:17.676Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot populate path `serviceId` because it is not in your schema. Set the `strictPopulate` option to false to override.

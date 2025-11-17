@@ -83,7 +83,7 @@ const deleteCommission = asyncHandler(async (req, res) => {
 
 // 📌 Get All (Grouped)
 const commissionList = asyncHandler(async (req, res) => {
-  const all = await Commission.find({status: true}).lean();
+  const all = await Commission.find({status: true}).lean().populate("serviceId");
 
   // Grouping like your UI response
   const grouped = {
@@ -96,7 +96,6 @@ const commissionList = asyncHandler(async (req, res) => {
     grouped[c.operatorType][c.name] = {
       commission: c.commission,
       icon: c.icon,
-      status: c.status,
     };
   });
 

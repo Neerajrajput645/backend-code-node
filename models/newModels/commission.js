@@ -16,6 +16,11 @@ const commissionSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    serviceId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Service",
+      required: true,
+    },
     icon: {
       type: String,
       required: true,
