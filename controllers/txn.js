@@ -297,17 +297,47 @@ const txnByUserId = asyncHandler(async (req, res) => {
     recipientId: _id,
     userId: receiverId,
     txnResource: "Wallet",
-  });
+  }).select("-__v -gatewayName -ipAddress");
+
   const receiver = await Txn.find({
     recipientId: receiverId,
     userId: _id,
     txnResource: "Wallet",
   });
 
-  // success handler
+  // Step-1: Merge + Sort
+  let txns = [...sender, ...receiver].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  );
+
+  // Step-2: Add balances
+  let currentBalance = 0;
+
+  txns = txns.map((txn) => {
+    const amount = Number(txn.txnAmount) || 0;
+    const openingBalance = currentBalance;
+
+    if (txn.txnType === "credit") {
+      currentBalance += amount;
+    } else if (txn.txnType === "debit") {
+      currentBalance -= amount;
+    }
+
+    const closingBalance = currentBalance;
+
+    return {
+      ...txn._doc,
+      openingBalance,
+      closingBalance,
+    };
+  });
+
+  // Step-3: Reverse if you want recent first
+  txns.reverse();
+
   successHandler(req, res, {
     Remarks: "Fetch txn list by user.",
-    Data: ([...sender, ...receiver].reverse()),
+    Data: txns,
   });
 });
 

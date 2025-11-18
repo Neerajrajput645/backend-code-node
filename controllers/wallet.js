@@ -1045,7 +1045,7 @@ const manageMoney = asyncHandler(async (req, res) => {
 });
 
 const cashback = asyncHandler(async (req, res) => {
-  const { serviceId, amount } = req.body;
+  const { serviceId, amount, opName } = req.body;
 
   console.log("[STEP-1] Received serviceId:", serviceId);
 
@@ -1062,35 +1062,50 @@ const cashback = asyncHandler(async (req, res) => {
     throw new Error("Service not found");
   }
 
-  const commission = await Commission.findOne({
+  // Try to find the commission by operator name
+  let commission = await Commission.findOne({
     serviceId,
     status: true,
-    name: new RegExp(`^${service.name}$`, "i"),
+    name: new RegExp(`^${opName}$`, "i"),
   });
 
-  console.log("[STEP-3] Commission lookup:");
+  console.log("[STEP-3] Commission lookup by operator name:");
 
   if (!commission) {
-    res.status(404);
-    throw new Error(`Commission not found for serviceId: ${serviceId}`);
+    console.log("[STEP-3.1] Commission not found for operator name:", opName);
+
+    // If no commission is found by operator name, find the commission with the lowest cashback percentage
+    commission = await Commission.findOne({
+      serviceId,
+      status: true,
+    }).sort({ commission: 1 });  // Sort by commission percentage (ascending)
+
+    if (!commission) {
+      res.status(404);
+      throw new Error(`No valid commission found for serviceId: ${serviceId}`);
+    }
+
+    console.log("[STEP-3.2] Fallback commission found with the lowest cashback:", commission.commission);
   }
 
   console.log("[STEP-4] Commission found:", commission.commission);
 
-  const cashbackAmount = (commission.commission / 100) * amount;
-
+  // Calculate cashback amount
+  let cashbackAmount = (commission.commission / 100) * amount;
+  cashbackAmount = parseFloat(cashbackAmount.toFixed(2));
   console.log("[STEP-6] Cashback calculated:", cashbackAmount);
 
+  // Send response
   successHandler(req, res, {
     Remarks: "Cashback amount fetched successfully",
-    Cashback: cashbackAmount,
-    type: "cashback",
-    category: commission.operatorType,
-    unit: "₹",
+    data: {
+      Cashback: cashbackAmount,
+      type: "cashback",
+      category: commission.operatorType,
+      unit: "₹",
+    }
   });
 });
-
-
 
 
 
