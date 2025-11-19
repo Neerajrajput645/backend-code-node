@@ -399,6 +399,30 @@ const homeBannerImages = multer({
 });
 
 
+// ----------------------------------------- Notification Image ------------------------------------- //
+
+const storage17 = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const destination = `uploads/notification`;
+    // Create the dynamic folder if it doesn't exist
+    if (!fs.existsSync(destination)) {
+      fs.mkdirSync(destination, { recursive: true });
+    }
+    cb(null, destination);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname.replaceAll(" ", "-"));
+  },
+});
+const notificationImage = multer({
+  storage: storage17,
+  limits: {
+    fileSize: 2 * 1024 * 1024, // 2 MB limit
+  },
+  fileFilter,
+});
+
+
 module.exports = {
   userProfileUpload,
   serviceUpload,
@@ -416,5 +440,6 @@ module.exports = {
   affiliateBannerUploads,
   commissionImages,
   serviceCategoryImages,
-  serviceImages
+  serviceImages,
+  notificationImage
 };

@@ -6,6 +6,7 @@ const { encryptFunc } = require("../common/encryptDecrypt");
 
 // service list
 const serviceList = asyncHandler(async (req, res) => {
+  console.log("ads");
   const allServices = req.query
     ? await Service.find(req.query).sort([["createdAt", 1]])
     : await Service.find().sort([["createdAt", 1]]);

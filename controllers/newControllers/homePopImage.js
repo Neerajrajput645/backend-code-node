@@ -47,32 +47,37 @@ const getHomePopImagesAdmin = asyncHandler(async (req, res) => {
 
 // ⭐ UPDATE BANNER
 const updateHomePopImage = asyncHandler(async (req, res) => {
-    const { bannerId } = req.params;
-
-    const found = await HomePopImage.findById(bannerId);
-    if (!found) {
-        res.status(400);
-        throw new Error("Invalid banner id");
+    // Fetch existing record
+    const existing = await HomePopImage.findOne();
+    if (!existing) {
+        res.status(404);
+        throw new Error("Home pop image record not found");
     }
 
-    if (req.file) {
-        deletePreviousImage(found.image);
+    // Delete old image if new image uploaded
+    if (req.file && existing.image) {
+        deletePreviousImage(existing.image);
     }
 
+    // Prepare update payload
+    const payload = {
+        link: req.body.link || existing.link,
+        image: req.file ? req.file.path : existing.image,
+    };
+
+    // Update record
     const updated = await HomePopImage.findByIdAndUpdate(
-        bannerId,
-        {
-            ...req.body,
-            image: req.file ? req.file.path : found.image,
-        },
+        existing._id,
+        payload,
         { new: true }
     );
 
-    successHandler(req, res, {
+    return successHandler(req, res, {
         Remarks: "Home pop image updated successfully",
         Data: updated,
     });
 });
+
 
 // // ⭐ DELETE BANNER
 // const deleteHomePopImage = asyncHandler(async (req, res) => {
