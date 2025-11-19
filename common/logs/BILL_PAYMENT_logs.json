@@ -1301,5 +1301,201 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : failed for TxnID: 1611705322"
+  },
+  {
+    "LogTime": "2025-11-18T11:59:48.601Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8837117248",
+      "type": "redeem-code",
+      "amount": 20,
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8837117248"
+  },
+  {
+    "LogTime": "2025-11-18T11:59:48.609Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8837117248",
+      "type": "redeem-code",
+      "amount": 20,
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 8837117248"
+  },
+  {
+    "LogTime": "2025-11-18T12:07:02.174Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "2194712019",
+      "type": "redeem-code",
+      "amount": 20,
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 2194712019"
+  },
+  {
+    "LogTime": "2025-11-18T12:07:28.247Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4806082414",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4806082414"
+  },
+  {
+    "LogTime": "2025-11-18T12:08:10.008Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8978636876",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8978636876"
+  },
+  {
+    "LogTime": "2025-11-18T12:10:39.890Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3969092983",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3969092983"
+  },
+  {
+    "LogTime": "2025-11-18T12:13:07.744Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8752597690",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8752597690"
+  },
+  {
+    "LogTime": "2025-11-18T12:13:29.169Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0895863779",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0895863779"
+  },
+  {
+    "LogTime": "2025-11-18T12:14:49.471Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8926353944",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_code": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8926353944"
+  },
+  {
+    "LogTime": "2025-11-19T01:41:15.814Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7559414533",
+      "type": "redeem-code",
+      "amount": 20,
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 7559414533"
+  },
+  {
+    "LogTime": "2025-11-19T01:41:47.454Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0718170683",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0718170683"
+  },
+  {
+    "LogTime": "2025-11-19T01:43:40.207Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "1991407924",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 1991407924"
   }
 ]

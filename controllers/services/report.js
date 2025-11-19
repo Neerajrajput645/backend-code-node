@@ -6,16 +6,29 @@ const successHandler = require("../../common/successHandler");
 
 const {
   All_Recharge_Operator_List,
+  All_DTH_Recharge_Operator_List
 } = require("../../utils/MockData");
 
 // 🔍 Helper to get Operator Name
 const getOperatorName = (operatorCode) => {
+  console.log("Looking up operator name for code:", operatorCode);
   if (!operatorCode) return null;
-
   const matched = All_Recharge_Operator_List.find(
     (x) => String(x.PlanApi_Operator_code) === String(operatorCode)
   );
 
+  return matched ? matched.Operator_name : null;
+};
+
+
+
+// 🔍 Helper to get Operator Name
+const getDthOperatorName = (operatorCode) => {
+  console.log("Looking up operator name for code:", operatorCode);
+  if (!operatorCode) return null;
+  const matched = All_DTH_Recharge_Operator_List.find(
+    (x) => String(x.planApi_operator_code) === String(operatorCode)
+  );
   return matched ? matched.Operator_name : null;
 };
 
@@ -63,17 +76,23 @@ const combinedHistory = asyncHandler(async (req, res) => {
 
     const promises = [];
 
-    // ---------------- DTH ----------------
-    if (!serviceType || serviceType === "dth" || serviceType === "all") {
-      promises.push(
-        DTH.find(baseFilter)
-          .sort({ createdAt: -1 })
-          .lean()
-          .then((data) => {
-            dthData = data || [];
-          })
-      );
-    }
+if (!serviceType || serviceType === "dth" || serviceType === "all") {
+  promises.push(
+    DTH.find(baseFilter)
+      .sort({ createdAt: -1 })
+      .lean()
+      .then((data) => {
+        dthData = (data || []).map((item) => {
+          console.log("DTH Item:", item.operator); // ⭐ Print each item
+
+          return {
+            ...item,
+            operatorName: getDthOperatorName(item.operator),
+          };
+        });
+      })
+  );
+}
 
     // ---------------- Recharge ----------------
     if (!serviceType || serviceType === "recharge" || serviceType === "all") {

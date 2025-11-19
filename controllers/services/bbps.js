@@ -137,7 +137,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
 
-    const { number, operator, ad1 } = req.body;
+    const { number, operator, ad1, ad } = req.body;
 
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
@@ -151,6 +151,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       operator,
     };
     if (ad1) bodyData.ad1 = ad1;
+    if (ad) bodyData.ad = ad;
     const response = await axios.post(url, bodyData);
     console.log("BBPS Bill Fetch Response:", response.data);
     await saveLog(
@@ -262,7 +263,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
 
     const res1 = await paywithWallet({ body });
     // Wallet Deduction End --------------------------
-    if (res1.ResponseStatus === 1) {
+    if (res1.ResponseStatus === 1){
       const newService = new bbps({
         userId: FindUser._id,
         number,
@@ -280,18 +281,20 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       await newService.save();
       try {
         const payload = {
-          operator: {
-            name: operatorName,
-            category: operatorCategory,
-            operator_id: operatorCode,
-          },
-          amount: TxnAmount,
-          type: operatorCategory,
+          // operator: {
+          //   name: operatorName,
+          //   category: operatorCategory,
+          //   operator_id: operatorCode,
+          // },
           token: process.env.BILLHUB_TOKEN,
-          number: number,
-          op_code: operatorCode,
-          bill_details: billDetails,
           order_id: transactionId,
+          type: operatorCategory,
+          amount: TxnAmount,
+          number: number,
+          // op_code: operatorCode,
+          op_uid: operatorCode,
+          circle:"Google Play",
+          // bill_details: billDetails,
           additional_params: req.body.ad1
             ? {
               ad1: req.body.ad1,
@@ -312,18 +315,19 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           null,
           `Bill Payment Request Initiated for TxnID: ${transactionId}`
         );
+        console.log("payload ->", payload);
 
-        // const response = await axios.post(URL, payload);
-        const response = {
-          data: {
-            status: 'success',
-            order_id: '1762671148848568',
-            margin: '0.8250',
-            margin_percentage: '0.1283',
-            operator_ref_id: null
-          }
-        }
-        console.log("response ->", response);
+        const response = await axios.post(URL, payload);
+        // const response = {
+        //   data: {
+        //     status: 'success',
+        //     order_id: '1762671148848568',
+        //     margin: '0.8250',
+        //     margin_percentage: '0.1283',
+        //     operator_ref_id: null
+        //   }
+        // }
+        console.log("response ->", response.data);
         await saveLog(
           `BILL_PAYMENT`,
           URL,
@@ -423,7 +427,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           },
         });
       } catch (error) {
-        console.log("n error ->", error);
+        console.log("error ->", error.response.data);
         newService.status = "error";
         await newService.save();
         res.status(400).json({
@@ -434,7 +438,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error, "error");
+    console.log(error.response.error, "error");
   }
 });
 

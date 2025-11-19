@@ -1293,5 +1293,35 @@
       "message": "No outstanding bills found"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-18T11:19:11.231Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294,
+      "ad": "15"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-18T11:21:50.410Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294,
+      "ad": "15"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

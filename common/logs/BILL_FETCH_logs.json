@@ -1238,5 +1238,28 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: PD03GWB4548"
+  },
+  {
+    "LogTime": "2025-11-18T11:30:27.929Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "100.0",
+        "billnetamount": "100.0",
+        "minBillAmount": 100,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZM4019",
+        "userName": "SUJAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: MP07ZM4019"
   }
 ]
