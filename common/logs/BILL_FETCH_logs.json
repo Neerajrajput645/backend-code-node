@@ -1261,5 +1261,98 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: MP07ZM4019"
+  },
+  {
+    "LogTime": "2025-11-20T08:35:28.569Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "100.0",
+        "billnetamount": "100.0",
+        "minBillAmount": 100,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZM4019",
+        "userName": "SUJAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: MP07ZM4019"
+  },
+  {
+    "LogTime": "2025-11-20T08:43:32.520Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "PD03GWE0917",
+      "operator": 221
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: PD03GWE0917"
+  },
+  {
+    "LogTime": "2025-11-20T08:56:47.015Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "MP07ZC1955",
+      "operator": 294,
+      "ad1": 30
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: MP07ZC1955"
+  },
+  {
+    "LogTime": "2025-11-20T16:51:30.562Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "9826284061",
+      "operator": 293
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "936.5",
+        "billnetamount": "936.5",
+        "billdate": "20 Nov 2025",
+        "dueDate": "2025-11-22",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "9826284061",
+        "userName": "Shambhu Dayal Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 9826284061"
   }
 ]

@@ -15,7 +15,6 @@ const { encryptFunc } = require("../common/encryptDecrypt");
 
 
 const affiliateList = asyncHandler(async (req, res) => {
-  console.log("ads");
 
   // Base filter
   const filter = {

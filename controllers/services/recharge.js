@@ -402,9 +402,9 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             const op = findOperator.com_name;
             // console.log("Found Operator Name:", findOperator);
             console.log("Operator for Cashback:", op);
-            const commission = await Commission.findOne({ name : op });
+            const commission = await Commission.findOne({  name : op, status:true });
             console.log("Commission Details:", commission);
-            const findPercent = commission ? commission.commission : 0;
+            const findPercent = commission ? commission?.commission : 0;
             console.log("Cashback Percent:", findPercent);
             const cashbackPercent = (TxnAmount / 100) * findPercent;
             console.log("Calculated Cashback Amount:", cashbackPercent);

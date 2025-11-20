@@ -96,7 +96,7 @@ router.post("/admin/bbps-history", bbpsHistory);
 // router.post("/bbps/bill-fetch", tokenVerify, billFetch);
 router.post("/bbps/bill-payment", tokenVerify, billPayment);
 router.post("/bbps/new-bill-payment", tokenVerify, BILL_PAYMENT);
-router.post("/bbps/googleplay-payment", tokenVerify, googlePlayPayment);
+router.post("/bbps/google-play", tokenVerify, googlePlayPayment);
 router.get("/bbps/bill-history", tokenVerify, billPaymentHistory);
 router.post("/bbps/bill-create-refund", tokenVerify, createRefundBillPayment);
 router.get("/bbps/bill-refund-request", adminTokenVerify, getRefundBillRequest);

@@ -89,7 +89,10 @@ const pushNotification = asyncHandler(async (req, res) => {
 
     if (playerIds.length === 0) {
       console.log("No users to notify.");
-      return;
+      return successHandler(req, res, {
+        Remarks: "No users found to notify",
+        count: 0
+      });
       // return res.send("no user found");
     }
 
@@ -107,7 +110,9 @@ const pushNotification = asyncHandler(async (req, res) => {
     await Notification.create({ ...data, byAdmin: true });
 
     // success handler
-    successHandler(req, res, { Remarks: "Notifications Sent Successfully" });
+    successHandler(req, res, {
+      Remarks: "Notifications Sent Successfully",
+    });
   } catch (error) {
     console.error("Unexpected error sending notification:");
     console.error("HTTP-Code:", error.status);
@@ -121,7 +126,7 @@ const pushNotificationImage = asyncHandler(async (req, res) => {
     const { title, content } = req.body; // <-- ADD image in request body
     const data = { title, body: content };
     const image = req?.file?.path || "uploads/notification/defaultNotify.jpg"
-    if(image) data.image = image;
+    if (image) data.image = image;
     const users = await userSchema.find({
       deviceToken: { $ne: null },
       doNotNotify: { $ne: true },
@@ -163,7 +168,7 @@ const pushNotificationImage = asyncHandler(async (req, res) => {
       await client.createNotification(notification);
     }
 
-    
+
     await Notification.create({ ...data, byAdmin: true });
     successHandler(req, res, {
       Remarks: "Notifications Sent Successfully",

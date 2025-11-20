@@ -22,10 +22,10 @@ const userProfile = asyncHandler(async (req, res) => {
   const { password, ...others } = userFound.toObject();
 
   // Format wallet amount: 54.2224 -> 54.2
-  if (others.wallet && others.wallet.balance !== undefined) {
-    others.wallet.balance = Number(others.wallet.balance.toFixed(1)); 
-    // if you want 2 decimals -> toFixed(2)
-  }
+if (others.wallet && others.wallet.balance !== undefined) {
+  others.wallet.balance = Number(others.wallet.balance.toFixed(2));
+}
+
   console.log(req.body, "user profile fetch");
   console.log(others, "user profile data");
   successHandler(req, res, {

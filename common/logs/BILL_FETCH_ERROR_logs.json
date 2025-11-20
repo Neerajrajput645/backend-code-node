@@ -1323,5 +1323,227 @@
       "message": "No outstanding bills found"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T08:40:46.011Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "6521506022062",
+      "operator": 1562
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T08:53:46.886Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "294",
+      "ad": "30",
+      "operator": 294
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T08:55:18.492Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZC1955",
+      "ad": "30",
+      "operator": 294
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T08:55:49.294Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZC1955",
+      "operator": 294,
+      "ad": 30
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "No outstanding bills found"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T15:12:35.006Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "1008",
+      "operator": 20809
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T15:17:26.720Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T15:25:44.007Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP30MG2512",
+      "operator": 221,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Invalid consumer code"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:14:55.331Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680955141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:20:45.792Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680955141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:21:28.286Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680955141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:22:34.780Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680955141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:23:59.267Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680995141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:30:36.810Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680995141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:32:23.148Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680995141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Required fields are empty"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-20T17:32:58.204Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9993510894",
+      "operator": 20809,
+      "cn": "6528680995141008"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Missing/Invalid operator Id"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

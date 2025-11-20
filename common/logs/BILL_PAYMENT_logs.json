@@ -1537,5 +1537,723 @@
       "operator_ref_id": "6FSVYD0T8Z4HRFLX"
     },
     "Additional_Info": "Bill Payment Response Status : success for TxnID: 3903399703"
+  },
+  {
+    "LogTime": "2025-11-20T08:46:29.882Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8964883929",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 8964883929"
+  },
+  {
+    "LogTime": "2025-11-20T08:46:29.891Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8964883929",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 8964883929"
+  },
+  {
+    "LogTime": "2025-11-20T08:47:25.743Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4542942612",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4542942612"
+  },
+  {
+    "LogTime": "2025-11-20T08:47:25.748Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4542942612",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 4542942612"
+  },
+  {
+    "LogTime": "2025-11-20T08:48:24.416Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0416258135",
+      "type": "gas",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0416258135"
+  },
+  {
+    "LogTime": "2025-11-20T08:48:24.422Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Aavantika Gas Ltd",
+        "category": "gas",
+        "operator_id": 221
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0416258135",
+      "type": "gas",
+      "amount": 20,
+      "number": "PD03GWE0917",
+      "op_code": 221,
+      "bill_details": {
+        "billAmount": "1406.0",
+        "billnetamount": "1406.0",
+        "billdate": "19 Nov 2025",
+        "dueDate": "2025-11-26",
+        "minBillAmount": 1406,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "PD03GWE0917",
+        "userName": "Mr. Satish Chandra Agrawal"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 0416258135"
+  },
+  {
+    "LogTime": "2025-11-20T08:59:55.127Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "9480037641",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 9480037641"
+  },
+  {
+    "LogTime": "2025-11-20T15:02:15.590Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3528472558",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3528472558"
+  },
+  {
+    "LogTime": "2025-11-20T15:02:17.117Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3528472558",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763650935547206",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 3528472558"
+  },
+  {
+    "LogTime": "2025-11-20T15:08:51.745Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3142253785",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {
+        "ad1": "30"
+      }
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3142253785"
+  },
+  {
+    "LogTime": "2025-11-20T15:08:53.662Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3142253785",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {
+        "ad1": "30"
+      }
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1763651331770969",
+      "margin": "0.0080",
+      "margin_percentage": "0.0800",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 3142253785"
+  },
+  {
+    "LogTime": "2025-11-20T16:11:33.581Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "9325836240",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 9325836240"
+  },
+  {
+    "LogTime": "2025-11-20T16:11:33.595Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "9325836240",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 9325836240"
+  },
+  {
+    "LogTime": "2025-11-20T16:14:03.402Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4312982382",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 4312982382"
+  },
+  {
+    "LogTime": "2025-11-20T16:14:03.416Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4312982382",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 4312982382"
+  },
+  {
+    "LogTime": "2025-11-20T16:15:11.609Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "1109478666",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 1109478666"
+  },
+  {
+    "LogTime": "2025-11-20T16:15:11.614Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "1109478666",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 1109478666"
+  },
+  {
+    "LogTime": "2025-11-20T16:26:27.460Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8704032720",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 8704032720"
+  },
+  {
+    "LogTime": "2025-11-20T16:26:27.467Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "8704032720",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 8704032720"
+  },
+  {
+    "LogTime": "2025-11-20T16:29:29.587Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6916843912",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 6916843912"
+  },
+  {
+    "LogTime": "2025-11-20T16:29:29.593Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6916843912",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 6916843912"
+  },
+  {
+    "LogTime": "2025-11-20T16:30:51.348Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5088059218",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 5088059218"
+  },
+  {
+    "LogTime": "2025-11-20T16:30:51.358Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5088059218",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 5088059218"
+  },
+  {
+    "LogTime": "2025-11-20T16:31:19.677Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7915233219",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 7915233219"
+  },
+  {
+    "LogTime": "2025-11-20T16:31:19.682Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7915233219",
+      "type": "redeem-code",
+      "amount": 10,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 7915233219"
+  },
+  {
+    "LogTime": "2025-11-20T17:45:08.830Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0853437653",
+      "type": "fasTag",
+      "amount": 200,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {
+        "ad1": "30"
+      }
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 0853437653"
+  },
+  {
+    "LogTime": "2025-11-20T17:45:08.851Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "0853437653",
+      "type": "fasTag",
+      "amount": 200,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {
+        "ad1": "30"
+      }
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1762671148848568",
+      "margin": "0.8250",
+      "margin_percentage": "0.1283",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 0853437653"
   }
 ]

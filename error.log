@@ -522,3 +522,27 @@
 2025-11-20T01:42:21.249Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
 2025-11-20T01:47:15.987Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Parameter is Missing
 2025-11-20T01:47:37.241Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Failed to generate ledger.
+2025-11-20T08:40:46.043Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T08:46:29.987Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T08:47:25.900Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T08:53:46.932Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T08:55:18.534Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T08:55:49.333Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T15:12:35.116Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T15:17:26.774Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T15:25:28.537Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected non-whitespace character after JSON at position 77 (line 7 column 1)
+2025-11-20T15:25:32.452Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Unexpected non-whitespace character after JSON at position 97 (line 13 column 1)
+2025-11-20T15:25:44.072Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T16:11:33.710Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T16:14:03.527Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T16:15:11.774Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T16:24:25.190Z [error]: Commission validation failed: serviceId: Path `serviceId` is required.
+2025-11-20T16:30:51.520Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T17:14:55.382Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:20:45.850Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:21:28.355Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:22:34.843Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:23:59.321Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:30:36.870Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:32:23.205Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
+2025-11-20T17:32:58.259Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found

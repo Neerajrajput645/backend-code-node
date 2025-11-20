@@ -137,7 +137,7 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
 const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
 
-    const { number, operator, ad1, ad } = req.body;
+    const { number, operator, ad1, ad, cn } = req.body;
 
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
@@ -152,6 +152,9 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
     };
     if (ad1) bodyData.ad1 = ad1;
     if (ad) bodyData.ad = ad;
+    if (cn) bodyData.cn = cn;
+    console.log("BBPS Bill Fetch Request Body:", bodyData);
+    console.log("BBPS Bill URL:", url);
     const response = await axios.post(url, bodyData);
     console.log("BBPS Bill Fetch Response:", response.data);
     await saveLog(
@@ -167,8 +170,8 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       Data: response.data,
     });
   } catch (error) {
-    console.log("BBPS Bill Fetch Error:", error.response.data);
-    console.error("Bill Fetch Error:", error.response?.data || error.message);
+    // console.log("BBPS Bill Fetch Error:", error.response.data);
+    console.error("BBPS Bill Fetch Response (Error):", error.response?.data || error.message);
 
     await saveLog(
       "BILL_FETCH_ERROR",
@@ -263,7 +266,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
 
     const res1 = await paywithWallet({ body });
     // Wallet Deduction End --------------------------
-    if (res1.ResponseStatus === 1){
+    if (res1.ResponseStatus === 1) {
       const newService = new bbps({
         userId: FindUser._id,
         number,
@@ -293,7 +296,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           number: number,
           op_code: operatorCode,
           // op_uid: operatorCode,
-          circle:"Google Play",
+          // circle:"Google Play",
           bill_details: billDetails,
           additional_params: req.body.ad1
             ? {
@@ -317,16 +320,16 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         );
         console.log("payload ->", payload);
 
-        const response = await axios.post(URL, payload);
-        // const response = {
-        //   data: {
-        //     status: 'success',
-        //     order_id: '1762671148848568',
-        //     margin: '0.8250',
-        //     margin_percentage: '0.1283',
-        //     operator_ref_id: null
-        //   }
-        // }
+        // const response = await axios.post(URL, payload);
+        const response = {
+          data: {
+            status: 'success',
+            order_id: '1762671148848568',
+            margin: '0.8250',
+            margin_percentage: '0.1283',
+            operator_ref_id: null
+          }
+        }
         console.log("response ->", response.data);
         await saveLog(
           `BILL_PAYMENT`,
@@ -364,12 +367,13 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           return;
         }
         if (status == "success" && findService.percent > 0) {
-          console.log("Cashback Process Started");
+          console.log("Cashback Process Started", operatorCategory);
           const cashback = await Commission.findOne({
+            status:true,
             name: { $regex: `^${operatorCategory}$`, $options: "i" }
           });
           console.log("cashback ->", cashback);
-          const findPercent = cashback.commission || 0;
+          const findPercent = cashback?.commission || 0;
           console.log("findPercent ->", findPercent);
           const cashbackPercent = (TxnAmount / 100) * findPercent;
           console.log("cashbackPercent ->", cashbackPercent);
@@ -442,6 +446,260 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
   }
 });
 
+
+const googlePlayPayment = asyncHandler(async (req, res) => {
+  // console.log("ds")
+  try {
+    const { _id, deviceToken } = req.data;
+    // Dont Send TXN ID Fronend
+    const { number, amount, mPin } = req.body;
+    console.log("BILL_PAYMENT req body ->", req.body);
+    const operatorCode = "google_play";
+    const operatorId = 'google_play';
+    const circle = 'Google Play';
+    const operatorCategory = 'redeem-code';
+    const serviceId = "661061ecda6832bf278254e1";
+    const operatorName = 'Google Play';
+    const transactionId = generateOrderId();
+    const TxnAmount = Number(amount);
+    const ipAddress = getIpAddress(req);
+    if (!serviceId) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `Please provide required fields.`,
+      }); return;
+    }
+    const findService = await Service.findOne({ _id: serviceId });
+    // Check if service is active
+    if (!findService?.status) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `${findService ? findService.name : "Service"
+          } is Temporarily Down`,
+      });
+      return;
+    }
+    const FindUser = await Users.findOne({ _id });
+    if (!FindUser?.bbps) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `This service is Temporarily Down`,
+      });
+      return;
+    }
+
+    // Amount validation
+    if (TxnAmount <= 0) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `Amount should be positive.`,
+      });
+      return; // Exit the function
+    }
+
+    // Decrypt and validate mPin
+    const decryptMpin = CryptoJS.AES.decrypt(
+      req.data.mPin,
+      CRYPTO_SECRET
+    ).toString(CryptoJS.enc.Utf8);
+    if (mPin.toString() !== decryptMpin) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `Please enter a valid mPin.`,
+      });
+      return; // Exit the function
+    }
+
+    const walletFound = await Wallet.findOne({ userId: _id });
+    if (walletFound.balance < TxnAmount) {
+      res.status(400).json({
+        ResponseStatus: 0,
+        message: `Insufficient balance.`,
+      });
+      return; // Exit the function
+    }
+
+    // Wallet Deduction Start -------------------
+    const body = {
+      orderId: transactionId,
+      txnAmount: TxnAmount,
+      txnId: transactionId,
+      serviceId,
+      mPin,
+      userId: _id,
+      ipAddress,
+    };
+
+    const res1 = await paywithWallet({ body });
+    // Wallet Deduction End --------------------------
+    if (res1.ResponseStatus === 1) {
+      const newService = new bbps({
+        userId: FindUser._id,
+        number,
+        operator: operatorName,
+        operatorName: operatorCategory,
+        circle: circle,
+        amount: TxnAmount,
+        serviceId: findService._id,
+        transactionId,
+        status: "PENDING",
+        operatorRef: 0,
+        apiTransID: 0,
+        ipAddress,
+      });
+      await newService.save();
+      try {
+        const payload = {
+
+          token: process.env.BILLHUB_TOKEN,
+          order_id: transactionId,
+          type: operatorCategory,
+          amount: TxnAmount,
+          number: number,
+          op_uid: operatorCode,
+          circle: circle,
+          additional_params: req.body.ad1
+            ? {
+              ad1: req.body.ad1,
+            }
+            : {},
+        };
+        console.log("request body data ->", payload);
+        const URL = `https://api.techember.in/app/recharges/main.php`;
+
+        await saveLog(
+          `BILL_PAYMENT`,
+          URL,
+          payload, // or full request payload
+          null,
+          `Google Play Payment Request Initiated for TxnID: ${transactionId}`
+        );
+
+        // const response = await axios.post(URL, payload);
+        const response = {
+          data: {
+            status: 'success',
+            order_id: '3903399703',
+            margin: '0.4000',
+            margin_percentage: '2.0000',
+            operator_ref_id: '6FSVYD0T8Z4HRFLX'
+          }
+        }
+        console.log("response ->", response.data);
+        await saveLog(
+          `BILL_PAYMENT`,
+          URL,
+          payload, // or full request payload
+          response.data,
+          `Bill Payment Response Status : ${response.data.status} for TxnID: ${transactionId}`
+        );
+        if (!response.data) {
+          successHandler(req, res, {
+            Remarks: `Your ${findService.name} is Pending`,
+            Data: { status: "PENDING" },
+          });
+        }
+
+        newService.status = response.data.status?.toLowerCase();
+        newService.operatorRef = response.data.operator_ref_id || 0;
+        newService.apiTransID = response.data.order_id || 0;
+        await newService.save();
+        const status = response.data.status?.toLowerCase();
+        if (status == "failed") {
+          // Start Refund-------------------------------------------------
+          await handleRefund(
+            FindUser,
+            TxnAmount,
+            transactionId,
+            ipAddress,
+            walletFound
+          );
+          // End Refund ------------------------------------------------------------------
+          res.status(400).json({
+            ResponseStatus: 0,
+            message: `Recharge Failed, Please Try Again`,
+          });
+          return;
+        }
+        if (status == "success" && findService.percent > 0) {
+          console.log("Cashback Process Started", operatorCategory);
+          const cashback = await Commission.findOne({
+            name:"Google Play",
+            status:true
+          });
+          console.log("cashback ->", cashback);
+          const findPercent = cashback?.commission || 0;
+          console.log("findPercent ->", findPercent);
+          const cashbackPercent = (TxnAmount / 100) * findPercent;
+          console.log("cashbackPercent ->", cashbackPercent);
+
+          await handleCashback(
+            FindUser,
+            cashbackPercent,
+            transactionId,
+            ipAddress,
+            walletFound
+          );
+        }
+
+        const notification = {
+          title: `${findService.name} Payment is ${status}`,
+          body: `Your ₹${TxnAmount} ${findService.name} is ${status}`,
+        };
+        const newNotification = new Notification({
+          ...notification,
+          recipient: _id,
+        });
+        await newNotification.save();
+        if (deviceToken) {
+          sendNotification(notification, deviceToken);
+        }
+
+        // sendEmail(req.data, "SERVICE_RECEIPT", {
+        //   ...newService,
+        //   operatorName: operator.name,
+        //   serviceName: findService.name,
+        // });
+        //   const value = {
+        //     operatorName: findOperator?.Operator_name,
+        //     serviceName: "Mobile Recharge",
+        //     TransID: transactionId,
+        //     currentDate: new Date(), // Get the current date
+        //     number: number,
+        //     amount: amount,
+        //     operatorRef: rechargeRe.data.operator_ref_id,
+        //   };
+        //   const doc = createHtmlToPdf(req.data, value);
+        //   newService.receipt = doc;
+        //   await newService.save();
+        // Success response
+        function capitalize(word) {
+          if (!word) return ""; // अगर स्ट्रिंग खाली हो
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+        successHandler(req, res, {
+          Remarks: `Your ${findService.name} is ${status}`,
+          Data: {
+            status: capitalize(status),
+            transactionId: newService.transactionId,
+            operator_ref_id: response.data.operator_ref_id,
+          },
+        });
+      } catch (error) {
+        console.log("error ->", error.response.data);
+        newService.status = "error";
+        await newService.save();
+        res.status(400).json({
+          ResponseStatus: 0,
+          message: error.message,
+        });
+        return;
+      }
+    }
+  } catch (error) {
+    console.log(error.response.error, "error");
+  }
+});
 
 
 // bbps bill info
@@ -542,6 +800,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
 // });
 
 // bbps bill payment // not using becacuse of old
+
 
 const billPayment = asyncHandler(async (req, res) => {
   try {
@@ -730,170 +989,172 @@ const billPayment = asyncHandler(async (req, res) => {
   }
 });
 
-// google Play Purhcase
-const googlePlayPayment = asyncHandler(async (req, res) => {
-  const { _id, deviceToken } = req.data;
-  const { number, amount, serviceId, transactionId, mPin } = req.body;
-  const ipAddress = getIpAddress(req);
-  // Validate required fields
-  if (!transactionId || !serviceId) {
-    return res.status(400).json({ message: "Please provide required fields." });
-  }
 
-  const [findService, findUser, wallet] = await Promise.all([
-    Service.findById(serviceId),
-    Users.findById(_id),
-    Wallet.findOne({ userId: _id }),
-  ]);
+// // google Play Purhcase
+// const googlePlay = asyncHandler(async (req, res) => {
+//   const { _id, deviceToken } = req.data;
+//   const { number, amount, serviceId, transactionId, mPin } = req.body;
+//   const ipAddress = getIpAddress(req);
+//   // Validate required fields
+//   if (!transactionId || !serviceId) {
+//     return res.status(400).json({ message: "Please provide required fields." });
+//   }
 
-  if (!findService || !findService.status) {
-    res.status(400);
-    throw new Error("This service is temporarily down.");
-  }
+//   const [findService, findUser, wallet] = await Promise.all([
+//     Service.findById(serviceId),
+//     Users.findById(_id),
+//     Wallet.findOne({ userId: _id }),
+//   ]);
 
-  if (!findUser.status) {
-    res.status(400);
-    throw new Error("User is Blocked");
-  }
+//   if (!findService || !findService.status) {
+//     res.status(400);
+//     throw new Error("This service is temporarily down.");
+//   }
 
-  if (!findUser || !findUser.googlePlay) {
-    res.status(400);
-    throw new Error("Google Play Failed, Please Try Again Ex150");
-  }
+//   if (!findUser.status) {
+//     res.status(400);
+//     throw new Error("User is Blocked");
+//   }
 
-  if (Number(amount) <= 0) {
-    res.status(400);
-    throw new Error("Amount should be positive.");
-  }
+//   if (!findUser || !findUser.googlePlay) {
+//     res.status(400);
+//     throw new Error("Google Play Failed, Please Try Again Ex150");
+//   }
 
-  if (!req.data.mPin) {
-    res.status(400);
-    throw new Error("Please set an MPIN.");
-  }
+//   if (Number(amount) <= 0) {
+//     res.status(400);
+//     throw new Error("Amount should be positive.");
+//   }
 
-  // Decrypt MPIN
-  const decryptedMpin = CryptoJS.AES.decrypt(
-    req.data.mPin,
-    CRYPTO_SECRET
-  ).toString(CryptoJS.enc.Utf8);
-  if (mPin.toString() !== decryptedMpin) {
-    res.status(400);
-    throw new Error("Invalid MPIN.");
-  }
+//   if (!req.data.mPin) {
+//     res.status(400);
+//     throw new Error("Please set an MPIN.");
+//   }
 
-  // Validate Wallet Balance
-  if (!wallet || wallet.balance < Number(amount)) {
-    res.status(400);
-    throw new Error("Insufficient wallet balance.");
-  }
+//   // Decrypt MPIN
+//   const decryptedMpin = CryptoJS.AES.decrypt(
+//     req.data.mPin,
+//     CRYPTO_SECRET
+//   ).toString(CryptoJS.enc.Utf8);
+//   if (mPin.toString() !== decryptedMpin) {
+//     res.status(400);
+//     throw new Error("Invalid MPIN.");
+//   }
 
-  try {
-    // Wallet Deduction Start
-    const body = {
-      orderId: generateOrderId(),
-      txnAmount: amount,
-      txnId: transactionId,
-      serviceId: findService._id,
-      mPin,
-      userId: _id,
-      ipAddress,
-    };
-    const res1 = await paywithWallet({ body });
+//   // Validate Wallet Balance
+//   if (!wallet || wallet.balance < Number(amount)) {
+//     res.status(400);
+//     throw new Error("Insufficient wallet balance.");
+//   }
 
-    if (res1.ResponseStatus === 1) {
-      const result = await axios.get(
-        `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN}&op_uid=google_play&order_id=${transactionId}&type=redeem-code&number=${findUser.phone}&amount=${amount}&circle=null`
-      );
-      const status = result.data.status?.toLowerCase();
-      if (["failure", "error", "failed"].includes(status)) {
-        // Handle Refund
-        await handleRefund(findUser, amount, transactionId, ipAddress, wallet);
-        res.status(400);
-        throw new Error("Transaction Failed");
-      }
+//   try {
+//     // Wallet Deduction Start
+//     const body = {
+//       orderId: generateOrderId(),
+//       txnAmount: amount,
+//       txnId: transactionId,
+//       serviceId: findService._id,
+//       mPin,
+//       userId: _id,
+//       ipAddress,
+//     };
+//     const res1 = await paywithWallet({ body });
 
-      const newService = new bbps({
-        userId: _id,
-        number,
-        operator: "GLF",
-        circle: "",
-        amount,
-        serviceId: findService._id,
-        transactionId,
-        status: result.data.status,
-        operatorRef: result.data.operator_ref_id,
-        apiTransID: result.data.order_id,
-        ipAddress,
-      });
+//     if (res1.ResponseStatus === 1) {
+//       const result = await axios.get(
+//         `https://api.billhub.in/reseller/recharge/?token=${process.env.BILLHUB_TOKEN}&op_uid=google_play&order_id=${transactionId}&type=redeem-code&number=${findUser.phone}&amount=${amount}&circle=null`
+//       );
+//       const status = result.data.status?.toLowerCase();
+//       if (["failure", "error", "failed"].includes(status)) {
+//         // Handle Refund
+//         await handleRefund(findUser, amount, transactionId, ipAddress, wallet);
+//         res.status(400);
+//         throw new Error("Transaction Failed");
+//       }
 
-      await newService.save();
+//       const newService = new bbps({
+//         userId: _id,
+//         number,
+//         operator: "GLF",
+//         circle: "",
+//         amount,
+//         serviceId: findService._id,
+//         transactionId,
+//         status: result.data.status,
+//         operatorRef: result.data.operator_ref_id,
+//         apiTransID: result.data.order_id,
+//         ipAddress,
+//       });
 
-      if (["success", "pending"].includes(status)) {
-        const notification = {
-          title: `Google Play Recharge is ${result.data.status}`,
-          body: `Your ₹${amount} Google Play recharge is ${result.data.status}`,
-        };
+//       await newService.save();
 
-        const newNotification = new Notification({
-          ...notification,
-          recipient: _id,
-        });
-        await newNotification.save();
+//       if (["success", "pending"].includes(status)) {
+//         const notification = {
+//           title: `Google Play Recharge is ${result.data.status}`,
+//           body: `Your ₹${amount} Google Play recharge is ${result.data.status}`,
+//         };
 
-        if (deviceToken) {
-          sendNotification(notification, deviceToken);
-        }
+//         const newNotification = new Notification({
+//           ...notification,
+//           recipient: _id,
+//         });
+//         await newNotification.save();
 
-        // Handle Cashback
-        if (status == "success") {
-          const cashbackPercent = (Number(amount) / 100) * findService.percent;
-          await handleCashback(
-            findUser,
-            cashbackPercent,
-            transactionId,
-            ipAddress,
-            wallet
-          );
-        }
+//         if (deviceToken) {
+//           sendNotification(notification, deviceToken);
+//         }
 
-        // Send Email Receipt
-        // sendEmail(req.data, "SERVICE_RECEIPT", {
-        //   ...newService,
-        //   operatorName: findService.name,
-        //   serviceName: "Google Play",
-        // });
-        //  const value = {
-        //   operatorName: findService.name,
-        //   serviceName: "Google Play Recharge",
-        //   TransID: transactionId,
-        //   currentDate: new Date(), // Get the current date
-        //   number: number,
-        //   amount: amount,
-        //   operatorRef: result.data.opid,
-        // };
+//         // Handle Cashback
+//         if (status == "success") {
+//           const cashbackPercent = (Number(amount) / 100) * findService.percent;
+//           await handleCashback(
+//             findUser,
+//             cashbackPercent,
+//             transactionId,
+//             ipAddress,
+//             wallet
+//           );
+//         }
 
-        // const doc = createHtmlToPdf(req.data, value);
+//         // Send Email Receipt
+//         // sendEmail(req.data, "SERVICE_RECEIPT", {
+//         //   ...newService,
+//         //   operatorName: findService.name,
+//         //   serviceName: "Google Play",
+//         // });
+//         //  const value = {
+//         //   operatorName: findService.name,
+//         //   serviceName: "Google Play Recharge",
+//         //   TransID: transactionId,
+//         //   currentDate: new Date(), // Get the current date
+//         //   number: number,
+//         //   amount: amount,
+//         //   operatorRef: result.data.opid,
+//         // };
 
-        // newService.receipt = doc;
-        //  await newService.save();
+//         // const doc = createHtmlToPdf(req.data, value);
 
-        // Success Response
-        successHandler(req, res, {
-          Remarks: result.data.operator_ref_id,
-          Data: result.data,
-        });
-      }
-    } else {
-      res.status(400);
-      throw new Error("Payment Failed, Please Contact Customer Care.");
-    }
-  } catch (error) {
-    res.status(500);
-    throw new Error(
-      "An error occurred during the transaction. Please try again."
-    );
-  }
-});
+//         // newService.receipt = doc;
+//         //  await newService.save();
+
+//         // Success Response
+//         successHandler(req, res, {
+//           Remarks: result.data.operator_ref_id,
+//           Data: result.data,
+//         });
+//       }
+//     } else {
+//       res.status(400);
+//       throw new Error("Payment Failed, Please Contact Customer Care.");
+//     }
+//   } catch (error) {
+//     res.status(500);
+//     throw new Error(
+//       "An error occurred during the transaction. Please try again."
+//     );
+//   }
+// });
+
 
 // bill payment history by User
 const billPaymentHistory = asyncHandler(async (req, res) => {
@@ -928,6 +1189,7 @@ const billPaymentHistory = asyncHandler(async (req, res) => {
     });
   }
 });
+
 
 // bbps history history by Admin
 const bbpsHistory = asyncHandler(async (req, res) => {

@@ -327,8 +327,8 @@ const txnByUserId = asyncHandler(async (req, res) => {
 
     return {
       ...txn._doc,
-      openingBalance,
-      closingBalance,
+      openingBalance: openingBalance.toFixed(2),
+      closingBalance: closingBalance.toFixed(2),
     };
   });
 
