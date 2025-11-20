@@ -562,7 +562,7 @@ const GET_LEDGER_REPORT_USER = asyncHandler(async (req, res) => {
               b.Cyrus_Operator_code == findRecharge.operator ||
               b.Billhub_Operator_code == findRecharge.operator
           );
-          
+        
           description = `Mobile Recharge | ${findRecharge.number} | ${findOpr.Operator_name} | TXN_ID ${txn.txnId}`;
           // console.log(dec, "findOpr");
         } else if (findDTH) {

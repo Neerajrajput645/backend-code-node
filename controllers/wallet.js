@@ -1044,6 +1044,28 @@ const manageMoney = asyncHandler(async (req, res) => {
   }
 });
 
+const userWallet = asyncHandler(async (req, res) => {
+  let payload = { ...req.query };
+
+  // (Optional) Convert userId to ObjectId if present
+  if (payload.userId) {
+    payload.userId = payload.userId.trim();
+  }
+
+  // Prevent unsafe mongo operators
+  Object.keys(payload).forEach(key => {
+    if (key.startsWith("$")) delete payload[key];
+  });
+
+  const wallet = await Wallet.find(payload).populate("userId");
+
+  return successHandler(req, res, { 
+    Remarks: wallet && wallet.length > 0 ? "All user wallet data" : "No wallet data found",
+    Data: wallet ?? []
+  });
+});
+
+
 const cashback = asyncHandler(async (req, res) => {
   const { serviceId, amount, opName } = req.body;
 
@@ -1117,4 +1139,5 @@ module.exports = {
   sendMoney,
   manageMoney,
   cashback,
+  userWallet,
 };

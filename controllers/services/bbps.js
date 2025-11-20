@@ -281,20 +281,20 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
       await newService.save();
       try {
         const payload = {
-          // operator: {
-          //   name: operatorName,
-          //   category: operatorCategory,
-          //   operator_id: operatorCode,
-          // },
+          operator: {
+            name: operatorName,
+            category: operatorCategory,
+            operator_id: operatorCode,
+          },
           token: process.env.BILLHUB_TOKEN,
           order_id: transactionId,
           type: operatorCategory,
           amount: TxnAmount,
           number: number,
-          // op_code: operatorCode,
-          op_uid: operatorCode,
+          op_code: operatorCode,
+          // op_uid: operatorCode,
           circle:"Google Play",
-          // bill_details: billDetails,
+          bill_details: billDetails,
           additional_params: req.body.ad1
             ? {
               ad1: req.body.ad1,

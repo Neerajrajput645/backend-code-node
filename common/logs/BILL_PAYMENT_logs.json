@@ -1497,5 +1497,45 @@
     },
     "Response_Data": null,
     "Additional_Info": "Bill Payment Request Initiated for TxnID: 1991407924"
+  },
+  {
+    "LogTime": "2025-11-20T01:42:19.257Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3903399703",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 3903399703"
+  },
+  {
+    "LogTime": "2025-11-20T01:42:20.963Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "3903399703",
+      "type": "redeem-code",
+      "amount": 20,
+      "number": "8770475416",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "3903399703",
+      "margin": "0.4000",
+      "margin_percentage": "2.0000",
+      "operator_ref_id": "6FSVYD0T8Z4HRFLX"
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 3903399703"
   }
 ]

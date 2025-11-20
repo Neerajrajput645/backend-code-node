@@ -519,3 +519,6 @@
 2025-11-18T11:21:50.450Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
 2025-11-19T13:48:42.170Z [error]: Unexpected field
 2025-11-19T13:48:46.365Z [error]: Unexpected field
+2025-11-20T01:42:21.249Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'error')
+2025-11-20T01:47:15.987Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Parameter is Missing
+2025-11-20T01:47:37.241Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Failed to generate ledger.
