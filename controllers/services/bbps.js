@@ -298,9 +298,9 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           // op_uid: operatorCode,
           // circle:"Google Play",
           bill_details: billDetails,
-          additional_params: req.body.ad1
+          additional_params: req.body.ad
             ? {
-              ad1: req.body.ad1,
+              ad1: req.body.ad,
             }
             : {},
         };
