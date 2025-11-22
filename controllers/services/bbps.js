@@ -698,6 +698,9 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
     }
   } catch (error) {
     console.log(error.response.error, "error");
+    res.status(400).json({
+      message: error.response.error || "An error occurred",
+    });
   }
 });
 
