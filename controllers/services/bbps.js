@@ -622,7 +622,7 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
           res.status(400).json({
             ResponseStatus: 0,
             message: `Recharge Failed, Please Try Again`,
-              data: response.data
+            data: response.data
           });
           return;
         }
@@ -679,7 +679,7 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
         await newService.save();
         res.status(400).json({
           ResponseStatus: 0,
-          message: error?.response?.data || "Payment Failed, Please Try Again",
+          message: error?.response?.data?.message || "Payment Failed, Please Try Again",
         });
         return;
       }

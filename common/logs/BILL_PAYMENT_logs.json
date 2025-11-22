@@ -2574,5 +2574,62 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : failed for TxnID: 5905537955"
+  },
+  {
+    "LogTime": "2025-11-22T02:32:43.935Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6245065640",
+      "type": "redeem-code",
+      "amount": 1,
+      "number": "8770475419",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 6245065640"
+  },
+  {
+    "LogTime": "2025-11-22T02:32:44.362Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6245065640",
+      "type": "redeem-code",
+      "amount": 1,
+      "number": "8770475419",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "6245065640",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 6245065640"
+  },
+  {
+    "LogTime": "2025-11-22T02:32:49.216Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6830910794",
+      "type": "redeem-code",
+      "amount": 1,
+      "number": "8770475419",
+      "op_uid": "google_play",
+      "circle": "Google Play",
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Google Play Payment Request Initiated for TxnID: 6830910794"
   }
 ]
