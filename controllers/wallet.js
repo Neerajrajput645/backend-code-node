@@ -104,7 +104,7 @@ const sendMoney = asyncHandler(async (req, res) => {
     const userFound = req.data;
 
     const FindUser = await User.findOne({ _id: userFound._id });
-    if (!FindUser)  {
+    if (!FindUser) {
       res.status(400);
       throw new Error("User not found");
     }
@@ -1102,7 +1102,7 @@ const userWallet = asyncHandler(async (req, res) => {
 
   const wallet = await Wallet.find(payload).populate("userId");
 
-  return successHandler(req, res, { 
+  return successHandler(req, res, {
     Remarks: wallet && wallet.length > 0 ? "All user wallet data" : "No wallet data found",
     Data: wallet ?? []
   });
@@ -1173,22 +1173,82 @@ const cashback = asyncHandler(async (req, res) => {
 });
 
 
-// const creditMoneyToUserWallet = asyncHandler(async (req, res) => {
-//   // Implementation here
-//   const {_id} = req.data;
-//   const service = await Service
-// });
+const manageUserWalletMoney = asyncHandler(async (req, res) => {
+  // Implementation here
+  const { _id } = req.data;
+  const service = await Service.findOne({ name: "ADD_MONEY" });
+  if (!service.status) {
+    res.status(400);
+    throw new Error("This service currently block");
+  }
+  const adminWallet = await AdminWallet.findOne({ adminId: _id }).populate('userId');
+  // if(!adminWallet){
+  //   res.status(400);
+  //   throw new Error("Admin wallet not found");
+  // }
+  // if(!adminWallet.status || !adminWallet.userId.status){
+  //   res.status(400);
+  //   throw new Error("Admin wallet is inactive");
+  // }
+  // if(adminWallet.balance < req.body.amount || adminWallet.balance <=0){
+  //   res.status(400);
+  //   throw new Error("Insufficient admin wallet balance");
+  // }
 
 
+  const { userId, amount, type } = req.body;
+  const txnAmount = Number(amount);
+
+  if (!["credit", "debit"].includes(type)) {
+    res.status(400);
+    throw new Error("Invalid type, must be credit or debit");
+  }
+
+  if (!userId || !txnAmount || txnAmount <= 0) {
+    console.log("Invalid userId or amount:", { userId, amount });
+    res.status(400);
+    throw new Error("Please provide valid userId and amount");
+  }
+
+  if (Number(amount) > 2000) {
+    res.status(400);
+    throw new Error("Maximum ₹2000 allowed per transaction");
+  }
+  const userWallet = await Wallet.findOne({ userId: userId }).populate('userId');
+  if (!userWallet) {
+    res.status(400);
+    throw new Error("User wallet not found");
+  }
+  if (!userWallet.userId.status) {
+    console.log("User wallet or user is inactive", userWallet.userId.status);
+    res.status(400);
+    throw new Error("User wallet is inactive");
+  }
+  // Debit admin wallet
+
+if (type === "credit") {
+  successHandler(req, res, {
+    remark: "Amount credited to user wallet successfully",
+    amount: txnAmount,
+  });
+if(type === "debit"){
+  successHandler(req, res, {
+    remark: "Amount debited from user wallet successfully",
+    amount: txnAmount,
+  });
+}
+}
+});
 
 module.exports = {
   userCheck,
   addMoney,
-  // getWalletByUser,
+  // getWalletByAdmin,
   donateMoney,
   sendMoney,
   manageMoney,
   cashback,
+  manageUserWalletMoney,
   userWallet,
   getWalletTxn
 };
