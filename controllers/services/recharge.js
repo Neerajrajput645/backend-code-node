@@ -64,11 +64,11 @@ const genTxnId = () => {
 const planFetch = asyncHandler(async (req, res) => {
 
   const { Operator_Code, Circle_Code, MobileNumber } = req.query;
-
+console.log(req.query, "plan fetch req.query");
   const selectedOperator = await planFetchProviderSchema.findOne({
     isTrue: true,
   });
-  // console.log(selectedOperator, "selectedOperator");
+  console.log(selectedOperator, "selectedOperator");
 
   if (selectedOperator.providerCode === 1) {
     const findOp = All_Recharge_Operator_List.find(

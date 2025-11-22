@@ -27,12 +27,52 @@ const sendEmail = require("../common/sendEmail");
 const appSetting = require("../models/appSetting");
 
 
-// wallet info
-const getWalletByUser = asyncHandler(async (req, res) => {
-  const { _id } = req.data;
-  const data = await Wallet.findOne({ userId: _id });
-  successHandler(req, res, { Remarks: "Fetch wallet by user", Data: data });
+const getWalletTxn = asyncHandler(async (req, res) => {
+  // Extract pagination + sorting
+  let { page = 1, limit = 10, sort = "-createdAt" } = req.query;
+  page = Number(page);
+  limit = Number(limit);
+
+  // Build dynamic filters
+  const condition = { ...req.query };
+  delete condition.page;
+  delete condition.limit;
+  delete condition.sort;
+
+  condition.txnResource = "Wallet";
+
+  // Get wallet info if userId exists
+  let wallet = null;
+  if (req.query?.userId) {
+    wallet = await Wallet.findOne({ userId: req.query.userId });
+  }
+
+  // MongoDB query with pagination
+  const skip = (page - 1) * limit;
+
+  const txn = await Txn.find(condition)
+    .sort(sort)
+    .skip(skip)
+    .limit(limit);
+
+  // Total count for pagination
+  const totalCount = await Txn.countDocuments(condition);
+
+  successHandler(req, res, {
+    Remarks: "Fetch wallet txn",
+    Data: {
+      wallet,
+      txn,
+      pagination: {
+        total: totalCount,
+        page,
+        limit,
+        totalPages: Math.ceil(totalCount / limit),
+      },
+    },
+  });
 });
+
 
 // check user exist or not before send money
 const userCheck = asyncHandler(async (req, res) => {
@@ -1134,10 +1174,11 @@ const cashback = asyncHandler(async (req, res) => {
 module.exports = {
   userCheck,
   addMoney,
-  getWalletByUser,
+  // getWalletByUser,
   donateMoney,
   sendMoney,
   manageMoney,
   cashback,
   userWallet,
+  getWalletTxn
 };
