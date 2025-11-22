@@ -320,16 +320,16 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         );
         console.log("payload ->", payload);
 
-        // const response = await axios.post(URL, payload);
-        const response = {
-          data: {
-            status: 'success',
-            order_id: '1762671148848568',
-            margin: '0.8250',
-            margin_percentage: '0.1283',
-            operator_ref_id: null
-          }
-        }
+        const response = await axios.post(URL, payload);
+        // const response = {
+        //   data: {
+        //     status: 'success',
+        //     order_id: '1762671148848568',
+        //     margin: '0.8250',
+        //     margin_percentage: '0.1283',
+        //     operator_ref_id: null
+        //   }
+        // }
         console.log("response ->", response.data);
         await saveLog(
           `BILL_PAYMENT`,
