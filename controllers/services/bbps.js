@@ -529,7 +529,7 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
       userId: _id,
       ipAddress,
     };
-
+    console.log("step-2")
     const res1 = await paywithWallet({ body });
     // Wallet Deduction End --------------------------
     if (res1.ResponseStatus === 1) {
@@ -593,6 +593,7 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
           response.data,
           `Bill Payment Response Status : ${response.data.status} for TxnID: ${transactionId}`
         );
+        console.log("step-2")
         if (!response.data) {
           successHandler(req, res, {
             Remarks: `Your ${findService.name} is Pending`,
@@ -605,7 +606,9 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
         newService.apiTransID = response.data.order_id || 0;
         await newService.save();
         const status = response.data.status?.toLowerCase();
+        console.log("step-3");
         if (status == "failed") {
+          console.log("step-4");
           // Start Refund-------------------------------------------------
           await handleRefund(
             FindUser,
@@ -614,11 +617,12 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
             ipAddress,
             walletFound
           );
+          console.log("step-5");
           // End Refund ------------------------------------------------------------------
           res.status(400).json({
             ResponseStatus: 0,
             message: `Recharge Failed, Please Try Again`,
-            response
+              data: response.data
           });
           return;
         }
@@ -656,23 +660,6 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
           sendNotification(notification, deviceToken);
         }
 
-        // sendEmail(req.data, "SERVICE_RECEIPT", {
-        //   ...newService,
-        //   operatorName: operator.name,
-        //   serviceName: findService.name,
-        // });
-        //   const value = {
-        //     operatorName: findOperator?.Operator_name,
-        //     serviceName: "Mobile Recharge",
-        //     TransID: transactionId,
-        //     currentDate: new Date(), // Get the current date
-        //     number: number,
-        //     amount: amount,
-        //     operatorRef: rechargeRe.data.operator_ref_id,
-        //   };
-        //   const doc = createHtmlToPdf(req.data, value);
-        //   newService.receipt = doc;
-        //   await newService.save();
         // Success response
         function capitalize(word) {
           if (!word) return ""; // अगर स्ट्रिंग खाली हो
@@ -692,18 +679,15 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
         await newService.save();
         res.status(400).json({
           ResponseStatus: 0,
-          message: error.message,
+          message: error?.response?.data || "Payment Failed, Please Try Again",
         });
         return;
       }
     }
   } catch (error) {
-    console.log("error ->", error.response.data);
-    res.status(400).json({
-      ResponseStatus: 0,
-      message: error.message,
-    });
-    return;
+    res.status(400);
+    throw new Error(error?.message || "Something went wrong, Please Try Again");
+
   }
 });
 
