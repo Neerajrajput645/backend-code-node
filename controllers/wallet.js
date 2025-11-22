@@ -50,7 +50,7 @@ const getWalletTxn = asyncHandler(async (req, res) => {
   // MongoDB query with pagination
   const skip = (page - 1) * limit;
 
-  const txn = await Txn.find(condition)
+  const txn = await Txn.find(condition).populate("userId")
     .sort(sort)
     .skip(skip)
     .limit(limit);
