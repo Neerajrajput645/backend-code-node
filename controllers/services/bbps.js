@@ -575,16 +575,16 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
           `Google Play Payment Request Initiated for TxnID: ${transactionId}`
         );
 
-        // const response = await axios.post(URL, payload);
-        const response = {
-          data: {
-            status: 'success',
-            order_id: '3903399703',
-            margin: '0.4000',
-            margin_percentage: '2.0000',
-            operator_ref_id: '6FSVYD0T8Z4HRFLX'
-          }
-        }
+        const response = await axios.post(URL, payload);
+        // const response = {
+        //   data: {
+        //     status: 'success',
+        //     order_id: '3903399703',
+        //     margin: '0.4000',
+        //     margin_percentage: '2.0000',
+        //     operator_ref_id: '6FSVYD0T8Z4HRFLX'
+        //   }
+        // }
         console.log("response ->", response.data);
         await saveLog(
           `BILL_PAYMENT`,
