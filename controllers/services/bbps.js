@@ -305,7 +305,8 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
             : {},
         };
 
-
+        console.log("BBPS Bill Payment Payload:", payload);
+        console.log("step-2", req.body)
         // console.log("request body data ->", payload);
         // const URL = `https://api.billhub.in/reseller/bbps/payment/`;
 
