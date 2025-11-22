@@ -104,8 +104,11 @@ const sendMoney = asyncHandler(async (req, res) => {
     const userFound = req.data;
 
     const FindUser = await User.findOne({ _id: userFound._id });
-
-    if (FindUser.sendMoney) {
+    if (!FindUser)  {
+      res.status(400);
+      throw new Error("User not found");
+    }
+    if (FindUser?.sendMoney) {
       const { amount, receiverWallet, mid, otp } = req.body;
 
       const findAmdinWalletFound = await AdminWallet.findOne();

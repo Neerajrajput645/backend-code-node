@@ -72,7 +72,8 @@ const pushNotification = asyncHandler(async (req, res) => {
   try {
     const { title, content } = req.body;
     const data = { title, body: content };
-
+    console.log("Sending notification with title:", title, "and content:", content);
+    console.log("header token:", req.headers.token);
     const users = await userSchema.find({
       deviceToken: { $ne: null },
       doNotNotify: { $ne: true },
@@ -127,6 +128,9 @@ const pushNotificationImage = asyncHandler(async (req, res) => {
     const data = { title, body: content };
     const image = req?.file?.path || "uploads/notification/defaultNotify.jpg"
     if (image) data.image = image;
+    console.log("Sending notification with title:", title, "and content:", content);
+    console.log("header token:", req.headers.token);
+    console.log("body:", req.body);
     const users = await userSchema.find({
       deviceToken: { $ne: null },
       doNotNotify: { $ne: true },
