@@ -369,7 +369,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         if (status == "success" && findService.percent > 0) {
           console.log("Cashback Process Started", operatorCategory);
           const cashback = await Commission.findOne({
-            status:true,
+            status: true,
             name: { $regex: `^${operatorCategory}$`, $options: "i" }
           });
           console.log("cashback ->", cashback);
@@ -625,8 +625,8 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
         if (status == "success" && findService.percent > 0) {
           console.log("Cashback Process Started", operatorCategory);
           const cashback = await Commission.findOne({
-            name:"Google Play",
-            status:true
+            name: "Google Play",
+            status: true
           });
           console.log("cashback ->", cashback);
           const findPercent = cashback?.commission || 0;
@@ -698,10 +698,12 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error.response.error, "error");
+    console.log("error ->", error.response.data);
     res.status(400).json({
-      message: error.response.error || "An error occurred",
+      ResponseStatus: 0,
+      message: error.message,
     });
+    return;
   }
 });
 
