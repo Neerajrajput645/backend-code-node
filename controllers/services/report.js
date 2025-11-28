@@ -130,6 +130,7 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
       bbps: bbpsData,
     };
 
+    console.log("Combined History Data:", finalData);
     successHandler(req, res, {
       Remarks: "User Combined Recharge History",
       Data: finalData,

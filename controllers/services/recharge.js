@@ -216,7 +216,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       res.status(400);
 
       console.log("step-1", findService)
-      throw new Error("Recharge Failed, Please Try Again Ex100");
+      throw new Error("Recharge service is currently unavailable. Please try again later.");
     }
 
     if (!FindUser.status) {
@@ -226,7 +226,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
     if (!FindUser?.recharge) {
       res.status(400);
-      throw new Error("Recharge Failed, Please Try Again Ex150");
+      throw new Error("Recharge service is currently unavailable. Please try again later.");
     }
 
     if (TxnAmount <= 0) {
@@ -293,7 +293,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
         isTrue: true,
       });
       function capitalize(word) {
-        if (!word) return ""; // अगर स्ट्रिंग खाली हो
+        if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
       }
       if (selectedOperator.providerCode === 2) {
@@ -327,26 +327,32 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             circle: findCircle.planapi_circlecode,
           }
           let response;
-          // console.log(bodyData, "bodyData");
+          console.log(bodyData, "bodyData");
           let rechargeRe;
 
 
           try {
-            // console.log("Calling Recharge API");
+            console.log("Calling Recharge API");
 
-            //      rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
-            rechargeRe = {
-              data: {
-                status: 'success',
-                order_id: '1869354044',
-                margin: '0.1950',
-                margin_percentage: '1.9500',
-                operator_ref_id: '1878093437'
-              }
-            }
+          //   rechargeRe = {
+          //    data: {
+          //      status: 'success',
+          //      order_id: '1869354044',
+          //      margin: '0.1950',
+          //      margin_percentage: '1.9500',
+          //      operator_ref_id: '1878093437'
+          //    }
+          //  }
+
+
+           if(rechargeRe){
+              console.log("dummy api running");
+           }
+            rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
+
             // throw new Error("Test Error");
             response = rechargeRe.data;
-            // console.log("wer")
+            console.log("rechargeRe.data", rechargeRe.data);  
           } catch (error) {
             if (error.response) {
               response = error.response.data;
@@ -378,6 +384,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           newRecharge.operatorRef = response?.operator_ref_id || 0;
           await newRecharge.save();
           const status = response?.status?.toLowerCase();
+
           if (status == "failed") {
             // Start Refund-------------------------------------------------
             await handleRefund(
@@ -387,6 +394,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               ipAddress,
               walletFound
             );
+            console.log("Recharge Failed, Refund Processed");
             // End Refund ------------------------------------------------------------------
             res.status(400);
             throw new Error(response.message || "Recharge Failed, Please Try Again");
@@ -450,14 +458,27 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             sendNotification(notification, deviceToken);
           }
 
+          // const operatorName = findOperator?.Operator_name || "Selected Operator";
           // Success response
+          // console.log("Recharge Success Response Sent");
+          console.log(
+              "status", capitalize(status),
+              "number", newRecharge.number,
+              "transactionId", newRecharge.transactionId,
+              // transectionId:newRecharge.txnId,
+              "operatorName", findOperator?.Operator_name ,
+              "operator_ref_id", response?.operator_ref_id,
+          );
+
           successHandler(req, res, {
             Remarks: `Your Recharge is ${status}`,
             Data: ({
               status: capitalize(status),
-              // number:newRecharge.number,
               transactionId: newRecharge.transactionId,
               // transectionId:newRecharge.txnId,
+              phoneNumber: newRecharge.number,
+              debitFrom : "Wallet",
+              operatorName: findOperator?.Operator_name || "Unknown Operator",
               operator_ref_id: response?.operator_ref_id || 0,
             }),
           });
@@ -843,7 +864,7 @@ const dthRequest = asyncHandler(async (req, res) => {
     await saveLog("DTH_RECHARGE", URL, bodyData, null, `Recharge initiated for TxnID: ${transactionId}`);
 
     // 🔌 Call Billhub API
-    // const rechargeRe = await axios.post(URL, bodyData);
+    
     const rechargeRe = {
       data: {
         status: 'success',
@@ -853,6 +874,13 @@ const dthRequest = asyncHandler(async (req, res) => {
         operator_ref_id: null
       }
     }
+    if(rechargeRe){
+	    console.log("dummy api running");
+    
+    }
+	  console.log("some is running");
+   // const rechargeRe = await axios.post(URL, bodyData);
+
     console.log("data", rechargeRe);
     const rechargeData = rechargeRe.data || {};
     const status = rechargeData.status?.toLowerCase() || "unknown";
@@ -2754,8 +2782,6 @@ const getCircleAndOperators = asyncHandler(async (req, res) => {
     }
   });
 });
-
-
 
 
 module.exports = {

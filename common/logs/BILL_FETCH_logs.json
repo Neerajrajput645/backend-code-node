@@ -1354,5 +1354,51 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: 9826284061"
+  },
+  {
+    "LogTime": "2025-11-22T12:10:11.983Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 294,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "100.0",
+        "billnetamount": "100.0",
+        "minBillAmount": 100,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZM4019",
+        "userName": "SUJAL SHARMA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: MP07ZM4019"
+  },
+  {
+    "LogTime": "2025-11-22T12:31:59.205Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "MP07ZC1955",
+      "operator": 294,
+      "ad1": "30"
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: MP07ZC1955"
   }
 ]

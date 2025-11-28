@@ -25,7 +25,7 @@ const userSchema = require("../models/userSchema");
 const CRYPTO_SECRET = process.env.CRYPTO_SECRET;
 const sendEmail = require("../common/sendEmail");
 const appSetting = require("../models/appSetting");
-
+const validMongooseId = require("../common/new/mongoIDvalidation");
 
 const getWalletTxn = asyncHandler(async (req, res) => {
   // Extract pagination + sorting
@@ -53,7 +53,9 @@ const getWalletTxn = asyncHandler(async (req, res) => {
   const txn = await Txn.find(condition).populate("userId")
     .sort(sort)
     .skip(skip)
-    .limit(limit);
+    .limit(limit)
+    .populate("userId", "firstName lastName phone")
+    ;
 
   // Total count for pagination
   const totalCount = await Txn.countDocuments(condition);
@@ -1110,8 +1112,8 @@ const userWallet = asyncHandler(async (req, res) => {
 
 
 const cashback = asyncHandler(async (req, res) => {
-  const { serviceId, amount, opName } = req.body;
-
+  let { serviceId, amount, opName } = req.body;
+  console.log("[REQUEST] Cashback request received with serviceId:", serviceId, "amount:", amount, "opName:", opName);
   console.log("[STEP-1] Received serviceId:", serviceId);
 
   if (!serviceId) {
@@ -1126,15 +1128,32 @@ const cashback = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Service not found");
   }
+  console.log("[STEP-2] Service details:", service);
 
+  // const vi = ["VODAFONE", "vi", "VI", "Vodafone", "Vodafone Idea", "Vodafone-Idea", "vodafone-idea"];
+  // const bsnl = ["BSNL", "bsnl", "bsnl gsm", "BSNL GSM", "Bsnl", "Bharat Sanchar Nigam Limited", "Bharat Sanchar Nigam ltd", "Bharat Sanchar Nigam limited", "bsnl-ltd"];
+  // const jio = ["JIO", "jio", "Jio", "Reliance Jio", "Reliance-Jio", "reliance jio", "Reliance Jio Infocomm Limited"];
+
+  if(opName === "Reliance Jio Infocomm Limited"){
+    opName = "JIO";
+  }
+  if(opName === "BSNL GSM"){
+    opName = "BSNL";
+  }
+  if(opName === "VODAFONE"){
+    opName = "VI";
+  }
+
+  console.log("[STEP-2.1] Normalized operator name:", opName);
+  // better luck for next time
   // Try to find the commission by operator name
-  let commission = await Commission.findOne({
+  console.log("[STEP-3] Commission lookup by operator name:", opName);
+
+    let commission = await Commission.findOne({
     serviceId,
     status: true,
     name: new RegExp(`^${opName}$`, "i"),
   });
-
-  console.log("[STEP-3] Commission lookup by operator name:");
 
   if (!commission) {
     console.log("[STEP-3.1] Commission not found for operator name:", opName);
@@ -1172,6 +1191,17 @@ const cashback = asyncHandler(async (req, res) => {
   });
 });
 
+// wallet info
+const getWalletByUser = asyncHandler(async (req, res) => {
+  const { _id } = req.data;
+  const data = await Wallet.findOne({ userId: _id });
+  // i want to give only 2 frectional digit in balance
+  if (data) {
+    data.balance = parseFloat(data.balance).toFixed(2);
+  }
+  successHandler(req, res, { Remarks: "Fetch wallet by user", Data: data });
+});
+
 
 const manageUserWalletMoney = asyncHandler(async (req, res) => {
   // Implementation here
@@ -1181,7 +1211,8 @@ const manageUserWalletMoney = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("This service currently block");
   }
-  const adminWallet = await AdminWallet.findOne({ adminId: _id }).populate('userId');
+  console.log("admin id", _id)
+  const adminWallet = await Admin.findById(_id).populate('wallet');
   // if(!adminWallet){
   //   res.status(400);
   //   throw new Error("Admin wallet not found");
@@ -1195,7 +1226,7 @@ const manageUserWalletMoney = asyncHandler(async (req, res) => {
   //   throw new Error("Insufficient admin wallet balance");
   // }
 
-
+  console.log("Admin Wallet:", adminWallet);
   const { userId, amount, type } = req.body;
   const txnAmount = Number(amount);
 
@@ -1210,10 +1241,12 @@ const manageUserWalletMoney = asyncHandler(async (req, res) => {
     throw new Error("Please provide valid userId and amount");
   }
 
-  if (Number(amount) > 2000) {
+  if (Number(amount) > 5000) {
     res.status(400);
-    throw new Error("Maximum ₹2000 allowed per transaction");
+    throw new Error("Maximum ₹5000 allowed per transaction");
   }
+  // Validate userId
+  validMongooseId(res, userId);
   const userWallet = await Wallet.findOne({ userId: userId }).populate('userId');
   if (!userWallet) {
     res.status(400);
@@ -1227,24 +1260,103 @@ const manageUserWalletMoney = asyncHandler(async (req, res) => {
   // Debit admin wallet
 
 if (type === "credit") {
+
+  const user = await User.findById(userId);
+  userWallet.balance += txnAmount;
+  await userWallet.save();
+
+  // adminWallet.wallet.balance -= txnAmount;
+  // await adminWallet.wallet.save();
+  const adminNewTxn = new AdminTxn({
+    adminId:adminWallet._id,
+    recipientId: userId,
+    txnAmount: txnAmount,
+    remarks: `Admin credited ₹${txnAmount} to user wallet`,
+    txnType: "debit",
+    txnId: Math.floor(Math.random() * Date.now()) + "adminCredit",
+    txnStatus: "TXN_SUCCESS",
+    txnResource: "Wallet",
+  });
+  await adminNewTxn.save();
+
+
+  
+  const userNewTxn = new Txn({
+    userId: userId,
+    recipientId: userId,
+    txnName: "Amount Credited",
+    txnDesc: `Admin credited ₹${txnAmount} to your wallet`,
+    txnAmount: txnAmount,
+    txnType: "credit",
+    txnId: Math.floor(Math.random() * Date.now()) + "userCredit",
+    orderId: Math.floor(Math.random() * Date.now()) + "userCredit",
+    txnStatus: "TXN_SUCCESS",
+    txnResource: "Wallet",
+    ipAddress: getIpAddress(req),
+  });
+  await userNewTxn.save();
+
   successHandler(req, res, {
     remark: "Amount credited to user wallet successfully",
     amount: txnAmount,
   });
 if(type === "debit"){
+
+  const user = await User.findById(userId);
+  userWallet.balance -= txnAmount;
+  await userWallet.save();
+  
+  // adminWallet.wallet.balance += txnAmount;
+  // await adminWallet.wallet.save();
+  const adminNewTxn = new AdminTxn({
+    adminId:adminWallet._id,
+    recipientId: userId,
+    txnAmount: txnAmount,
+    remarks: `Admin debited ₹${txnAmount} from user wallet`,
+    txnType: "credit",
+    txnId: Math.floor(Math.random() * Date.now()) + "adminDebit",
+    txnStatus: "TXN_SUCCESS",
+    txnResource: "Wallet",
+  });
+  await adminNewTxn.save();
+
+  const userNewTxn = new Txn({
+    userId: userId,
+    recipientId: userId,
+    txnName: "Amount Debited",
+    txnDesc: `Admin debited ₹${txnAmount} from your wallet`,
+    txnAmount: txnAmount,
+    txnType: "debit",
+    txnId: Math.floor(Math.random() * Date.now()) + "userDebit",
+    orderId: Math.floor(Math.random() * Date.now()) + "userDebit",
+    txnStatus: "TXN_SUCCESS",
+    txnResource: "Wallet",
+    ipAddress: getIpAddress(req),
+  });
+  await userNewTxn.save();
   successHandler(req, res, {
     remark: "Amount debited from user wallet successfully",
     amount: txnAmount,
   });
+
 }
 }
 });
 
+// const creditMoneyToUserWallet = asyncHandler(async (req, res) => {
+//   // Implementation here
+//   const {_id} = req.data;
+//   const service = await Service
+// });
+
+
+
 module.exports = {
   userCheck,
   addMoney,
-  // getWalletByAdmin,
+  getWalletByUser,
   donateMoney,
+  manageUserWalletMoney,
   sendMoney,
   manageMoney,
   cashback,

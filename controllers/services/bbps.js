@@ -71,8 +71,6 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
       throw new Error(`No BBPS category found for ${service.name}`);
     }
 
-    // console.log("step-2", findBillhubCategory.billhub_category);
-
     // Step 4: Filter operators by matched category
     const filteredOperators = allOperators.find(
       (op) => op.categoryId.toLowerCase() === findBillhubCategory.billhub_category.toLowerCase()
@@ -81,8 +79,6 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
     if (!filteredOperators || !filteredOperators.providerRoot) {
       throw new Error(`No operators found for ${service.name}`);
     }
-
-    // console.log("step-3 categoryId:", filteredOperators.categoryId);
 
     // Step 5: Format provider list
     let DATA_ARRAY = [];
@@ -122,6 +118,47 @@ const BBPS_OPERATOR_LIST_FETCH = asyncHandler(async (req, res) => {
       });
     }
 
+    // ------------------------------------------------------
+    // ⭐ NEW: GAS Operator Blacklist Filtering
+    // ------------------------------------------------------
+    if (service.name.toLowerCase() === "gas") {
+      const GAS_NOT_ALLOWED_OPERATORS = [
+        1127,
+        1132,
+        1141,
+        1152,
+        1153,
+        1188,
+        1154,
+        1162,
+        1186,
+        1182,
+        1189,
+        1198,
+        1199,
+        1190,
+        1192,
+        1208,
+        1218,
+        1220,
+        1226,
+        1227,
+        1228,
+        1233,
+        1234,
+        1209,
+        1198,
+        1187
+        // add more unwanted operator codes here
+      ];
+
+
+      DATA_ARRAY = DATA_ARRAY.filter(
+        (op) => !GAS_NOT_ALLOWED_OPERATORS.includes(op.op_id)
+      );
+    }
+    // ------------------------------------------------------
+
     // Step 6: Return the result
     return successHandler(req, res, {
       Remarks: "Operator list fetched successfully",
@@ -138,7 +175,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
   try {
 
     const { number, operator, ad1, ad, cn } = req.body;
-
+    console.log("BBPS Bill Fetch Request Body:", req.body);
     if (!number || !operator) {
       return errorHandler(req, res, "Number and operator are required", 400);
     }
@@ -171,8 +208,11 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     // console.log("BBPS Bill Fetch Error:", error.response.data);
-    console.error("BBPS Bill Fetch Response (Error):", error.response?.data || error.message);
-
+    console.error("BBPS Bill Fetch Response (Error):", error.response?.data);
+    console.error("BBPS Bill Fetch Error Message:", error.message);
+    if(error.response?.data?.message === "Unable to get bill details from biller"){
+      throw new Error("Wrong Number or Operator");
+    }
     await saveLog(
       "BILL_FETCH_ERROR",
       req.originalUrl,
@@ -180,8 +220,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
       error.response?.data || error.message,
       "Bill fetch failed"
     );
-
-    throw new Error("No outstanding bills found");
+    throw new Error(error.response?.data?.message || "Error fetching BBPS bill details");
   }
 });
 

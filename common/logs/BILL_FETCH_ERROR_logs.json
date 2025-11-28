@@ -1545,5 +1545,35 @@
       "message": "Missing/Invalid operator Id"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-22T12:09:41.458Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9826284061",
+      "operator": 293,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Bill fetch timed out from seller end"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-11-22T12:09:54.965Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "MP07ZM4019",
+      "operator": 293,
+      "ad1": "15"
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Please enter numeric Mobile Number"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

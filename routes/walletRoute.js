@@ -7,14 +7,14 @@ const {
   userCheck,
    sendMoney,
    cashback,
-  // getWalletByAdmin,
+  getWalletByUser,
   addMoney,
   donateMoney,
   getWalletTxn,
   manageUserWalletMoney
 } = require("../controllers/wallet");
 
-// router.get("/info", adminTokenVerify, getWalletByAdmin);
+router.get("/info", tokenVerify, getWalletByUser);
 // router.all("/callback", Recharge_CallBack_Handler);
 router.post("/add-money", tokenVerify, addMoney); // temperary
 router.post("/user-exist", tokenVerify, userCheck);

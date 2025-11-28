@@ -2631,5 +2631,269 @@
     },
     "Response_Data": null,
     "Additional_Info": "Google Play Payment Request Initiated for TxnID: 6830910794"
+  },
+  {
+    "LogTime": "2025-11-22T12:22:25.059Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4453402014",
+      "type": "fasTag",
+      "amount": 20,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4453402014"
+  },
+  {
+    "LogTime": "2025-11-22T12:22:26.686Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4453402014",
+      "type": "fasTag",
+      "amount": 20,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763833945784335",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 4453402014"
+  },
+  {
+    "LogTime": "2025-11-22T12:25:57.360Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5691028042",
+      "type": "fasTag",
+      "amount": 20,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 5691028042"
+  },
+  {
+    "LogTime": "2025-11-22T12:25:58.861Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5691028042",
+      "type": "fasTag",
+      "amount": 20,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763834157202197",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 5691028042"
+  },
+  {
+    "LogTime": "2025-11-22T12:32:28.908Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4838733335",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 4838733335"
+  },
+  {
+    "LogTime": "2025-11-22T12:32:29.515Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "4838733335",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763834549433601",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 4838733335"
+  },
+  {
+    "LogTime": "2025-11-22T12:36:13.677Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7305297539",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 7305297539"
+  },
+  {
+    "LogTime": "2025-11-22T12:36:15.307Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7305297539",
+      "type": "fasTag",
+      "amount": 10,
+      "number": "MP07ZC1955",
+      "op_code": 294,
+      "bill_details": {
+        "billAmount": "10.0",
+        "billnetamount": "10.0",
+        "minBillAmount": 10,
+        "acceptPayment": true,
+        "acceptPartPay": true,
+        "cellNumber": "MP07ZC1955",
+        "userName": "Anil Sharma"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1763834773502995",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: 7305297539"
   }
 ]

@@ -1,6 +1,7 @@
 const Txn = require("../models/txnSchema");
 const asyncHandler = require("express-async-handler");
 const successHandler = require("../common/successHandler");
+const mongoose = require("mongoose");
 // const { encryptFunc } = require("../common/encryptDecrypt");
 const Users = require("../models/userSchema");
 const { error } = require("winston");
@@ -100,7 +101,7 @@ const getTransaction = asyncHandler(async (req, res) => {
       .limit(Number(limit));
 
     const total = await Txn.countDocuments(filter);
-
+    console.log("Total Transactions Found:", total);
     successHandler(req, res, {
       Remarks: "Filtered transaction list",
       Data: {
@@ -290,39 +291,36 @@ const getAllTransaction = asyncHandler(async (req, res) => {
 
 // txn by specific user   --- pending
 const txnByUserId = asyncHandler(async (req, res) => {
-  const { _id } = req.data;
-  const { receiverId } = req.params;
-
-  const sender = await Txn.find({
-    recipientId: _id,
-    userId: receiverId,
+  const receiverId = req.params.receiverId;
+  
+  const txnsRaw = await Txn.find({
     txnResource: "Wallet",
-  }).select("-__v -gatewayName -ipAddress");
+    $or: [
+      // userId is always ObjectId
+      { userId: receiverId },
 
-  const receiver = await Txn.find({
-    recipientId: receiverId,
-    userId: _id,
-    txnResource: "Wallet",
-  });
+      // recipientId stored as ObjectId
+      { recipientId: receiverId },
 
-  // Step-1: Merge + Sort
-  let txns = [...sender, ...receiver].sort(
-    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
-  );
+      // recipientId stored as embedded object
+      { "recipientId._id": receiverId }
+    ]
+  })
+    .select("-__v -gatewayName -ipAddress")
+    .populate("userId", "firstName lastName email phone")
+    .populate("recipientId", "firstName lastName email phone");
 
-  // Step-2: Add balances
+  console.log("txnsRaw:", txnsRaw);
+
+  let txns = txnsRaw.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
   let currentBalance = 0;
 
   txns = txns.map((txn) => {
     const amount = Number(txn.txnAmount) || 0;
+
     const openingBalance = currentBalance;
-
-    if (txn.txnType === "credit") {
-      currentBalance += amount;
-    } else if (txn.txnType === "debit") {
-      currentBalance -= amount;
-    }
-
+    currentBalance += txn.txnType === "credit" ? amount : -amount;
     const closingBalance = currentBalance;
 
     return {
@@ -332,14 +330,17 @@ const txnByUserId = asyncHandler(async (req, res) => {
     };
   });
 
-  // Step-3: Reverse if you want recent first
   txns.reverse();
 
   successHandler(req, res, {
-    Remarks: "Fetch txn list by user.",
+    Remarks: "Fetch all wallet transactions of user.",
     Data: txns,
   });
 });
+
+
+
+
 
 // const GET_LEDGER_REPORT_USER = asyncHandler(async (req, res) => {
 //   const { userId } = req.query;

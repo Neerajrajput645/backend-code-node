@@ -57,7 +57,16 @@ const affiliateListAdmin = asyncHandler(async (req, res) => {
 
 // create affiliate list
 const createAffiliate = asyncHandler(async (req, res) => {
-  const newAffiliate = new Affiliate({ ...req.body, icon: req?.file?.path });
+  const condition = {}
+  const {name, route, description, section} = req.body;
+  if(name) condition.name = name;
+  if(route) condition.route = route;
+  if(description) condition.description = description;
+  if(section) condition.section = section;
+  if(req.file){
+    condition.icon = req.file.path;
+  }
+  const newAffiliate = new Affiliate(condition);
   const result = await newAffiliate.save();
   successHandler(req, res, { Remarks: "Create affiliate item.", Data: result });
 });
