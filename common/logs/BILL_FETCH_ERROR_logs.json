@@ -1575,5 +1575,75 @@
       "message": "Please enter numeric Mobile Number"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-07T16:20:12.736Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "8109635835",
+      "operator": 29
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Time Out Or other undefined Exceptions"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-07T17:23:22.827Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "7000751791",
+      "operator": 142
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Action not supported."
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-08T08:35:20.464Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "N2905010110",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-08T10:17:38.503Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "N2251001193",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-08T10:38:11.917Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "N2251001193",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

@@ -16,7 +16,7 @@ const txnSchema = new Schema(
     orderId: { type: String, unique: true, required: true },
     txnStatus: {
       type: String,
-      enum: ["TXN_FAILURE", "TXN_SUCCESS"],
+      enum: ["TXN_FAILURE", "TXN_SUCCESS", "TXN_PENDING"],
       required: true,
     },
     txnResource: {

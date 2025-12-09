@@ -1767,5 +1767,600 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Recharge response for TxnID: TXNPP8B122AC6, Status: success"
+  },
+  {
+    "LogTime": "2025-12-08T09:12:08.597Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Assignment to constant variable.",
+    "Additional_Info": "Error during recharge for TxnID: TXNPPA678B305"
+  },
+  {
+    "LogTime": "2025-12-08T09:16:42.687Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "0163376442",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP0959DBF8"
+  },
+  {
+    "LogTime": "2025-12-08T09:16:42.717Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": "Cannot access 'rechargeRe' before initialization",
+    "Additional_Info": "Error during recharge for TxnID: TXNPP0959DBF8"
+  },
+  {
+    "LogTime": "2025-12-08T09:18:54.863Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "3374138075",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP60CEC546"
+  },
+  {
+    "LogTime": "2025-12-08T09:18:55.381Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "3374138075",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "pending",
+      "order_id": "3374138075",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPP60CEC546, Status: pending"
+  },
+  {
+    "LogTime": "2025-12-08T09:21:11.815Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "7065709794",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP533AB073"
+  },
+  {
+    "LogTime": "2025-12-08T09:21:12.218Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "7065709794",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "7065709794",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPP533AB073, Status: failed"
+  },
+  {
+    "LogTime": "2025-12-08T09:26:53.979Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "1295897315",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP9DF1F43C"
+  },
+  {
+    "LogTime": "2025-12-08T09:26:54.397Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "1295897315",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1295897315",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPP9DF1F43C, Status: failed"
+  },
+  {
+    "LogTime": "2025-12-08T09:28:36.038Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "1483791742",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPFC8DB752"
+  },
+  {
+    "LogTime": "2025-12-08T09:28:36.166Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPPFC8DB752"
+  },
+  {
+    "LogTime": "2025-12-08T09:29:03.367Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "4228798215",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPBB4B5F2A"
+  },
+  {
+    "LogTime": "2025-12-08T09:29:03.805Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "4228798215",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "4228798215",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPBB4B5F2A, Status: failed"
+  },
+  {
+    "LogTime": "2025-12-08T09:29:47.881Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "8675958865",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP10B5DC0F"
+  },
+  {
+    "LogTime": "2025-12-08T09:29:47.997Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP10B5DC0F"
+  },
+  {
+    "LogTime": "2025-12-08T09:30:10.551Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "0956442249",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP391E599A"
+  },
+  {
+    "LogTime": "2025-12-08T09:30:10.726Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP391E599A"
+  },
+  {
+    "LogTime": "2025-12-08T09:30:40.792Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "3971861741",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPF7341ABB"
+  },
+  {
+    "LogTime": "2025-12-08T09:30:40.929Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPPF7341ABB"
+  },
+  {
+    "LogTime": "2025-12-08T09:31:49.723Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "0865422830",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPD4642DB5"
+  },
+  {
+    "LogTime": "2025-12-08T09:31:50.164Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "0865422830",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "0865422830",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPD4642DB5, Status: failed"
+  },
+  {
+    "LogTime": "2025-12-08T09:33:21.831Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "0074507858",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPE911B591"
+  },
+  {
+    "LogTime": "2025-12-08T09:33:21.944Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPPE911B591"
+  },
+  {
+    "LogTime": "2025-12-08T09:35:26.300Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "2515072132",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP90B4058A"
+  },
+  {
+    "LogTime": "2025-12-08T09:35:27.061Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "2515072132",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "2515072132",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPP90B4058A, Status: failed"
+  },
+  {
+    "LogTime": "2025-12-08T09:35:41.412Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "4040421959",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP3B7B95BE"
+  },
+  {
+    "LogTime": "2025-12-08T09:35:41.543Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP3B7B95BE"
+  },
+  {
+    "LogTime": "2025-12-08T09:41:28.811Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "8775805292",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPE70F01BC"
+  },
+  {
+    "LogTime": "2025-12-08T09:41:29.294Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "8775805292",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": {
+      "status": "pending",
+      "order_id": "8775805292",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Recharge response for TxnID: TXNPPE70F01BC, Status: pending"
+  },
+  {
+    "LogTime": "2025-12-08T09:42:25.304Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "4424915724",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP3601007D"
+  },
+  {
+    "LogTime": "2025-12-08T09:42:25.428Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP3601007D"
+  },
+  {
+    "LogTime": "2025-12-08T09:43:17.635Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "9501124821",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP791A17BF"
+  },
+  {
+    "LogTime": "2025-12-08T09:43:17.759Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "error",
+      "message": "You must wait 2 minutes before making another transaction with the same credentials."
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP791A17BF"
+  },
+  {
+    "LogTime": "2025-12-09T09:45:52.698Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "5137811784",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPPD36B44E3"
+  },
+  {
+    "LogTime": "2025-12-09T09:45:52.833Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "failed",
+      "message": "Insufficient wallet balance"
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPPD36B44E3"
+  },
+  {
+    "LogTime": "2025-12-09T09:46:15.330Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "6896881735",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP4CDF75B5"
+  },
+  {
+    "LogTime": "2025-12-09T09:46:15.469Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "failed",
+      "message": "Insufficient wallet balance"
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP4CDF75B5"
+  },
+  {
+    "LogTime": "2025-12-09T09:46:29.562Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "70408499906",
+      "op_uid": "sun_tv",
+      "amount": 10,
+      "order_id": "8828936673",
+      "type": "dth",
+      "circle": "N/A"
+    },
+    "Response_Data": null,
+    "Additional_Info": "Recharge initiated for TxnID: TXNPP8F7E328D"
+  },
+  {
+    "LogTime": "2025-12-09T09:46:29.692Z",
+    "API_Name": "DTH_RECHARGE",
+    "API_Endpoint": null,
+    "Request_Data": null,
+    "Response_Data": {
+      "status": "failed",
+      "message": "Insufficient wallet balance"
+    },
+    "Additional_Info": "Error during recharge for TxnID: TXNPP8F7E328D"
   }
 ]

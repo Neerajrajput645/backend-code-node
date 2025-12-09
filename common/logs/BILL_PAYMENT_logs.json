@@ -2895,5 +2895,219 @@
       "operator_ref_id": null
     },
     "Additional_Info": "Bill Payment Response Status : failed for TxnID: 7305297539"
+  },
+  {
+    "LogTime": "2025-12-08T08:15:53.561Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5349039322",
+      "type": "electricity",
+      "amount": 151,
+      "number": "N2905010110",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "RAKESH SHARMA",
+        "number": "N2905010110",
+        "billDate": "07 Dec 2025",
+        "dueDate": "2025-12-17",
+        "amount": "151.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 5349039322"
+  },
+  {
+    "LogTime": "2025-12-08T08:15:54.943Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "5349039322",
+      "type": "electricity",
+      "amount": 151,
+      "number": "N2905010110",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "RAKESH SHARMA",
+        "number": "N2905010110",
+        "billDate": "07 Dec 2025",
+        "dueDate": "2025-12-17",
+        "amount": "151.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1765181753230431",
+      "margin": "0.8250",
+      "margin_percentage": "0.5464",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 5349039322"
+  },
+  {
+    "LogTime": "2025-12-08T08:36:16.836Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7681933453",
+      "type": "electricity",
+      "amount": 74,
+      "number": "N2251001193",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "BHAGWAN DAS S/O BABOO LAL",
+        "number": "N2251001193",
+        "billDate": "05 Dec 2025",
+        "dueDate": "2025-12-15",
+        "amount": "74.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 7681933453"
+  },
+  {
+    "LogTime": "2025-12-08T08:36:18.038Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "7681933453",
+      "type": "electricity",
+      "amount": 74,
+      "number": "N2251001193",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "BHAGWAN DAS S/O BABOO LAL",
+        "number": "N2251001193",
+        "billDate": "05 Dec 2025",
+        "dueDate": "2025-12-15",
+        "amount": "74.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1765182976773108",
+      "margin": "0.8250",
+      "margin_percentage": "1.1149",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 7681933453"
+  },
+  {
+    "LogTime": "2025-12-08T10:18:45.931Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "2580198078",
+      "type": "electricity",
+      "amount": 75,
+      "number": "N2251003214",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SHRI SATISH AGRAWAL",
+        "number": "N2251003214",
+        "billDate": "05 Dec 2025",
+        "dueDate": "2025-12-15",
+        "amount": "75.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 2580198078"
+  },
+  {
+    "LogTime": "2025-12-08T10:18:47.348Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "M.P. Madhya Kshetra Vidyut Vitaran - URBAN",
+        "category": "electricity",
+        "operator_id": 215
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "2580198078",
+      "type": "electricity",
+      "amount": 75,
+      "number": "N2251003214",
+      "op_code": 215,
+      "bill_details": {
+        "customerName": "SHRI SATISH AGRAWAL",
+        "number": "N2251003214",
+        "billDate": "05 Dec 2025",
+        "dueDate": "2025-12-15",
+        "amount": "75.0"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "1765189126125528",
+      "margin": "0.8250",
+      "margin_percentage": "1.1000",
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : success for TxnID: 2580198078"
+  },
+  {
+    "LogTime": "2025-12-08T10:24:28.321Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "Airtel Payments Bank NETC FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "6822767790",
+      "type": "fasTag",
+      "amount": 1,
+      "number": "MP07ZZ1260",
+      "op_code": 294,
+      "bill_details": {
+        "number": "MP07ZZ1260",
+        "amount": "1",
+        "type": "fastag"
+      },
+      "additional_params": {
+        "ad1": "30"
+      }
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: 6822767790"
   }
 ]

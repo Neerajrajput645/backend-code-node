@@ -547,3 +547,242 @@
 2025-11-20T17:32:23.205Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
 2025-11-20T17:32:58.259Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No outstanding bills found
 2025-11-22T02:15:10.205Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of undefined (reading 'data')
+2025-12-04T11:46:01.667Z [error]: Cannot read properties of null (reading '_id')
+2025-12-04T11:46:15.348Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: E11000 duplicate key error collection: recharge-app.upitenzs index: orderId_1 dup key: { orderId: "ORDUPIP2026" }
+2025-12-04T18:18:16.343Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Error creating UPI order: E11000 duplicate key error collection: recharge-app.upitenzs index: orderId_1 dup key: { orderId: "ORDUPIP2026" }
+2025-12-05T12:59:39.897Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-05T13:00:18.907Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-06T08:13:04.731Z [error]: Invalid Otp
+2025-12-06T11:12:11.261Z [error]: invalid phone number
+2025-12-06T17:09:50.855Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: {"status":false,"statusCode":409,"msg":"Order ID already exists"}
+2025-12-06T19:13:39.094Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, DTH number is required
+2025-12-07T08:20:27.922Z [error]: Invalid Otp
+2025-12-07T08:24:49.981Z [error]: Invalid Otp
+2025-12-07T12:28:21.643Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T12:28:24.580Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T12:52:52.647Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Bus
+2025-12-07T14:13:03.505Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Recharge validation failed: number: Path `number` is required.
+2025-12-07T14:14:52.112Z [error]: Cannot set properties of null (setting 'deviceToken')
+2025-12-07T14:15:49.946Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'toString')
+2025-12-07T14:23:25.388Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'toString')
+2025-12-07T14:36:25.666Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Recharge Failed, Please Try Again
+2025-12-07T15:36:30.187Z [error]: Expected double-quoted property name in JSON at position 80
+2025-12-07T15:36:41.847Z [error]: Bad control character in string literal in JSON at position 77
+2025-12-07T15:36:50.577Z [error]: Unexpected token 'd', ..."  "type": debit,
+}"... is not valid JSON
+2025-12-07T16:15:32.845Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T16:20:12.747Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Time Out Or other undefined Exceptions
+2025-12-07T16:24:05.698Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T16:24:13.678Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:06:28.054Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T17:13:44.679Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-07T17:21:09.794Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Please enter valid mPin
+2025-12-07T17:23:22.835Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Action not supported.
+2025-12-07T17:37:12.544Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Hotels
+2025-12-07T17:37:31.531Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Train
+2025-12-07T17:37:38.396Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Bus
+2025-12-07T17:37:45.953Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Car Insurance
+2025-12-07T17:37:48.571Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, No BBPS category found for Health Insurnce
+2025-12-07T17:38:12.465Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bus
+2025-12-07T17:38:27.692Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bus
+2025-12-07T17:38:36.293Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Flight
+2025-12-07T17:38:37.992Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Hotels
+2025-12-07T17:38:39.402Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Train
+2025-12-07T17:38:40.845Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bike Insurance
+2025-12-07T17:38:42.367Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Car Insurance
+2025-12-07T17:38:44.045Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Health Insurnce
+2025-12-07T17:38:44.272Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:38:45.125Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Term Life Insurance
+2025-12-07T17:39:02.359Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:39:21.666Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:40:09.173Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:40:12.248Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:40:12.398Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Bus
+2025-12-07T17:40:36.103Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Bus
+2025-12-07T17:40:37.142Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:40:38.374Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T17:40:41.814Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Flight
+2025-12-07T17:41:04.167Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Cannot read properties of null (reading 'map')
+2025-12-07T17:41:14.599Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T17:42:09.591Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Bus
+2025-12-07T17:42:14.070Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T17:42:40.858Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T17:42:49.612Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Flight
+2025-12-07T17:42:57.130Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Bike Insurance
+2025-12-07T17:43:06.634Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Flight
+2025-12-07T17:43:15.221Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, No BBPS category found for Car Insurance
+2025-12-07T17:43:26.801Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bus
+2025-12-07T17:44:51.917Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Bus
+2025-12-07T17:44:58.552Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Flight
+2025-12-07T17:45:01.026Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Train
+2025-12-07T17:52:23.642Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T18:00:53.441Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bus
+2025-12-07T18:01:09.241Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Flight
+2025-12-07T18:50:43.302Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-07T18:53:01.885Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Cannot read properties of null (reading 'map')
+2025-12-07T18:54:54.522Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-07T19:02:19.600Z [error]: Order ID is Missing
+2025-12-07T19:03:22.385Z [error]: Cannot read properties of null (reading 'firstName')
+2025-12-07T20:03:04.504Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'error')
+2025-12-07T20:03:44.638Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'error')
+2025-12-08T04:48:27.710Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-08T04:52:07.140Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cannot read properties of null (reading 'map')
+2025-12-08T04:56:05.250Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, normalizedMobileNumber is not defined
+2025-12-08T04:56:51.138Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, normalizedMobileNumber is not defined
+2025-12-08T04:57:37.002Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, normalizedMobileNumber is not defined
+2025-12-08T04:58:03.933Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, MobileNumber is not defined
+2025-12-08T04:58:22.980Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, MobileNumber is not defined
+2025-12-08T05:01:38.512Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, normalizedMobileNumber is not a function
+2025-12-08T05:05:03.413Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Please enter valid mPin
+2025-12-08T05:12:40.225Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid Mobile No
+2025-12-08T05:14:49.762Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, s is not defined
+2025-12-08T05:14:54.675Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, s is not defined
+2025-12-08T05:36:29.496Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:36:32.594Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:36:33.100Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:36:33.279Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:07.313Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:10.831Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:11.756Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:13.179Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:38.707Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:37:54.888Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:41:56.643Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:44:32.389Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:45:29.235Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:45:29.932Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:45:30.117Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T05:45:30.577Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:00:57.690Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-08T06:01:52.038Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, No BBPS category found for Bus
+2025-12-08T06:08:12.940Z [error]: userid: 6918b0654e5632f0b4b063f3, name: Krishna  Sharma, phone: 9340881982, No BBPS category found for Train
+2025-12-08T06:08:13.051Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-08T06:10:31.324Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:16:04.499Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:20:02.405Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:20:11.583Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:26:10.624Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:27:22.871Z [error]: Expected double-quoted property name in JSON at position 80
+2025-12-08T06:27:30.782Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:35:05.169Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:35:34.005Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:45.394Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:50.519Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:53.196Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:54.220Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:54.919Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:55.872Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:39:58.499Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T06:49:03.021Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'error')
+2025-12-08T07:45:17.464Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T08:06:25.346Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'error')
+2025-12-08T08:11:39.718Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cannot read properties of undefined (reading 'error')
+2025-12-08T08:31:13.744Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T08:35:20.474Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Payment received for the billing period - no bill due
+2025-12-08T08:37:09.919Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Service ID is required
+2025-12-08T08:37:33.951Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, type is not defined
+2025-12-08T08:39:33.423Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Service ID is required
+2025-12-08T08:39:59.416Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Service ID is required
+2025-12-08T08:40:23.441Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, type is not defined
+2025-12-08T08:41:09.359Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T08:44:20.319Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T08:44:39.552Z [error]: Schema hasn't been registered for model "AdminWallet".
+Use mongoose.model(name, schema)
+2025-12-08T08:53:03.546Z [error]: Wallet validation failed: balance: Path `balance` (-10) is less than minimum allowed value (0).
+2025-12-08T09:01:02.957Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Bike Insurance
+2025-12-08T09:01:04.156Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Car Insurance
+2025-12-08T09:01:05.402Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Health Insurnce
+2025-12-08T09:01:06.728Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Term Life Insurance
+2025-12-08T09:01:08.114Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Bus
+2025-12-08T09:01:09.508Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Flight
+2025-12-08T09:01:10.897Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Hotels
+2025-12-08T09:01:12.100Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Train
+2025-12-08T09:01:13.395Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, No BBPS category found for Bus
+2025-12-08T09:11:54.603Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Service ID is required
+2025-12-08T09:41:22.595Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Service ID is required
+2025-12-08T09:42:19.773Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Service ID is required
+2025-12-08T10:17:38.517Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Payment received for the billing period - no bill due
+2025-12-08T10:23:27.032Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Valid recharge amount is required
+2025-12-08T10:38:11.928Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Payment received for the billing period - no bill due
+2025-12-08T12:38:53.746Z [error]: User wallet is inactive
+2025-12-08T12:38:55.295Z [error]: User wallet is inactive
+2025-12-08T12:38:55.527Z [error]: User wallet is inactive
+2025-12-08T12:38:55.715Z [error]: User wallet is inactive
+2025-12-08T12:38:59.370Z [error]: User wallet is inactive
+2025-12-08T12:38:59.607Z [error]: User wallet is inactive
+2025-12-08T12:39:04.849Z [error]: User wallet is inactive
+2025-12-08T12:44:11.636Z [error]: User wallet is inactive
+2025-12-08T12:44:16.114Z [error]: User wallet is inactive
+2025-12-08T12:44:16.351Z [error]: User wallet is inactive
+2025-12-08T12:44:16.558Z [error]: User wallet is inactive
+2025-12-08T12:44:16.960Z [error]: User wallet is inactive
+2025-12-08T12:44:29.115Z [error]: User wallet is inactive
+2025-12-08T12:51:25.554Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:34.502Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:35.023Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:35.245Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:35.505Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:36.290Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:36.776Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:38.339Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:38.933Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:39.284Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:39.544Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:39.761Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:40.297Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:40.884Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:41.434Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:41.919Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:42.408Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:42.975Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:52:43.506Z [error]: Invalid type, must be credit or debit
+2025-12-08T12:54:41.577Z [error]: Invalid type, must be credit or debit
+2025-12-08T13:05:22.917Z [error]: User wallet is inactive
+2025-12-08T15:59:40.288Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-08T17:28:52.778Z [error]: invalid phone number
+2025-12-08T17:29:21.921Z [error]: invalid phone number
+2025-12-08T17:31:10.564Z [error]: invalid phone number
+2025-12-08T17:31:22.482Z [error]: invalid phone number
+2025-12-08T17:58:48.231Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-09T05:48:53.674Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error creating UPI order: E11000 duplicate key error collection: recharge-app.upitenzs index: orderId_1 dup key: { orderId: "ORDUPI_5PW1RUB1" }
+2025-12-09T06:14:01.973Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-09T07:09:38.306Z [error]: "[object Object]" is not valid JSON
+2025-12-09T10:18:49.654Z [error]: Cannot read properties of null (reading 'txnAmount')
+2025-12-09T10:33:54.870Z [error]: Cannot set properties of null (setting 'deviceToken')
+2025-12-09T10:35:08.827Z [error]: Cannot set properties of null (setting 'deviceToken')
+2025-12-09T14:39:51.777Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')

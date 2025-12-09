@@ -14,6 +14,15 @@ const app_key_provider = {
   },
 };
 
+const admin = require("firebase-admin");
+
+// Initialize Firebase Admin
+const serviceAccount = require("../data/firebase-service-account.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
 const configuration = OneSignal.createConfiguration({
   authMethods: {
     app_key: {
@@ -70,120 +79,253 @@ const chunkArray = (array, size) => {
 
 const pushNotification = asyncHandler(async (req, res) => {
   try {
-    const { title, content } = req.body;
-    const data = { title, body: content };
-    console.log("Sending notification with title:", title, "and content:", content);
-    console.log("header token:", req.headers.token);
+    const { title, content, data } = req.body;
+
+    if (!title || !content) {
+      return res.status(400).json({ error: "Title and content are required" });
+    }
+
+    const payloadData = {
+      title,
+      body: content,
+    };
+
+    console.log("Sending FCM notification:", payloadData);
+
+    // ✅ 1. Get all users who can receive notifications
     const users = await userSchema.find({
       deviceToken: { $ne: null },
       doNotNotify: { $ne: true },
-    });
+    }).select("deviceToken");
 
-    const playerIds = users
+    const tokens = users
       .map((user) => user.deviceToken)
       .filter(
-        (id) =>
-          typeof id === "string" &&
-          id.trim() !== "" &&
-          /^[0-9a-fA-F-]{36}$/.test(id.trim()) // UUIDv4 format check
+        (token) =>
+          typeof token === "string" &&
+          token.trim() !== ""
       );
 
-    if (playerIds.length === 0) {
-      console.log("No users to notify.");
+    if (tokens.length === 0) {
       return successHandler(req, res, {
         Remarks: "No users found to notify",
-        count: 0
+        count: 0,
       });
-      // return res.send("no user found");
     }
 
+    console.log(`Total Users to Notify: ${tokens.length}`);
 
-    const batches = chunkArray(playerIds, 2000);
-    const notification = new OneSignal.Notification();
-    notification.app_id = ONESIGNAL_APP_ID;
-    notification.headings = { en: title };
-    notification.contents = { en: content };
-    notification.small_icon = "ic_stat_onesignal_default";
+    // ✅ 2. Firebase allows max 500 tokens per batch
+    const batches = chunkArray(tokens, 500);
+
+    let successCount = 0;
+    let failureCount = 0;
+
     for (const batch of batches) {
-      notification.include_player_ids = batch;
-      const { id } = await client.createNotification(notification);
-    }
-    await Notification.create({ ...data, byAdmin: true });
+      const message = {
+        tokens: batch,
+        notification: {
+          title,
+          body: content,
+        },
+        // Used for Notifee + background handling
+        data: data || {},
+      };
 
-    // success handler
+      const response = await admin.messaging().sendEachForMulticast(message);
+
+      successCount += response.successCount;
+      failureCount += response.failureCount;
+
+      if (response.failureCount > 0) {
+        response.responses.forEach((resp, index) => {
+          if (!resp.success) {
+            console.error(
+              "FCM Error for token:",
+              batch[index],
+              resp.error?.message
+            );
+          }
+        });
+      }
+    }
+
+    // ✅ 3. Save notification in DB (same as old system)
+    await Notification.create({
+      title,
+      body: content,
+      byAdmin: true,
+    });
+
+    // ✅ 4. Final Success Response
     successHandler(req, res, {
-      Remarks: "Notifications Sent Successfully",
+      Remarks: "Notifications sent successfully",
+      totalUsers: tokens.length,
+      successCount,
+      failureCount,
     });
   } catch (error) {
-    console.error("Unexpected error sending notification:");
-    console.error("HTTP-Code:", error.status);
-    console.error("Message:", error.message);
-    console.error("Body:", error.body);
+    console.error("FCM Bulk Notification Error:", error);
+    return res.status(500).json({
+      error: "Failed to send notifications",
+      message: error.message,
+    });
   }
 });
 
 const pushNotificationImage = asyncHandler(async (req, res) => {
   try {
-    const { title, content } = req.body; // <-- ADD image in request body
-    const data = { title, body: content };
-    const image = req?.file?.path || "uploads/notification/defaultNotify.jpg"
-    if (image) data.image = image;
-    console.log("Sending notification with title:", title, "and content:", content);
-    console.log("header token:", req.headers.token);
-    console.log("body:", req.body);
-    const users = await userSchema.find({
-      deviceToken: { $ne: null },
-      doNotNotify: { $ne: true },
-    });
+    const { title, content, data } = req.body;
 
-    const playerIds = users
-      .map((user) => user.deviceToken)
-      .filter(
-        (id) =>
-          typeof id === "string" &&
-          id.trim() !== "" &&
-          /^[0-9a-fA-F-]{36}$/.test(id.trim())
-      );
-
-    if (playerIds.length === 0) {
-      console.log("No users to notify.");
-      return successHandler(req, res, {
-        Remarks: "No users found to notify",
-        count: 0
+    if (!title || !content) {
+      return res.status(400).json({
+        error: "Title and content are required",
       });
     }
 
-    const batches = chunkArray(playerIds, 2000);
+    // ✅ Image from upload OR default
+    const image =
+      req?.file?.path
+        ? `https://api.new.techember.in/${req.file.path}`
+        : `https://api.new.techember.in/uploads/notification/1765120251484-offer.jpeg`;
+    console.log("Notification Image URL:", image);
+    const payloadData = {
+      title,
+      body: content,
+      image,
+    };
 
-    for (const batch of batches) {
-      const notification = new OneSignal.Notification();
-      notification.app_id = ONESIGNAL_APP_ID;
-      notification.headings = { en: title };
-      notification.contents = { en: content };
-      notification.include_player_ids = batch;
+    console.log("Sending Image Notification:", payloadData);
 
-      // IMPORTANT: IMAGE SUPPORT
-      if (image) {
-        notification.big_picture = image; // Android big image
-        notification.large_icon = image; // Thumbnail
-        notification.ios_attachments = { id1: image }; // iOS big image
-      }
+    // ✅ 1. Fetch all users who allow notifications
+    const users = await userSchema.find({
+      deviceToken: { $ne: null },
+      doNotNotify: { $ne: true },
+    }).select("deviceToken");
 
-      await client.createNotification(notification);
+    const tokens = users
+      .map((user) => user.deviceToken)
+      .filter(
+        (token) =>
+          typeof token === "string" &&
+          token.trim() !== ""
+      );
+
+    if (tokens.length === 0) {
+      return successHandler(req, res, {
+        Remarks: "No users found to notify",
+        count: 0,
+      });
     }
 
+    console.log(`Total Users to Notify With Image: ${tokens.length}`);
 
-    await Notification.create({ ...data, byAdmin: true });
+    // ✅ 2. Firebase batch limit = 500
+    const batches = chunkArray(tokens, 500);
+
+    let successCount = 0;
+    let failureCount = 0;
+
+    for (const batch of batches) {
+      const message = {
+        tokens: batch,
+
+        // ✅ Main notification (iOS + Android)
+        notification: {
+          title,
+          body: content,
+          image, // ⭐ WORKS FOR BOTH iOS & Android
+        },
+
+        // ✅ Extra Android enforcement for image
+        android: {
+          notification: {
+            image, // ⭐ VERY IMPORTANT FOR ANDROID
+          },
+        },
+
+        // ✅ For Notifee background handling
+        data: data || {},
+      };
+
+      const response = await admin.messaging().sendEachForMulticast(message);
+
+      successCount += response.successCount;
+      failureCount += response.failureCount;
+
+      // ✅ Log invalid tokens (optional cleanup)
+      if (response.failureCount > 0) {
+        response.responses.forEach((resp, index) => {
+          if (!resp.success) {
+            console.error(
+              "FCM Image Error for token:",
+              batch[index],
+              resp.error?.message
+            );
+          }
+        });
+      }
+    }
+
+    // ✅ 3. Save notification with image
+    await Notification.create({
+      title,
+      body: content,
+      image,
+      byAdmin: true,
+    });
+
+    // ✅ 4. Final success response
     successHandler(req, res, {
-      Remarks: "Notifications Sent Successfully",
+      Remarks: "Image Notifications sent successfully",
+      totalUsers: tokens.length,
+      successCount,
+      failureCount,
     });
   } catch (error) {
-    console.error("Unexpected error sending notification:");
-    console.error("HTTP-Code:", error.status);
-    console.error("Message:", error.message);
-    console.error("Body:", error.body);
+    console.error("FCM Bulk Image Notification Error:", error);
+
+    return res.status(500).json({
+      error: "Failed to send image notifications",
+      message: error.message,
+    });
   }
 });
 
+const sendNotify = async (data, deviceToken) => {
+  try {
+    if (!deviceToken) {
+      console.log("❌ Device token is missing");
+      return null;
+    }
 
-module.exports = { notificationListByUser, notificationList, pushNotification, pushNotificationImage };
+    const { title, body } = data;
+
+    const message = {
+      token: deviceToken,
+
+      // ✅ Works for Android + iOS
+      notification: {
+        title: title || "New Notification",
+        body: body || "",
+      },
+
+      // ✅ For Notifee & background handling
+      data: {
+        title: title || "",
+        body: body || "",
+      },
+    };
+
+    const response = await admin.messaging().send(message);
+    console.log("✅ Notification sent successfully:", response);
+
+    return response;
+  } catch (error) {
+    console.error("❌ Error sending notification:", error.message);
+    return null;
+  }
+};
+
+
+module.exports = {sendNotify, notificationListByUser, notificationList, pushNotification, pushNotificationImage };

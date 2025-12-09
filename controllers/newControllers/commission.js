@@ -4,31 +4,21 @@ const Commission = require("../../models/newModels/commission");
 const successHandler = require("../../common/successHandler");
 const deletePreviousImage = require("../../common/deletePreviousImage");
 const { profilePicResize } = require("../../common/imageResize");
-// controllers/commissionController.js
-// const Commission = require("../models/commissionSchema");
-// const asyncHandler = require("express-async-handler");
-// const successHandler = require("../common/successHandler");
-// const deletePreviousImage = require("../common/deletePreviousImage");
 
-/*  
-|--------------------------------------------------------------------------
-| ADMIN: CREATE COMMISSION
-|--------------------------------------------------------------------------
-*/
-// 📌 Add Commission
+// ===================== ADMIN: ADD COMMISSION ======================
 const addCommission = asyncHandler(async (req, res) => {
   const commission = await Commission.create({
     ...req.body,
     icon: req?.file?.path,
   });
-
+  console.log("req.body", req.body);
   successHandler(req, res, {
     Remarks: "Commission added successfully",
     Data: commission,
   });
 });
 
-// 📌 Update Commission
+//===================== ADMIN: UPDATE COMMISSION ======================
 const updateCommission = asyncHandler(async (req, res) => {
   const { commissionId } = req.params;
   const found = await Commission.findById(commissionId);
@@ -42,7 +32,9 @@ const updateCommission = asyncHandler(async (req, res) => {
       Remarks: "Invalid commission ID",
     });
   }
-
+  if (req.file) {
+    deletePreviousImage(found.icon);
+  }
   const updated = await Commission.findByIdAndUpdate(
     commissionId,
     {
@@ -58,7 +50,7 @@ const updateCommission = asyncHandler(async (req, res) => {
   });
 });
 
-// 📌 Delete Commission
+//===================== ADMIN: DELETE COMMISSION ======================
 const deleteCommission = asyncHandler(async (req, res) => {
   const { commissionId } = req.params;
 
@@ -81,11 +73,27 @@ const deleteCommission = asyncHandler(async (req, res) => {
   });
 });
 
-// 📌 Get All (Grouped)
-const commissionList = asyncHandler(async (req, res) => {
-  const all = await Commission.find({status: true}).lean().populate("serviceId");
+// ====================== Get Commission Symbol ======================
+const getCommissionSymbol = (operatorType, name) => {
+  // Google Play exception - now always %
+  if (name === "Google Play") return "%";
 
-  // Grouping like your UI response
+  // Mobile & DTH now always %
+  if (operatorType === "mobile" || operatorType === "dth") return "%";
+
+  // Remaining all BBPS → ₹
+  if (operatorType === "bbps") return "₹";
+
+  // Fallback safety
+  return "%";
+};
+
+// ====================== Commission List with symbols ======================
+const commissionList = asyncHandler(async (req, res) => {
+  const all = await Commission.find({ status: true })
+    .lean()
+    .populate("serviceId");
+
   const grouped = {
     mobile: {},
     dth: {},
@@ -93,9 +101,13 @@ const commissionList = asyncHandler(async (req, res) => {
   };
 
   all.forEach((c) => {
+    // const symbol = getCommissionSymbol(c.operatorType, c.name);
+
     grouped[c.operatorType][c.name] = {
+      _id: c._id,
       commission: c.commission,
       icon: c.icon,
+      symbol : c.symbol
     };
   });
 
@@ -105,11 +117,10 @@ const commissionList = asyncHandler(async (req, res) => {
   });
 });
 
-// 📌 Get admin commission
+// ====================== Admin Commission with symbols ======================
 const adminCommission = asyncHandler(async (req, res) => {
   const all = await Commission.find().lean();
 
-  // Grouping like your UI response
   const grouped = {
     mobile: {},
     dth: {},
@@ -117,10 +128,14 @@ const adminCommission = asyncHandler(async (req, res) => {
   };
 
   all.forEach((c) => {
+    
+
     grouped[c.operatorType][c.name] = {
+      _id: c._id,
       commission: c.commission,
       icon: c.icon,
       status: c.status,
+      symbol : c.symbol
     };
   });
 
@@ -129,6 +144,7 @@ const adminCommission = asyncHandler(async (req, res) => {
     Data: grouped,
   });
 });
+
 
 module.exports = {
   addCommission,

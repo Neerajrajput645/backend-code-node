@@ -25,6 +25,10 @@ const commissionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    symbol:{
+      type: String,
+      enum: ["%", "₹"]
+    },
     status: {
       type: Boolean,
       default: true,

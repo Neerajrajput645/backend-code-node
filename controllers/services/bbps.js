@@ -210,7 +210,7 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
     // console.log("BBPS Bill Fetch Error:", error.response.data);
     console.error("BBPS Bill Fetch Response (Error):", error.response?.data);
     console.error("BBPS Bill Fetch Error Message:", error.message);
-    if(error.response?.data?.message === "Unable to get bill details from biller"){
+    if (error.response?.data?.message === "Unable to get bill details from biller") {
       throw new Error("Wrong Number or Operator");
     }
     await saveLog(
@@ -226,86 +226,120 @@ const BBPS_BILL_FETCH = asyncHandler(async (req, res) => {
 
 
 const BILL_PAYMENT = asyncHandler(async (req, res) => {
-  // console.log("ds")
+  console.log("ds")
   try {
     const { _id, deviceToken } = req.data;
     // Dont Send TXN ID Fronend
-    const { number, operatorCode, amount, serviceId, mPin, operatorName, operatorCategory, billDetails } = req.body;
+    const { number, operatorCode, amount, serviceId, mPin, operatorName, operatorCategory, billDetails, ord } = req.body;
     console.log("BILL_PAYMENT req body ->", req.body);
+    console.log("step-1")
+    console.log("req.query", req.query);
+    const { type } = req.query;
+    console.log("type", type);
     const TxnAmount = Number(amount);
     const ipAddress = getIpAddress(req);
     if (!serviceId) {
-      res.status(400).json({
+      return res.status(400).json({
+        Error: true,
+        Success: true,
         ResponseStatus: 0,
         message: `Please provide required fields.`,
       });
-      return;
     }
+    console.log("step-2")
     const findService = await Service.findOne({ _id: serviceId });
+    console.log("step-3")
     // Check if service is active
     if (!findService?.status) {
-      res.status(400).json({
+      console.log("Service is temporarily down:", findService ? findService.name : "Service");
+      return res.status(400).json({
         ResponseStatus: 0,
+        Success: false,
+        Error: true,
         message: `${findService ? findService.name : "Service"
           } is Temporarily Down`,
       });
-      return;
+
     }
+    console.log("step-4")
     const FindUser = await Users.findOne({ _id });
     if (!FindUser?.bbps) {
-      res.status(400).json({
+      console.log("BBPS service is temporarily down for user:", _id);
+      return res.status(400).json({
+        Error: true,
+        Success: false,
         ResponseStatus: 0,
         message: `This service is Temporarily Down`,
       });
-      return;
     }
-
+    console.log("step-5")
     // Amount validation
     if (TxnAmount <= 0) {
-      res.status(400).json({
+      console.log("Invalid amount:", TxnAmount);
+      return res.status(400).json({
+        Error: true,
+        Success: false,
         ResponseStatus: 0,
         message: `Amount should be positive.`,
       });
-      return; // Exit the function
     }
-
-    // Decrypt and validate mPin
-    const decryptMpin = CryptoJS.AES.decrypt(
-      req.data.mPin,
-      CRYPTO_SECRET
-    ).toString(CryptoJS.enc.Utf8);
-    if (mPin.toString() !== decryptMpin) {
-      res.status(400).json({
-        ResponseStatus: 0,
-        message: `Please enter a valid mPin.`,
-      });
-      return; // Exit the function
-    }
-
+    console.log("step-6")
     const walletFound = await Wallet.findOne({ userId: _id });
-    if (walletFound.balance < TxnAmount) {
-      res.status(400).json({
-        ResponseStatus: 0,
-        message: `Insufficient balance.`,
-      });
-      return; // Exit the function
+    console.log("step-7")
+    const transactionId = ord;
+    console.log("Generated Transaction ID:", transactionId);
+    if (type === "wallet") {
+      // Decrypt and validate mPin
+      console.log("step-8")
+      const decryptMpin = CryptoJS.AES.decrypt(
+        req.data.mPin,
+        CRYPTO_SECRET
+      ).toString(CryptoJS.enc.Utf8);
+      if (mPin.toString() !== decryptMpin) {
+        console.log("Invalid mPin for user:", _id);
+        return res.status(400).json({
+          Error: true,
+          Success: false,
+          ResponseStatus: 0,
+          message: `Please enter a valid mPin.`,
+        });
+      }
+      console.log("step-9")
+      if (walletFound.balance < TxnAmount) {
+        console.log("Insufficient balance for user:", _id);
+        return res.status(400).json({
+          Error: true,
+          Success: false,
+          ResponseStatus: 0,
+          message: `Insufficient balance.`,
+        });
+      }
     }
-
+    console.log("step-10")
     // Wallet Deduction Start -------------------
-    const transactionId = generateOrderId();
-    const body = {
-      orderId: transactionId,
-      txnAmount: TxnAmount,
-      txnId: transactionId,
-      serviceId,
-      mPin,
-      userId: _id,
-      ipAddress,
-    };
 
-    const res1 = await paywithWallet({ body });
+    let res1 = {
+      console: "skip wallet",
+      ResponseStatus: 1
+    };
+    if (type === "wallet") {
+      console.log("step-11")
+      const body = {
+        orderId: transactionId,
+        txnAmount: TxnAmount,
+        txnId: transactionId,
+        serviceId,
+        mPin,
+        userId: _id,
+        ipAddress,
+      };
+      console.log("step-12 ", body)
+      res1 = await paywithWallet({ body });
+    }
+    console.log("step-13 ", res1)
     // Wallet Deduction End --------------------------
     if (res1.ResponseStatus === 1) {
+      console.log("step-14")
       const newService = new bbps({
         userId: FindUser._id,
         number,
@@ -320,8 +354,10 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         apiTransID: 0,
         ipAddress,
       });
+      console.log("step-15", newService);
       await newService.save();
       try {
+        console.log("step-16")
         const payload = {
           operator: {
             name: operatorName,
@@ -380,7 +416,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         );
         if (!response.data) {
           successHandler(req, res, {
-            Remarks: `Your ${findService.name} is Pending`,
+            message: `Your ${findService.name} is Pending`,
             Data: { status: "PENDING" },
           });
         }
@@ -400,31 +436,59 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
             walletFound
           );
           // End Refund ------------------------------------------------------------------
-          res.status(400).json({
+          return res.status(400).json({
+            Error: true,
+            Success: false,
             ResponseStatus: 0,
             message: `Recharge Failed, Please Try Again`,
           });
-          return;
         }
-        if (status == "success" && findService.percent > 0) {
+        if (status === "success" && findService.percent > 0) {
           console.log("Cashback Process Started", operatorCategory);
+
           const cashback = await Commission.findOne({
             status: true,
             name: { $regex: `^${operatorCategory}$`, $options: "i" }
           });
-          console.log("cashback ->", cashback);
-          const findPercent = cashback?.commission || 0;
-          console.log("findPercent ->", findPercent);
-          const cashbackPercent = (TxnAmount / 100) * findPercent;
-          console.log("cashbackPercent ->", cashbackPercent);
 
-          await handleCashback(
-            FindUser,
-            cashbackPercent,
-            transactionId,
-            ipAddress,
-            walletFound
-          );
+          console.log("cashback ->", cashback);
+
+          if (!cashback) {
+            console.log("No cashback commission found. Skipping cashback.");
+          } else {
+            let cashbackAmount = 0;
+
+            const findValue = cashback?.commission || 0;
+            console.log("Commission Value ->", findValue, "Symbol ->", cashback.symbol);
+
+            // ✅ SYMBOL BASED CASHBACK LOGIC
+            if (cashback.symbol === "%") {
+              cashbackAmount = (TxnAmount / 100) * findValue;
+              cashbackAmount = parseFloat(cashbackAmount.toFixed(2));
+              console.log("Percentage Cashback Applied ->", cashbackAmount);
+            }
+            else if (cashback.symbol === "₹") {
+              cashbackAmount = parseFloat(findValue.toFixed(2));
+              console.log("Flat Cashback Applied ->", cashbackAmount);
+            }
+            else {
+              cashbackAmount = 0;
+              console.log("Invalid cashback symbol. Cashback skipped.");
+            }
+
+            // ✅ Credit cashback only if valid amount
+            if (cashbackAmount > 0) {
+              await handleCashback(
+                FindUser,
+                cashbackAmount,
+                transactionId,
+                ipAddress,
+                walletFound
+              );
+            } else {
+              console.log("Cashback amount is 0. Nothing credited.");
+            }
+          }
         }
 
         const notification = {
@@ -463,7 +527,7 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
           return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         }
         successHandler(req, res, {
-          Remarks: `Your ${findService.name} is ${status}`,
+          message: `Your ${findService.name} is ${status}`,
           Data: {
             status: capitalize(status),
             transactionId: newService.transactionId,
@@ -474,11 +538,12 @@ const BILL_PAYMENT = asyncHandler(async (req, res) => {
         console.log("error ->", error.response.data);
         newService.status = "error";
         await newService.save();
-        res.status(400).json({
+        return res.status(400).json({
+          Error: true,
+          Success: false,
           ResponseStatus: 0,
           message: error.message,
         });
-        return;
       }
     }
   } catch (error) {
@@ -492,15 +557,16 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
   try {
     const { _id, deviceToken } = req.data;
     // Dont Send TXN ID Fronend
-    const { number, amount, mPin } = req.body;
+    const { number, amount, mPin, ord } = req.body;
     console.log("BILL_PAYMENT req body ->", req.body);
+    const { type } = req.query;
     const operatorCode = "google_play";
     const operatorId = 'google_play';
     const circle = 'Google Play';
     const operatorCategory = 'redeem-code';
     const serviceId = "661061ecda6832bf278254e1";
     const operatorName = 'Google Play';
-    const transactionId = generateOrderId();
+    const transactionId = ord;
     const TxnAmount = Number(amount);
     const ipAddress = getIpAddress(req);
     if (!serviceId) {
@@ -536,29 +602,31 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
       });
       return; // Exit the function
     }
-
-    // Decrypt and validate mPin
-    const decryptMpin = CryptoJS.AES.decrypt(
-      req.data.mPin,
-      CRYPTO_SECRET
-    ).toString(CryptoJS.enc.Utf8);
-    if (mPin.toString() !== decryptMpin) {
-      res.status(400).json({
-        ResponseStatus: 0,
-        message: `Please enter a valid mPin.`,
-      });
-      return; // Exit the function
-    }
-
     const walletFound = await Wallet.findOne({ userId: _id });
-    if (walletFound.balance < TxnAmount) {
-      res.status(400).json({
-        ResponseStatus: 0,
-        message: `Insufficient balance.`,
-      });
-      return; // Exit the function
-    }
 
+    if (type === "wallet") {
+
+      // Decrypt and validate mPin
+      const decryptMpin = CryptoJS.AES.decrypt(
+        req.data.mPin,
+        CRYPTO_SECRET
+      ).toString(CryptoJS.enc.Utf8);
+      if (mPin.toString() !== decryptMpin) {
+        res.status(400).json({
+          ResponseStatus: 0,
+          message: `Please enter a valid mPin.`,
+        });
+        return; // Exit the function
+      }
+
+      if (walletFound.balance < TxnAmount) {
+        res.status(400).json({
+          ResponseStatus: 0,
+          message: `Insufficient balance.`,
+        });
+        return; // Exit the function
+      }
+    }
     // Wallet Deduction Start -------------------
     const body = {
       orderId: transactionId,
@@ -570,7 +638,12 @@ const googlePlayPayment = asyncHandler(async (req, res) => {
       ipAddress,
     };
     console.log("step-2")
-    const res1 = await paywithWallet({ body });
+    const res = {
+      ResponseStatus: 1
+    }
+    if (type === "wallet") {
+      res1 = await paywithWallet({ body });
+    }
     // Wallet Deduction End --------------------------
     if (res1.ResponseStatus === 1) {
       const newService = new bbps({

@@ -57,6 +57,23 @@ const razorpay = new Razorpay({
   key_secret: razorpaySecret,
 });
 
+
+const UpiTenz = require("../models/newModels/UpiTenz");
+
+const BASE = process.env.UPI_SANDBOX === "true"
+  ? "https://uat-api.upitranzact.com"
+  : "https://api.upitranzact.com";
+
+
+const createHeaders = () => {
+  const token = Buffer.from(`${process.env.UPI_PUBLIC_KEY}:${process.env.UPI_SECRET_KEY}`).toString("base64");
+  return {
+    Authorization: `Basic ${token}`,
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+};
+
+
 const handleFirstTransaction = async (userId, txnAmount) => {
   // Check if it's the user's first transaction over â‚¹100
   try {
@@ -181,9 +198,8 @@ const handleCashback = async (
 
     const notification = {
       title: "Received Cashback",
-      body: `Hurray! 🎉 You got ₹${
-        cashbackPercent.toFixed(2) || 0
-      } as a cashback.`,
+      body: `Hurray! 🎉 You got ₹${cashbackPercent.toFixed(2) || 0
+        } as a cashback.`,
     };
 
     const newNotification = new Notification({
@@ -1651,7 +1667,7 @@ const Common_UPI_Intent_Payment_Callback = asyncHandler(async (req, res) => {
       if (
         responseData.status?.toLowerCase() === "success" &&
         statusCheckData.transaction_details[orderId].status?.toLowerCase() ===
-          "success"
+        "success"
       ) {
         await addMoney(req, res, {
           ...responseData,
@@ -2051,6 +2067,7 @@ const Get_Recharge_PG_List = asyncHandler(async (req, res) => {
     res.status(500).json({ error: "Error fetching payment gateways" });
   }
 });
+
 const SELECT_RECHARGE_PG = asyncHandler(async (req, res) => {
   const { _id } = req.body;
   await rechargePaymentGateway.updateMany({}, { $set: { isTrue: false } });
@@ -2064,19 +2081,246 @@ const SELECT_RECHARGE_PG = asyncHandler(async (req, res) => {
   successHandler(req, res, { Remarks: "Provider update Successfully." });
 });
 
+const createUpiOrder = asyncHandler(async (req, res) => {
+  try {
+    const { _id } = req.data;
+    const { amount, orderId, redirectUrl, note } = req.body;
+    console.log(req.body, "Create UPI Order Request");
+    // Basic validations
+    if (!amount || Number(amount) < 1) {
+      res.status(400);
+      throw new Error("Minimum amount of 1 rupee is required");
+    }
+
+    if (!orderId || !redirectUrl) {
+      res.status(400);
+      throw new Error("orderId and redirectUrl are required");
+    }
+
+    // Service check
+    const findService = await Service.findOne({ name: "ADD_MONEY" });
+    if (!findService || !findService.status) {
+      res.status(400);
+      throw new Error("This service is temporarily down");
+    }
+
+    // User check
+    const user = await User.findById(_id);
+    if (!user || !user.status) {
+      res.status(400);
+      throw new Error("User is blocked");
+    }
+
+    if (!user.addMoney) {
+      res.status(400);
+      throw new Error("Add-money service is temporarily down");
+    }
+
+    const wallet = await Wallet.findOne({ userId: user._id });
+    if (!wallet) {
+      console.log("Creating UPI order for user:", user._id, "Amount:", amount);
+      res.status(400);
+      throw new Error("Wallet not found for user");
+    }
+    console.log("req.body:", req.body);
+    // Save locally BEFORE hitting payment gateway
+    const localOrder = await UpiTenz.create({
+      orderId,
+      upiOrderId: null, // to be updated after PG response
+      amount,
+      userId: user._id,
+      firstName: user.firstName || "Unknown",
+      phone: user?.phone,
+      note: note || "Add Money",
+      status: "PENDING",
+    });
+
+    // Prepare PG request
+    const body = qs.stringify({
+      mid: process.env.UPI_MID,
+      amount,
+      order_id: orderId,
+      redirect_url: redirectUrl,
+      note: note || "Add Money",
+      customer_name: (user.firstName + " " + user.lastName) || "Unknown",
+      customer_email: user.email || "",
+      customer_mobile: user.phone,
+    });
+
+    console.log("UPI Order Request");
+    console.log("Base URL:", `${BASE}/v1/payments/createOrderRequest`);
+    // Call UPI Tranzact
+    const response = await axios.post(
+      `${BASE}/v1/payments/createOrderRequest`,
+      body,
+      { headers: createHeaders() }
+    );
+
+    console.log("UPI Order Response:", response.data);
+
+    const pgData = response.data?.data;
+
+    // Update local order with UPI order ID
+    localOrder.upiOrderId = pgData?.orderId || null;
+    await localOrder.save();
+
+    // Final success response
+    return successHandler(req, res, {
+      Remarks: "UPI Order Created",
+      Data: pgData,
+    });
+  }
+  catch (error) {
+    console.error("UPI Order Error Full:", {
+      message: error.message,
+      response: error.response?.data,
+      status: error.response?.status,
+    });
+
+    const errorMessage =
+      error.response?.data
+        ? JSON.stringify(error.response.data)
+        : error.message;
+
+    res.status(500);
+    throw new Error("Error creating UPI order: " + errorMessage);
+  }
+});
+
+const upiTenzWebhook = asyncHandler(async (req, res) => {
+  try {
+    const payload = req.body;
+    console.log("UPI Webhook Payload:", payload);
+
+    const orderId =
+      payload?.order_id ||
+      payload?.merchantReferenceId ||
+      payload?.data?.order_id ||
+      payload?.data?.merchantReferenceId;
+
+    const txnStatus =
+      payload?.txnStatus ||
+      payload?.status ||
+      payload?.data?.txnStatus ||
+      payload?.data?.status;
+
+    const utr =
+      payload?.UTR ||
+      payload?.data?.UTR ||
+      payload?.utr ||
+      payload?.data?.utr ||
+      null;
+
+    if (!orderId) {
+      return res.status(400).json({ success: false });
+    }
+
+    let order =
+      (await UpiTenz.findOne({ orderId })) ||
+      (await UpiTenz.findOne({ upiOrderId: orderId }));
+
+    if (!order) {
+      return res.status(404).json({ success: false });
+    }
+
+    // ---- STATUS NORMALIZATION ----
+    const t = String(txnStatus || "").toUpperCase();
+    let mappedStatus = "FAIL";
+
+    if (t.includes("SUCCESS")) mappedStatus = "SUCCESS";
+    else if (!txnStatus || t.includes("PENDING")) mappedStatus = "PENDING";
+
+    // Save previous status BEFORE updating
+    const previousStatus = order.status;
+
+    // Update DB
+    order.status = mappedStatus;
+    if (utr) order.utr = utr;
+    await order.save();
+
+    // ---- WALLET TOP-UP FLOW ----
+    if (order.note === "Add money to wallet using PG") {
+      const isFirstSuccess =
+        previousStatus !== "SUCCESS" && mappedStatus === "SUCCESS";
+
+      if (isFirstSuccess) {
+        console.log("Adding money to wallet once for:", order.orderId);
+        await addMoney(req, res, {
+          amount: order.amount,
+          userId: order.userId,
+          gatewayName: "UPI-TENZ",
+          txnid: order.orderId,
+        });
+      }
+    }
+
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Webhook error:", err);
+    return res.status(500).json({ success: false });
+  }
+});
+
+const upiTenzStatus = asyncHandler(async (req, res) => {
+  try {
+    const { orderId } = req.body;
+    if (!orderId) {
+      res.status(400);
+      throw new Error("orderId is required");
+    }
+    const order = await UpiTenz.findOne({ orderId });
+    if (!order) {
+      res.status(404);
+      throw new Error("Order not found");
+    }
+    const response = await axios.post(
+      `${BASE}/v1/payments/checkPaymentStatus`,
+      qs.stringify({ mid: process.env.UPI_MID, order_id: orderId }),
+      { headers: createHeaders() }
+    );
+    if (!response) {
+      res.status(500);
+      throw new Error("No response from UPI");
+    }
+
+    console.log("UPI Status Response:", response.data);
+    // if (order.status !== response.data.txnStatus) {
+    //   order.status = response.data.txnStatus;
+    //   await order.save();
+    // }
+    // const Data = response.data.data
+    // Data.status = response.data.status;
+    // Data.txnStatus = response.data.txnStatus;
+    // delete Data.status;
+    const pdData = response.data?.data;
+    pdData.status = response.data?.status;
+    pdData.txnStatus = response.data?.txnStatus;
+    successHandler(req, res, {
+      Remarks: "UPI Order Status Fetched",
+      Data: pdData,
+    });
+  }
+  catch (error) {
+    res.status(500);
+    throw new Error("Error fetching UPI order status: " + (error.response?.data || error.message));
+  }
+});
+
 module.exports = {
+  createUpiOrder,
+  upiTenzWebhook,
+  upiTenzStatus,
+
   paywithWallet,
   createOrderId,
   paymentCallback,
   createCashfreeOrderId,
-  //   createOneGatewayOrderId,
+
   cashfreePaymentCallback,
   getCashfreePaymentStatus,
   handleRefund,
   handleCashback,
   handleFirstTransaction,
-  //   OneGatewayPaymentCallback,
-  //   getOneGatewayPaymentStatus,
   createPaygicOrderId,
   PaygicPaymentCallback,
   getPaygicPaymentStatus,

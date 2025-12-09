@@ -11,7 +11,7 @@ const {
 
 // 🔍 Helper to get Operator Name
 const getOperatorName = (operatorCode) => {
-  console.log("Looking up operator name for code:", operatorCode);
+  // console.log("Looking up operator name for code:", operatorCode);
   if (!operatorCode) return null;
   const matched = All_Recharge_Operator_List.find(
     (x) => String(x.PlanApi_Operator_code) === String(operatorCode)
@@ -19,8 +19,6 @@ const getOperatorName = (operatorCode) => {
 
   return matched ? matched.Operator_name : null;
 };
-
-
 
 // 🔍 Helper to get Operator Name
 const getDthOperatorName = (operatorCode) => {
@@ -83,7 +81,7 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
       .lean()
       .then((data) => {
         dthData = (data || []).map((item) => {
-          console.log("DTH Item:", item.operator); // ⭐ Print each item
+          // console.log("DTH Item:", item.operator); // ⭐ Print each item
 
           return {
             ...item,
@@ -130,7 +128,7 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
       bbps: bbpsData,
     };
 
-    console.log("Combined History Data:", finalData);
+    // console.log("Combined History Data:", finalData);
     successHandler(req, res, {
       Remarks: "User Combined Recharge History",
       Data: finalData,

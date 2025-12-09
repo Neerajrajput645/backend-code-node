@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 const successHandler = require("../common/successHandler");
 const deletePreviousImage = require("../common/deletePreviousImage");
 const { encryptFunc } = require("../common/encryptDecrypt");
-
+const Commission = require("../models/newModels/commission");
 // service list
 const serviceList = asyncHandler(async (req, res) => {
   console.log("ads");
@@ -40,7 +40,7 @@ const addService = asyncHandler(async (req, res) => {
 const updateService = asyncHandler(async (req, res) => {
   const { serviceId } = req.params;
   const serviceFound = await Service.findById(serviceId);
-
+  console.log("serviceFound", serviceFound);
   if (serviceFound) {
     if (req.file) {
       deletePreviousImage(serviceFound.icon);
@@ -52,7 +52,20 @@ const updateService = asyncHandler(async (req, res) => {
         icon: req.file ? req?.file?.path : serviceFound.icon,
       },
     });
+    // if service status turn into false that time commission also have to false
+    console.log("req.body", req.body);
+    const updatedService = await Service.findById(serviceId);
+    console.log("updatedService", updatedService);
+if (typeof req.body?.status === "boolean") {
+    const commission = await Commission.findOne({ serviceId: serviceId });
+    console.log("commission", commission);
+    if (commission) {
+      console.log("inside commission update");
+      await commission.updateOne({ $set: { status: req.body.status } });
+      console.log("commission updated to false");
+    }
 
+  }
     // success handler
     successHandler(req, res, { Remarks: "Updated service" });
   } else {

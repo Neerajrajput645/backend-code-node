@@ -9,6 +9,8 @@ const {
   updateAffiliate,
 } = require("../controllers/affiliate");
 
+
+// ========================= Affiliate Routes =============================
 router.get("/list", affiliateList);
 router.get("/admin-list", adminTokenVerify, affiliateListAdmin)
 router.delete("/remove/:affiliateId", adminTokenVerify, removeAffiliate);

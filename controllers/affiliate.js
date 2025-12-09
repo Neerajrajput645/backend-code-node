@@ -2,18 +2,8 @@ const asyncHandler = require("express-async-handler");
 const Affiliate = require("../models/affiliateSchema");
 const successHandler = require("../common/successHandler");
 const deletePreviousImage = require("../common/deletePreviousImage");
-const { encryptFunc } = require("../common/encryptDecrypt");
 
-// get affiliate list
-// const list = asyncHandler(async (req, res) => {
-//   const result = await Affiliate.find();
-//   successHandler(req, res, {
-//     Remarks: "Affiliate list success.",
-//     Data: (result),
-//   });
-// });
-
-
+// ======================= Get affiliate list ==========================
 const affiliateList = asyncHandler(async (req, res) => {
 
   // Base filter
@@ -33,7 +23,7 @@ const affiliateList = asyncHandler(async (req, res) => {
   });
 });
 
-
+// ======================= Get affiliate list for admin ==========================
 const affiliateListAdmin = asyncHandler(async (req, res) => {
   console.log("ads");
 
@@ -55,7 +45,7 @@ const affiliateListAdmin = asyncHandler(async (req, res) => {
 });
 
 
-// create affiliate list
+// ======================== Create affiliate list ==========================
 const createAffiliate = asyncHandler(async (req, res) => {
   const condition = {}
   const {name, route, description, section} = req.body;
@@ -71,7 +61,7 @@ const createAffiliate = asyncHandler(async (req, res) => {
   successHandler(req, res, { Remarks: "Create affiliate item.", Data: result });
 });
 
-// update affiliate list
+//========================= Update affiliate list ==========================
 const updateAffiliate = asyncHandler(async (req, res) => {
   const { affiliateId } = req.params;
   const findAffiliate = await Affiliate.findById(affiliateId);
@@ -93,7 +83,7 @@ const updateAffiliate = asyncHandler(async (req, res) => {
   successHandler(req, res, { Remarks: "Update affiliate item.", Data: result });
 });
 
-// remove affiliate list
+// ======================== Remove affiliate ================================= 
 const removeAffiliate = asyncHandler(async (req, res) => {
   const { affiliateId } = req.params;
   const findAffiliate = await Affiliate.findById(affiliateId);

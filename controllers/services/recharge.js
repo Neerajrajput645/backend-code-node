@@ -17,6 +17,7 @@ const getIpAddress = require("../../common/getIpAddress");
 const Commission = require("../../models/newModels/commission");
 const Transaction = require("../../models/txnSchema");
 const CryptoJS = require("crypto-js");
+const normalizedMobileNumber = require("../../common/new/mobileNumberValidation");
 const rechargeApiProviderSchema = require("../../models/service/rechargeApiProviderSchema");
 const {
   All_Recharge_Operator_List,
@@ -50,6 +51,29 @@ const genTxnId = () => {
   return "TXNPP" + randomPart.slice(0, 8).toUpperCase(); // TXN + 8 = 16 total
 };
 
+const unTxnHandle = async(ipAddress,userId,rcPrice, )=>{
+  const txn = await Transaction.findOne({
+    userId,
+    ipAddress,
+    txnAmount: rcPrice,
+    // txnResource: "Online",
+    txnStatus: "TXN_SUCCESS",
+    // time should be within last 15 minutes
+    createdAt: { $gte: new Date(Date.now() - 15 * 60 * 1000) },
+  });
+  if(!txn){
+    return null;
+  }
+  const [recharge, dth, bbps] = await Promise.all([
+    Recharge.findOne({ transactionId: txn?.orderId }),
+    DTH.findOne({ transactionId: txn?.orderId }),
+    BBPS.findOne({ transactionId: txn?.orderId }),
+  ]);
+  if(recharge || dth || bbps ){
+    return null;
+  }
+  return txn.orderId;
+}
 
 // credentials
 // const CYRUS_MEMBER_ID = process.env.CYRUS_MEMBER_ID;
@@ -60,11 +84,14 @@ const genTxnId = () => {
 // const service_email = process.env.COMPANY_EMAIL;
 // const service_email_password = process.env.COMPANY_EMAIL_PASSWORD;
 
-
+// ===================== Mobile Recharge =====================
 const planFetch = asyncHandler(async (req, res) => {
 
-  const { Operator_Code, Circle_Code, MobileNumber } = req.query;
-console.log(req.query, "plan fetch req.query");
+  const { Operator_Code, Circle_Code } = req.query;
+  console.log("mobile number before normalization", req.query?.MobileNumber);
+  const MobileNumber = normalizedMobileNumber(req.query?.MobileNumber);
+  console.log(req.query, "plan fetch req.query");
+  // console.log("mobile number after normalization", normalizedNumber);
   const selectedOperator = await planFetchProviderSchema.findOne({
     isTrue: true,
   });
@@ -197,15 +224,20 @@ const BillhubComplainRaise = asyncHandler(async (req, res) => {
   }
 });
 
+// ===================== Mobile Recharge =====================
 const rechargeRequest = asyncHandler(async (req, res) => {
   try {
     //throw new Error("Recharge API is currently disabled for maintenance.");
     const { _id, deviceToken } = req.data;
     const ipAddress = getIpAddress(req);
-    const { number, amount, mPin, operator, circle } = req.query;
+    const { number, amount, mPin, operator, circle, type } = req.query;
+    let transactionId = req.query?.ord || req.body?.ord; // add custom transaction id support
+    if(type==="wallet"){
+      transactionId = genTxnId();
+    }
     const isPrepaid = Boolean(req.query.isPrepaid);
     const TxnAmount = Number(amount);
-
+    console.log("req.query", req.query);
     const [findService, FindUser, walletFound] = await Promise.all([
       Service.findOne({ name: "Recharge" }),
       Users.findOne({ _id }),
@@ -213,69 +245,112 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     ]);
 
     if (!findService?.status) {
-      res.status(400);
-
       console.log("step-1", findService)
-      throw new Error("Recharge service is currently unavailable. Please try again later.");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "Recharge service is currently unavailable. Please try again later."
+      })
     }
+    console.log("step0", FindUser, walletFound)
 
     if (!FindUser.status) {
-      res.status(400);
-      throw new Error("User is Blocked");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "User is Blocked"
+      });
     }
 
     if (!FindUser?.recharge) {
-      res.status(400);
-      throw new Error("Recharge service is currently unavailable. Please try again later.");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "Recharge service is currently unavailable. Please try again later."
+      });
     }
-
+    console.log("step1");
     if (TxnAmount <= 0) {
-      res.status(400);
-      throw new Error("Amount should be positive.");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "Amount should be positive."
+      });
     }
+    if (type == "wallet") {
+      if (!req.data.mPin) {
+        return res.status(400).json({
+          Error: true,
+          Status: false,
+          ResponseStatus: 0,
+          StatusCode: "Ex400",
+          Remarks: "Please set an mPin."
+        });
+      }
+      console.log("step2");
+      // Decrypt mPin
+      const decryptMpin = CryptoJS.AES.decrypt(
+        req.data.mPin,
+        CRYPTO_SECRET
+      ).toString(CryptoJS.enc.Utf8);
 
-    if (!req.data.mPin) {
-      res.status(400);
-      throw new Error("Please set an mPin.");
+      if (mPin.toString() !== decryptMpin) {
+        return res.status(400).json({
+          Error: true,
+          Status: false,
+          ResponseStatus: 0,
+          StatusCode: "Ex400",
+          Remarks: "Please enter a valid mPin."
+        });
+      }
+
+      console.log("step3");
+
+      if (walletFound.balance < TxnAmount) {
+        console.log("wallet", walletFound)
+        return res.status(400).json({
+          Error: true,
+          Status: false,
+          ResponseStatus: 0,
+          StatusCode: "Ex400",
+          Remarks: "User wallet balance is low."
+        });
+      }
     }
-
-    // Decrypt mPin
-    const decryptMpin = CryptoJS.AES.decrypt(
-      req.data.mPin,
-      CRYPTO_SECRET
-    ).toString(CryptoJS.enc.Utf8);
-
-    if (mPin.toString() !== decryptMpin) {
-      res.status(400);
-      throw new Error("Please enter a valid mPin.");
-    }
-    if (walletFound.balance < TxnAmount) {
-      console.log("wallet", walletFound)
-      res.status(400);
-      throw new Error("User wallet balance is low.");
-    }
-
     // Fetch OPerator & Circle
-
+    console.log("step4");
     const findOperator = All_Recharge_Operator_List.find(
       (a) => a.PlanApi_Operator_code == operator
     );
-
+    console.log("step5");
     const findCircle = All_Recharge_Circle_List.find(
       (a) => a.planapi_circlecode == circle
     );
-
+    console.log("step6");
     if (
       !findCircle?.planapi_circlecode ||
       !findOperator?.PlanApi_Operator_code
     ) {
-      res.status(400);
-      throw new Error("Invalid Operator or Circle.");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "Invalid Operator or Circle."
+      });
     }
+    console.log("step7");
+    // const transactionId = generateOrderId();
 
-    const transactionId = generateOrderId();
-
-
+    console.log("step8");
     const body = {
       orderId: transactionId,
       txnAmount: TxnAmount,
@@ -285,20 +360,29 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       userId: FindUser._id,
       ipAddress,
     };
-
-    const res1 = await paywithWallet({ body });
-
+    console.log("step-8.5")
+    console.log("type", req.body )
+    // const  res1 = await paywithWallet({ body });
+    let res1 = {
+      ResponseStatus: 1
+    };
+    if (type === "wallet") {
+      res1 = await paywithWallet({ body });
+    }
+    console.log("Wallet Payment Response:", res1);  
     if (res1.ResponseStatus == 1) {
+      console.log("Payment successful, proceeding with recharge.");
       const selectedOperator = await rechargeApiProviderSchema.findOne({
         isTrue: true,
       });
+      console.log("step9");
       function capitalize(word) {
         if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
       }
       if (selectedOperator.providerCode === 2) {
         // Billhub
-
+        console.log("step10");
         const newRecharge = new Recharge({
           userId: FindUser._id,
           number,
@@ -315,7 +399,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
         });
         await newRecharge.save();
 
-
+        console.log("step11");
         try {
           const bodyData = {
             token: process.env.BILLHUB_TOKEN,
@@ -334,29 +418,26 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           try {
             console.log("Calling Recharge API");
 
-          //   rechargeRe = {
-          //    data: {
-          //      status: 'success',
-          //      order_id: '1869354044',
-          //      margin: '0.1950',
-          //      margin_percentage: '1.9500',
-          //      operator_ref_id: '1878093437'
-          //    }
-          //  }
+            //   rechargeRe = {
+            //    data: {
+            //      status: 'success',
+            //      order_id: '1869354044',
+            //      margin: '0.1950',
+            //      margin_percentage: '1.9500',
+            //      operator_ref_id: '1878093437'
+            //    }
+            //  }
 
 
-           if(rechargeRe){
-              console.log("dummy api running");
-           }
             rechargeRe = await axios.post("https://api.techember.in/app/recharges/main.php", bodyData);
 
             // throw new Error("Test Error");
             response = rechargeRe.data;
-            console.log("rechargeRe.data", rechargeRe.data);  
+            console.log("rechargeRe.data", rechargeRe.data);
           } catch (error) {
             if (error.response) {
               response = error.response.data;
-              // console.log("Error Response from Recharge API:", response);
+              console.log("Error Response from Recharge API:", response);
             }
           }
 
@@ -385,7 +466,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           await newRecharge.save();
           const status = response?.status?.toLowerCase();
 
-          if (status == "failed") {
+          if (status == "failed" || status == "error") {
             // Start Refund-------------------------------------------------
             await handleRefund(
               FindUser,
@@ -396,8 +477,13 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             );
             console.log("Recharge Failed, Refund Processed");
             // End Refund ------------------------------------------------------------------
-            res.status(400);
-            throw new Error(response.message || "Recharge Failed, Please Try Again");
+            return res.status(400).json({
+              Error: true,
+              Status: false,
+              ResponseStatus: 0,
+              StatusCode: "Ex400",
+              Remarks: response.message || "Recharge Failed, Please Try Again"
+            });
           }
 
           // Start Cashback--------------------------
@@ -410,12 +496,14 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             const op = findOperator.com_name;
             // console.log("Found Operator Name:", findOperator);
             console.log("Operator for Cashback:", op);
-            const commission = await Commission.findOne({  name : op, status:true });
+            const commission = await Commission.findOne({ name: op, status: true });
             console.log("Commission Details:", commission);
-            const findPercent = commission ? commission?.commission : 0;
-            console.log("Cashback Percent:", findPercent);
-            const cashbackPercent = (TxnAmount / 100) * findPercent;
-            console.log("Calculated Cashback Amount:", cashbackPercent);
+            let cashback = commission ? commission?.commission : 0;
+            console.log("Cashback Percent:", cashback);
+            if (commission.symbol === "%") {
+              cashback = (TxnAmount / 100) * cashback;
+              console.log("Calculated Cashback Amount:", cashback);
+            }
             // if (!findRechargeOperator) {
             //   throw new Error("Recharge operator or operator data not found.");
             // }
@@ -434,7 +522,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
 
             await handleCashback(
               FindUser,
-              cashbackPercent,
+              cashback,
               transactionId,
               ipAddress,
               walletFound
@@ -462,12 +550,12 @@ const rechargeRequest = asyncHandler(async (req, res) => {
           // Success response
           // console.log("Recharge Success Response Sent");
           console.log(
-              "status", capitalize(status),
-              "number", newRecharge.number,
-              "transactionId", newRecharge.transactionId,
-              // transectionId:newRecharge.txnId,
-              "operatorName", findOperator?.Operator_name ,
-              "operator_ref_id", response?.operator_ref_id,
+            "status", capitalize(status),
+            "number", newRecharge.number,
+            "transactionId", newRecharge.transactionId,
+            // transectionId:newRecharge.txnId,
+            "operatorName", findOperator?.Operator_name,
+            "operator_ref_id", response?.operator_ref_id,
           );
 
           successHandler(req, res, {
@@ -477,7 +565,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               transactionId: newRecharge.transactionId,
               // transectionId:newRecharge.txnId,
               phoneNumber: newRecharge.number,
-              debitFrom : "Wallet",
+              debitFrom: "Wallet",
               operatorName: findOperator?.Operator_name || "Unknown Operator",
               operator_ref_id: response?.operator_ref_id || 0,
             }),
@@ -513,8 +601,13 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               error?.response?.data || error.message,
               `Error during recharge for TxnID: ${transactionId}`
             );
-            res.status(400);
-            throw new Error(error.message);
+            return res.status(400).json({
+              Error: true,
+              Status: false,
+              ResponseStatus: 0,
+              StatusCode: "Ex400",
+              Remarks: error.message
+            });
           }
 
           // newRecharge.status = "error";
@@ -527,16 +620,25 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       }
 
     } else {
-      res.status(400);
-      throw new Error("Payment Failed, Please Contact to Customer Care");
+      return res.status(400).json({
+        Error: true,
+        Status: false,
+        ResponseStatus: 0,
+        StatusCode: "Ex400",
+        Remarks: "Payment Failed, Please Contact to Customer Care"
+      });
     }
   } catch (error) {
-    res.status(400);
-    throw new Error(error.message);
+    return res.status(400).json({
+      Error: true,
+      Status: false,
+      ResponseStatus: 0,
+      StatusCode: "Ex400",
+      Remarks: error.message
+    });
   }
 });
 
-//recharge status
 const rechargeStatus = asyncHandler(async (req, res) => {
   const { transid } = req.query;
   const rechargeSt = await axios.get(
@@ -669,7 +771,7 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
       // mobile_no: dthNumber, - for more details
     };
 
-    
+
 
 
     const url = "https://planapi.in/api/Mobile/DthOperatorFetch";
@@ -680,22 +782,22 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
     console.log(data, "dth operator data");
 
 
-     try {
-    let userName = "Unknown";
-    const detailsParams = {
-      apimember_id: process.env.PLAN_API_USER_ID,
-      api_password: process.env.PLAN_API_PASSWORD_hash,
-      dth_number: dthNumber,
-      Opcode: data.DthOpCode, // Operator code for DTH - FOR MORE DETAILS
-      mobile_no: dthNumber, // - for more details
-    };
+    try {
+      let userName = "Unknown";
+      const detailsParams = {
+        apimember_id: process.env.PLAN_API_USER_ID,
+        api_password: process.env.PLAN_API_PASSWORD_hash,
+        dth_number: dthNumber,
+        Opcode: data.DthOpCode, // Operator code for DTH - FOR MORE DETAILS
+        mobile_no: dthNumber, // - for more details
+      };
 
-    const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
+      const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
 
-    const { data:news } = await axios.get(dthurl, { params: detailsParams });
+      const { data: news } = await axios.get(dthurl, { params: detailsParams });
 
 
-          // userName = data.DATA.Name;
+      // userName = data.DATA.Name;
       console.log("------------------------------------------------------------------");
       // console.log("qwe",news.DATA.Name)
       if (!news?.DATA?.Name) {
@@ -707,13 +809,13 @@ const fetchDthOperator = asyncHandler(async (req, res) => {
           Remarks: "Wrong DTH ID"
         });
       }
-    data.userName=news.DATA.Name
-    console.log(news.DATA.Name, "dth details data");
-    console.log("------------------------------------------------------------------");
-  }
-  catch (error) {
-    console.error("DTH Recharge Pre-fetch Error:", error.message || error.response?.data || error);
-  }
+      data.userName = news.DATA.Name
+      console.log(news.DATA.Name, "dth details data");
+      console.log("------------------------------------------------------------------");
+    }
+    catch (error) {
+      console.error("DTH Recharge Pre-fetch Error:", error.message || error.response?.data || error);
+    }
 
 
 
@@ -763,60 +865,133 @@ const fetchDthOpDetails = asyncHandler(async (req, res) => {
 
 
 const dthRequest = asyncHandler(async (req, res) => {
-
+  console.log("dth Request Initiated")
   const findService = await Service.findOne({ name: "DTH" });
+  console.log("Found Service:", findService.name)
   const ipAddress = getIpAddress(req);
 
-  if (!findService?.status) throw new Error("DTH Recharge Failed, Please Try Again Ex100");
+  if (!findService?.status) {
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "DTH service is currently unavailable.",
+      Success: false,
+    });
+  }
   const { _id, deviceToken } = req.data;
   const FindUser = await Users.findById(_id);
-  if (!FindUser?.status) throw new Error("User is Blocked");
-  if (!FindUser?.dth) throw new Error("DTH Recharge Failed, Please Try Again Ex150");
+  console.log("Found User:", FindUser.firstName)
+  if (!FindUser?.status) {
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "User is Blocked",
+      Success: false,
+    });
+  }
+  if (!FindUser?.dth) {
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "DTH Recharge Failed, Please Try Again Ex150",
+      Success: false,
+    });
+  }
 
-  const { number, operator, amount, transactionId = genTxnId(), mPin } = req.query;
+  const { number, operator, amount, transactionId = genTxnId(), mPin, type, ord } = req.query;
+  console.log("query -> ", req.query)
   const txnAmount = Number(amount);
-  if (txnAmount <= 0) throw new Error("Amount should be positive.");
+  if (txnAmount <= 0) {
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Amount should be positive.",
+      Success: false,
+    });
+  }
   if (operator == 28 && txnAmount < 200) {
-    res.status(400);
-    throw new Error("Minimum Amount for Tata Sky should be greater than 200")
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Minimum Amount for Tata Sky should be greater than 200",
+      Success: false,
+    });
   }
   else if (operator == 25 && txnAmount < 100) {
-    res.status(400);
-    throw new Error("Minimum Amount for Dish TV should be greater than 100")
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Minimum Amount for Dish TV should be greater than 100",
+      Success: false,
+    });
   }
   else if (operator == 29 && txnAmount < 100) {
-    res.status(400);
-    throw new Error("Minimum Amount for Videocon should be greater than 200")
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Minimum Amount for Videocon should be greater than 200",
+      Success: false,
+    });
   }
   else if (operator == 24 && txnAmount < 100) {
-    res.status(400);
-    throw new Error("Minimum Amount for Dish TV should be greater than 200")
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Minimum Amount for Dish TV should be greater than 200",
+      Success: false,
+    });
   }
-  if (!req.data.mPin) throw new Error("Please set an mPin.");
-
-  // 🔐 Decrypt mPin
-  const decryptMpin = CryptoJS.AES.decrypt(req.data.mPin, CRYPTO_SECRET).toString(CryptoJS.enc.Utf8);
-  if (mPin.toString() !== decryptMpin) throw new Error("Please enter a valid mPin.");
-
-  // 💰 Wallet Check
   const walletFound = await Wallet.findOne({ userId: _id });
-  if (!walletFound || walletFound.balance < txnAmount) throw new Error("User wallet balance is low.");
-
-  // ✅ Start Transaction
   const orderId = generateOrderId();
+
+  if (type === "wallet") {
+    console.log("Wallet payment selected")
+    if (!req.data.mPin) return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: "Please set an mPin.",
+      Success: false,
+    });
+    // 🔐 Decrypt mPin
+    const decryptMpin = CryptoJS.AES.decrypt(req.data.mPin, CRYPTO_SECRET).toString(CryptoJS.enc.Utf8);
+    if (mPin.toString() !== decryptMpin) {
+      return res.status(400).json({
+        Error: true,
+        ResponseStatus: 0,
+        Remark: "Invalid mPin.",
+        Success: false,
+      });
+    }
+
+    // 💰 Wallet Check
+    if (!walletFound || walletFound.balance < txnAmount) {
+      return res.status(400).json({
+        Error: true,
+        ResponseStatus: 0,
+        Remark: "Insufficient wallet balance.",
+        Success: false,
+      });
+    }
+
+  }
+  console.log("Starting transaction")
+  // ✅ Start Transaction
   const payBody = {
     orderId,
     txnAmount,
     txnId: transactionId,
     serviceId: findService._id,
-    mPin,
     userId: _id,
     ipAddress,
   };
 
+  if (mPin) {
+    payBody.mPin = mPin;
+  }
+  console.log("payBody -> ", payBody)
   let userName = "Unknown";
   try {
-  
+
     const detailsParams = {
       apimember_id: process.env.PLAN_API_USER_ID,
       api_password: process.env.PLAN_API_PASSWORD_hash,
@@ -824,7 +999,7 @@ const dthRequest = asyncHandler(async (req, res) => {
       Opcode: operator, // Operator code for DTH - FOR MORE DETAILS
       mobile_no: number, // - for more details
     };
-
+    console.log("detailsParams -> ", detailsParams)
     const dthurl = "https://planapi.in/api/Mobile/DthInfoWithLastRechargeDate"; // for more details
 
     const { data } = await axios.get(dthurl, { params: detailsParams });
@@ -838,8 +1013,21 @@ const dthRequest = asyncHandler(async (req, res) => {
   }
 
   try {
-    const walletRes = await paywithWallet({ body: payBody });
-    if (walletRes.ResponseStatus !== 1) throw new Error("Wallet deduction failed.");
+    let walletRes = {
+      ResponseStatus: 1
+    }
+    if (type === "wallet") {
+      walletRes = await paywithWallet({ body: payBody });
+    }
+    if (walletRes.ResponseStatus !== 1) {
+      return res.status(400).json({
+        ResponseStatus: 0,
+        Remark: "Wallet deduction failed.",
+        Success: false,
+        Error: true
+      });
+    }
+    console.log("Wallet response", walletRes)
     console.log("req.body", req.body);
     console.log("req.query", req.query);
     // 🔎 Validate operator
@@ -847,8 +1035,15 @@ const dthRequest = asyncHandler(async (req, res) => {
     const findOperator = All_DTH_Recharge_Operator_List.find(
       (a) => a.planApi_operator_code == operator
     );
-    console.log("es", findOperator)
-    if (!findOperator) throw new Error("Invalid operator selected.");
+    console.log("es1", findOperator)
+    if (!findOperator) {
+      return res.status(400).json({
+        ResponseStatus: 0,
+        Remark: "Invalid operator selected.",
+        Success: false,
+        Error: true
+      });
+    }
     console.log(findOperator, "find op")
     const URL = "https://api.techember.in/app/recharges/main.php";
     const bodyData = {
@@ -864,27 +1059,30 @@ const dthRequest = asyncHandler(async (req, res) => {
     await saveLog("DTH_RECHARGE", URL, bodyData, null, `Recharge initiated for TxnID: ${transactionId}`);
 
     // 🔌 Call Billhub API
-    
-    const rechargeRe = {
-      data: {
-        status: 'success',
-        order_id: '1762671148848568',
-        margin: '0.8250',
-        margin_percentage: '0.1283',
-        operator_ref_id: null
-      }
-    }
-    if(rechargeRe){
-	    console.log("dummy api running");
-    
-    }
-	  console.log("some is running");
-   // const rechargeRe = await axios.post(URL, bodyData);
+
+    // const rechargeRe = {
+    //   data: {
+    //     status: 'success',
+    //     order_id: '1762671148848568',
+    //     margin: '0.8250',
+    //     margin_percentage: '0.1283',
+    //     operator_ref_id: null
+    //   }
+    // }
+
+    console.log("some is running");
+
+    const rechargeRe = await axios.post(URL, bodyData);
+
+    // if (rechargeRe) {
+    //   console.log("dummy api running");
+    // }
 
     console.log("data", rechargeRe);
+
     const rechargeData = rechargeRe.data || {};
     const status = rechargeData.status?.toLowerCase() || "unknown";
-
+    console.log("Recharge data", rechargeData, status)
     await saveLog(
       "DTH_RECHARGE",
       URL,
@@ -908,10 +1106,17 @@ const dthRequest = asyncHandler(async (req, res) => {
       provider: "Billhub",
     });
 
+    console.log("New recharge record created:", newRecharge);
     // ❌ Failed Recharge → Refund
     if (["failed", "error", "failure"].includes(status)) {
       await handleRefund(FindUser, txnAmount, transactionId, ipAddress, walletFound);
-      throw new Error(rechargeData.message || rechargeData.opid || "Recharge failed.");
+      console.log("Recharge failed, amount refunded.")
+      return res.status(400).json({
+        Error: true,
+        ResponseStatus: 0,
+        Remark: "Recharge failed, amount refunded.",
+        Success: false,
+      });
     }
 
     // ✅ Pending / Success / Accepted
@@ -924,20 +1129,49 @@ const dthRequest = asyncHandler(async (req, res) => {
 
     // 🎁 Cashback only on success
     if (status === "success") {
+      console.log("Processing cashback for successful recharge");
 
+      const op = findOperator.Operator_name;
+      console.log("Operator for Cashback:", op);
 
-       const op = findOperator.Operator_name;
-            // console.log("Found Operator Name:", findOperator);
-            console.log("Operator for Cashback:", op);
-            const commission = await Commission.findOne({ name : op });
-            console.log("Commission Details:", commission);
-            const findPercent = commission ? commission.commission : 0;
-            console.log("Cashback Percent:", findPercent);
-            const cashbackPercent = (txnAmount / 100) * findPercent;
-            console.log("Calculated Cashback Amount:", cashbackPercent);
+      const commission = await Commission.findOne({ name: op, status: true });
+      console.log("Commission Details:", commission);
 
-      await handleCashback(FindUser, cashbackPercent, transactionId, ipAddress, walletFound);
+      if (!commission) {
+        console.log("No commission found. Skipping cashback.");
+      } else {
+        let cashbackAmount = 0;
+
+        // ✅ SYMBOL BASED CASHBACK LOGIC
+        if (commission.symbol === "%") {
+          cashbackAmount = (txnAmount / 100) * commission.commission;
+          cashbackAmount = parseFloat(cashbackAmount.toFixed(2));
+          console.log("Percentage Cashback Applied:", cashbackAmount);
+        }
+        else if (commission.symbol === "₹") {
+          cashbackAmount = parseFloat(commission.commission.toFixed(2));
+          console.log("Flat Cashback Applied:", cashbackAmount);
+        }
+        else {
+          cashbackAmount = 0;
+          console.log("Invalid commission symbol. Cashback skipped.");
+        }
+
+        // ✅ Apply cashback only if greater than 0
+        if (cashbackAmount > 0) {
+          await handleCashback(
+            FindUser,
+            cashbackAmount,
+            transactionId,
+            ipAddress,
+            walletFound
+          );
+        } else {
+          console.log("Cashback amount is 0. Nothing credited.");
+        }
+      }
     }
+
 
     // ✅ Always respond (success/pending/accepted)
     return successHandler(req, res, {
@@ -950,11 +1184,13 @@ const dthRequest = asyncHandler(async (req, res) => {
     });
 
   } catch (error) {
-    console.error("DTH Recharge Error:", error);
+    console.error("DTH Recharge Error:", error.response.data.message);
 
     // ⚙️ Auto-refund on API error (if wallet already deducted)
     try {
+      console.log("Attempting refund due to API error");
       await handleRefund(FindUser, txnAmount, transactionId, ipAddress, walletFound);
+      console.log("Refund processed due to API error");
     } catch (refundErr) {
       console.error("Refund Error:", refundErr.message);
     }
@@ -967,8 +1203,12 @@ const dthRequest = asyncHandler(async (req, res) => {
       `Error during recharge for TxnID: ${transactionId}`
     );
 
-    res.status(400);
-    throw new Error(error.message || "DTH Recharge Failed, Please Try Again Ex200");
+    return res.status(400).json({
+      Error: true,
+      ResponseStatus: 0,
+      Remark: error.response?.data?.message || "DTH Recharge Failed, Please Try Again Ex200",
+      Success: false,
+    });
   }
 });
 
@@ -1027,7 +1267,7 @@ const rechargeHistory = asyncHandler(async (req, res) => {
   });
 });
 
-// Operator & Circle Fetch by Phone
+// ======================= Mobile operator & circle fetch =======================
 const Get_Operator_Circle_By_Phone = asyncHandler(async (req, res) => {
   const { phone } = req.query;
 
@@ -1036,7 +1276,7 @@ const Get_Operator_Circle_By_Phone = asyncHandler(async (req, res) => {
     throw new Error("Phone Number is Mandatory");
   }
 
-  const response = await axios.get(
+  let response = await axios.get(
     `http://planapi.in/api/Mobile/OperatorFetchNew?ApiUserID=${process.env.PLAN_API_USER_ID}&ApiPassword=${process.env.PLAN_API_PASSWORD}&Mobileno=${phone}`
   );
   if (response.data.STATUS == 3) {
@@ -1047,6 +1287,8 @@ const Get_Operator_Circle_By_Phone = asyncHandler(async (req, res) => {
       .filter(a => a.op_code === response.data.op_code)
       .map(a => a.type);
     response.data.operatorType = operatorTypeFilter.length > 0 ? operatorTypeFilter[0] : "N/A";
+    response.data.Mobile = normalizedMobileNumber(response.data.Mobile);
+    console.log("operatorTypeFilter", response.data);
     successHandler(req, res, {
       Remarks: "Operator & Circle Fetch Success",
       Data: response.data,
@@ -2759,18 +3001,22 @@ const circles = [
 ];
 
 const operators = [
-  { id: 1, name: "Jio", operatorCode: 11,
+  {
+    id: 1, name: "Jio", operatorCode: 11,
     icon: "/uploads/operator/jio.jpg"
-   },
-  { id: 2, name: "Airtel", operatorCode: 2 ,
+  },
+  {
+    id: 2, name: "Airtel", operatorCode: 2,
     icon: "/uploads/operator/airtel.jpg"
   },
-  { id: 3, name: "VI", operatorCode: 23,
+  {
+    id: 3, name: "VI", operatorCode: 23,
     icon: "/uploads/operator/vi.jpg"
-   },
-  { id: 4, name: "BSNL", operatorCode: 4,
+  },
+  {
+    id: 4, name: "BSNL", operatorCode: 4,
     icon: "/uploads/operator/bsnl.jpg"
-   },
+  },
 ];
 
 const getCircleAndOperators = asyncHandler(async (req, res) => {

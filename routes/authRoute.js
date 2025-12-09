@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { tokenVerify, adminTokenVerify } = require("../common/tokenVerify");
-const { shopBannerUpload } = require("../common/fileUpload");
+const { tokenVerify} = require("../common/tokenVerify");
 const { userSignUp,logout } = require("../controllers/auth");
 
-router.post("/user-register", userSignUp); // new route to signup
-router.post("/logout", tokenVerify, logout); // new route to logout
+// ========================= Auth Routes ==========================
+router.post("/user-register", userSignUp); 
+router.post("/logout", tokenVerify, logout); 
 
 module.exports = router;
