@@ -51,7 +51,7 @@ const genTxnId = () => {
   return "TXNPP" + randomPart.slice(0, 8).toUpperCase(); // TXN + 8 = 16 total
 };
 
-const unTxnHandle = async(ipAddress,userId,rcPrice, )=>{
+const unTxnHandle = async (ipAddress, userId, rcPrice,) => {
   const txn = await Transaction.findOne({
     userId,
     ipAddress,
@@ -61,7 +61,7 @@ const unTxnHandle = async(ipAddress,userId,rcPrice, )=>{
     // time should be within last 15 minutes
     createdAt: { $gte: new Date(Date.now() - 15 * 60 * 1000) },
   });
-  if(!txn){
+  if (!txn) {
     return null;
   }
   const [recharge, dth, bbps] = await Promise.all([
@@ -69,7 +69,7 @@ const unTxnHandle = async(ipAddress,userId,rcPrice, )=>{
     DTH.findOne({ transactionId: txn?.orderId }),
     BBPS.findOne({ transactionId: txn?.orderId }),
   ]);
-  if(recharge || dth || bbps ){
+  if (recharge || dth || bbps) {
     return null;
   }
   return txn.orderId;
@@ -232,8 +232,9 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     const ipAddress = getIpAddress(req);
     const { number, amount, mPin, operator, circle, type } = req.query;
     let transactionId = req.query?.ord || req.body?.ord; // add custom transaction id support
-    if(type==="wallet"){
+    if (type === "wallet") {
       transactionId = genTxnId();
+      console.log("Generated Transaction ID for wallet recharge:", transactionId);
     }
     const isPrepaid = Boolean(req.query.isPrepaid);
     const TxnAmount = Number(amount);
@@ -245,7 +246,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     ]);
 
     if (!findService?.status) {
-      console.log("step-1", findService)
+      console.log("step-1", findService.name)
       return res.status(400).json({
         Error: true,
         Status: false,
@@ -254,7 +255,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
         Remarks: "Recharge service is currently unavailable. Please try again later."
       })
     }
-    console.log("step0", FindUser, walletFound)
+    console.log("step0", FindUser.firstName, walletFound.userId);
 
     if (!FindUser.status) {
       return res.status(400).json({
@@ -315,7 +316,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       console.log("step3");
 
       if (walletFound.balance < TxnAmount) {
-        console.log("wallet", walletFound)
+        console.log("wallet balance low", walletFound.balance)
         return res.status(400).json({
           Error: true,
           Status: false,
@@ -361,7 +362,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
       ipAddress,
     };
     console.log("step-8.5")
-    console.log("type", req.body )
+    console.log("type", req.body)
     // const  res1 = await paywithWallet({ body });
     let res1 = {
       ResponseStatus: 1
@@ -369,7 +370,7 @@ const rechargeRequest = asyncHandler(async (req, res) => {
     if (type === "wallet") {
       res1 = await paywithWallet({ body });
     }
-    console.log("Wallet Payment Response:", res1);  
+    console.log("Wallet Payment Response:", res1);
     if (res1.ResponseStatus == 1) {
       console.log("Payment successful, proceeding with recharge.");
       const selectedOperator = await rechargeApiProviderSchema.findOne({
@@ -411,9 +412,9 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             circle: findCircle.planapi_circlecode,
           }
           let response;
-          console.log(bodyData, "bodyData");
           let rechargeRe;
 
+          console.log(bodyData, "bodyData");
 
           try {
             console.log("Calling Recharge API");
@@ -504,20 +505,6 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               cashback = (TxnAmount / 100) * cashback;
               console.log("Calculated Cashback Amount:", cashback);
             }
-            // if (!findRechargeOperator) {
-            //   throw new Error("Recharge operator or operator data not found.");
-            // }
-            // let findPercent;
-            // const operatorMapping = {
-            //   airtel: findRechargeOperator.airtel,
-            //   jio: findRechargeOperator.jio,
-            //   vi: findRechargeOperator.vi,
-            //   bsnl_topup: findRechargeOperator.bsnl,
-            // };
-
-            // findPercent =
-            //   operatorMapping[findOperator.Billhub_Operator_code] || 0; // Default 0 if not found
-            // const cashbackPercent = (TxnAmount / 100) * findPercent;
 
 
             await handleCashback(
@@ -546,14 +533,10 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             sendNotification(notification, deviceToken);
           }
 
-          // const operatorName = findOperator?.Operator_name || "Selected Operator";
-          // Success response
-          // console.log("Recharge Success Response Sent");
           console.log(
             "status", capitalize(status),
             "number", newRecharge.number,
             "transactionId", newRecharge.transactionId,
-            // transectionId:newRecharge.txnId,
             "operatorName", findOperator?.Operator_name,
             "operator_ref_id", response?.operator_ref_id,
           );
@@ -563,7 +546,6 @@ const rechargeRequest = asyncHandler(async (req, res) => {
             Data: ({
               status: capitalize(status),
               transactionId: newRecharge.transactionId,
-              // transectionId:newRecharge.txnId,
               phoneNumber: newRecharge.number,
               debitFrom: "Wallet",
               operatorName: findOperator?.Operator_name || "Unknown Operator",
@@ -609,13 +591,6 @@ const rechargeRequest = asyncHandler(async (req, res) => {
               Remarks: error.message
             });
           }
-
-          // newRecharge.status = "error";
-          // newRecharge.rawResponse = error.message;
-          // await newRecharge.save();
-
-          // res.status(400);
-          // throw new Error(error.message);
         }
       }
 
@@ -867,117 +842,78 @@ const fetchDthOpDetails = asyncHandler(async (req, res) => {
 const dthRequest = asyncHandler(async (req, res) => {
   console.log("dth Request Initiated")
   const findService = await Service.findOne({ name: "DTH" });
-  console.log("Found Service:", findService.name)
   const ipAddress = getIpAddress(req);
 
   if (!findService?.status) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "DTH service is currently unavailable.",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("DTH service is currently unavailable. Please try again later.");
   }
+  console.log("Found Service:", findService?.name)
   const { _id, deviceToken } = req.data;
   const FindUser = await Users.findById(_id);
-  console.log("Found User:", FindUser.firstName)
   if (!FindUser?.status) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "User is Blocked",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("User is Blocked");
   }
+  console.log("Found User:", FindUser?.firstName)
   if (!FindUser?.dth) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "DTH Recharge Failed, Please Try Again Ex150",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("DTH service is currently unavailable for your account. Please try again later.");
   }
 
-  const { number, operator, amount, transactionId = genTxnId(), mPin, type, ord } = req.query;
+  const { number, operator, amount, mPin, type } = req.query;
+  let transactionId = req.query?.ord || req.body?.ord; // add custom transaction id support
   console.log("query -> ", req.query)
   const txnAmount = Number(amount);
   if (txnAmount <= 0) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Amount should be positive.",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("Amount should be positive.");
   }
   if (operator == 28 && txnAmount < 200) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Minimum Amount for Tata Sky should be greater than 200",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("Minimum Amount for Tata Sky should be greater than 200");
   }
   else if (operator == 25 && txnAmount < 100) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Minimum Amount for Dish TV should be greater than 100",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("Minimum Amount for Dish TV should be greater than 100");
   }
   else if (operator == 29 && txnAmount < 100) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Minimum Amount for Videocon should be greater than 200",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("Minimum Amount for Videocon should be greater than 200");
   }
   else if (operator == 24 && txnAmount < 100) {
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Minimum Amount for Dish TV should be greater than 200",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error("Minimum Amount for Dish TV should be greater than 200");
   }
   const walletFound = await Wallet.findOne({ userId: _id });
-  const orderId = generateOrderId();
-
+  // const orderId = generateOrderId();
+  if (type === "wallet" && !transactionId) {
+    transactionId = genTxnId();
+    console.log("Generated Transaction ID for wallet DTH recharge:", transactionId);
+  }
   if (type === "wallet") {
     console.log("Wallet payment selected")
-    if (!req.data.mPin) return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: "Please set an mPin.",
-      Success: false,
-    });
+    if (!req.data.mPin) {
+      res.status(400);
+      throw new Error("Please set an mPin.");
+    }
     // 🔐 Decrypt mPin
     const decryptMpin = CryptoJS.AES.decrypt(req.data.mPin, CRYPTO_SECRET).toString(CryptoJS.enc.Utf8);
     if (mPin.toString() !== decryptMpin) {
-      return res.status(400).json({
-        Error: true,
-        ResponseStatus: 0,
-        Remark: "Invalid mPin.",
-        Success: false,
-      });
+      res.status(400);
+      throw new Error("Please enter a valid mPin.");
     }
 
     // 💰 Wallet Check
     if (!walletFound || walletFound.balance < txnAmount) {
-      return res.status(400).json({
-        Error: true,
-        ResponseStatus: 0,
-        Remark: "Insufficient wallet balance.",
-        Success: false,
-      });
+      res.status(400);
+      throw new Error("Insufficient wallet balance.");
     }
-
   }
   console.log("Starting transaction")
   // ✅ Start Transaction
   const payBody = {
-    orderId,
+    orderId: transactionId,
     txnAmount,
     txnId: transactionId,
     serviceId: findService._id,
@@ -1020,12 +956,8 @@ const dthRequest = asyncHandler(async (req, res) => {
       walletRes = await paywithWallet({ body: payBody });
     }
     if (walletRes.ResponseStatus !== 1) {
-      return res.status(400).json({
-        ResponseStatus: 0,
-        Remark: "Wallet deduction failed.",
-        Success: false,
-        Error: true
-      });
+      res.status(400);
+      throw new Error("Payment Failed, Please Contact to Customer Care");
     }
     console.log("Wallet response", walletRes)
     console.log("req.body", req.body);
@@ -1051,7 +983,7 @@ const dthRequest = asyncHandler(async (req, res) => {
       number,
       op_uid: findOperator.Billhub_Operator_code,
       amount: txnAmount,
-      order_id: orderId,
+      order_id: transactionId,
       type: "dth",
       circle: "N/A",
     };
@@ -1111,12 +1043,8 @@ const dthRequest = asyncHandler(async (req, res) => {
     if (["failed", "error", "failure"].includes(status)) {
       await handleRefund(FindUser, txnAmount, transactionId, ipAddress, walletFound);
       console.log("Recharge failed, amount refunded.")
-      return res.status(400).json({
-        Error: true,
-        ResponseStatus: 0,
-        Remark: "Recharge failed, amount refunded.",
-        Success: false,
-      });
+      res.status(400);
+      throw new Error(rechargeData.message || rechargeData.ErrorMessage || "DTH Recharge Failed, Please Try Again Ex400");
     }
 
     // ✅ Pending / Success / Accepted
@@ -1203,12 +1131,12 @@ const dthRequest = asyncHandler(async (req, res) => {
       `Error during recharge for TxnID: ${transactionId}`
     );
 
-    return res.status(400).json({
-      Error: true,
-      ResponseStatus: 0,
-      Remark: error.response?.data?.message || "DTH Recharge Failed, Please Try Again Ex200",
-      Success: false,
-    });
+    res.status(400);
+    throw new Error(
+      error.response?.data?.message ||
+      error.message ||
+      "DTH Recharge Failed, Please Try Again Ex400"
+    );
   }
 });
 

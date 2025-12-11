@@ -60,19 +60,12 @@ const razorpay = new Razorpay({
 
 const UpiTenz = require("../models/newModels/UpiTenz");
 
-const BASE = process.env.UPI_SANDBOX === "true"
-  ? "https://uat-api.upitranzact.com"
-  : "https://api.upitranzact.com";
+const UPITranzact = require("upitranzact");
 
-
-const createHeaders = () => {
-  const token = Buffer.from(`${process.env.UPI_PUBLIC_KEY}:${process.env.UPI_SECRET_KEY}`).toString("base64");
-  return {
-    Authorization: `Basic ${token}`,
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-};
-
+const UPI = new UPITranzact({
+  publicKey: process.env.UPI_PUBLIC_KEY,
+  secretKey: process.env.UPI_SECRET_KEY,
+});
 
 const handleFirstTransaction = async (userId, txnAmount) => {
   // Check if it's the user's first transaction over â‚¹100
@@ -2085,7 +2078,7 @@ const createUpiOrder = asyncHandler(async (req, res) => {
   try {
     const { _id } = req.data;
     const { amount, orderId, redirectUrl, note } = req.body;
-    console.log(req.body, "Create UPI Order Request");
+    console.log("Create UPI Order Request:", req.body);
     // Basic validations
     if (!amount || Number(amount) < 1) {
       res.status(400);
@@ -2118,25 +2111,23 @@ const createUpiOrder = asyncHandler(async (req, res) => {
 
     const wallet = await Wallet.findOne({ userId: user._id });
     if (!wallet) {
-      console.log("Creating UPI order for user:", user._id, "Amount:", amount);
       res.status(400);
       throw new Error("Wallet not found for user");
     }
-    console.log("req.body:", req.body);
+
     // Save locally BEFORE hitting payment gateway
+    console.log("Creating local UPI order record");
     const localOrder = await UpiTenz.create({
-      orderId,
-      upiOrderId: null, // to be updated after PG response
-      amount,
       userId: user._id,
+      orderId: orderId,
+      amount,
       firstName: user.firstName || "Unknown",
-      phone: user?.phone,
-      note: note || "Add Money",
+      phone: user.phone,
       status: "PENDING",
     });
+    console.log("Local UPI order created:", localOrder);
 
-    // Prepare PG request
-    const body = qs.stringify({
+    const response = await UPI.createOrder({
       mid: process.env.UPI_MID,
       amount,
       order_id: orderId,
@@ -2147,50 +2138,39 @@ const createUpiOrder = asyncHandler(async (req, res) => {
       customer_mobile: user.phone,
     });
 
-    console.log("UPI Order Request");
-    console.log("Base URL:", `${BASE}/v1/payments/createOrderRequest`);
-    // Call UPI Tranzact
-    const response = await axios.post(
-      `${BASE}/v1/payments/createOrderRequest`,
-      body,
-      { headers: createHeaders() }
-    );
-
-    console.log("UPI Order Response:", response.data);
-
-    const pgData = response.data?.data;
+    console.log("UPI Order Response:", response);
 
     // Update local order with UPI order ID
-    localOrder.upiOrderId = pgData?.orderId || null;
+    localOrder.upiOrderId = response?.data?.orderId || null;
     await localOrder.save();
+    const finalData = {
+      orderId: localOrder.orderId,
+      payment_url:
+        response?.payment_url ||
+        response?.paymentUrl ||
+        response?.data?.paymentUrl ||
+        response?.data?.payment_url ||
+        null,
+    };
 
-    // Final success response
     return successHandler(req, res, {
-      Remarks: "UPI Order Created",
-      Data: pgData,
+      status: true,
+      statusCode: 200,
+      Remark: "UPI Order created",
+      Data: finalData
     });
+
   }
+
   catch (error) {
-    console.error("UPI Order Error Full:", {
-      message: error.message,
-      response: error.response?.data,
-      status: error.response?.status,
-    });
-
-    const errorMessage =
-      error.response?.data
-        ? JSON.stringify(error.response.data)
-        : error.message;
-
     res.status(500);
-    throw new Error("Error creating UPI order: " + errorMessage);
+    throw new Error("Error creating UPI order: " + (error.response?.data || error.message));
   }
 });
 
 const upiTenzWebhook = asyncHandler(async (req, res) => {
   try {
-    const payload = req.body;
-    console.log("UPI Webhook Payload:", payload);
+    const payload = UPI.handleWebhook(req.body);
 
     const orderId =
       payload?.order_id ||
@@ -2212,6 +2192,7 @@ const upiTenzWebhook = asyncHandler(async (req, res) => {
       null;
 
     if (!orderId) {
+      // console.warn("Webhook missing orderId:", payload);
       return res.status(400).json({ success: false });
     }
 
@@ -2220,38 +2201,32 @@ const upiTenzWebhook = asyncHandler(async (req, res) => {
       (await UpiTenz.findOne({ upiOrderId: orderId }));
 
     if (!order) {
+      console.warn("Order not found for webhook:", orderId);
       return res.status(404).json({ success: false });
     }
 
-    // ---- STATUS NORMALIZATION ----
+    // Normalize status
+    let mappedStatus = "FAILED";
     const t = String(txnStatus || "").toUpperCase();
-    let mappedStatus = "FAIL";
 
     if (t.includes("SUCCESS")) mappedStatus = "SUCCESS";
     else if (!txnStatus || t.includes("PENDING")) mappedStatus = "PENDING";
 
-    // Save previous status BEFORE updating
-    const previousStatus = order.status;
+    const isFirstSuccess = mappedStatus === "SUCCESS" && order.status !== "SUCCESS";
 
     // Update DB
     order.status = mappedStatus;
     if (utr) order.utr = utr;
     await order.save();
 
-    // ---- WALLET TOP-UP FLOW ----
-    if (order.note === "Add money to wallet using PG") {
-      const isFirstSuccess =
-        previousStatus !== "SUCCESS" && mappedStatus === "SUCCESS";
-
-      if (isFirstSuccess) {
-        console.log("Adding money to wallet once for:", order.orderId);
-        await addMoney(req, res, {
-          amount: order.amount,
-          userId: order.userId,
-          gatewayName: "UPI-TENZ",
-          txnid: order.orderId,
-        });
-      }
+    // Credit wallet only on FIRST success
+    if (isFirstSuccess) {
+      await addMoney(req, res, {
+        amount: order.amount,
+        userId: order.userId,
+        gatewayName: "UPI-TENZ",
+        txnid: order.orderId,
+      });
     }
 
     return res.status(200).json({ success: true });
@@ -2273,31 +2248,26 @@ const upiTenzStatus = asyncHandler(async (req, res) => {
       res.status(404);
       throw new Error("Order not found");
     }
-    const response = await axios.post(
-      `${BASE}/v1/payments/checkPaymentStatus`,
-      qs.stringify({ mid: process.env.UPI_MID, order_id: orderId }),
-      { headers: createHeaders() }
-    );
+    const response = await UPI.checkPaymentStatus(process.env.UPI_MID, orderId);
+    console.log("UPI Status Check Response:", response);
     if (!response) {
       res.status(500);
       throw new Error("No response from UPI");
     }
 
-    console.log("UPI Status Response:", response.data);
-    // if (order.status !== response.data.txnStatus) {
-    //   order.status = response.data.txnStatus;
-    //   await order.save();
-    // }
-    // const Data = response.data.data
-    // Data.status = response.data.status;
-    // Data.txnStatus = response.data.txnStatus;
-    // delete Data.status;
-    const pdData = response.data?.data;
-    pdData.status = response.data?.status;
-    pdData.txnStatus = response.data?.txnStatus;
+    console.log("UPI Status Response:", response);
+    if (order.status !== response.txnStatus) {
+      order.status = response.txnStatus;
+      await order.save();
+    }
+    const Data = response.data
+    Data.status = response.status;
+    Data.txnStatus = response.txnStatus;
+    delete Data.status;
+    console.log("Formatted UPI Status Data:", Data);
     successHandler(req, res, {
       Remarks: "UPI Order Status Fetched",
-      Data: pdData,
+      Data,
     });
   }
   catch (error) {
@@ -2306,11 +2276,22 @@ const upiTenzStatus = asyncHandler(async (req, res) => {
   }
 });
 
+const checkStatus = asyncHandler(async (req, res) => {
+  const finalStatus = await UPI.autoVerify(process.env.UPI_MID, { order_id: req.body.orderId });
+  console.log(finalStatus); // SUCCESS / FAILED / PENDING
+  return successHandler(req, res, {
+    Remarks: "UPI Order Final Status Fetched",
+    Data: { status: `${finalStatus}` },
+  });
+
+});
+
+
 module.exports = {
   createUpiOrder,
   upiTenzWebhook,
   upiTenzStatus,
-
+  checkStatus,
   paywithWallet,
   createOrderId,
   paymentCallback,

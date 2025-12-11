@@ -1645,5 +1645,33 @@
       "message": "Payment received for the billing period - no bill due"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-10T07:45:42.861Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-10T17:31:20.553Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9179244579",
+      "operator": 29
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

@@ -190,7 +190,7 @@ const userSignUp = asyncHandler(async (req, res) => {
         Remarks: "Login is Temporarely Closed 😞",
       });
     }
-
+    console.log("phone, otp", phone, otp);
     const foundOTP = await Otp.findOne({ phone, otp });
     if (!foundOTP) {
       tlog("[ERROR] Invalid OTP:", phone);
@@ -219,8 +219,12 @@ const userSignUp = asyncHandler(async (req, res) => {
     await Otp.deleteOne({ _id: foundOTP._id });
     const findUser = await User.findOne({ phone });
     console.log("deviceToken", deviceToken);
-    findUser.deviceToken = deviceToken;
-    await findUser.save();
+    // console.log("findUser before update", findUser);
+    if (findUser) {
+
+      findUser.deviceToken = deviceToken;
+      await findUser.save();
+    }
     // User login
     if (findUser) {
       if (!findUser.status) {
