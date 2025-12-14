@@ -75,14 +75,6 @@ const unTxnHandle = async (ipAddress, userId, rcPrice,) => {
   return txn.orderId;
 }
 
-// credentials
-// const CYRUS_MEMBER_ID = process.env.CYRUS_MEMBER_ID;
-// const CYRUS_PAYMENT_KEY = process.env.CYRUS_PAYMENT_KEY;
-// const CYRUS_RECHARGE_KEY = process.env.CYRUS_RECHARGE_KEY;
-
-// EMAIL
-// const service_email = process.env.COMPANY_EMAIL;
-// const service_email_password = process.env.COMPANY_EMAIL_PASSWORD;
 
 // ===================== Mobile Recharge =====================
 const planFetch = asyncHandler(async (req, res) => {
@@ -205,6 +197,7 @@ const planFetch = asyncHandler(async (req, res) => {
     }
   }
 });
+
 
 const BillhubComplainRaise = asyncHandler(async (req, res) => {
   try {
@@ -1141,48 +1134,6 @@ const dthRequest = asyncHandler(async (req, res) => {
 });
 
 
-// recharge status
-// const rechargeStatus = asyncHandler(async (req, res) => {
-//   const { transid } = req.query;
-
-//   const rechargeSt = await axios.get(
-//     `${recharge_status}?memberid=${CYRUS_MEMBER_ID}&pin=${CYRUS_PAYMENT_KEY}transid=${transid}`
-//   );
-
-//   // if error
-//   if (rechargeSt.data.Status != "FAILURE") {
-//     // success respond
-//     successHandler(req, res, {
-//       Remarks: "Recharge request",
-//       Data: rechargeSt.data,
-//     });
-//   } else {
-//     res.status(400);
-//     throw new Error(rechargeSt?.data?.ErrorMessage);
-//   }
-// });
-
-// dth info fetch
-// const dthInfoFetch = asyncHandler(async (req, res) => {
-//   const { MethodName, operator, mobile, offer } = req.query;
-
-//   const dthInfo = await axios.get(
-//     `${dth_info_fetch}?MerchantID=${CYRUS_MEMBER_ID}&MerchantKey=${CYRUS_PAYMENT_KEY}MethodName=${MethodName}&operator=${operator}&mobile=${mobile}&offer=${offer}`
-//   );
-
-//   // if error
-//   if (dthInfo.data.Status != "FAILURE") {
-//     // success respond
-//     successHandler(req, res, {
-//       Remarks: "DTH Info Fetch",
-//       Data: dthInfo.data,
-//     });
-//   } else {
-//     res.status(400);
-//     throw new Error(dthInfo?.data?.ErrorMessage);
-//   }
-// });
-
 // recharge history by User
 const rechargeHistory = asyncHandler(async (req, res) => {
   const { _id } = req.data;
@@ -1534,509 +1485,6 @@ const commission = asyncHandler(async (req, res) => {
     },
   });
 });
-// const Recharge_CallBack_Handler = asyncHandler(async (req, res) => {
-//   const Status =
-//     req.query.Status || req.query.status || req.query.STATUS === 1
-//       ? "success"
-//       : "failed";
-//   const TransID = req.query.TransID || req.query.txid || req.query.RRR;
-//   if (!Status || !TransID) {
-//     return res.status(400).json({ error: "Missing parameters" });
-//   }
-
-//   function sendEmail() {
-//     // Set up a transporter object with Gmail credentials
-//     const transporter = nodemailer.createTransport({
-//       host: "smtp.gmail.com",
-//       port: 587,
-//       secure: false,
-//       auth: {
-//         user: service_email,
-//         pass: service_email_password,
-//       },
-//     });
-
-//     const mailOptions = {
-//       from: service_email,
-//       to: "hinditutors.com@gmail.com",
-//       subject: "Recharge Callback Handle",
-//       html: `<html>
-//       <head></head>
-//       <body>
-//       <h2>Status : ${Status}</h2>
-//       <h2>TransID : ${TransID}</h2>
-
-//       </body>
-//     </html>`,
-//     };
-
-//     // Send the email
-//     transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//         console.error("error", error);
-//       } else {
-//         console.log(`Email sent: ${info.response}`);
-//       }
-//     });
-//   }
-//   sendEmail();
-
-//   const findRecord = await Recharge.findOne({
-//     transactionId: TransID,
-//   });
-//   console.log(findRecord, "findRecord");
-
-//   if (findRecord) {
-//     console.log("findRecord ke andar");
-
-//     const findTxn = await Transaction.findOne({
-//       txnId: findRecord.transactionId,
-//       userId: findRecord.userId,
-//     });
-//     console.log(findTxn, "findTxn");
-
-//     const findService = await Service.findById(findTxn?.serviceId);
-//     console.log(findService, "findService,");
-
-//     const percent = (findTxn.txnAmount / 100) * findService.percent;
-//     const userFound = await User.findById(findRecord.userId);
-//     console.log(userFound, "userFound,");
-
-//     const walletFound = await Wallet.findOne({ userId: userFound._id });
-//     console.log(walletFound, "walletFound,");
-
-//     if (
-//       (Status.toLowerCase() === "failed" ||
-//         Status.toLowerCase() === "failure") &&
-//       findRecord.status.toLowerCase() === "pending"
-//     ) {
-//       console.log("pending to failed,");
-
-//       await Recharge.findOneAndUpdate(
-//         {
-//           transactionId: TransID,
-//         },
-//         { $set: { status: Status } }
-//       );
-
-//       // Send Notificaiton for Failed Recharge
-//       const notification = {
-//         title: "Recharge Failed",
-//         body: `Your ${findTxn.txnAmount} recharge is Failed`,
-//       };
-//       // save notification
-//       const newNotification = new Notification({
-//         ...notification,
-//         recipient: findRecord.userId,
-//       });
-//       await newNotification.save();
-//       // push notification
-//       userFound.deviceToken &&
-//         sendNotification(notification, userFound.deviceToken);
-
-//       // Refund Amount to User Wallet
-//       await Wallet.updateOne(
-//         { userId: findRecord.userId },
-//         {
-//           $inc: {
-//             balance: findTxn.txnAmount,
-//           },
-//         }
-//       );
-
-//       // Push notification
-//       const Refundnotification = {
-//         title: "Recharge Refund",
-//         body: `Your recharge refund â‚¹${findTxn.txnAmount} is refunded into wallet.`,
-//       };
-//       // save notification
-//       const newRefundNotification = new Notification({
-//         ...Refundnotification,
-//         recipient: findRecord.userId,
-//       });
-//       await newRefundNotification.save();
-//       userFound.deviceToken &&
-//         sendNotification(Refundnotification, userFound.deviceToken);
-
-//       // ----------- Create Txn History ------------- //
-//       const subtractBalance = new Transaction({
-//         userId: userFound._id,
-//         recipientId: userFound._id,
-//         txnName: "Recharge Refund",
-//         txnDesc: "Your recharge refund issued.",
-//         txnAmount: findTxn.txnAmount,
-//         txnType: "credit",
-//         txnStatus: "TXN_SUCCESS",
-//         txnResource: "Wallet",
-//         txnId: TransID + "refund",
-//         orderId: TransID + "refund",
-//         ipAddress: getIpAddress(req),
-//       });
-//       await subtractBalance.save(); // wallet balance history
-//       const subtractGoPoints = new Transaction({
-//         userId: userFound._id,
-//         recipientId: userFound._id,
-//         txnName: "Recharge Refund",
-//         txnDesc: "Your recharge refund issued.",
-//         txnType: "credit",
-//         txnStatus: "TXN_SUCCESS",
-//         txnResource: findTxn.isUsePrime ? "PrimePoints" : "GoPoints",
-//         txnId: TransID + (findTxn.isUsePrime ? "primerefund" : "gorefund"),
-//         orderId: TransID + (findTxn.isUsePrime ? "primerefund" : "gorefund"),
-//         txnAmount: percent,
-//         ipAddress: getIpAddress(req),
-//       });
-//       await subtractGoPoints.save(); // go points history
-
-//       res.status(200).send("Callback processed successfully");
-//     } else if (
-//       Status.toLowerCase() === "success" &&
-//       findRecord.status.toLowerCase() === "pending"
-//     ) {
-//       console.log("pending to succwss,");
-
-//       await Recharge.findOneAndUpdate(
-//         {
-//           transactionId: TransID,
-//         },
-//         { $set: { status: Status } }
-//       );
-
-//       // Send Notificaiton for Success Recharge
-//       const notification = {
-//         title: "Recharge Sucess",
-//         body: `Your ${findTxn.txnAmount} recharge is Success`,
-//       };
-//       // save notification
-//       const newNotification = new Notification({
-//         ...notification,
-//         recipient: findRecord.userId,
-//       });
-//       await newNotification.save();
-//       // push notification
-//       userFound.deviceToken &&
-//         sendNotification(notification, userFound.deviceToken);
-
-//       // Handle Cashback
-
-//       const cashbackPercent =
-//         (parseInt(findTxn.txnAmount) / 100) * findService.percent; // for both (prime & non prime)
-//       const ipAddress = getIpAddress(req);
-//       await handleCashback(
-//         userFound,
-//         cashbackPercent,
-//         TransID,
-//         ipAddress,
-//         walletFound
-//       );
-//       res.status(200).send("Callback processed successfully");
-//     } else if (
-//       (Status.toLowerCase() === "failed" ||
-//         Status.toLowerCase() === "failure") &&
-//       findRecord.status.toLowerCase() === "success"
-//     ) {
-//       await Recharge.findOneAndUpdate(
-//         {
-//           transactionId: TransID,
-//         },
-//         { $set: { status: Status } }
-//       );
-
-//       // Send Notificaiton for Success Recharge
-//       const notification = {
-//         title: "Recharge Failed",
-//         body: `Your ${findTxn.txnAmount} recharge is Failed`,
-//       };
-//       // save notification
-//       const newNotification = new Notification({
-//         ...notification,
-//         recipient: findRecord.userId,
-//       });
-//       await newNotification.save();
-//       // push notification
-//       userFound.deviceToken &&
-//         sendNotification(notification, userFound.deviceToken);
-
-//       const findGoTxn = await Transaction.findOne({
-//         txnId: TransID + "go",
-//       });
-
-//       // handle Money Refund & Points Refund
-
-//       // ----------- Create Txn History ------------- //
-//       const refundBalance = new Transaction({
-//         userId: userFound._id,
-//         recipientId: userFound._id,
-//         txnName: "Recharge Refund",
-//         txnDesc: "Your recharge refund Success.",
-//         txnAmount: findTxn.txnAmount - findGoTxn.txnAmount,
-//         txnType: "credit",
-//         txnStatus: "TXN_SUCCESS",
-//         txnResource: "Wallet",
-//         txnId: TransID + "refund",
-//         orderId: TransID + "refund",
-//         ipAddress: getIpAddress(req),
-//       });
-//       await refundBalance.save(); // wallet balance history
-//       const refundGoPoints = new Transaction({
-//         userId: userFound._id,
-//         recipientId: userFound._id,
-//         txnName: "Recharge Refund",
-//         txnDesc: "Your recharge refund issued.",
-//         txnType: "credit",
-//         txnStatus: "TXN_SUCCESS",
-//         txnResource: findTxn.isUsePrime ? "PrimePoints" : "GoPoints",
-//         txnId: TransID + (findTxn.isUsePrime ? "Prime" : "go") + "refund",
-//         orderId: TransID + (findTxn.isUsePrime ? "Prime" : "go") + "refund",
-//         txnAmount: findGoTxn.txnAmount,
-//         ipAddress: getIpAddress(req),
-//       });
-//       await refundGoPoints.save(); // go points history
-
-//       // Refund Amount to User Wallet
-//       await Wallet.updateOne(
-//         { userId: findRecord.userId },
-//         {
-//           $inc: {
-//             balance: findTxn.txnAmount - findGoTxn.txnAmount,
-//             goPoints: findTxn.isUsePrime ? 0 : findGoTxn.txnAmount,
-//             primePoints: findTxn.isUsePrime ? findGoTxn.txnAmount : 0,
-//           },
-//         }
-//       );
-
-//       const Refundnotification = {
-//         title: "Recharge Refund",
-//         body: `Your recharge refund ${
-//           findTxn.txnAmount - findGoTxn.txnAmount
-//         } rupee is refunded into wallet.`,
-//       };
-//       const newRefundNotification = new Notification({
-//         ...Refundnotification,
-//         recipient: userFound._id,
-//       });
-//       await newRefundNotification.save();
-
-//       // send notification
-//       userFound?.deviceToken &&
-//         sendNotification(Refundnotification, userFound?.deviceToken);
-//       res.status(200).send("Callback processed successfully");
-//     } else {
-//       return res.status(400).json({ error: "No Valid Action" });
-//     }
-//   } else {
-//     const findBBPSRecord = await BBPS.findOne({
-//       transactionId: TransID,
-//     });
-//     const findTxn = await Transaction.findOne({
-//       txnId: findBBPSRecord.transactionId,
-//       userId: findBBPSRecord.userId,
-//     });
-
-//     const findService = await Service.findById(findTxn?.serviceId);
-
-//     const percent =
-//       (findTxn.txnAmount / 100) *
-//       (findTxn.isUsePrime ? 25 : findService.percent);
-//     if (findBBPSRecord) {
-//       const userFound = await User.findById(findBBPSRecord.userId);
-//       const findTxn = await Transaction.findOne({
-//         txnId: findBBPSRecord.transactionId,
-//         userId: findBBPSRecord.userId,
-//       });
-
-//       if (
-//         (Status.toLowerCase() === "failed" ||
-//           Status.toLowerCase() === "failure") &&
-//         findBBPSRecord.status.toLowerCase() === "pending"
-//       ) {
-//         await BBPS.findOneAndUpdate(
-//           {
-//             transactionId: TransID,
-//           },
-//           { $set: { status: Status } }
-//         );
-//         // Send Notificaiton for Failed Recharge
-//         const notification = {
-//           title: "Bill Payment Failed",
-//           body: `Your ${findTxn.txnAmount} Payment is Failed`,
-//         };
-//         // save notification
-//         const newNotification = new Notification({
-//           ...notification,
-//           recipient: findBBPSRecord.userId,
-//         });
-//         await newNotification.save();
-//         // push notification
-//         userFound.deviceToken &&
-//           sendNotification(notification, userFound.deviceToken);
-
-//         // Refund Amount to User Wallet
-//         await Wallet.updateOne(
-//           { userId: findBBPSRecord.userId },
-//           {
-//             $inc: {
-//               balance: findTxn.txnAmount,
-//             },
-//           }
-//         );
-
-//         // Push notification
-//         const Refundnotification = {
-//           title: "Payment Refund",
-//           body: `Your Payment ${findTxn.txnAmount} rupee is refunded into wallet.`,
-//         };
-//         // save notification
-//         const newRefundNotification = new Notification({
-//           ...Refundnotification,
-//           recipient: findBBPSRecord.userId,
-//         });
-//         await newRefundNotification.save();
-//         userFound.deviceToken &&
-//           sendNotification(Refundnotification, userFound.deviceToken);
-
-//         // ----------- Create Txn History ------------- //
-//         const subtractBalance = new Transaction({
-//           userId: userFound._id,
-//           recipientId: userFound._id,
-//           txnName: "Bill Payment Refund",
-//           txnDesc: "Your Payment refund issued.",
-//           txnAmount: findTxn.txnAmount,
-//           txnType: "credit",
-//           txnStatus: "TXN_SUCCESS",
-//           txnResource: "Wallet",
-//           txnId: TransID + "refund",
-//           orderId: TransID + "refund",
-//           ipAddress: getIpAddress(req),
-//         });
-//         await subtractBalance.save();
-//         res.status(200).send("Callback processed successfully");
-//       } else if (
-//         Status.toLowerCase() === "success" &&
-//         findBBPSRecord.status.toLowerCase() === "pending"
-//       ) {
-//         if (findBBPSRecord.operator === "GLF") {
-//           await BBPS.findOneAndUpdate(
-//             {
-//               transactionId: TransID,
-//             },
-//             { $set: { status: Status, operatorRef: req.query.opid } }
-//           );
-
-//           // cashback Amount to User Wallet
-//           await Wallet.updateOne(
-//             { userId: findBBPSRecord.userId },
-//             {
-//               $inc: {
-//                 balance: (findTxn.txnAmount / 100) * findService.percent,
-//               },
-//             }
-//           );
-
-//           // notification
-//           const Cashbacknotification = {
-//             title: "Received Cashback",
-//             body: `Congratulation...! ðŸŽ‰ You got ${
-//               (findTxn.txnAmount / 100) * findService.percent
-//             } rupee as a cashback.`,
-//           };
-//           // save notification
-//           const newRefundNotification = new Notification({
-//             ...Cashbacknotification,
-//             recipient: findBBPSRecord.userId,
-//           });
-//           await newRefundNotification.save();
-//           userFound.deviceToken &&
-//             sendNotification(Cashbacknotification, userFound.deviceToken);
-
-//           const subtractGoPoints = new Transaction({
-//             userId: userFound._id,
-//             recipientId: userFound._id,
-//             txnName: "Cashback",
-//             txnDesc: `Congratulation...! you got ${
-//               (findTxn.txnAmount / 100) * findService.percent
-//             } rupee cashback`,
-//             txnType: "credit",
-//             txnStatus: "TXN_SUCCESS",
-//             txnResource: "Wallet",
-//             txnId: TransID + "cashback",
-//             orderId: TransID + "cashback",
-//             txnAmount: (findTxn.txnAmount / 100) * findService.percent,
-//             ipAddress: getIpAddress(req),
-//           });
-//           await subtractGoPoints.save(); // go points history
-//         } else {
-//           await BBPS.findOneAndUpdate(
-//             {
-//               transactionId: TransID,
-//             },
-//             { $set: { status: Status } }
-//           );
-//           // Send Notificaiton for Success Recharge
-//           const notification = {
-//             title: "Bill Payment Success",
-//             body: `Your ${findTxn.txnAmount} Payment is Success`,
-//           };
-//           // save notification
-//           const newNotification = new Notification({
-//             ...notification,
-//             recipient: findBBPSRecord.userId,
-//           });
-//           await newNotification.save();
-//           // push notification
-//           userFound.deviceToken &&
-//             sendNotification(notification, userFound.deviceToken);
-
-//           // Refund Amount to User Wallet
-//           await Wallet.updateOne(
-//             { userId: findBBPSRecord.userId },
-//             {
-//               $inc: {
-//                 goPoints: percent,
-//               },
-//             }
-//           );
-
-//           // notification
-//           const Cashbacknotification = {
-//             title: "Received Cashback",
-//             body: `Congratulation...! ðŸŽ‰ You got ${percent} goPoints as a cashback.`,
-//           };
-//           // save notification
-//           const newRefundNotification = new Notification({
-//             ...Cashbacknotification,
-//             recipient: findBBPSRecord.userId,
-//           });
-//           await newRefundNotification.save();
-//           userFound.deviceToken &&
-//             sendNotification(Cashbacknotification, userFound.deviceToken);
-
-//           const subtractGoPoints = new Transaction({
-//             userId: userFound._id,
-//             recipientId: userFound._id,
-//             txnName: "Cashback",
-//             txnDesc: `Congratulation...! you got ${percent} goPoints cashback`,
-//             txnType: "credit",
-//             txnStatus: "TXN_SUCCESS",
-//             txnResource: "GoPoints",
-//             txnId: TransID + "go",
-//             orderId: TransID + "go",
-//             txnAmount: percent,
-//             ipAddress: getIpAddress(req),
-//           });
-//           await subtractGoPoints.save(); // go points history
-//         }
-
-//         res.status(200).send("Callback processed successfully");
-//       } else {
-//         return res.status(400).json({ error: "No Valid Action" });
-//       }
-//     } else {
-//       return res.status(400).json({ error: "invalid TxnID" });
-//     }
-//   }
-// });
-
 
 const handleRechargeStatusUpdate = async (TransID, Status) => {
   await Recharge.findOneAndUpdate(
@@ -2957,10 +2405,98 @@ const getCircleAndOperators = asyncHandler(async (req, res) => {
   });
 });
 
+const lastRecharge = asyncHandler(async (req, res) => {
+  const { _id: userId } = req.data;
+  const { type, subType } = req.query;
+
+  const allowedTypes = ["DTH", "Recharge", "BBPS"];
+
+  const bbpsTypes = [
+    "Gas", "Fastag", "LPG", "Postpaid", "Education Fee", "EMI",
+    "Housing", "Hospital Bills", "Subscription", "Club Assoc",
+    "Electricity", "Municipality", "Insurance", "Water", "Cable", "Broadband",
+    "Landline", "Google Play"
+  ];
+
+  // ---------------- VALIDATE TYPE ----------------
+  if (!allowedTypes.includes(type)) {
+    res.status(400);
+    throw new Error("Invalid recharge type");
+  }
+
+  // ---------------- VALIDATE BBPS SUBTYPE ----------------
+  if (type === "BBPS") {
+    if (!subType || !bbpsTypes.includes(subType)) {
+      res.status(400);
+      throw new Error("Invalid BBPS sub category");
+    }
+  }
+
+  // ---------------- CHECK USER ----------------
+  const user = await User.findById(userId);
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  let rechargeData = [];
+
+  // ---------------- RECHARGE ----------------
+  if (type === "Recharge") {
+    rechargeData = await Recharge.find({
+      userId,
+      status: "success",
+    })
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .lean();
+
+  // ---------------- DTH ----------------
+  } else if (type === "DTH") {
+    rechargeData = await DTH.find({
+      userId,
+      status: "success",
+    })
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .lean();
+
+  // ---------------- BBPS ----------------
+  } else if (type === "BBPS") {
+    console.log("sub type", subType);
+    const service = await Service.findOne({
+      name: subType,
+      // status: true, // ✅ FIXED (BOOLEAN)
+    }).lean();
+
+    if (!service) {
+      res.status(404);
+      throw new Error("BBPS service not found");
+    }
+
+    rechargeData = await BBPS.find({
+      userId,
+      serviceId: service._id,
+      status: "success",
+    })
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .lean();
+  }
+
+  return successHandler(req, res, {
+    Remark: "Last 5 recharges fetched successfully",
+    Data: rechargeData,
+  });
+});
+
+
+
 
 module.exports = {
   planFetch, //-----------------------------
   userReferralList,
+  lastRecharge,
   //   getOperator, //-----------------------------
   //   getCircle, //-----------------------------
   //   getBalance, //-----------------------------

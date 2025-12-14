@@ -831,3 +831,79 @@ Use mongoose.model(name, schema)
 2025-12-11T12:30:17.801Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: E11000 duplicate key error collection: recharge-app.upitenzs index: orderId_1 dup key: { orderId: "ORDUPIP20456" }
 2025-12-11T12:35:38.496Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
 2025-12-11T13:06:44.603Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: E11000 duplicate key error collection: recharge-app.upitenzs index: orderId_1 dup key: { orderId: "ORDUPIP20459" }
+2025-12-12T06:51:08.744Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: UpiTenz validation failed: status: `REJECT` is not a valid enum value for path `status`.
+2025-12-12T07:44:20.925Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T08:24:00.861Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Expected double-quoted property name in JSON at position 453
+2025-12-12T08:30:54.880Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T08:31:11.593Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T08:32:53.635Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T08:35:27.576Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T08:52:50.993Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T09:06:31.929Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T09:28:34.768Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T09:36:56.684Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T09:49:55.915Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-12T09:50:30.879Z [error]: userid: 6922a9199dae28eaac0e8943, name: Krishna Js, phone: 7000751791, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-13T07:41:53.093Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid recharge type
+2025-12-13T07:45:20.236Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid BBPS sub category
+2025-12-13T07:45:33.773Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, BBPS service not found
+2025-12-13T07:46:00.589Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid BBPS sub category
+2025-12-13T07:53:34.588Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid BBPS sub category
+2025-12-13T09:27:11.545Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid recharge type
+2025-12-13T13:47:18.567Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-13T13:57:24.155Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Error fetching UPI order status: Cannot set properties of undefined (setting 'status')
+2025-12-13T17:41:07.373Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Cast to Boolean failed for value "success" (type string) at path "status" for model "Service"
+2025-12-13T17:43:33.770Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Cast to Boolean failed for value "success" (type string) at path "status" for model "Service"
+2025-12-13T17:45:57.086Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, BBPS service not found
+2025-12-13T18:06:00.939Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:06:03.551Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:06:10.572Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:07:09.530Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:07:35.584Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:07:58.803Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:08:02.041Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:08:37.725Z [error]: userid: 6915a9fbf2bc0b295f937eff, name: Sujal Sharma, phone: 6268800426, Invalid BBPS sub category
+2025-12-13T18:10:43.224Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Invalid BBPS sub category
+2025-12-14T04:30:05.880Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Valid recharge amount is required
+2025-12-14T05:54:40.632Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Error creating UPI order: [object Object]
+2025-12-14T05:54:43.491Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Error creating UPI order: [object Object]
+2025-12-14T05:55:45.730Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Error creating UPI order: [object Object]
+2025-12-14T05:55:56.948Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Error creating UPI order: [object Object]
+2025-12-14T05:58:01.855Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: [object Object]
+2025-12-14T06:02:44.194Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: [object Object]
+2025-12-14T06:03:15.487Z [error]: userid: 68cf940573e1d1773d42d049, name: Neeraj Rajput, phone: 8770475416, Error creating UPI order: [object Object]
+2025-12-14T15:51:18.111Z [error]: userid: 6918112ac63fa358c600ce80, name: Ashutosh  Agrawal, phone: 8109635835, Payment received for the billing period - no bill due
+2025-12-14T16:11:25.667Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Refill booking allowed after 15 days of the last cylinder delivery
+2025-12-14T16:12:23.894Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, Refill booking allowed after 15 days of the last cylinder delivery
+2025-12-14T16:35:46.524Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:46.529Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:46.529Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:46.541Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:47.510Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:47.534Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:47.552Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:47.559Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:48.375Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:48.471Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:48.479Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:48.501Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.028Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.325Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.396Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.426Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.459Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:49.979Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:50.254Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:53.706Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:54.233Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:54.878Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:54.905Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:55.073Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:55.269Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:55.523Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:35:55.879Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:36:23.422Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:36:24.376Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:36:24.520Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:36:24.888Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.
+2025-12-14T16:36:24.987Z [error]: userid: 6917aa74c63fa358c600cd98, name: Venkat Venkat, phone: 7013565413, An error has occurred. Please contact your system administrator.

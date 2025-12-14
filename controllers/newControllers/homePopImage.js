@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 const successHandler = require("../../common/successHandler");
 const deletePreviousImage = require("../../common/deletePreviousImage");
 
-// ⭐ GET ALL BANNERS
+// ================= GET ACTIVE BANNER ==========================
 const getHomePopImage = asyncHandler(async (req, res) => {
     
     const image = await HomePopImage.findOne({status: true}).sort({ createdAt: -1 }).select("image link");
@@ -18,7 +18,7 @@ const getHomePopImage = asyncHandler(async (req, res) => {
     });
 });
 
-// ⭐ GET ALL BANNERS
+// ================= GET ALL BANNERS FOR ADMIN ==========================
 const getHomePopImagesAdmin = asyncHandler(async (req, res) => {
     const all = await HomePopImage.findOne().sort({ createdAt: -1 });
 
@@ -28,24 +28,7 @@ const getHomePopImagesAdmin = asyncHandler(async (req, res) => {
     });
 });
 
-// // ⭐ CREATE BANNER
-// const createHomePopImage = asyncHandler(async (req, res) => {
-//     const { image, link } = req.body;
-//     const newBanner = new HomePopImage({
-//         link,
-//         image: req?.file?.path,
-//         status: true,
-//     });
-
-//     const saved = await HomePopImage.create(newBanner);
-
-//     successHandler(req, res, {
-//         Remarks: "Home pop image created successfully",
-//         Data: saved,
-//     });
-// });
-
-// ⭐ UPDATE BANNER
+// ================ UPDATE BANNER ==========================
 const updateHomePopImage = asyncHandler(async (req, res) => {
     // Fetch existing record
     const existing = await HomePopImage.findOne();
@@ -79,29 +62,8 @@ const updateHomePopImage = asyncHandler(async (req, res) => {
 });
 
 
-// // ⭐ DELETE BANNER
-// const deleteHomePopImage = asyncHandler(async (req, res) => {
-//     const { bannerId } = req.params;
-
-//     const found = await HomePopImage.findById(bannerId);
-//     if (!found) {
-//         res.status(400);
-//         throw new Error("Invalid banner id");
-//     }
-
-//     deletePreviousImage(found.image);
-//     const removed = await HomePopImage.findByIdAndDelete(bannerId);
-
-//     successHandler(req, res, {
-//         Remarks: "Home pop image deleted successfully",
-//         Data: removed,
-//     });
-// });
-
 module.exports = {
     getHomePopImage,
     getHomePopImagesAdmin,
-    // createHomePopImage,
     updateHomePopImage,
-    // deleteHomePopImage,
 };

@@ -49,3 +49,5 @@
 2025-12-08T17:58:39.177Z - POST - {"status":"failed","order_id":"6091820693","margin":null,"margin_percentage":null,"operator_ref_id":null}
 2025-12-08T17:58:48.208Z - POST - {"status":"success","order_id":"4760187590","margin":"0.3500","margin_percentage":"3.5000","operator_ref_id":"551208237986558"}
 2025-12-09T10:18:49.630Z - POST - {"status":"success","order_id":"4733359483","margin":"0.6000","margin_percentage":"6.0000","operator_ref_id":"7456594826"}
+2025-12-12T07:55:49.968Z - GET - undefined
+2025-12-12T07:55:50.117Z - GET - undefined

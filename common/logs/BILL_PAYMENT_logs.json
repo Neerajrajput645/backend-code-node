@@ -3109,5 +3109,89 @@
     },
     "Response_Data": null,
     "Additional_Info": "Bill Payment Request Initiated for TxnID: 6822767790"
+  },
+  {
+    "LogTime": "2025-12-14T04:18:35.538Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "State Bank of India FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "PP1765685892691",
+      "type": "fasTag",
+      "amount": 1,
+      "number": "MP07CF1066",
+      "op_code": 294,
+      "bill_details": {
+        "number": "MP07CF1066",
+        "amount": "1",
+        "type": "fastag"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: PP1765685892691"
+  },
+  {
+    "LogTime": "2025-12-14T04:31:02.697Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "State Bank of India FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "PP1765686637880",
+      "type": "fasTag",
+      "amount": 12,
+      "number": "MP07CF1066",
+      "op_code": 294,
+      "bill_details": {
+        "number": "MP07CF1066",
+        "amount": "12",
+        "type": "fastag"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": null,
+    "Additional_Info": "Bill Payment Request Initiated for TxnID: PP1765686637880"
+  },
+  {
+    "LogTime": "2025-12-14T04:31:03.002Z",
+    "API_Name": "BILL_PAYMENT",
+    "API_Endpoint": "https://api.techember.in/app/recharges/bill-payment.php",
+    "Request_Data": {
+      "operator": {
+        "name": "State Bank of India FASTag",
+        "category": "fasTag",
+        "operator_id": 294
+      },
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "order_id": "PP1765686637880",
+      "type": "fasTag",
+      "amount": 12,
+      "number": "MP07CF1066",
+      "op_code": 294,
+      "bill_details": {
+        "number": "MP07CF1066",
+        "amount": "12",
+        "type": "fastag"
+      },
+      "additional_params": {}
+    },
+    "Response_Data": {
+      "status": "failed",
+      "order_id": "1765686662532092",
+      "margin": null,
+      "margin_percentage": null,
+      "operator_ref_id": null
+    },
+    "Additional_Info": "Bill Payment Response Status : failed for TxnID: PP1765686637880"
   }
 ]

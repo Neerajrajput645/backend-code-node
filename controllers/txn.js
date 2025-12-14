@@ -170,17 +170,11 @@ const getAllTransaction = asyncHandler(async (req, res) => {
 const txnByUserId = asyncHandler(async (req, res) => {
   const receiverId = req.params.receiverId;
   console.log("Fetching transactions for receiverId:", receiverId);
-  
+
   const txnsRaw = await Txn.find({
-    // txnResource: "Wallet",
     $or: [
-      // userId is always ObjectId
       { userId: receiverId },
-
-      // recipientId stored as ObjectId
       { recipientId: receiverId },
-
-      // recipientId stored as embedded object
       { "recipientId._id": receiverId }
     ]
   })
@@ -188,18 +182,27 @@ const txnByUserId = asyncHandler(async (req, res) => {
     .populate("userId", "firstName lastName email phone")
     .populate("recipientId", "firstName lastName email phone");
 
-  // console.log("txnsRaw:", txnsRaw);
-
-  let txns = txnsRaw.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+  // sort old → new for balance calculation
+  let txns = txnsRaw.sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  );
 
   let currentBalance = 0;
 
   txns = txns.map((txn) => {
     const amount = Number(txn.txnAmount) || 0;
+    let openingBalance = currentBalance;
+    let closingBalance = currentBalance;
 
-    const openingBalance = currentBalance;
-    currentBalance += txn.txnType === "credit" ? amount : -amount;
-    const closingBalance = currentBalance;
+    // ✅ Only wallet transactions affect balance
+    if (txn.txnResource !== "Online") {
+      if (txn.txnType === "credit") {
+        currentBalance += amount;
+      } else {
+        currentBalance -= amount;
+      }
+      closingBalance = currentBalance;
+    }
 
     return {
       ...txn._doc,
@@ -208,6 +211,7 @@ const txnByUserId = asyncHandler(async (req, res) => {
     };
   });
 
+  // latest first
   txns.reverse();
 
   successHandler(req, res, {
@@ -215,6 +219,7 @@ const txnByUserId = asyncHandler(async (req, res) => {
     Data: txns,
   });
 });
+
 
 // =============== Generate Ledger Report for User ==============
 const GET_LEDGER_REPORT_USER = asyncHandler(async (req, res) => {

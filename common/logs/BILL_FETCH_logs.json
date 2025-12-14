@@ -2044,5 +2044,91 @@
       }
     },
     "Additional_Info": "Bill_Fetch Response Number: N2251003214"
+  },
+  {
+    "LogTime": "2025-12-14T16:12:40.601Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "9490034330",
+      "operator": 288
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "922.0",
+        "billnetamount": "922.0",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "9490034330",
+        "userName": "NA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 9490034330"
+  },
+  {
+    "LogTime": "2025-12-14T16:13:04.166Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "9490034330",
+      "operator": 288
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "922.0",
+        "billnetamount": "922.0",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "9490034330",
+        "userName": "NA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 9490034330"
+  },
+  {
+    "LogTime": "2025-12-14T16:15:56.425Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "9490034330",
+      "operator": 288
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "922.0",
+        "billnetamount": "922.0",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "9490034330",
+        "userName": "NA"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 9490034330"
+  },
+  {
+    "LogTime": "2025-12-14T16:17:23.432Z",
+    "API_Name": "BILL_FETCH",
+    "API_Endpoint": "https://api.techember.in/app/bbps-bill-fetch.php",
+    "Request_Data": {
+      "number": "16823357",
+      "operator": 1568
+    },
+    "Response_Data": {
+      "status": "success",
+      "data": {
+        "billAmount": "116.0",
+        "billnetamount": "116.0",
+        "billdate": "09 Dec 2025",
+        "dueDate": "2025-12-23",
+        "acceptPayment": true,
+        "acceptPartPay": false,
+        "cellNumber": "16823357",
+        "userName": "MADHAVI KALLURI"
+      }
+    },
+    "Additional_Info": "Bill_Fetch Response Number: 16823357"
   }
 ]

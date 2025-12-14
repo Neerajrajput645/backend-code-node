@@ -3,7 +3,7 @@ const Recharge = require("../../models/service/rechargeSchema");
 const DTH = require("../../models/service/dthSchema");
 const BBPS = require("../../models/service/bbps");
 const successHandler = require("../../common/successHandler");
-
+const Txn = require("../../models/txnSchema");
 const {
   All_Recharge_Operator_List,
   All_DTH_Recharge_Operator_List
@@ -74,25 +74,22 @@ const combinedHistory = asyncHandler(async (req, res) => {
 
     const promises = [];
 
-if (!serviceType || serviceType === "dth" || serviceType === "all") {
-  promises.push(
-    DTH.find(baseFilter)
-      .sort({ createdAt: -1 })
-      .lean()
-      .then((data) => {
-        dthData = (data || []).map((item) => {
-          // console.log("DTH Item:", item.operator); // ⭐ Print each item
+    // ---------------- DTH ----------------
+    if (!serviceType || serviceType === "dth" || serviceType === "all") {
+      promises.push(
+        DTH.find(baseFilter)
+          .sort({ createdAt: -1 })
+          .lean()
+          .then((data) => {
+            dthData = (data || []).map((item) => ({
+              ...item,
+              operatorName: getDthOperatorName(item.operator),
+            }));
+          })
+      );
+    }
 
-          return {
-            ...item,
-            operatorName: getDthOperatorName(item.operator),
-          };
-        });
-      })
-  );
-}
-
-    // ---------------- Recharge ----------------
+    // ---------------- RECHARGE (MOBILE) ----------------
     if (!serviceType || serviceType === "recharge" || serviceType === "all") {
       promises.push(
         Recharge.find(baseFilter)
@@ -101,7 +98,7 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
           .then((data) => {
             rechargeData = (data || []).map((item) => ({
               ...item,
-              operatorName: getOperatorName(item.operator), // ⭐ Add operator name
+              operatorName: getOperatorName(item.operator),
             }));
           })
       );
@@ -121,17 +118,62 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
 
     await Promise.all(promises);
 
-    // ---------------- FINAL RESPONSE ----------------
-    const finalData = {
-      dth: dthData,
-      mobile: rechargeData,
-      bbps: bbpsData,
-    };
+    // --------------------------------------------------
+    // 🔥 FINAL txnBy RESOLUTION (DTH + MOBILE + BBPS)
+    // --------------------------------------------------
 
-    // console.log("Combined History Data:", finalData);
+    // Collect all transactionIds
+    const allTxnIds = [
+      ...dthData,
+      ...rechargeData,
+      ...bbpsData,
+    ]
+      .map((item) => item.transactionId)
+      .filter(Boolean);
+
+    let txnMap = {};
+
+    if (allTxnIds.length) {
+      const txns = await Txn.find(
+        {
+          $or: [
+            { txnId: { $in: allTxnIds } },
+            { orderId: { $in: allTxnIds } },
+          ],
+        },
+        { txnId: 1, orderId: 1, txnResource: 1 }
+      ).lean();
+
+      txns.forEach((txn) => {
+        if (txn.txnId) txnMap[txn.txnId] = txn.txnResource;
+        if (txn.orderId) txnMap[txn.orderId] = txn.txnResource;
+      });
+    }
+
+    // ---------------- ATTACH txnBy ----------------
+    dthData = dthData.map((item) => ({
+      ...item,
+      paidFrom: txnMap[item.transactionId] === "Online" ? "UPI" : txnMap[item.transactionId] || null,
+    }));
+
+    rechargeData = rechargeData.map((item) => ({
+      ...item,
+      paidFrom: txnMap[item.transactionId] === "Online" ? "UPI" : txnMap[item.transactionId] || null,
+    }));
+
+    bbpsData = bbpsData.map((item) => ({
+      ...item,
+      paidFrom: txnMap[item.transactionId] === "Online" ? "UPI" : txnMap[item.transactionId] || null,
+    }));
+
+    // ---------------- FINAL RESPONSE ----------------
     successHandler(req, res, {
       Remarks: "User Combined Recharge History",
-      Data: finalData,
+      Data: {
+        dth: dthData,
+        mobile: rechargeData,
+        bbps: bbpsData,
+      },
     });
   } catch (error) {
     console.error("[COMBINED_HISTORY_ERROR]", error);
@@ -144,5 +186,10 @@ if (!serviceType || serviceType === "dth" || serviceType === "all") {
     });
   }
 });
+
+
+
+
+
 
 module.exports = { combinedHistory };

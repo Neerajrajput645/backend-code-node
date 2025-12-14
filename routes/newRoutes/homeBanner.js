@@ -9,6 +9,7 @@ const {
 } = require("../../controllers/newControllers/homeBanner");
 const { adminTokenVerify, tokenVerify } = require("../../common/tokenVerify");
 
+// ========================= Home Banner Routes ==========================
 router.get("/list", tokenVerify, getHomeBanners);
 router.get("/admin/list", adminTokenVerify, getHomeBannersAdmin);
 router.post("/create", adminTokenVerify, homeBannerImages.single("image"), createHomeBanner);

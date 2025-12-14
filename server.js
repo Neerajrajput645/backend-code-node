@@ -40,8 +40,9 @@ app.use("/api/user", require("./routes/userRoute"));
 app.use("/api/wallet", require("./routes/walletRoute"));
 app.use("/api/commission", require("./routes/newRoutes/commission.js"));
 app.all("/api/webhook/callback", Recharge_CallBack_Handler);
-app.use("/api/setting", require("./routes/appSetting"));
-app.use("/api/banner", require("./routes/bannerRoute"));
+// app.use("/api/setting", require("./routes/appSetting"));
+// app.use("/api/banner", require("./routes/bannerRoute"));
+
 app.use("/api/home-banner", require("./routes/newRoutes/homeBanner.js"));
 app.use("/api/pop-image", require("./routes/newRoutes/homePopImage.js"));
 app.use("/api/service", require("./routes/serviceRoute"));

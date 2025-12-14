@@ -1673,5 +1673,47 @@
       "message": "Payment received for the billing period - no bill due"
     },
     "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-14T15:51:18.101Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "N2251003214",
+      "operator": 215
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Payment received for the billing period - no bill due"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-14T16:11:25.660Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9100940939",
+      "operator": 288
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Refill booking allowed after 15 days of the last cylinder delivery"
+    },
+    "Additional_Info": "Bill fetch failed"
+  },
+  {
+    "LogTime": "2025-12-14T16:12:23.887Z",
+    "API_Name": "BILL_FETCH_ERROR",
+    "API_Endpoint": "/api/cyrus/bbps/new-bill-fetch",
+    "Request_Data": {
+      "number": "9100940939",
+      "operator": 288
+    },
+    "Response_Data": {
+      "status": "error",
+      "message": "Refill booking allowed after 15 days of the last cylinder delivery"
+    },
+    "Additional_Info": "Bill fetch failed"
   }
 ]

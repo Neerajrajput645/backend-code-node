@@ -403,7 +403,7 @@ const addMoney = asyncHandler(async (req, res, response) => {
 
     // const { txnAmount } = req.body;
     const txnAmount = response.amount;
-
+    console.log("inside add");
     const addToWallet = new Txn({
       userId: userFound._id,
       recipientId: userFound._id,
@@ -411,7 +411,7 @@ const addMoney = asyncHandler(async (req, res, response) => {
       txnDesc: `ADD_MONEY`,
       txnType: "credit",
       txnStatus: "TXN_SUCCESS",
-      txnResource: "Online",
+      txnResource: response.txr || "Online",
       orderId: response.txnid,
       txnId: response.txnid,
       txnAmount,
@@ -420,11 +420,11 @@ const addMoney = asyncHandler(async (req, res, response) => {
     });
     await addToWallet.save();
 
-    await Wallet.updateOne(
+    const wall = await Wallet.updateOne(
       { userId: userFound._id },
       { $inc: { balance: txnAmount } }
     );
-
+// console.log(wal)
     // notification
     const notification = {
       title: "Added Money",

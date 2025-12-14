@@ -3,17 +3,16 @@ const asyncHandler = require("express-async-handler");
 const successHandler = require("../../common/successHandler");
 const deletePreviousImage = require("../../common/deletePreviousImage");
 
-// ⭐ GET ALL BANNERS
+//========================== GET ALL BANNERS ==========================
 const getHomeBanners = asyncHandler(async (req, res) => {
   const all = await HomeBanner.find({status:true}).sort({ createdAt: -1 });
-
   successHandler(req, res, {
     Remarks: "Home banners fetched successfully",
     Data: all,
   });
 });
 
-// ⭐ GET ALL BANNERS
+// ========================== GET ALL BANNERS FOR ADMIN ==========================
 const getHomeBannersAdmin = asyncHandler(async (req, res) => {
   const all = await HomeBanner.find().sort({ createdAt: -1 });
 
@@ -23,7 +22,7 @@ const getHomeBannersAdmin = asyncHandler(async (req, res) => {
   });
 });
 
-// ⭐ CREATE BANNER
+// ========================== CREATE BANNER ==========================
 const createHomeBanner = asyncHandler(async (req, res) => {
   const { name, link } = req.body;
 
@@ -42,7 +41,7 @@ const createHomeBanner = asyncHandler(async (req, res) => {
   });
 });
 
-// ⭐ UPDATE BANNER
+// =========================== UPDATE BANNER ==========================
 const updateHomeBanner = asyncHandler(async (req, res) => {
   const { bannerId } = req.params;
 
@@ -71,7 +70,7 @@ const updateHomeBanner = asyncHandler(async (req, res) => {
   });
 });
 
-// ⭐ DELETE BANNER
+//  ========================= DELETE BANNER ==========================
 const deleteHomeBanner = asyncHandler(async (req, res) => {
   const { bannerId } = req.params;
 
@@ -80,8 +79,7 @@ const deleteHomeBanner = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid banner id");
   }
-
-  deletePreviousImage(found.image);
+  if(found.image) deletePreviousImage(found.image);
   const removed = await HomeBanner.findByIdAndDelete(bannerId);
 
   successHandler(req, res, {
