@@ -2457,5 +2457,65 @@
       "operator_ref_id": "7461458357"
     },
     "Additional_Info": "Recharge response received for TxnID: PP1765700913934, Status:success"
+  },
+  {
+    "LogTime": "2025-12-23T15:44:00.215Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "9493671236",
+      "op_uid": "bsnl_topup",
+      "amount": 153,
+      "order_id": "TXNPP5AE003DE",
+      "type": "prepaid",
+      "circle": 49
+    },
+    "Response_Data": {
+      "status": "failed",
+      "message": "Insufficient wallet balance"
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPP5AE003DE, Status:failed"
+  },
+  {
+    "LogTime": "2025-12-23T15:44:07.291Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "9493671236",
+      "op_uid": "bsnl_topup",
+      "amount": 153,
+      "order_id": "TXNPPE9F3873F",
+      "type": "prepaid",
+      "circle": 49
+    },
+    "Response_Data": {
+      "status": "failed",
+      "message": "Insufficient wallet balance"
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPPE9F3873F, Status:failed"
+  },
+  {
+    "LogTime": "2025-12-23T15:48:33.333Z",
+    "API_Name": "MOBILE_RECHARGE",
+    "API_Endpoint": "https://api.techember.in/app/recharges/main.php",
+    "Request_Data": {
+      "token": "OIKVa3GqDUrtoPefXBcjekd23",
+      "number": "8109635835",
+      "op_uid": "jio",
+      "amount": 10,
+      "order_id": "TXNPPD68E24DA",
+      "type": "prepaid",
+      "circle": "101"
+    },
+    "Response_Data": {
+      "status": "success",
+      "order_id": "TXNPPD68E24DA",
+      "margin": "0.2500",
+      "margin_percentage": "2.5000",
+      "operator_ref_id": "RJ1313038681"
+    },
+    "Additional_Info": "Recharge response received for TxnID: TXNPPD68E24DA, Status:success"
   }
 ]
